@@ -1,21 +1,13 @@
 import React, { FC } from "react";
+import RightBubbles from "./assets/right-bubbles.png";
 
 const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <p> Test teeeeeeeeeest</p>
       </header>
+      <img src={RightBubbles}></img>
     </div>
   );
 };
