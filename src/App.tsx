@@ -4,7 +4,7 @@ import Logo from "./components/Logo";
 const App: FC = () => {
   return (
     <div>
-      <Logo></Logo>
+      <Logo isBackgroundDark></Logo>
     </div>
   );
 };

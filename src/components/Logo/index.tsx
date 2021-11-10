@@ -1,8 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import { minDevice } from "../../assets/styles/breakpoints";
 
-import logo from "../../assets/img/logo-group.svg";
+import logoBlack from "../../assets/img/logo-black.svg";
+import logoWhite from "../../assets/img/logo-white.svg";
 
 const LogoDiv = styled.div`
   width: 96px;
@@ -21,10 +22,14 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const Logo = () => {
+interface Props {
+  isBackgroundDark: boolean;
+}
+
+const Logo: FC<Props> = ({ isBackgroundDark }) => {
   return (
     <LogoDiv>
-      <Img src={logo} />
+      <Img src={isBackgroundDark ? logoBlack : logoWhite} />
     </LogoDiv>
   );
 };
