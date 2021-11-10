@@ -5,16 +5,28 @@ import { minDevice } from "../../assets/styles/breakpoints";
 import logo from "../../assets/img/logo-group.svg";
 
 const LogoDiv = styled.div`
-  width: 100%;
+  width: 96px;
   display: flex;
+
+  @media ${minDevice.desktopTablet} {
+    width: 158px;
+  }
+
+  @media ${minDevice.desktopL} {
+    width: 185px;
+  }
 `;
 
-const Img = () => {
+const Img = styled.img`
+  width: 100%;
+`;
+
+const Logo = () => {
   return (
     <LogoDiv>
-      <img src={logo} />
+      <Img src={logo} />
     </LogoDiv>
   );
 };
 
-export default Img;
+export default Logo;
