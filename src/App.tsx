@@ -1,11 +1,10 @@
 import React, { FC } from "react";
+import Logo from "./components/Logo";
 
 const App: FC = () => {
   return (
     <div>
-      <header>
-        <p> Test teeeeeeeeeest</p>
-      </header>
+      <Logo></Logo>
     </div>
   );
 };

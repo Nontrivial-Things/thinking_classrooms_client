@@ -35,7 +35,8 @@ const GlobalStyle = createGlobalStyle`
 
   p,
   label {
-    line-height: 1.5em;
+    line-height: 2em;
+    letter-spacing: 0.01em;
   }
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
