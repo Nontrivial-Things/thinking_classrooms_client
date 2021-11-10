@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
-interface Props {
-  fontSize?: string;
-  fontWeight?: string;
-  color?: string;
-  textAlign?: string;
-  marginLeft?: string;
-  marginBottom?: string;
-  marginTop?: string;
-  width?: string;
-  shadow?: string;
+interface PProps {
+  fontSize: string;
+  fontWeight: string;
+  color: string;
+  textAlign: string;
+  marginLeft: string;
+  marginBottom: string;
+  marginTop: string;
+  width: string;
+  shadow: string;
 }
 
-const P = styled.p<Props>`
+interface PropsOptional extends Partial<PProps> {}
+
+const P = styled.p<PProps>`
   font-size: ${(props) => props.fontSize || "1em"};
   font-weight: ${(props) => props.fontWeight || "400"};
   color: ${(props) => props.color || "inherit"};
