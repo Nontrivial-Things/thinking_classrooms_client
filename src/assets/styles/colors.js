@@ -57,5 +57,5 @@ export {
   primarySubtitle,
   seconderySubtitle,
   copyrights,
-  problemDetails,
+  textDetails,
 };

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import PTSans from "./styles/fonts/PTSans-Regular.ttf";
+import PTSans from "../fonts/PTSans-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
 
