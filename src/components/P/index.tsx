@@ -13,9 +13,9 @@ interface PProps {
   shadow: string;
 }
 
-interface PropsOptional extends Partial<PProps> {}
+type PropsOptional = Partial<PProps>;
 
-const P = styled.p<PProps>`
+const P = styled.p<PropsOptional>`
   font-size: ${(props) => props.fontSize || "1em"};
   font-weight: ${(props) => props.fontWeight || "400"};
   color: ${(props) => props.color || "inherit"};
