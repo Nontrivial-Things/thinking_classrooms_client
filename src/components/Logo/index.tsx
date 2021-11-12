@@ -5,8 +5,12 @@ import { minDevice } from "../../assets/styles/breakpoints";
 import logoBlack from "../../assets/img/logo-black.svg";
 import logoWhite from "../../assets/img/logo-white.svg";
 
-const LogoDiv = styled.div`
-  width: 96px;
+interface LogoDivProps {
+  width?: string;
+}
+
+const LogoDiv = styled.div<LogoDivProps>`
+  width: ${(props) => props.width || "96px"};
   display: flex;
 
   @media ${minDevice.desktopTablet} {
@@ -24,11 +28,12 @@ const Img = styled.img`
 
 interface LogoProps {
   isBackgroundDark: boolean;
+  width?: string;
 }
 
-const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
+const Logo: FC<LogoProps> = ({ isBackgroundDark, width }) => {
   return (
-    <LogoDiv>
+    <LogoDiv width={width}>
       <Img src={isBackgroundDark ? logoWhite : logoBlack} />
     </LogoDiv>
   );

@@ -7,6 +7,8 @@ interface IconProps {
   color: string;
   width: string;
   hoverColor: string;
+  paddingTop: string;
+  paddingRight: string;
 }
 
 type PropsOptional = Partial<IconProps>;
@@ -14,6 +16,8 @@ type PropsOptional = Partial<IconProps>;
 const Icon = styled.div<PropsOptional>`
   color: ${(props) => props.color || primaryText};
   width: ${(props) => props.width || "auto"};
+  padding-top: ${(props) => props.paddingTop || "0.2em"};
+  padding-right: ${(props) => props.paddingRight || "0.5em"};
   position: relative;
   display: flex;
   text-align: center;
