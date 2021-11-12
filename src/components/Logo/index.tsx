@@ -29,7 +29,7 @@ interface LogoProps {
 const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
   return (
     <LogoDiv>
-      <Img src={isBackgroundDark ? logoBlack : logoWhite} />
+      <Img src={isBackgroundDark ? logoWhite : logoBlack} />
     </LogoDiv>
   );
 };
