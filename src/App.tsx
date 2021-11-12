@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import Logo from "./components/Logo";
+import Navbar from "./components/Navbar";
 
 const App: FC = () => {
   return (
     <div>
-      <Logo isBackgroundDark></Logo>
+      <Navbar></Navbar>
     </div>
   );
 };
