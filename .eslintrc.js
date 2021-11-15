@@ -11,6 +11,9 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:import/typescript",
   ],
+  rules: {
+    "no-debugger": "off",
+  },
   env: {
     browser: true,
     es6: true,
