@@ -53,12 +53,6 @@ const MailA = styled.a`
   @media ${minDevice.desktopTablet} {
     font-size: 1em;
   }
-  @media ${minDevice.desktopL} {
-    font-size: 1.25em;
-  }
-  @media ${minDevice.desktopXL} {
-    font-size: 2em;
-  }
 `;
 
 export { FooterWrapper, Wrapper, ContactWrapper, FooterP, MailA };
