@@ -10,6 +10,7 @@ interface PProps {
   marginTop: string;
   width: string;
   shadow: string;
+  paddingBottom: string;
 }
 
 type PropsOptional = Partial<PProps>;
@@ -24,6 +25,7 @@ const P = styled.p<PropsOptional>`
   margin-top: ${(props) => props.marginTop || "0"};
   width: ${(props) => props.width || "auto"};
   text-shadow: ${(props) => props.shadow || "0"};
+  padding-bottom: ${(props) => props.paddingBottom || "0"};
 `;
 
 export default P;

@@ -6,23 +6,11 @@ import { darkGradientBackground, white } from "../../assets/styles/colors";
 
 const FooterWrapper = styled.div`
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
   position: absolute;
   bottom: 0;
   background: ${darkGradientBackground};
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 1em;
-  margin: 1em;
-  @media ${minDevice.desktopTablet} {
-    flex-direction: row;
-  }
 `;
 
 const ContactWrapper = styled.div`
@@ -50,9 +38,13 @@ const MailA = styled.a`
   font-size: 0.75em;
   font-weight: 400;
   color: ${white};
+  &:hover {
+    text-decoration-line: underline;
+  }
   @media ${minDevice.desktopTablet} {
     font-size: 1em;
+    line-height: 2em;
   }
 `;
 
-export { FooterWrapper, Wrapper, ContactWrapper, FooterP, MailA };
+export { FooterWrapper, ContactWrapper, FooterP, MailA };

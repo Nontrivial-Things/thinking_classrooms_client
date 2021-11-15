@@ -6,9 +6,9 @@ import Icon from "../Icon";
 import Row from "../Row";
 import Column from "../Column";
 import Mail from "../../assets/img/icons/mail.svg";
+import Wrapper from "../Wrapper";
 import {
   FooterWrapper,
-  Wrapper,
   ContactWrapper,
   FooterP,
   MailA,
@@ -18,7 +18,11 @@ import { white, copyrights } from "../../assets/styles/colors";
 const Footer: FC = () => {
   return (
     <FooterWrapper>
-      <Wrapper>
+      <Wrapper
+        flexDirectionDT="row"
+        justifyContent="space-around"
+        alignItems="flex-start"
+      >
         <Logo isBackgroundDark width="137px" />
         <ContactWrapper>
           <FooterP>Kontakt</FooterP>
@@ -33,7 +37,12 @@ const Footer: FC = () => {
         </ContactWrapper>
       </Wrapper>
       <Column>
-        <P color={copyrights} textAlign="center" fontSize="0.875em">
+        <P
+          color={copyrights}
+          textAlign="center"
+          fontSize="0.875em"
+          paddingBottom="0.25em"
+        >
           © Copyrights 2020.
         </P>
       </Column>
