@@ -1,17 +1,5 @@
 import styled from "styled-components";
-
-interface PProps {
-  fontSize: string;
-  fontWeight: string;
-  color: string;
-  textAlign: string;
-  marginLeft: string;
-  marginBottom: string;
-  marginTop: string;
-  width: string;
-  shadow: string;
-  paddingBottom: string;
-}
+import PProps from "./intrface";
 
 type PropsOptional = Partial<PProps>;
 

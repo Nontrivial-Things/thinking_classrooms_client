@@ -2,14 +2,7 @@ import styled from "styled-components";
 
 import { primaryText } from "../../assets/styles/colors";
 import { minDevice } from "../../assets/styles/breakpoints";
-
-interface IconProps {
-  fontSize: string;
-  color: string;
-  width: string;
-  hoverColor: string;
-  paddingRight: string;
-}
+import IconProps from "./interace";
 
 type PropsOptional = Partial<IconProps>;
 
