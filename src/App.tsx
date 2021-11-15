@@ -1,12 +1,8 @@
 import React, { FC } from "react";
-import Logo from "./components/Logo";
+import Footer from "./components/Footer";
 
 const App: FC = () => {
-  return (
-    <div>
-      <Logo isBackgroundDark></Logo>
-    </div>
-  );
+  return <Footer />;
 };
 
 export default App;

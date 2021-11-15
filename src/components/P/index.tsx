@@ -1,17 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-
-interface PProps {
-  fontSize: string;
-  fontWeight: string;
-  color: string;
-  textAlign: string;
-  marginLeft: string;
-  marginBottom: string;
-  marginTop: string;
-  width: string;
-  shadow: string;
-}
+import PProps from "./intrface";
 
 type PropsOptional = Partial<PProps>;
 
@@ -25,6 +13,7 @@ const P = styled.p<PropsOptional>`
   margin-top: ${(props) => props.marginTop || "0"};
   width: ${(props) => props.width || "auto"};
   text-shadow: ${(props) => props.shadow || "0"};
+  padding-bottom: ${(props) => props.paddingBottom || "0"};
 `;
 
 export default P;
