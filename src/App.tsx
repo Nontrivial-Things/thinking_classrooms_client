@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from 'react';
 
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 const App: FC = () => {
   return (

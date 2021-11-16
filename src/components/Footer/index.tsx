@@ -1,28 +1,19 @@
-import React, { FC } from "react";
+import { FC } from 'react';
 
-import Logo from "../Logo";
-import P from "../P";
-import Icon from "../Icon";
-import Row from "../Row";
-import Column from "../Column";
-import Mail from "../../assets/img/icons/mail.svg";
-import Wrapper from "../Wrapper";
-import {
-  FooterWrapper,
-  ContactWrapper,
-  FooterP,
-  MailA,
-} from "./styledComponents";
-import { white, copyrights } from "../../assets/styles/colors";
+import Logo from '../Logo';
+import P from '../P';
+import Icon from '../Icon';
+import Row from '../Row';
+import Column from '../Column';
+import Mail from '../../assets/img/icons/mail.svg';
+import Wrapper from '../Wrapper';
+import { FooterWrapper, ContactWrapper, FooterP, MailA } from './styledComponents';
+import { white, copyrights } from '../../assets/styles/colors';
 
 const Footer: FC = () => {
   return (
     <FooterWrapper>
-      <Wrapper
-        flexDirectionDT="row"
-        justifyContent="space-around"
-        alignItems="flex-start"
-      >
+      <Wrapper flexDirectionDT="row" justifyContent="space-around" alignItems="flex-start">
         <Logo isBackgroundDark width="137px" />
         <ContactWrapper>
           <FooterP>Kontakt</FooterP>
@@ -30,19 +21,12 @@ const Footer: FC = () => {
             <Icon color={white} width="1em">
               <img src={Mail} />
             </Icon>
-            <MailA href="mailto:myslaceklasy@email.com">
-              myslaceklasy@email.com
-            </MailA>
+            <MailA href="mailto:myslaceklasy@email.com">myslaceklasy@email.com</MailA>
           </Row>
         </ContactWrapper>
       </Wrapper>
       <Column>
-        <P
-          color={copyrights}
-          textAlign="center"
-          fontSize="0.875em"
-          paddingBottom="0.25em"
-        >
+        <P color={copyrights} textAlign="center" fontSize="0.875em" paddingBottom="0.25em">
           © Copyrights 2020.
         </P>
       </Column>
