@@ -46,9 +46,10 @@ const Navbar: FC = () => {
         onClick={toggleHamburger}
         src={isNavbarMenuActive ? hamburgerX : hamburger}
         alt="Hamburger menu icon"
+        data-testid="ClickIndicator"
       ></HamburgerImg>
       <NavbarMenu>
-        <NavbarMenuList className={navbarMenuStyle}>
+        <NavbarMenuList className={navbarMenuStyle} data-testid="Menu">
           <NavbarMenuItem>O metodzie</NavbarMenuItem>
           <NavbarMenuItem>Strefa moderatora</NavbarMenuItem>
         </NavbarMenuList>
