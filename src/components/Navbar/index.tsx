@@ -1,41 +1,45 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 
-import Logo from "../Logo";
-import {
-  NavbarDiv,
-  NavbarMenu,
-  NavbarMenuItem,
-  HamburgerImg,
-} from "./styledComponents";
-import hamburger from "../../assets/img/icons/menu.svg";
-import hamburgerX from "../../assets/img/icons/x.svg";
+import Logo from '../Logo';
+import { NavbarDiv, NavbarMenu, NavbarMenuItem, HamburgerImg } from './styledComponents';
+import hamburger from '../../assets/img/icons/menu.svg';
+import hamburgerX from '../../assets/img/icons/x.svg';
+
+enum NavbarMenuState {
+  ACTIVE = 'active',
+  CLOSED = 'closed',
+}
+
+type NavbarClassType = {
+  [key: string]: NavbarMenuState.ACTIVE | '';
+};
+
+const NavbarClass: NavbarClassType = {
+  active: NavbarMenuState.ACTIVE,
+  closed: '',
+};
 
 const Navbar: FC = () => {
-  const [hamburgerClass, setHamburgerClass] = useState("");
-  const [menuClass, setMenuClass] = useState("");
-  const [navbarClass, setNavbarClass] = useState("");
+  const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(NavbarMenuState.CLOSED);
+
+  const isNavbarMenuActive = navbarMenuState === NavbarMenuState.ACTIVE;
 
   const toggleHamburger = () => {
-    if (hamburgerClass === "") {
-      setHamburgerClass("active");
-      setMenuClass("active");
-      setNavbarClass("active");
-    } else {
-      setHamburgerClass("");
-      setMenuClass("");
-    }
+    isNavbarMenuActive ? setNavbarMenuState(NavbarMenuState.CLOSED) : setNavbarMenuState(NavbarMenuState.ACTIVE);
   };
 
+  const navbarMenuStyle = isNavbarMenuActive ? NavbarClass.active : NavbarClass.closed;
+
   return (
-    <NavbarDiv className={navbarClass}>
+    <NavbarDiv className={navbarMenuStyle}>
       <Logo isBackgroundDark={false}></Logo>
       <HamburgerImg
-        className={hamburgerClass}
+        className={navbarMenuStyle}
         onClick={toggleHamburger}
-        src={hamburgerClass === "active" ? hamburgerX : hamburger}
+        src={isNavbarMenuActive ? hamburgerX : hamburger}
         alt="Hamburger menu icon"
       ></HamburgerImg>
-      <NavbarMenu className={menuClass}>
+      <NavbarMenu className={navbarMenuStyle}>
         <NavbarMenuItem>O metodzie</NavbarMenuItem>
         <NavbarMenuItem>Strefa moderatora</NavbarMenuItem>
       </NavbarMenu>
