@@ -4,6 +4,7 @@ import Logo from "../Logo";
 import {
   NavbarDiv,
   NavbarMenu,
+  NavbarMenuList,
   NavbarMenuItem,
   HamburgerImg,
 } from "./styledComponents";
@@ -35,9 +36,11 @@ const Navbar: FC = () => {
         src={hamburgerClass === "active" ? hamburgerX : hamburger}
         alt="Hamburger menu icon"
       ></HamburgerImg>
-      <NavbarMenu className={menuClass}>
-        <NavbarMenuItem>O metodzie</NavbarMenuItem>
-        <NavbarMenuItem>Strefa moderatora</NavbarMenuItem>
+      <NavbarMenu>
+        <NavbarMenuList className={menuClass}>
+          <NavbarMenuItem>O metodzie</NavbarMenuItem>
+          <NavbarMenuItem>Strefa moderatora</NavbarMenuItem>
+        </NavbarMenuList>
       </NavbarMenu>
     </NavbarDiv>
   );

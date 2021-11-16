@@ -1,7 +1,7 @@
 import styled from "styled-components";
+
 import { minDevice } from "../../assets/styles/breakpoints";
 import { activeLink } from "../../assets/styles/colors";
-import P from "../P";
 
 const NavbarDiv = styled.div`
   height: 5em;
@@ -29,7 +29,17 @@ const NavbarDiv = styled.div`
     margin: 0 12.31em 0 12.5em;
   }
 `;
-const NavbarMenu = styled.div`
+const NavbarMenu = styled.nav`
+  transform: translateY(-150%);
+  position: absolute;
+
+  @media ${minDevice.desktopTablet} {
+    transform: translateY(-0%);
+    position: relative;
+  }
+`;
+
+const NavbarMenuList = styled.ol`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -38,7 +48,7 @@ const NavbarMenu = styled.div`
   position: absolute;
 
   &.active {
-    transform: translateY(-0%);
+    transform: translateY(-30%);
     top: 80px;
   }
 
@@ -50,14 +60,16 @@ const NavbarMenu = styled.div`
   }
 `;
 
-const NavbarMenuItem = styled(P)`
+const NavbarMenuItem = styled.li`
   font-size: 0.785em;
   display: flex;
   position: relative;
   cursor: pointer;
+  padding-left: 0.69em;
 
   @media ${minDevice.desktopTablet} {
     display: block;
+    padding: 0;
 
     &:nth-child(1) {
       margin-right: 1.5em;
@@ -95,4 +107,4 @@ const HamburgerImg = styled.img`
   }
 `;
 
-export { NavbarDiv, NavbarMenu, NavbarMenuItem, HamburgerImg };
+export { NavbarDiv, NavbarMenu, NavbarMenuList, NavbarMenuItem, HamburgerImg };
