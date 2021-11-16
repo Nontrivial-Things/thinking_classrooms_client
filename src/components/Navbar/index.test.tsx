@@ -17,4 +17,11 @@ describe("Navbar", () => {
     debug();
     expect(menu).toHaveClass("active");
   });
+  it("should include proper menu item name", () => {
+    const { debug } = render(<Navbar />);
+
+    debug();
+    expect(screen.getByText("O metodzie")).toBeInTheDocument();
+    expect(screen.getByText("Strefa moderatora")).toBeInTheDocument();
+  });
 });
