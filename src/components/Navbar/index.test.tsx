@@ -9,7 +9,7 @@ describe("Navbar", () => {
   it("should open menu when Hamburger is clicked", () => {
     const { debug } = render(<Navbar />);
 
-    const hamburger = screen.getByTestId("ClickIndicator");
+    const hamburger = screen.getByAltText("Hamburger menu icon");
     const menu = screen.getByTestId("Menu");
 
     fireEvent.click(hamburger);
@@ -17,7 +17,7 @@ describe("Navbar", () => {
     debug();
     expect(menu).toHaveClass("active");
   });
-  it("should include proper menu item name", () => {
+  it("should include proper menu item names", () => {
     const { debug } = render(<Navbar />);
 
     debug();
