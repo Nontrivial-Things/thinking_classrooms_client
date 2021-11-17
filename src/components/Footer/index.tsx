@@ -14,6 +14,7 @@ import {
   FooterP,
   MailA,
 } from "./styledComponents";
+import { white, lightGrey } from "../../assets/styles/colors";
 
 const Footer: FC = () => {
   return (
@@ -39,7 +40,7 @@ const Footer: FC = () => {
       </Wrapper>
       <Column>
         <P
-          color={copyrights}
+          color={lightGrey}
           textAlign="center"
           fontSize="0.875em"
           paddingBottom="0.25em"

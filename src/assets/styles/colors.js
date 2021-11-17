@@ -36,7 +36,7 @@ const primarySubtitle = "#124CAB";
 
 const secondarySubtitle = "#F88B0C";
 
-const copyrights = "#DCDCDC";
+const lightGrey = "#DCDCDC";
 
 const textDetails = "#757575";
 
@@ -59,6 +59,6 @@ export {
   mainHeader,
   primarySubtitle,
   secondarySubtitle,
-  copyrights,
+  lightGrey,
   textDetails,
 };
