@@ -1,30 +1,42 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from "react";
 
-import Logo from '../Logo';
-import { NavbarDiv, NavbarMenu, NavbarMenuList, NavbarMenuItem, HamburgerImg } from './styledComponents';
-import hamburger from '../../assets/img/icons/menu.svg';
-import hamburgerX from '../../assets/img/icons/x.svg';
+import Logo from "../Logo";
+import {
+  NavbarDiv,
+  NavbarMenu,
+  NavbarMenuList,
+  NavbarMenuItem,
+  HamburgerImg,
+} from "./styledComponents";
+import hamburger from "../../assets/img/icons/menu.svg";
+import hamburgerX from "../../assets/img/icons/x.svg";
 
 enum NavbarMenuState {
-  ACTIVE = 'active',
-  CLOSED = 'closed',
+  ACTIVE = "active",
+  CLOSED = "closed",
 }
 
 const NavbarClass = {
   active: NavbarMenuState.ACTIVE,
-  closed: '',
+  closed: "",
 };
 
 const Navbar: FC = () => {
-  const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(NavbarMenuState.CLOSED);
+  const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
+    NavbarMenuState.CLOSED
+  );
 
   const isNavbarMenuActive = navbarMenuState === NavbarMenuState.ACTIVE;
 
   const toggleHamburger = () => {
-    isNavbarMenuActive ? setNavbarMenuState(NavbarMenuState.CLOSED) : setNavbarMenuState(NavbarMenuState.ACTIVE);
+    isNavbarMenuActive
+      ? setNavbarMenuState(NavbarMenuState.CLOSED)
+      : setNavbarMenuState(NavbarMenuState.ACTIVE);
   };
 
-  const navbarMenuStyle = isNavbarMenuActive ? NavbarClass.active : NavbarClass.closed;
+  const navbarMenuStyle = isNavbarMenuActive
+    ? NavbarClass.active
+    : NavbarClass.closed;
 
   return (
     <NavbarDiv className={navbarMenuStyle}>

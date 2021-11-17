@@ -13,6 +13,8 @@ module.exports = {
   ],
   rules: {
     "no-debugger": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
   },
   env: {
     browser: true,

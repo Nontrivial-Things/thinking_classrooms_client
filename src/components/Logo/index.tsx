@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import logoBlack from "../../assets/img/logo-black.svg";
 import logoWhite from "../../assets/img/logo-white.svg";
