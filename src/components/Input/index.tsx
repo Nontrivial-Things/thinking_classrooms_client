@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 
 // import InputProps from "./interface";
-import Input from "./styledComponents";
-import Row from "../Row/styledComponents";
-import SearchIcon from "../../assets/img/icons/search.svg";
-import CloseIcon from "../../assets/img/icons/remove-icon.svg";
+import { Input, Label } from "./styledComponents";
+import Wrapper from "../Wrapper/styledComponents";
+// import SearchIcon from "../../assets/img/icons/search.svg";
+// import CloseIcon from "../../assets/img/icons/Subtract.svg";
 
 const SearchInput: FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,21 +16,22 @@ const SearchInput: FC = () => {
   // };
 
   return (
-    <Row>
+    <Wrapper>
       {/* <form action="/" method="get"> */}
-      <label htmlFor="header-search" />
-      <Input
-        type="text"
-        placeholder="Szukaj problemów matematycznych"
-        value={searchTerm}
-        onChange={handleChange}
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      />
+      <Label htmlFor="header-search">
+        <Input
+          type="text"
+          placeholder="Szukaj problemów matematycznych"
+          value={searchTerm}
+          onChange={handleChange}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        />
+      </Label>
       {/* <SearchIcon /> */}
       {/* </form> */}
-    </Row>
+    </Wrapper>
   );
 };
 
