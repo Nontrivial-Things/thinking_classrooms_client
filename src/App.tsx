@@ -9,7 +9,21 @@ const App: FC = () => {
   return (
     <>
       <Navbar />
-      <SearchInput />
+
+      <SearchInput
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands",
+        ]}
+      />
       <ProblemIndex />
       <Footer />
     </>

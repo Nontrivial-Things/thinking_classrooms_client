@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import { white, copyrights } from "../../assets/styles/colors";
 import Mail from "../../assets/img/icons/mail.svg";
 import Logo from "../Logo";
 import P from "../P/styledComponents";
