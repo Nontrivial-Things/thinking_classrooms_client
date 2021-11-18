@@ -8,7 +8,7 @@ const NavbarDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.16em 0 0.81em;
+  margin: 0 1em;
 
   &.active {
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
