@@ -9,6 +9,10 @@ const ResultCountWrapper = styled(Wrapper)`
   color: ${textDetails};
   text-align: left;
   position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
 
   &::after {
     content: "";
