@@ -1,5 +1,6 @@
 import styled from "styled-components";
-// import { minDevice } from "../../assets/styles/breakpoints";
+
+import { minDevice } from "../../assets/styles/breakpoints";
 import {
   white,
   placeholder,
@@ -11,7 +12,12 @@ import { ReactComponent as SubstractIcon } from "../../assets/img/icons/Subtract
 
 const Form = styled.form`
   width: 18em;
-  padding-left: 1em;
+  @media ${minDevice.desktopTablet} {
+    width: 22.5em;
+  }
+  @media ${minDevice.desktopL} {
+    width: 31.4375em;
+  }
 `;
 
 const Input = styled.input`
@@ -30,6 +36,13 @@ const Input = styled.input`
   }
   &:focus-visible {
     outline: none;
+  }
+  @media ${minDevice.desktopTablet} {
+    width: 22.5em;
+  }
+  @media ${minDevice.desktopL} {
+    width: 31.4375em;
+    font-size: 1em;
   }
 `;
 
@@ -60,6 +73,13 @@ const SuggestionList = styled.ul`
   box-shadow: 0px 15px 8px rgba(0, 0, 0, 0.1);
   border-top: 1px solid;
   border-top-color: ${activeButton};
+  @media ${minDevice.desktopTablet} {
+    width: 24em;
+  }
+  @media ${minDevice.desktopL} {
+    width: 36.45em;
+    font-size: 1em;
+  }
 `;
 
 const Suggestion = styled.li`
