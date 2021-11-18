@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PProps from "./intrface";
+import PProps from "./interface";
 
 type PropsOptional = Partial<PProps>;
 
