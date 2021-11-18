@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 
+import { TagWrapper, SubtractComponent } from "./styledComponents";
 import { TagNameProps } from "./interface";
-import SubtractTag from "../../assets/img/icons/Subtract-tag.svg";
-import { TagWrapper, Img } from "./styledComponents";
 
 const Tag: FC<TagNameProps> = ({ text, removeTag }) => {
   return (
@@ -12,7 +11,7 @@ const Tag: FC<TagNameProps> = ({ text, removeTag }) => {
       alignItems="center"
     >
       {text}
-      {removeTag && <Img src={SubtractTag} />}
+      {removeTag && <SubtractComponent />}
     </TagWrapper>
   );
 };

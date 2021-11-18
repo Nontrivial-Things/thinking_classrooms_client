@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-import { tagBackground, tagText } from "../../assets/styles/colors";
-
 import Wrapper from "../Wrapper";
+
+import { tagBackground, tagText } from "../../assets/styles/colors";
+import { ReactComponent as Subtract } from "../../assets/img/icons/Subtract.svg";
 
 const TagWrapper = styled(Wrapper)`
   padding: 0 0.75em 0 0.755em;
@@ -16,10 +17,11 @@ const TagWrapper = styled(Wrapper)`
   font-weight: 700;
 `;
 
-const Img = styled.img`
-  color: ${tagText};
+const SubtractComponent = styled(Subtract)`
+  fill: ${tagText};
   margin-left: 0.625em;
   cursor: pointer;
+  width: 0.875em;
 `;
 
-export { TagWrapper, Img };
+export { TagWrapper, SubtractComponent };
