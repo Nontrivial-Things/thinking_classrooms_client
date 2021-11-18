@@ -10,6 +10,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showClearButton, setShowClearButton] = useState(false);
 
   const handelChange = (e: React.FormEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
@@ -22,13 +23,16 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
     setFilteredSuggestions(filteredList);
     setActiveSuggestionIndex(0);
     setShowSuggestions(true);
+    setShowClearButton(true);
   };
 
   const clearInput = () => {
     setSearchTerm("");
+    setShowClearButton(false);
   };
 
-  const onClick = (e: React.FormEvent<HTMLInputElement>) => {
+  const chooseSuggestion = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
     setFilteredSuggestions([]);
     setSearchTerm(e.currentTarget.innerText);
     setActiveSuggestionIndex(0);
@@ -51,10 +55,13 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
           <SuggestionsListComponent
             filteredSuggestions={filteredSuggestions}
             activeSuggestionIndex={activeSuggestionIndex}
+            // chooseSuggestion={chooseSuggestion}
           />
         )}
         <SearchIcon />
-        <ClearIcon />
+        {showClearButton && searchTerm && (
+          <ClearIcon onClick={() => clearInput()} />
+        )}
       </Label>
     </Form>
   );
