@@ -1,4 +1,8 @@
-export default interface SerachInputProps {
-  // event: React.MouseEventHandler;
+export interface SearchInputProps {
   suggestions: Array<string>;
+}
+
+export interface SuggestionsProps {
+  filteredSuggestions: Array<string>;
+  activeSuggestionIndex: number;
 }
