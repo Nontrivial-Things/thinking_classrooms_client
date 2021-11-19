@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 
 import Logo from "../Logo";
 import {
@@ -7,6 +7,7 @@ import {
   NavbarMenuList,
   NavbarMenuItem,
   HamburgerImg,
+  MenuIconButton,
 } from "./styledComponents";
 import hamburger from "../../assets/img/icons/menu.svg";
 import hamburgerX from "../../assets/img/icons/x.svg";
@@ -41,14 +42,17 @@ const Navbar: FC = () => {
   return (
     <NavbarDiv className={navbarMenuStyle}>
       <Logo isBackgroundDark={false}></Logo>
-      <HamburgerImg
-        className={navbarMenuStyle}
-        onClick={toggleHamburger}
-        src={isNavbarMenuActive ? hamburgerX : hamburger}
-        alt="Hamburger menu icon"
-      ></HamburgerImg>
+      <MenuIconButton aria-label="Otwórz menu">
+        <HamburgerImg
+          className={navbarMenuStyle}
+          onClick={toggleHamburger}
+          src={isNavbarMenuActive ? hamburgerX : hamburger}
+          aria-hidden={true}
+          alt="Ikona menu"
+        ></HamburgerImg>
+      </MenuIconButton>
       <NavbarMenu>
-        <NavbarMenuList className={navbarMenuStyle} data-testid="Menu">
+        <NavbarMenuList className={navbarMenuStyle}>
           <NavbarMenuItem>O metodzie</NavbarMenuItem>
           <NavbarMenuItem>Strefa moderatora</NavbarMenuItem>
         </NavbarMenuList>
