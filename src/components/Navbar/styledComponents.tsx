@@ -102,9 +102,21 @@ const NavbarMenuItem = styled.li`
 
 const HamburgerImg = styled.img`
   width: 0.98em;
+`;
+
+const MenuIconButton = styled.button`
+  border: none;
+  background: none;
   @media ${minDevice.desktopTablet} {
     display: none;
   }
 `;
 
-export { NavbarDiv, NavbarMenu, NavbarMenuList, NavbarMenuItem, HamburgerImg };
+export {
+  NavbarDiv,
+  NavbarMenu,
+  NavbarMenuList,
+  NavbarMenuItem,
+  HamburgerImg,
+  MenuIconButton,
+};
