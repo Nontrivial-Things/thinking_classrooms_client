@@ -5,5 +5,5 @@ export interface SearchInputProps {
 export interface SuggestionsProps {
   filteredSuggestions: Array<string>;
   activeSuggestionIndex: number;
-  // chooseSuggestion: () => void;
+  chooseSuggestion: (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 }

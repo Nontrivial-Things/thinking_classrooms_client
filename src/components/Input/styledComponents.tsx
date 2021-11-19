@@ -10,8 +10,9 @@ import {
 import { ReactComponent as LensIcon } from "../../assets/img/icons/search.svg";
 import { ReactComponent as SubstractIcon } from "../../assets/img/icons/Subtract.svg";
 
-const Form = styled.form`
+const FormWrapper = styled.div`
   width: 18em;
+  box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
   @media ${minDevice.desktopTablet} {
     width: 22.5em;
   }
@@ -20,29 +21,27 @@ const Form = styled.form`
   }
 `;
 
+const Form = styled.form`
+  width: 100%;
+`;
+
 const Input = styled.input`
-  width: 18em;
+  width: 100%;
   height: 3em;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 0 2.5em;
   border-radius: 5px;
   background: ${white};
   border: none;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   font-family: inherit;
   font-size: 0.875em;
   line-height: 1.5em;
-  padding: 0 2.5em;
   ::placeholder {
     color: ${placeholder};
   }
   &:focus-visible {
     outline: none;
-  }
-  @media ${minDevice.desktopTablet} {
-    width: 22.5em;
-  }
-  @media ${minDevice.desktopL} {
-    width: 31.4375em;
-    font-size: 1em;
   }
 `;
 
@@ -53,7 +52,6 @@ const Label = styled.label`
 const SearchIcon = styled(LensIcon)`
   stroke: ${activeButton};
   left: 0.5em;
-  top: calc(50% - 1.5 / 2 - 0.5px);
   bottom: 0;
   position: absolute;
 `;
@@ -65,31 +63,31 @@ const ClearIcon = styled(SubstractIcon)`
   bottom: 0;
   width: 1em;
   position: absolute;
+  cursor: pointer;
 `;
 
 const SuggestionList = styled.ul`
   position: relative;
-  width: 20em;
-  box-shadow: 0px 15px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 22.5em;
   border-top: 1px solid;
   border-top-color: ${activeButton};
-  @media ${minDevice.desktopTablet} {
-    width: 24em;
-  }
+  overflow: scroll;
   @media ${minDevice.desktopL} {
-    width: 36.45em;
-    font-size: 1em;
+    max-height: 30.5625em;
   }
 `;
 
 const Suggestion = styled.li`
   font-size: 0.875em;
+  box-sizing: border-box;
   padding: 0.5em;
   width: 100%;
   display: flex;
   align-items: center;
   &:hover {
-    filter: drop-shadow(0px 4px 15px red);
+    /* filter: drop-shadow(0px 4px 15px red); */
+    background: rgba(22, 28, 86, 0.1);
   }
 `;
 
@@ -101,4 +99,5 @@ export {
   Suggestion,
   SearchIcon,
   ClearIcon,
+  FormWrapper,
 };
