@@ -1,4 +1,4 @@
-export interface TagNameProps {
+export interface TagProps {
   text: string;
-  removeTag?: boolean;
+  isDroppable?: boolean;
 }

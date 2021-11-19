@@ -3,11 +3,13 @@ import styled from "styled-components";
 import Wrapper from "../Wrapper";
 
 import { tagBackground, tagText } from "../../assets/styles/colors";
-import { ReactComponent as Subtract } from "../../assets/img/icons/Subtract.svg";
+import { ReactComponent as RemoveIcon } from "../../assets/img/icons/remove-icon.svg";
 
 const TagWrapper = styled(Wrapper)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 0.75em 0 0.755em;
-  height: fit-content;
   width: fit-content;
   background-color: ${tagBackground};
   border-radius: 0.938em;
@@ -17,11 +19,11 @@ const TagWrapper = styled(Wrapper)`
   font-weight: 700;
 `;
 
-const SubtractComponent = styled(Subtract)`
+const RemoveTagIcon = styled(RemoveIcon)`
   fill: ${tagText};
   margin-left: 0.625em;
   cursor: pointer;
   width: 0.875em;
 `;
 
-export { TagWrapper, SubtractComponent };
+export { TagWrapper, RemoveTagIcon };

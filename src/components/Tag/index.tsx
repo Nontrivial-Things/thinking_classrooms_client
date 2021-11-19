@@ -1,17 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
-import { TagWrapper, SubtractComponent } from "./styledComponents";
-import { TagNameProps } from "./interface";
+import { TagWrapper, RemoveTagIcon } from "./styledComponents";
+import { TagProps } from "./interface";
 
-const Tag: FC<TagNameProps> = ({ text, removeTag }) => {
+const Tag: FC<TagProps> = ({ text, isDroppable = false }) => {
   return (
-    <TagWrapper
-      flexDirection="row"
-      justifyContent="space-between"
-      alignItems="center"
-    >
+    <TagWrapper>
       {text}
-      {removeTag && <SubtractComponent />}
+      {isDroppable && <RemoveTagIcon />}
     </TagWrapper>
   );
 };

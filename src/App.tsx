@@ -11,7 +11,8 @@ const App: FC = () => {
       <Navbar />
       <ResultCountLabel count={3}></ResultCountLabel>
       <Footer />
-      <Tag text="ciągi" removeTag={true} />
+      <Tag text="ciągi" isDroppable={true} />
+      <Tag text="ciągi" />
     </>
   );
 };
