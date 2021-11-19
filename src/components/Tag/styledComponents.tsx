@@ -19,11 +19,21 @@ const TagWrapper = styled(Wrapper)`
   font-weight: 700;
 `;
 
+const RemoveButton = styled.button`
+  border: none;
+  background: none;
+  width: fit-content;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
 const RemoveTagIcon = styled(RemoveIcon)`
   fill: ${tagText};
   margin-left: 0.625em;
-  cursor: pointer;
   width: 0.875em;
 `;
 
-export { TagWrapper, RemoveTagIcon };
+export { TagWrapper, RemoveButton, RemoveTagIcon };
