@@ -1,4 +1,4 @@
 export default interface OnKeyPressProps {
-  key: string;
-  action: () => void;
+  //   handler: ({ key }: KeyboardEvent) => void;
+  key: KeyboardEvent;
 }

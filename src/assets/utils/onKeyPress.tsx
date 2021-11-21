@@ -1,14 +1,33 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
+import OnKeyPressProp from "./interface";
 
-import OnKeyPressProps from "./interface";
+export const onKeyPress = (key: "keydown" | "keyup") => {
+  // Keep track of key state
+  const [pressed, setPressed] = useState(false);
 
-export const onKeyPress: FC<OnKeyPressProps> = (key, action) => {
+  // Does an event match the key we're watching?
+  const match = (event: KeyboardEvent) =>
+    key.toLowerCase() == event.key.toLowerCase();
+
+  // Event handlers
+  const onDown = (event: KeyboardEvent) => {
+    if (match(event)) setPressed(true);
+  };
+
+  const onUp = (event: KeyboardEvent) => {
+    if (match(event)) setPressed(false);
+  };
+
+  // Bind and unbind events
   useEffect(() => {
-    function onKeyup(e: React.ChangeEvent<HTMLDivElement>) {
-      if (e.key === key) action();
-    }
-    window.addEventListener("keyup", onKeyup);
-    return () => window.removeEventListener("keyup", onKeyup);
-  }, []);
-  return null;
+    window.addEventListener("keydown", onDown);
+    window.addEventListener("keyup", onUp);
+    return () => {
+      window.removeEventListener("keydown", onDown);
+      window.removeEventListener("keyup", onUp);
+    };
+  }, [key]);
+
+  return pressed;
 };
+export default onKeyPress;

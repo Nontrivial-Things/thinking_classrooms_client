@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import { SearchInputProps } from "./interface";
 
 import SuggestionsListComponent from "./suggestionsListComponent";
+import onKeyPress from "../../assets/utils/onKeyPress";
 import {
   Form,
   Input,
@@ -10,6 +11,7 @@ import {
   SearchIcon,
   ClearIcon,
   FormWrapper,
+  Button,
 } from "./styledComponents";
 
 const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
@@ -55,9 +57,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
             placeholder="Szukaj problemów matematycznych"
             value={searchTerm}
             onChange={handelChange}
-            onKeyPress={(e: KeyboardEvent<HTMLDivElement>) =>
-              console.log(e.key)
-            }
+            // onKeyPress={onKeyPress}
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -71,7 +71,17 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
           )}
           <SearchIcon />
           {showClearButton && searchTerm && (
-            <ClearIcon onClick={() => clearInput()} />
+            <Button aria-labelledby="button-label">
+              <span id="button-label" hidden>
+                Clear input button
+              </span>
+
+              <ClearIcon
+                aria-hidden="true"
+                focusable="false"
+                onClick={() => clearInput()}
+              />
+            </Button>
           )}
         </Label>
       </Form>

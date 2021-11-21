@@ -58,12 +58,7 @@ const SearchIcon = styled(LensIcon)`
 
 const ClearIcon = styled(SubstractIcon)`
   fill: ${lightGrey};
-  right: 0.5em;
-  top: calc(50% - 1em / 2 - 0.5px);
-  bottom: 0;
   width: 1em;
-  position: absolute;
-  cursor: pointer;
 `;
 
 const SuggestionList = styled.ul`
@@ -91,6 +86,17 @@ const Suggestion = styled.li`
   }
 `;
 
+const Button = styled.button`
+  width: auto;
+  border: none;
+  right: 0.5em;
+  top: calc(50% - 1em / 2 - 0.5px);
+  bottom: 0;
+  position: absolute;
+  cursor: pointer;
+  background: transparent;
+`;
+
 export {
   Form,
   Input,
@@ -100,4 +106,5 @@ export {
   SearchIcon,
   ClearIcon,
   FormWrapper,
+  Button,
 };
