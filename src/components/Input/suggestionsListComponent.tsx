@@ -11,9 +11,8 @@ const SuggestionsListComponent: FC<SuggestionsProps> = ({
   return filteredSuggestions.length ? (
     <SuggestionList>
       {filteredSuggestions.map((suggestion: string, index: number) => {
-        if (index === activeSuggestionIndex) {
-          console.log("dupa");
-        }
+        // if (index === activeSuggestionIndex) {
+        // }
         return (
           <Suggestion key={suggestion} onClick={(e) => chooseSuggestion(e)}>
             <Clipboard style={{ paddingRight: "0.5em" }} />
