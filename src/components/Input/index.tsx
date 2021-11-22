@@ -1,9 +1,8 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useRef, KeyboardEvent } from "react";
 
 import { SearchInputProps } from "./interface";
 
 import SuggestionsListComponent from "./suggestionsListComponent";
-import onKeyPress from "../../assets/utils/onKeyPress";
 import {
   Form,
   Input,
@@ -14,6 +13,8 @@ import {
   Button,
 } from "./styledComponents";
 
+import useRoveFocus from "../../assets/utils/onKeyPress";
+
 const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
@@ -21,7 +22,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
-  const handelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
     const filteredList = suggestions.filter(
       (suggestion) =>
@@ -47,35 +48,26 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
     setActiveSuggestionIndex(0);
     setShowSuggestions(false);
   };
-  const onKeyPress = (key: any) => {
-    console.log(key);
-    // Keep track of key state
-    const [pressed, setPressed] = useState(false);
 
-    // Does an event match the key we're watching?
-    const match = (event: KeyboardEvent) =>
-      key.toLowerCase() == event.key.toLowerCase();
-
-    // Event handlers
-    const onDown = (event: KeyboardEvent) => {
-      if (match(event)) setPressed(true);
-    };
-
-    const onUp = (event: KeyboardEvent) => {
-      if (match(event)) setPressed(false);
-    };
-
-    // Bind and unbind events
-    useEffect(() => {
-      window.addEventListener("keydown", onDown);
-      window.addEventListener("keyup", onUp);
-      return () => {
-        window.removeEventListener("keydown", onDown);
-        window.removeEventListener("keyup", onUp);
-      };
-    }, [key]);
-
-    return pressed;
+  const onKeyDown = (e: KeyboardEvent) => {
+    console.log(activeSuggestionIndex);
+    if (e.key === "Enter") {
+      setActiveSuggestionIndex(0);
+      setShowSuggestions(false);
+      setSearchTerm(filteredSuggestions[activeSuggestionIndex]);
+    } else if (e.key === "ArrowUp") {
+      if (activeSuggestionIndex === 0) {
+        return;
+      }
+      setActiveSuggestionIndex(activeSuggestionIndex - 1);
+    }
+    // User pressed the down arrow, increment the index
+    else if (e.key === "ArrowDown") {
+      if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
+        return;
+      }
+      setActiveSuggestionIndex(activeSuggestionIndex - 1);
+    }
   };
 
   return (
@@ -84,10 +76,12 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
         <Label htmlFor="header-search">
           <Input
             type="text"
+            autoFocus
             placeholder="Szukaj problemów matematycznych"
+            aria-label="search-input"
             value={searchTerm}
-            onChange={handelChange}
-            onKeyPress={onKeyPress}
+            onChange={handleChange}
+            onKeyDown={onKeyDown}
             onSubmit={(e) => {
               e.preventDefault();
             }}

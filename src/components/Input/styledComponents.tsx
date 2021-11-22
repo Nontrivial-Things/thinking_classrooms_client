@@ -84,13 +84,18 @@ const Suggestion = styled.li`
     /* filter: drop-shadow(0px 4px 15px red); */
     background: rgba(22, 28, 86, 0.1);
   }
+  &:focus-visible,
+  &:focus,
+  &:active {
+    background: rgba(22, 28, 86, 0.1);
+  }
 `;
 
 const Button = styled.button`
   width: auto;
   border: none;
   right: 0.5em;
-  top: calc(50% - 1em / 2 - 0.5px);
+  top: calc(50% - 1.5em / 2 - 0.5px);
   bottom: 0;
   position: absolute;
   cursor: pointer;

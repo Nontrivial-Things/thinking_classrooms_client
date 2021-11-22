@@ -1,34 +1,31 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import OnKeyPressProp from "./interface";
+import { useCallback, useState, useEffect } from "react";
 
-export const onKeyPress = (key: any) => {
-  console.log(key);
-  // Keep track of key state
-  const [pressed, setPressed] = useState(false);
+function useRoveFocus(size: number) {
+  const [currentFocus, setCurrentFocus] = useState(0);
 
-  // Does an event match the key we're watching?
-  const match = (event: KeyboardEvent) =>
-    key.toLowerCase() == event.key.toLowerCase();
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.keyCode === 40) {
+        // Down arrow
+        e.preventDefault();
+        setCurrentFocus(currentFocus === size - 1 ? 0 : currentFocus + 1);
+      } else if (e.keyCode === 38) {
+        // Up arrow
+        e.preventDefault();
+        setCurrentFocus(currentFocus === 0 ? size - 1 : currentFocus - 1);
+      }
+    },
+    [size, currentFocus, setCurrentFocus]
+  );
 
-  // Event handlers
-  const onDown = (event: KeyboardEvent) => {
-    if (match(event)) setPressed(true);
-  };
-
-  const onUp = (event: KeyboardEvent) => {
-    if (match(event)) setPressed(false);
-  };
-
-  // Bind and unbind events
   useEffect(() => {
-    window.addEventListener("keydown", onDown);
-    window.addEventListener("keyup", onUp);
+    document.addEventListener("keydown", handleKeyDown, false);
     return () => {
-      window.removeEventListener("keydown", onDown);
-      window.removeEventListener("keyup", onUp);
+      document.removeEventListener("keydown", handleKeyDown, false);
     };
-  }, [key]);
+  }, [handleKeyDown]);
 
-  return pressed;
-};
-export default onKeyPress;
+  return [currentFocus, setCurrentFocus];
+}
+
+export default useRoveFocus;
