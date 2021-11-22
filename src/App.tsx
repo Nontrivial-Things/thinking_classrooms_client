@@ -9,7 +9,6 @@ const App: FC = () => {
   return (
     <>
       <Navbar />
-
       <SearchInput
         suggestions={[
           "Alligator",

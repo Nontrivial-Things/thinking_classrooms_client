@@ -8,7 +8,7 @@ import {
   lightGrey,
 } from "../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../assets/img/icons/search.svg";
-import { ReactComponent as SubstractIcon } from "../../assets/img/icons/Subtract.svg";
+import { ReactComponent as ClearIcon } from "../../assets/img/icons/remove-icon.svg";
 
 const FormWrapper = styled.div`
   width: 18em;
@@ -56,7 +56,7 @@ const SearchIcon = styled(LensIcon)`
   position: absolute;
 `;
 
-const ClearIcon = styled(SubstractIcon)`
+const RemoveIcon = styled(ClearIcon)`
   fill: ${lightGrey};
   width: 1em;
 `;
