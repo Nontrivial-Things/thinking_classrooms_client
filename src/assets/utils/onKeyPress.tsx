@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import OnKeyPressProp from "./interface";
 
-export const onKeyPress = (key: "keydown" | "keyup") => {
+export const onKeyPress = (key: any) => {
+  console.log(key);
   // Keep track of key state
   const [pressed, setPressed] = useState(false);
 

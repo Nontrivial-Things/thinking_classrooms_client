@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { SearchInputProps } from "./interface";
 
@@ -9,7 +9,7 @@ import {
   Input,
   Label,
   SearchIcon,
-  ClearIcon,
+  RemoveIcon,
   FormWrapper,
   Button,
 } from "./styledComponents";
@@ -47,6 +47,36 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
     setActiveSuggestionIndex(0);
     setShowSuggestions(false);
   };
+  const onKeyPress = (key: any) => {
+    console.log(key);
+    // Keep track of key state
+    const [pressed, setPressed] = useState(false);
+
+    // Does an event match the key we're watching?
+    const match = (event: KeyboardEvent) =>
+      key.toLowerCase() == event.key.toLowerCase();
+
+    // Event handlers
+    const onDown = (event: KeyboardEvent) => {
+      if (match(event)) setPressed(true);
+    };
+
+    const onUp = (event: KeyboardEvent) => {
+      if (match(event)) setPressed(false);
+    };
+
+    // Bind and unbind events
+    useEffect(() => {
+      window.addEventListener("keydown", onDown);
+      window.addEventListener("keyup", onUp);
+      return () => {
+        window.removeEventListener("keydown", onDown);
+        window.removeEventListener("keyup", onUp);
+      };
+    }, [key]);
+
+    return pressed;
+  };
 
   return (
     <FormWrapper>
@@ -57,7 +87,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
             placeholder="Szukaj problemów matematycznych"
             value={searchTerm}
             onChange={handelChange}
-            // onKeyPress={onKeyPress}
+            onKeyPress={onKeyPress}
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -73,10 +103,10 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
           {showClearButton && searchTerm && (
             <Button aria-labelledby="button-label">
               <span id="button-label" hidden>
-                Clear input button
+                Remove input text button
               </span>
 
-              <ClearIcon
+              <RemoveIcon
                 aria-hidden="true"
                 focusable="false"
                 onClick={() => clearInput()}

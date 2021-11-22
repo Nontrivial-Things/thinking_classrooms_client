@@ -104,7 +104,7 @@ export {
   SuggestionList,
   Suggestion,
   SearchIcon,
-  ClearIcon,
+  RemoveIcon,
   FormWrapper,
   Button,
 };
