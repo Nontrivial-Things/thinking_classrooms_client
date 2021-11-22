@@ -85,10 +85,68 @@ describe("Input component", () => {
 
     expect(items.length).toBe(1);
 
-    const item = screen.getByRole("listitem", { name: "Alligator" });
-    console.log(item);
+    const item = screen.getByText("Alligator").textContent;
 
-    fireEvent.change(input, { target: { value: "lo" } });
+    fireEvent.change(input, { target: { value: item } });
     expect(input.value).toBe("Alligator");
+  });
+
+  it("shouldn't show remove button in input field", () => {
+    render(
+      <Input
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands",
+        ]}
+      />
+    );
+    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+
+    expect(input.value).toBe("");
+    const button = screen.queryByRole("button", { name: /Remove button/i });
+
+    expect(button).not.toBeInTheDocument();
+  });
+
+  it("should show remove button and after click remove text from input field", () => {
+    render(
+      <Input
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands",
+        ]}
+      />
+    );
+    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+
+    expect(input.value).toBe("");
+    fireEvent.change(input, { target: { value: "B" } });
+    expect(input.value).toBe("B");
+
+    const button = screen.queryByRole("button", {
+      name: /Remove button/i,
+    }) as HTMLButtonElement;
+
+    expect(button).toBeInTheDocument();
+
+    fireEvent.click(button);
+
+    expect(input.value).toBe("");
   });
 });

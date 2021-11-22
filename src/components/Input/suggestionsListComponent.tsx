@@ -16,7 +16,7 @@ const SuggestionsListComponent: FC<SuggestionsProps> = ({
         return (
           <Suggestion key={suggestion} onClick={(e) => chooseSuggestion(e)}>
             <Clipboard style={{ paddingRight: "0.5em" }} />
-            <span>{suggestion}</span>
+            <span data-test-id="suggestion-text">{suggestion}</span>
           </Suggestion>
         );
       })}

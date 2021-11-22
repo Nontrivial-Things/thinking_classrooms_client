@@ -95,16 +95,12 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
           )}
           <SearchIcon />
           {showClearButton && searchTerm && (
-            <Button aria-labelledby="button-label">
-              <span id="button-label" hidden>
+            <Button aria-label="Remove button" onClick={() => clearInput()}>
+              <span id="Remove button" hidden>
                 Remove input text button
               </span>
 
-              <RemoveIcon
-                aria-hidden="true"
-                focusable="false"
-                onClick={() => clearInput()}
-              />
+              <RemoveIcon aria-hidden="true" focusable="false" />
             </Button>
           )}
         </Label>
