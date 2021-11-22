@@ -8,25 +8,18 @@ const NavbarDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1em;
 
   &.active {
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
   }
 
   @media ${minDevice.desktopTablet} {
-    margin: 0 1.5em 0 1.31em;
     height: 4em;
     box-shadow: none;
   }
 
   @media ${minDevice.desktopL} {
-    margin: 0 6.25em 0 6.06em;
     height: 4.5em;
-  }
-
-  @media ${minDevice.desktopXL} {
-    margin: 0 12.31em 0 12.5em;
   }
 `;
 const NavbarMenu = styled.nav`

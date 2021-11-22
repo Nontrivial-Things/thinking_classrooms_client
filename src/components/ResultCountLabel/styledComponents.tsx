@@ -13,6 +13,7 @@ const ResultCountWrapper = styled(Wrapper)`
   justify-content: flex-start;
   align-items: center;
   padding: 0;
+  margin: 0;
 
   &::after {
     content: "";
@@ -25,15 +26,15 @@ const ResultCountWrapper = styled(Wrapper)`
   }
 
   @media ${minDevice.desktopTablet} {
-    margin: 1em 1.5em;
+    margin: 1em 0;
   }
 
   @media ${minDevice.desktopL} {
-    margin: 2em 6.25em 2.5em 6.26em;
+    margin: 2em 0 2.5em 0;
   }
 
   @media ${minDevice.desktopXL} {
-    margin: 2em 12.5em 2.5em 12.5em;
+    margin: 2em 0 2.5em 0;
   }
 `;
 
