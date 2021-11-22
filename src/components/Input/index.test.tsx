@@ -27,7 +27,7 @@ describe("Input component", () => {
     expect(input.value).toBe("Good Day");
   });
 
-  it("should show suggestions list matching  input target", () => {
+  it("should show suggestions list matching input target", () => {
     render(
       <Input
         suggestions={[
@@ -56,19 +56,39 @@ describe("Input component", () => {
     expect(items.length).toBe(4);
   });
 
-  //   it("displays given text in tag", () => {
-  //     render(<Tag text="ciągi" />);
-  //     const button = screen.queryByRole("button", { name: /Usuń tag/i });
+  it("should show in input field chosen suggestion", () => {
+    render(
+      <Input
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands",
+        ]}
+      />
+    );
+    let input = screen.getByLabelText("search-input") as HTMLInputElement;
 
-  //     expect(screen.getByText("ciągi")).toBeInTheDocument();
-  //     expect(button).not.toBeInTheDocument();
-  //   });
+    expect(input.value).toBe("");
+    fireEvent.change(input, { target: { value: "All" } });
+    expect(input.value).toBe("All");
 
-  //   it("displays given text in tag and a remove tag button", () => {
-  //     render(<Tag text="ciągi" isDroppable={true} />);
-  //     const button = screen.queryByRole("button", { name: /Usuń tag/i });
+    const list = screen.getByRole("list");
+    const { getAllByRole } = within(list);
+    const items = getAllByRole("listitem");
 
-  //     expect(screen.getByText("ciągi")).toBeInTheDocument();
-  //     expect(button).toBeInTheDocument();
-  //   });
+    expect(items.length).toBe(1);
+
+    const item = screen.getByRole("listitem", { name: "Alligator" });
+    console.log(item);
+
+    fireEvent.change(input, { target: { value: "lo" } });
+    expect(input.value).toBe("Alligator");
+  });
 });
