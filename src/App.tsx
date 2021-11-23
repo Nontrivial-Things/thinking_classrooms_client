@@ -3,27 +3,15 @@ import { FC } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProblemIndex from "./components/ProblemIndex";
-import SearchInput from "./components/Input";
+import SearchingSection from "./components/SearchingSection";
 
 const App: FC = () => {
   return (
     <>
       <Navbar />
-      <SearchInput
-        suggestions={[
-          "Alligator",
-          "Bask",
-          "Crocodilian",
-          "Death Roll",
-          "Eggs",
-          "Jaws",
-          "Reptile",
-          "Solitary",
-          "Tail",
-          "Wetlands",
-        ]}
-      />
+      <SearchingSection />
       <ProblemIndex />
+
       <Footer />
     </>
   );

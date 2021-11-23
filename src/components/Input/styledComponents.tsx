@@ -11,7 +11,7 @@ import { ReactComponent as LensIcon } from "../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../assets/img/icons/remove-icon.svg";
 
 const FormWrapper = styled.div`
-  width: 18em;
+  width: 100%;
   box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
   @media ${minDevice.desktopTablet} {
     width: 22.5em;
