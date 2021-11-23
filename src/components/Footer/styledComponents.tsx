@@ -11,12 +11,24 @@ const FooterWrapper = styled.div`
   position: absolute;
   bottom: 0;
   background: ${darkGradientBackground};
+  padding-top: 1em;
 `;
 
 const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 2em;
+  margin-top: 1em;
+  @media ${minDevice.desktopTablet} {
+    margin-top: 0;
+    padding-right: calc(83px - 1.5em);
+  }
+  @media ${minDevice.desktopL} {
+    padding-right: calc(246px - 6.25em);
+  }
+  @media ${minDevice.desktopXL} {
+    padding-right: calc(327px - 12.5em);
+  }
 `;
 
 const FooterP = styled(P)`
@@ -28,9 +40,6 @@ const FooterP = styled(P)`
   }
   @media ${minDevice.desktopL} {
     font-size: 1.5em;
-  }
-  @media ${minDevice.desktopXL} {
-    font-size: 2em;
   }
 `;
 
