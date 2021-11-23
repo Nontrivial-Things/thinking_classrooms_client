@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, KeyboardEvent } from "react";
+import React, { FC, useState, useCallback } from "react";
 
 import { SearchInputProps } from "./interface";
 
@@ -21,6 +21,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
+  const [hasFocus, setFocus] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
@@ -66,9 +67,18 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
       if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
         return;
       }
-      setActiveSuggestionIndex(activeSuggestionIndex - 1);
+      setActiveSuggestionIndex(activeSuggestionIndex + 1);
     }
   };
+
+  // const onKeyPress = () => {
+  //   console.log(activeSuggestionIndex);
+  //   useCallback(() => {
+  //     alert(`${activeSuggestionIndex}`);
+  //     // setting focus to that element when it is selected
+  //     setFocus(activeSuggestionIndex);
+  //   }, [setFocus]);
+  // };
 
   return (
     <FormWrapper>
@@ -82,14 +92,13 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
         <Label htmlFor="header-search">
           <Input
             type="text"
-            autoFocus
             placeholder="Szukaj problemów matematycznych"
             aria-label="search-input"
             aria-owns="autocomplete-options"
             aria-autocomplete="list"
             value={searchTerm}
             onChange={handleChange}
-            onKeyDown={onKeyDown}
+            onKeyDown={() => onKeyDown}
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -99,6 +108,8 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
               filteredSuggestions={filteredSuggestions}
               activeSuggestionIndex={activeSuggestionIndex}
               chooseSuggestion={chooseSuggestion}
+              setFocus={setFocus}
+              hasFocus={hasFocus}
             />
           )}
           <SearchIcon />

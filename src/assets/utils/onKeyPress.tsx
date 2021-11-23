@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
 
-function useRoveFocus(size: number) {
+const useRoveFocus = (size: number) => {
   const [currentFocus, setCurrentFocus] = useState(0);
 
   const handleKeyDown = useCallback(
@@ -25,7 +25,7 @@ function useRoveFocus(size: number) {
     };
   }, [handleKeyDown]);
 
-  return [currentFocus, setCurrentFocus];
-}
+  return [currentFocus, setCurrentFocus] as const;
+};
 
 export default useRoveFocus;

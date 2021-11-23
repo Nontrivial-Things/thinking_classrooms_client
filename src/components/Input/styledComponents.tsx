@@ -12,7 +12,9 @@ import { ReactComponent as ClearIcon } from "../../assets/img/icons/remove-icon.
 
 const FormWrapper = styled.div`
   width: 100%;
+  height: 5em;
   box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
+  z-index: 10;
   @media ${minDevice.desktopTablet} {
     width: 22.5em;
   }
@@ -23,12 +25,12 @@ const FormWrapper = styled.div`
 
 const Form = styled.form`
   width: 100%;
+  background: ${white};
 `;
 
 const Input = styled.input`
   width: 100%;
   height: 3em;
-  padding: 0;
   box-sizing: border-box;
   padding: 0 2.5em;
   border-radius: 5px;
