@@ -72,13 +72,21 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
 
   return (
     <FormWrapper>
-      <Form action="/" method="get">
+      <Form
+        action="/"
+        method="get"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <Label htmlFor="header-search">
           <Input
             type="text"
             autoFocus
             placeholder="Szukaj problemów matematycznych"
             aria-label="search-input"
+            aria-owns="autocomplete-options"
+            aria-autocomplete="list"
             value={searchTerm}
             onChange={handleChange}
             onKeyDown={onKeyDown}
