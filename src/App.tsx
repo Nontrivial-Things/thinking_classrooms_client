@@ -10,8 +10,8 @@ const App: FC = () => {
     <>
       <Navbar />
       <ResultCountLabel count={3} />
-      {/* <Tag text="ciągi" isDroppable={true} />
-      <Tag text="ciągi" /> */}
+      <Tag text="ciągi" isDroppable={true} />
+      <Tag text="ciągi" />
       <Footer />
     </>
   );

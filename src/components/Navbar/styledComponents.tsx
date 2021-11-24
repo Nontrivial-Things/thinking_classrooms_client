@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { minDevice } from "../../assets/styles/breakpoints";
 import { activeLink } from "../../assets/styles/colors";
-import Wrapper from "../Wrapper";
+import Wrapper from "../Wrapper/styledComponents";
 
 const NavbarDiv = styled(Wrapper)`
   height: 5em;

@@ -1,18 +1,7 @@
 import styled from "styled-components";
+
 import { minDevice } from "../../assets/styles/breakpoints";
-
-interface WraperProps {
-  flexDirection: string;
-  flexDirectionDT: string;
-  margin: string;
-  padding: string;
-  justifyContent: string;
-  alignItems: string;
-  background: string;
-  width: string;
-}
-
-type PropsOptional = Partial<WraperProps>;
+import { PropsOptional } from "./interface";
 
 const Wrapper = styled.div<PropsOptional>`
   display: flex;

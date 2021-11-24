@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Wrapper from "../Wrapper";
-import P from "../P";
+import Wrapper from "../Wrapper/styledComponents";
+import P from "../P/styledComponents";
 import { minDevice } from "../../assets/styles/breakpoints";
 import { textDetails } from "../../assets/styles/colors";
 
