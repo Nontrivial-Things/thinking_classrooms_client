@@ -57,6 +57,7 @@ const NavbarMenuList = styled.ol`
     transition: none;
     position: relative;
     align-items: center;
+    height: auto;
   }
 `;
 

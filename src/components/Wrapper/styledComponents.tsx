@@ -13,7 +13,7 @@ const Wrapper = styled.div<PropsOptional>`
   background: ${(props) => props.background};
   @media ${minDevice.desktopTablet} {
     flex-direction: ${(props) => props.flexDirectionDT};
-    padding: 0 1.5em;
+    padding: ${(props) => props.paddingDT || "0 1.5em"};
   }
   @media ${minDevice.desktopL} {
     padding: 0 6.25em;

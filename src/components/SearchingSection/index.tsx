@@ -7,7 +7,13 @@ import { darkGradientBackground, white } from "../../assets/styles/colors";
 
 const SearchingSection: FC = () => {
   return (
-    <Wrapper background={darkGradientBackground} margin="0" padding="1.5em 1em">
+    <Wrapper
+      background={darkGradientBackground}
+      flexDirection="column"
+      margin="0"
+      padding="1.5em 1em"
+      paddingDT="1.5em 1em"
+    >
       <P
         color={white}
         paddingBottom="1em"

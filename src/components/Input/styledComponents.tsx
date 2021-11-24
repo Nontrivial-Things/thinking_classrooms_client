@@ -85,7 +85,6 @@ const Suggestion = styled.li<SuggestionProps>`
   display: flex;
   align-items: center;
   &:hover {
-    /* filter: drop-shadow(0px 4px 15px red); */
     background: rgba(22, 28, 86, 0.1);
   }
   ${(props) =>

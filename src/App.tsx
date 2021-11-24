@@ -10,7 +10,13 @@ const App: FC = () => {
     <>
       <Navbar />
       <SearchingSection />
+<<<<<<< HEAD
       <ProblemIndex />
+=======
+      <ResultCountLabel count={3} />
+      {/* <Tag text="ciągi" isDroppable={true} />
+      <Tag text="ciągi" /> */}
+>>>>>>> e649e81 (Small style refactor after merging main branch)
 
       <Footer />
     </>
