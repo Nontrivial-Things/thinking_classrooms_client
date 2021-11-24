@@ -19,7 +19,6 @@ const ResultCountWrapper = styled(Wrapper)`
     position: absolute;
     width: calc(100% - (2 * 1em));
     border-bottom: 0.5px solid ${textDetails};
-    z-index: 2;
     top: 50%;
     @media ${minDevice.desktopTablet} {
       width: calc(100% - (2 * 1.5em));

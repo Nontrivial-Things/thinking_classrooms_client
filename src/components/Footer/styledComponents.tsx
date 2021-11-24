@@ -15,8 +15,6 @@ const FooterWrapper = styled.div`
 `;
 
 const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   padding-left: 2em;
   margin-top: 1em;
   @media ${minDevice.desktopTablet} {
