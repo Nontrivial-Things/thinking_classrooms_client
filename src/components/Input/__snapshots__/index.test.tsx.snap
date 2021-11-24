@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should key press correctly 1`] = `
+<ul
+  class="sc-gKclnd bPwDyF"
+/>
+`;

@@ -1,6 +1,12 @@
-import { render, screen, fireEvent, within } from "@testing-library/react";
-
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  cleanup,
+} from "@testing-library/react";
 import Input from "./index";
+import { Suggestion, SuggestionList } from "./styledComponents";
 
 describe("Input component", () => {
   it("should allow letters to be inputted", () => {
@@ -148,5 +154,35 @@ describe("Input component", () => {
     fireEvent.click(button);
 
     expect(input.value).toBe("");
+  });
+
+  it("should key press correctly", () => {
+    render(
+      <Input
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands",
+        ]}
+      />
+    );
+
+    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "B" } });
+    // const list = screen.getByRole("list");
+    // const { getAllByRole } = within(list);
+    // const items = getAllByRole("listitem");
+
+    // fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
+
+    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    expect(input.value).toBe("Bask");
   });
 });
