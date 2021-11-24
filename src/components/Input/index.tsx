@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from "react";
+import React, { FC, useState, KeyboardEvent } from "react";
 
 import { SearchInputProps } from "./interface";
 
@@ -13,15 +13,12 @@ import {
   Button,
 } from "./styledComponents";
 
-import useRoveFocus from "../../assets/utils/onKeyPress";
-
 const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
-  const [hasFocus, setFocus] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
@@ -51,34 +48,26 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   };
 
   const onKeyDown = (e: KeyboardEvent) => {
-    console.log(activeSuggestionIndex);
     if (e.key === "Enter") {
-      setActiveSuggestionIndex(0);
-      setShowSuggestions(false);
-      setSearchTerm(filteredSuggestions[activeSuggestionIndex]);
+      if (activeSuggestionIndex !== -1) {
+        e.preventDefault();
+        setSearchTerm(filteredSuggestions[activeSuggestionIndex]);
+        setFilteredSuggestions([]);
+        setActiveSuggestionIndex(0);
+        setShowSuggestions(false);
+      }
     } else if (e.key === "ArrowUp") {
-      if (activeSuggestionIndex === 0) {
-        return;
+      if (activeSuggestionIndex >= 0) {
+        e.preventDefault();
+        setActiveSuggestionIndex(activeSuggestionIndex - 1);
       }
-      setActiveSuggestionIndex(activeSuggestionIndex - 1);
-    }
-    // User pressed the down arrow, increment the index
-    else if (e.key === "ArrowDown") {
-      if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
-        return;
+    } else if (e.key === "ArrowDown") {
+      if (activeSuggestionIndex < filteredSuggestions.length) {
+        e.preventDefault();
+        setActiveSuggestionIndex(activeSuggestionIndex + 1);
       }
-      setActiveSuggestionIndex(activeSuggestionIndex + 1);
     }
   };
-
-  // const onKeyPress = () => {
-  //   console.log(activeSuggestionIndex);
-  //   useCallback(() => {
-  //     alert(`${activeSuggestionIndex}`);
-  //     // setting focus to that element when it is selected
-  //     setFocus(activeSuggestionIndex);
-  //   }, [setFocus]);
-  // };
 
   return (
     <FormWrapper>
@@ -98,7 +87,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
             aria-autocomplete="list"
             value={searchTerm}
             onChange={handleChange}
-            onKeyDown={() => onKeyDown}
+            onKeyDown={(e) => onKeyDown(e)}
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -108,8 +97,6 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
               filteredSuggestions={filteredSuggestions}
               activeSuggestionIndex={activeSuggestionIndex}
               chooseSuggestion={chooseSuggestion}
-              setFocus={setFocus}
-              hasFocus={hasFocus}
             />
           )}
           <SearchIcon />

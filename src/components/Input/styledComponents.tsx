@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { SuggestionProps } from "./interface";
 
 import { minDevice } from "../../assets/styles/breakpoints";
 import {
@@ -75,7 +77,7 @@ const SuggestionList = styled.ul`
   }
 `;
 
-const Suggestion = styled.li`
+const Suggestion = styled.li<SuggestionProps>`
   font-size: 0.875em;
   box-sizing: border-box;
   padding: 0.5em;
@@ -86,11 +88,11 @@ const Suggestion = styled.li`
     /* filter: drop-shadow(0px 4px 15px red); */
     background: rgba(22, 28, 86, 0.1);
   }
-  &:focus-visible,
-  &:focus,
-  &:active {
-    background: rgba(22, 28, 86, 0.1);
-  }
+  ${(props) =>
+    props.isSelected &&
+    css`
+      background: rgba(22, 28, 86, 0.1);
+    `}
 `;
 
 const Button = styled.button`

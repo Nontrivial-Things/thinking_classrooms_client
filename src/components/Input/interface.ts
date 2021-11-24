@@ -6,6 +6,8 @@ export interface SuggestionsProps {
   filteredSuggestions: Array<string>;
   activeSuggestionIndex: number;
   chooseSuggestion: (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
-  setFocus: (hasFocus: boolean) => void;
-  hasFocus: boolean;
+}
+
+export interface SuggestionProps {
+  isSelected?: boolean;
 }

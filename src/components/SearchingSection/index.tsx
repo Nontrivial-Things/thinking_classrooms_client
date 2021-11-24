@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import SearchInput from "../Input";
 import Wrapper from "../Wrapper";
