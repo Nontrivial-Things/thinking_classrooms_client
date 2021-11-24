@@ -9,10 +9,10 @@ const App: FC = () => {
   return (
     <>
       <Navbar />
-      <ResultCountLabel count={3}></ResultCountLabel>
+      <ResultCountLabel count={3} />
+      {/* <Tag text="ciągi" isDroppable={true} />
+      <Tag text="ciągi" /> */}
       <Footer />
-      <Tag text="ciągi" isDroppable={true} />
-      <Tag text="ciągi" />
     </>
   );
 };

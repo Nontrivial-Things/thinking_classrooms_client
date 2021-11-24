@@ -2,36 +2,30 @@ import styled from "styled-components";
 
 import { minDevice } from "../../assets/styles/breakpoints";
 import { activeLink } from "../../assets/styles/colors";
+import Wrapper from "../Wrapper";
 
-const NavbarDiv = styled.div`
+const NavbarDiv = styled(Wrapper)`
   height: 5em;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1em;
 
   &.active {
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
   }
 
   @media ${minDevice.desktopTablet} {
-    margin: 0 1.5em 0 1.31em;
     height: 4em;
     box-shadow: none;
   }
 
   @media ${minDevice.desktopL} {
-    margin: 0 6.25em 0 6.06em;
     height: 4.5em;
-  }
-
-  @media ${minDevice.desktopXL} {
-    margin: 0 12.31em 0 12.5em;
   }
 `;
 const NavbarMenu = styled.nav`
   transform: translateY(-150%);
   position: absolute;
+  z-index: 2;
 
   @media ${minDevice.desktopTablet} {
     transform: translateY(-0%);
@@ -45,23 +39,29 @@ const NavbarMenuList = styled.ol`
   justify-content: space-evenly;
   height: 7em;
   transform: translateY(-150%);
+  transition: transform 0.5s;
+  background-color: white;
   position: absolute;
 
   &.active {
     transform: translateY(-30%);
     top: 80px;
+    width: 100vw;
+    position: absolute;
+    z-index: 3;
   }
 
   @media ${minDevice.desktopTablet} {
     flex-direction: row;
     transform: translateY(-0%);
+    transition: none;
     position: relative;
     align-items: center;
   }
 `;
 
 const NavbarMenuItem = styled.li`
-  font-size: 0.785em;
+  font-size: 0.875em;
   display: flex;
   position: relative;
   cursor: pointer;
@@ -101,12 +101,13 @@ const NavbarMenuItem = styled.li`
 `;
 
 const HamburgerImg = styled.img`
-  width: 0.98em;
+  width: 100%;
 `;
 
 const MenuIconButton = styled.button`
   border: none;
   background: none;
+  padding: 0;
   @media ${minDevice.desktopTablet} {
     display: none;
   }

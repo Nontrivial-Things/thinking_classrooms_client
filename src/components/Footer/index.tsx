@@ -19,11 +19,12 @@ const Footer: FC = () => {
   return (
     <FooterWrapper>
       <Wrapper
+        flexDirection="column"
         flexDirectionDT="row"
-        justifyContent="space-around"
+        justifyContent="space-between"
         alignItems="flex-start"
       >
-        <Logo isBackgroundDark width="137px" />
+        <Logo isBackgroundDark />
         <ContactWrapper>
           <FooterP>Kontakt</FooterP>
           <Row>
@@ -42,6 +43,7 @@ const Footer: FC = () => {
           textAlign="center"
           fontSize="0.875em"
           paddingBottom="0.25em"
+          marginTop="1.75em"
         >
           © Copyrights 2020.
         </P>

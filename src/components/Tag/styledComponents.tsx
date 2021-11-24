@@ -17,6 +17,7 @@ const TagWrapper = styled(Wrapper)`
   font-size: 1em;
   color: ${tagText};
   font-weight: 700;
+  margin: 0;
 `;
 
 const RemoveButton = styled.button`

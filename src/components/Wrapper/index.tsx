@@ -8,19 +8,31 @@ interface WraperProps {
   padding: string;
   justifyContent: string;
   alignItems: string;
+  background: string;
+  width: string;
 }
 
 type PropsOptional = Partial<WraperProps>;
 
 const Wrapper = styled.div<PropsOptional>`
   display: flex;
-  flex-direction: ${(props) => props.flexDirection || "column"};
+  flex-direction: ${(props) => props.flexDirection || "row"};
   justify-content: ${(props) => props.justifyContent || "inherit"};
   align-items: ${(props) => props.alignItems || "inherit"};
-  padding: ${(props) => props.padding || "1em"};
-  margin: ${(props) => props.margin || "1em"};
+  padding: ${(props) => props.padding || "0 1em"};
+  margin: ${(props) => props.margin || "0"};
+  background: ${(props) => props.background};
+  width: "100vw";
+
   @media ${minDevice.desktopTablet} {
     flex-direction: ${(props) => props.flexDirectionDT};
+    padding: 0 1.5em;
+  }
+  @media ${minDevice.desktopL} {
+    padding: 0 6.25em;
+  }
+  @media ${minDevice.desktopXL} {
+    padding: 0 12.5em;
   }
 `;
 

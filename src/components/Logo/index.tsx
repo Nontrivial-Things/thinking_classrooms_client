@@ -5,9 +5,9 @@ import logoWhite from "../../assets/img/logo-white.svg";
 import { LogoProps } from "./interface";
 import { LogoDiv, Img } from "./styledComponents";
 
-const Logo: FC<LogoProps> = ({ isBackgroundDark, width }) => {
+const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
   return (
-    <LogoDiv width={width}>
+    <LogoDiv>
       <Img src={isBackgroundDark ? logoWhite : logoBlack} />
     </LogoDiv>
   );

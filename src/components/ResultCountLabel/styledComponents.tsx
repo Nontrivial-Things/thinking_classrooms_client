@@ -9,31 +9,28 @@ const ResultCountWrapper = styled(Wrapper)`
   color: ${textDetails};
   text-align: left;
   position: relative;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0;
+  z-index: 1;
+  margin-top: 1em;
 
   &::after {
     content: "";
     position: absolute;
-    width: 100%;
+    width: calc(100% - (2 * 1em));
     border-bottom: 0.5px solid ${textDetails};
-    z-index: 1;
     top: 50%;
-    left: 0;
-  }
+    @media ${minDevice.desktopTablet} {
+      width: calc(100% - (2 * 1.5em));
+    }
 
-  @media ${minDevice.desktopTablet} {
-    margin: 1em 1.5em;
-  }
+    @media ${minDevice.desktopL} {
+      width: calc(100% - (2 * 6.25em));
+    }
 
-  @media ${minDevice.desktopL} {
-    margin: 2em 6.25em 2.5em 6.26em;
-  }
-
-  @media ${minDevice.desktopXL} {
-    margin: 2em 12.5em 2.5em 12.5em;
+    @media ${minDevice.desktopXL} {
+      width: calc(100% - (2 * 12.5em));
+    }
   }
 `;
 
