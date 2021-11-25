@@ -8,7 +8,7 @@ import {
 } from "../../assets/styles/colors";
 import { ButtonProps } from "./interface";
 
-const ButtonPrimaryActive = styled.button`
+const ButtonPrimary = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +23,12 @@ const ButtonPrimaryActive = styled.button`
   color: #ffffff;
   letter-spacing: 0.04rem;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: ${hoverButton};
   }
 
   &:active {
-    background-color: ${hoverButton};
     box-shadow: none;
   }
 
@@ -37,5 +37,24 @@ const ButtonPrimaryActive = styled.button`
     box-shadow: none;
   }
 `;
+const ButtonSecondary = styled(ButtonPrimary)`
+  background-color: transparent;
+  color: ${activeButton};
+  font-weight: bold;
+  border: 1.5px solid ${activeButton};
+  padding: 16px 32px;
+  box-shadow: none;
 
-export { ButtonPrimaryActive };
+  &:hover,
+  &:active {
+    background-color: ${hoverSecondaryButton};
+  }
+
+  &:disabled {
+    color: ${disabledButton};
+    background-color: transparent;
+    border-color: ${disabledButton};
+  }
+`;
+
+export { ButtonPrimary, ButtonSecondary };
