@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import {
   activeButton,
@@ -6,7 +6,7 @@ import {
   disabledButton,
   hoverSecondaryButton,
 } from "../../assets/styles/colors";
-import { ButtonProps } from "./interface";
+import { ReactComponent as Download } from "../../assets/img/icons/download.svg";
 
 const ButtonPrimary = styled.button`
   display: flex;
@@ -54,7 +54,18 @@ const ButtonSecondary = styled(ButtonPrimary)`
     color: ${disabledButton};
     background-color: transparent;
     border-color: ${disabledButton};
+    stroke: ${disabledButton};
   }
 `;
 
-export { ButtonPrimary, ButtonSecondary };
+const DownloadIcon = styled(Download)`
+  width: 16px;
+  stroke: ${activeButton};
+  margin-right: 8px;
+`;
+
+const DownloadIconDisabled = styled(DownloadIcon)`
+  stroke: ${disabledButton};
+`;
+
+export { ButtonPrimary, ButtonSecondary, DownloadIcon, DownloadIconDisabled };

@@ -2,7 +2,8 @@ import { FC } from "react";
 
 import ResultCountLabel from "../ResultCountLabel";
 import Tag from "../Tag";
-import { ButtonPrimary, ButtonSecondary } from "../Button/styledComponents";
+import { ButtonPrimary } from "../Button/styledComponents";
+import ButtonSecondary from "../Button";
 
 const ProblemIndex: FC = () => {
   return (
@@ -12,6 +13,9 @@ const ProblemIndex: FC = () => {
       <Tag text="ciągi" />
       <ButtonPrimary>Zaloguj się</ButtonPrimary>
       <ButtonSecondary>Zobacz treść</ButtonSecondary>
+      <ButtonSecondary withDownloadIcon disabled>
+        Pobierz treść
+      </ButtonSecondary>
     </>
   );
 };

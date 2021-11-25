@@ -1,3 +1,4 @@
 export interface ButtonProps {
-  primary: boolean;
+  disabled?: boolean;
+  withDownloadIcon?: boolean;
 }
