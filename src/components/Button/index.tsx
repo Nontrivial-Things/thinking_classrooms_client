@@ -1,8 +1,7 @@
 import { FC } from "react";
 
 import {
-  ButtonSecondary,
-  ButtonPrimary,
+  Button as SButton,
   DownloadIconDisabled,
   DownloadIcon,
 } from "./styledComponents";
@@ -16,21 +15,15 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <>
-      {isPrimary && (
-        <ButtonPrimary disabled={disabled}>{children}</ButtonPrimary>
-      )}
-
-      {!isPrimary && (
-        <ButtonSecondary disabled={disabled}>
-          {withDownloadIcon &&
-            (disabled ? (
-              <DownloadIconDisabled aria-hidden title="Ikona Pobierania" />
-            ) : (
-              <DownloadIcon aria-hidden title="Ikona Pobierania" />
-            ))}
-          {children}
-        </ButtonSecondary>
-      )}
+      <SButton isPrimary={isPrimary} disabled={disabled}>
+        {withDownloadIcon &&
+          (disabled ? (
+            <DownloadIconDisabled aria-hidden title="Ikona Pobierania" />
+          ) : (
+            <DownloadIcon aria-hidden title="Ikona Pobierania" />
+          ))}
+        {children}
+      </SButton>
     </>
   );
 };

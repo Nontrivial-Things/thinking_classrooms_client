@@ -10,10 +10,17 @@ const ProblemIndex: FC = () => {
       <ResultCountLabel count={3}></ResultCountLabel>
       <Tag text="ciągi" isDroppable={true} />
       <Tag text="ciągi" />
+      <Button>Zaloguj się</Button>
       <Button disabled>Zaloguj się</Button>
-      <Button isPrimary={false}>Zobacz treść</Button>
-      <Button withDownloadIcon disabled isPrimary={false}>
-        Pobierz treść
+      <Button isPrimary={false}>Zaloguj się</Button>
+      <Button isPrimary={false} disabled>
+        Zaloguj się
+      </Button>
+      <Button isPrimary={false} withDownloadIcon>
+        Zaloguj się
+      </Button>
+      <Button isPrimary={false} disabled withDownloadIcon>
+        Zaloguj się
       </Button>
     </>
   );

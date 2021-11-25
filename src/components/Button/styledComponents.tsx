@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import {
   activeButton,
@@ -8,7 +8,11 @@ import {
 } from "../../assets/styles/colors";
 import { ReactComponent as Download } from "../../assets/img/icons/download.svg";
 
-const ButtonPrimary = styled.button`
+interface ButtonStyleProps {
+  isPrimary: boolean;
+}
+
+const Button = styled.button<ButtonStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,26 +40,29 @@ const ButtonPrimary = styled.button`
     background-color: ${disabledButton};
     box-shadow: none;
   }
-`;
-const ButtonSecondary = styled(ButtonPrimary)`
-  background-color: transparent;
-  color: ${activeButton};
-  font-weight: bold;
-  border: 1.5px solid ${activeButton};
-  padding: 16px 32px;
-  box-shadow: none;
 
-  &:hover,
-  &:active {
-    background-color: ${hoverSecondaryButton};
-  }
+  ${(props) =>
+    !props.isPrimary &&
+    css`
+      background-color: transparent;
+      color: ${activeButton};
+      font-weight: bold;
+      border: 1.5px solid ${activeButton};
+      padding: 16px 32px;
+      box-shadow: none;
 
-  &:disabled {
-    color: ${disabledButton};
-    background-color: transparent;
-    border-color: ${disabledButton};
-    stroke: ${disabledButton};
-  }
+      &:hover,
+      &:active {
+        background-color: ${hoverSecondaryButton};
+      }
+
+      &:disabled {
+        color: ${disabledButton};
+        background-color: transparent;
+        border-color: ${disabledButton};
+        stroke: ${disabledButton};
+      }
+    `}
 `;
 
 const DownloadIcon = styled(Download)`
@@ -68,4 +75,4 @@ const DownloadIconDisabled = styled(DownloadIcon)`
   stroke: ${disabledButton};
 `;
 
-export { ButtonPrimary, ButtonSecondary, DownloadIcon, DownloadIconDisabled };
+export { Button, DownloadIcon, DownloadIconDisabled };
