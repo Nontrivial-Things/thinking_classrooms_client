@@ -1,6 +1,6 @@
 export interface SearchResultTileProps {
   text: string;
-  tagText: string;
+  tags: Array<string>;
   date: string;
   author: string;
   educationStage: string;

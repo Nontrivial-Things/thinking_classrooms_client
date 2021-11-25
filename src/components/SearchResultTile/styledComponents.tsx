@@ -9,9 +9,13 @@ const SearchResultTileWrapper = styled(Wrapper)`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   flex-direction: column;
   background-color: ${white};
-  margin: 1em 0;
-
+  margin: 0.3125em 0;
+  padding: 0.5em 1em;
+  @media ${minDevice.desktopTablet} {
+    padding: 1em;
+  }
   @media ${minDevice.desktopL} {
+    padding: 1.5em;
   }
 `;
 

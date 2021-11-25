@@ -12,7 +12,7 @@ import { SearchResultTileProps } from "./interface";
 
 const SearchResultTile: FC<SearchResultTileProps> = ({
   text,
-  tagText,
+  tags,
   author,
   date,
   educationStage,
@@ -27,8 +27,10 @@ const SearchResultTile: FC<SearchResultTileProps> = ({
       </AuthorWrapper>
       <TagWrapper>
         <StageP>{educationStage}</StageP>
-        <Tag text={tagText} />
-        <Tag text={tagText} />
+        {tags &&
+          tags.map((tagText: string, index: number) => {
+            return <Tag text={tagText} key={tagText} />;
+          })}
       </TagWrapper>
     </SearchResultTileWrapper>
   );
