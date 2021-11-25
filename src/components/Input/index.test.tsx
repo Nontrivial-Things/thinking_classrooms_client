@@ -182,6 +182,7 @@ describe("Input component", () => {
 
     // fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
 
+    // this one is creating snapshots - I would like to talk about it :)
     fireEvent.keyDown(input, { key: "Enter", code: 13 });
     expect(input.value).toBe("Bask");
   });

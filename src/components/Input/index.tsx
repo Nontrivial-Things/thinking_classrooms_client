@@ -47,6 +47,9 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
     setShowSuggestions(false);
   };
 
+  //It's working, but I would like to prevent behaviour that
+  //after I hit the last suggestion the background style don't vanish
+
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {

@@ -8,7 +8,7 @@ const SuggestionsListComponent: FC<SuggestionsProps> = ({
   activeSuggestionIndex,
   chooseSuggestion,
 }) => {
-  const ref = useRef<any>();
+  const ref = useRef<any>(); //I didn't find proper type for this one.
 
   return filteredSuggestions.length ? (
     <SuggestionList ref={ref}>
