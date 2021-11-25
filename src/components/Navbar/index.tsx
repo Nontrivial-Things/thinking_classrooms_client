@@ -47,7 +47,7 @@ const Navbar: FC = () => {
           className={navbarMenuStyle}
           onClick={toggleHamburger}
           src={isNavbarMenuActive ? hamburgerX : hamburger}
-          aria-hidden={true}
+          aria-hidden
           alt="Ikona menu"
         ></HamburgerImg>
       </MenuIconButton>
