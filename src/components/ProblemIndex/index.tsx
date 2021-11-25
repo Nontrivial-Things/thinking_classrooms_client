@@ -2,8 +2,7 @@ import { FC } from "react";
 
 import ResultCountLabel from "../ResultCountLabel";
 import Tag from "../Tag";
-import { ButtonPrimary } from "../Button/styledComponents";
-import ButtonSecondary from "../Button";
+import Button from "../Button";
 
 const ProblemIndex: FC = () => {
   return (
@@ -11,11 +10,11 @@ const ProblemIndex: FC = () => {
       <ResultCountLabel count={3}></ResultCountLabel>
       <Tag text="ciągi" isDroppable={true} />
       <Tag text="ciągi" />
-      <ButtonPrimary>Zaloguj się</ButtonPrimary>
-      <ButtonSecondary>Zobacz treść</ButtonSecondary>
-      <ButtonSecondary withDownloadIcon disabled>
+      <Button disabled>Zaloguj się</Button>
+      <Button isPrimary={false}>Zobacz treść</Button>
+      <Button withDownloadIcon disabled isPrimary={false}>
         Pobierz treść
-      </ButtonSecondary>
+      </Button>
     </>
   );
 };
