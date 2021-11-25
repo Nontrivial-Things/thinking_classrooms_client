@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { minDevice } from "../../assets/styles/breakpoints";
-import { textDetails, white } from "../../assets/styles/colors";
+import { textDetails, white, lightGrey } from "../../assets/styles/colors";
 import P from "../P/styledComponents";
 import Wrapper from "../Wrapper/styledComponents";
 
@@ -11,6 +11,9 @@ const SearchResultTileWrapper = styled(Wrapper)`
   background-color: ${white};
   margin: 0.3125em 0;
   padding: 0.5em 1em;
+  border: 0.5px solid ${lightGrey};
+  box-sizing: border-box;
+  border-radius: 5px;
   @media ${minDevice.desktopTablet} {
     padding: 1em;
   }
