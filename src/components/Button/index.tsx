@@ -18,6 +18,8 @@ const ButtonSecondary: FC<ButtonProps> = ({
         (disabled ? <DownloadIconDisabled /> : <DownloadIcon />)}
       {children}
     </SButtonSecondary>
+              <DownloadIconDisabled aria-hidden title="Ikona Pobierania" />
+              <DownloadIcon aria-hidden title="Ikona Pobierania" />
   );
 };
 
