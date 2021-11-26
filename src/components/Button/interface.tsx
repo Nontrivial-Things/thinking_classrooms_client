@@ -1,5 +1,8 @@
-export interface ButtonProps {
+export interface ButtonProps extends Partial<ButtonStyleProps> {
   disabled?: boolean;
   withDownloadIcon?: boolean;
-  isPrimary?: boolean;
+}
+
+export interface ButtonStyleProps {
+  isPrimary: boolean;
 }

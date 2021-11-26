@@ -8,10 +8,7 @@ import {
 } from "../../assets/styles/colors";
 import { ReactComponent as Download } from "../../assets/img/icons/download.svg";
 import { minDevice } from "../../assets/styles/breakpoints";
-
-interface ButtonStyleProps {
-  isPrimary: boolean;
-}
+import { ButtonStyleProps } from "./interface";
 
 const Button = styled.button<ButtonStyleProps>`
   display: flex;
