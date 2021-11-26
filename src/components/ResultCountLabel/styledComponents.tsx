@@ -12,8 +12,8 @@ const ResultCountWrapper = styled(Wrapper)`
   justify-content: flex-start;
   align-items: center;
   z-index: 1;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   padding: 0;
 
   &::after {
