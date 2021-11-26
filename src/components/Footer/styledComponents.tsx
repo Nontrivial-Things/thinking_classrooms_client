@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import P from "../P";
+import P from "../P/styledComponents";
 import { minDevice } from "../../assets/styles/breakpoints";
 import { darkGradientBackground, white } from "../../assets/styles/colors";
 

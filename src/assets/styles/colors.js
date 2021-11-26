@@ -16,6 +16,8 @@ const hoverButton = "#124CAB";
 
 const disabledButton = "#C9DAF6";
 
+const hoverSecondaryButton = "#E5EFFF";
+
 const activeLink = "#3678E3";
 
 const placeholder = "#A8A8A8";
@@ -32,7 +34,7 @@ const mainHeader = "#161C56";
 
 const primarySubtitle = "#124CAB";
 
-const seconderySubtitle = "#F88B0C";
+const secondarySubtitle = "#F88B0C";
 
 const copyrights = "#DCDCDC";
 
@@ -47,6 +49,7 @@ export {
   activeButton,
   hoverButton,
   disabledButton,
+  hoverSecondaryButton,
   activeLink,
   placeholder,
   errorMessage,
@@ -55,7 +58,7 @@ export {
   tagBackground,
   mainHeader,
   primarySubtitle,
-  seconderySubtitle,
+  secondarySubtitle,
   copyrights,
   textDetails,
 };
