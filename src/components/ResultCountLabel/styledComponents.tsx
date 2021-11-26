@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Wrapper from "../Wrapper/styledComponents";
 import P from "../P/styledComponents";
 import { minDevice } from "../../assets/styles/breakpoints";
-import { textDetails } from "../../assets/styles/colors";
+import { textDetails, primaryBackground } from "../../assets/styles/colors";
 
 const ResultCountWrapper = styled(Wrapper)`
   color: ${textDetails};
@@ -13,30 +13,32 @@ const ResultCountWrapper = styled(Wrapper)`
   align-items: center;
   z-index: 1;
   margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0;
 
   &::after {
     content: "";
     position: absolute;
-    width: calc(100% - (2 * 1em));
+    width: 100%;
     border-bottom: 0.5px solid ${textDetails};
     top: 50%;
     @media ${minDevice.desktopTablet} {
-      width: calc(100% - (2 * 1.5em));
+      padding: 0;
     }
 
     @media ${minDevice.desktopL} {
-      width: calc(100% - (2 * 6.25em));
+      padding: 0;
     }
 
     @media ${minDevice.desktopXL} {
-      width: calc(100% - (2 * 12.5em));
+      padding: 0;
     }
   }
 `;
 
 const ResultCountP = styled(P)`
   line-height: 1.5em;
-  background-color: white;
+  background-color: ${primaryBackground};
   height: 1.5em;
   padding-right: 8px;
   z-index: 3;

@@ -1,9 +1,11 @@
 import { FC } from "react";
 import Tag from "../Tag";
+import Button from "../Button";
 import {
   SearchResultTileWrapper,
   AuthorWrapper,
   TagWrapper,
+  DetailsWrapper,
   DetailsP,
   TitleP,
   StageP,
@@ -19,19 +21,24 @@ const SearchResultTile: FC<SearchResultTileProps> = ({
 }) => {
   return (
     <SearchResultTileWrapper>
-      <TitleP>{text}</TitleP>
-      <AuthorWrapper>
-        <DetailsP>{author}</DetailsP>
-        <DetailsP>•</DetailsP>
-        <DetailsP>{date}</DetailsP>
-      </AuthorWrapper>
-      <TagWrapper>
-        <StageP>{educationStage}</StageP>
-        {tags &&
-          tags.map((tagText: string, index: number) => {
-            return <Tag text={tagText} key={tagText} />;
-          })}
-      </TagWrapper>
+      <DetailsWrapper>
+        <TitleP>{text}</TitleP>
+        <AuthorWrapper>
+          <DetailsP>{author}</DetailsP>
+          <DetailsP>•</DetailsP>
+          <DetailsP>{date}</DetailsP>
+        </AuthorWrapper>
+        <TagWrapper>
+          <StageP>{educationStage}</StageP>
+          {tags &&
+            tags.map((tagText: string, index: number) => {
+              return <Tag text={tagText} key={tagText} />;
+            })}
+        </TagWrapper>
+      </DetailsWrapper>
+      <Button isPrimary={false} isHidden>
+        Zobacz treści
+      </Button>
     </SearchResultTileWrapper>
   );
 };

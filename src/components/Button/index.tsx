@@ -12,10 +12,11 @@ const Button: FC<ButtonProps> = ({
   disabled = false,
   withDownloadIcon = false,
   children,
+  isHidden = false,
 }) => {
   return (
     <>
-      <SButton isPrimary={isPrimary} disabled={disabled}>
+      <SButton isPrimary={isPrimary} disabled={disabled} isHidden={isHidden}>
         {withDownloadIcon &&
           (disabled ? (
             <DownloadIconDisabled aria-hidden title="Ikona Pobierania" />

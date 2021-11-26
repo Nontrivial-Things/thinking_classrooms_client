@@ -69,6 +69,15 @@ const Button = styled.button<ButtonStyleProps>`
         font-size: 1rem;
       }
     `}
+
+  ${(props) =>
+    props.isHidden &&
+    css`
+      display: none;
+      @media ${minDevice.desktopL} {
+        display: flex;
+      }
+    `}
 `;
 
 const DownloadIcon = styled(Download)`
