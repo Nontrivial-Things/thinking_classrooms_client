@@ -5,13 +5,12 @@ import {
   within,
   cleanup,
 } from "@testing-library/react";
-import Input from "./index";
-import { Suggestion, SuggestionList } from "./styledComponents";
+import SearchAutocomplete from "./index";
 
 describe("Input component", () => {
   it("displays inputted value", () => {
     render(
-      <Input
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -27,7 +26,7 @@ describe("Input component", () => {
       />
     );
 
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    let input = screen.getByLabelText("Szukaj problemów") as HTMLInputElement;
     expect(input.value).toBe("");
     fireEvent.change(input, { target: { value: "Good Day" } });
     expect(input.value).toBe("Good Day");
@@ -35,7 +34,7 @@ describe("Input component", () => {
 
   it("should show suggestions list matching input value", () => {
     render(
-      <Input
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -50,21 +49,24 @@ describe("Input component", () => {
         ]}
       />
     );
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    let input = screen.getByLabelText("Szukaj problemów") as HTMLInputElement;
 
     expect(input.value).toBe("");
+    // expect(screen.getAllByRole("listbox")).not.toBeInTheDocument;
+
     fireEvent.change(input, { target: { value: "e" } });
     expect(input.value).toBe("e");
 
-    const list = screen.getByRole("list");
+    const list = screen.getByRole("listbox");
     const { getAllByRole } = within(list);
     const items = getAllByRole("listitem");
+
     expect(items.length).toBe(4);
   });
 
   it("should display picked suggestion as input value", () => {
     render(
-      <Input
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -79,13 +81,13 @@ describe("Input component", () => {
         ]}
       />
     );
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    let input = screen.getByLabelText("Szukaj problemów") as HTMLInputElement;
 
     expect(input.value).toBe("");
     fireEvent.change(input, { target: { value: "All" } });
     expect(input.value).toBe("All");
 
-    const list = screen.getByRole("list");
+    const list = screen.getByRole("listbox");
     const { getAllByRole } = within(list);
     const items = getAllByRole("listitem");
 
@@ -97,9 +99,9 @@ describe("Input component", () => {
     expect(input.value).toBe("Alligator");
   });
 
-  it("shouldn't show remove button in input field", () => {
+  it("should display remove button in input field only when the input value is not empty", () => {
     render(
-      <Input
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -114,51 +116,33 @@ describe("Input component", () => {
         ]}
       />
     );
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    let input = screen.getByLabelText("Szukaj problemów") as HTMLInputElement;
 
     expect(input.value).toBe("");
-    const button = screen.queryByRole("button", { name: /Remove button/i });
-
-    expect(button).not.toBeInTheDocument();
-  });
-
-  it("should show remove button and after click remove text from input field", () => {
-    render(
-      <Input
-        suggestions={[
-          "Alligator",
-          "Bask",
-          "Crocodilian",
-          "Death Roll",
-          "Eggs",
-          "Jaws",
-          "Reptile",
-          "Solitary",
-          "Tail",
-          "Wetlands",
-        ]}
-      />
-    );
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
-
-    expect(input.value).toBe("");
-    fireEvent.change(input, { target: { value: "B" } });
-    expect(input.value).toBe("B");
 
     const button = screen.queryByRole("button", {
       name: /Remove button/i,
+    });
+
+    expect(button).not.toBeInTheDocument();
+
+    fireEvent.change(input, { target: { value: "B" } });
+    expect(input.value).toBe("B");
+
+    const removeButton = screen.queryByRole("button", {
+      name: /Remove button/i,
     }) as HTMLButtonElement;
 
-    expect(button).toBeInTheDocument();
+    expect(removeButton).toBeInTheDocument();
 
-    fireEvent.click(button);
+    fireEvent.click(removeButton);
 
     expect(input.value).toBe("");
   });
 
   it("should key press correctly", () => {
     render(
-      <Input
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -174,7 +158,7 @@ describe("Input component", () => {
       />
     );
 
-    let input = screen.getByLabelText("search-input") as HTMLInputElement;
+    let input = screen.getByLabelText("Szukaj problemów") as HTMLInputElement;
     fireEvent.change(input, { target: { value: "B" } });
     // const list = screen.getByRole("list");
     // const { getAllByRole } = within(list);
