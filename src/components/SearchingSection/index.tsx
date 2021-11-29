@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import SearchInput from "../Input";
-import Wrapper from "../Wrapper";
-import P from "../P";
+import Wrapper from "../Wrapper/styledComponents";
+import P from "../P/styledComponents";
 import { darkGradientBackground, white } from "../../assets/styles/colors";
 
 const SearchingSection: FC = () => {
