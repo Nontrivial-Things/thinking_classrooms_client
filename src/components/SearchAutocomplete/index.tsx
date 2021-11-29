@@ -1,6 +1,6 @@
 import React, { FC, useState, KeyboardEvent } from "react";
 
-import { SearchInputProps } from "./interface";
+import { SearchAutocompleteProps } from "./interface";
 
 import SuggestionsListComponent from "./suggestionsListComponent";
 import {
@@ -9,11 +9,11 @@ import {
   Label,
   SearchIcon,
   RemoveIcon,
-  FormWrapper,
+  Combobox,
   Button,
 } from "./styledComponents";
 
-const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
+const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -73,7 +73,12 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
   };
 
   return (
-    <FormWrapper>
+    <Combobox
+      id="combobox"
+      aria-expanded="false"
+      aria-owns="autocomplete-options"
+      aria-haspopup="listbox"
+    >
       <Form
         action="/"
         method="get"
@@ -81,27 +86,7 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
           e.preventDefault();
         }}
       >
-        <Label htmlFor="header-search">
-          <Input
-            type="text"
-            placeholder="Szukaj problemów matematycznych"
-            aria-label="search-input"
-            aria-owns="autocomplete-options"
-            aria-autocomplete="list"
-            value={searchTerm}
-            onChange={handleChange}
-            onKeyDown={(e) => onKeyDown(e)}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          />
-          {showSuggestions && searchTerm && (
-            <SuggestionsListComponent
-              filteredSuggestions={filteredSuggestions}
-              activeSuggestionIndex={activeSuggestionIndex}
-              chooseSuggestion={chooseSuggestion}
-            />
-          )}
+        <Label htmlFor="input-search" id="input-search-label">
           <SearchIcon />
           {showClearButton && searchTerm && (
             <Button aria-label="Remove button" onClick={() => clearInput()}>
@@ -109,13 +94,34 @@ const SearchInput: FC<SearchInputProps> = ({ suggestions }) => {
                 Remove input text button
               </span>
 
-              <RemoveIcon aria-hidden="true" focusable="false" />
+              <RemoveIcon aria-hidden="true" />
             </Button>
           )}
         </Label>
+        <Input
+          id="input-search"
+          type="text"
+          placeholder="Szukaj problemów matematycznych"
+          aria-label="Szukaj problemów"
+          aria-autocomplete="list"
+          aria-controls="autocomplete-options"
+          value={searchTerm}
+          onChange={handleChange}
+          onKeyDown={(e) => onKeyDown(e)}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        />
+        {showSuggestions && searchTerm && (
+          <SuggestionsListComponent
+            filteredSuggestions={filteredSuggestions}
+            activeSuggestionIndex={activeSuggestionIndex}
+            chooseSuggestion={chooseSuggestion}
+          />
+        )}
       </Form>
-    </FormWrapper>
+    </Combobox>
   );
 };
 
-export default SearchInput;
+export default SearchAutocomplete;

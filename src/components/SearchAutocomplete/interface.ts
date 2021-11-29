@@ -1,4 +1,4 @@
-export interface SearchInputProps {
+export interface SearchAutocompleteProps {
   suggestions: Array<string>;
 }
 

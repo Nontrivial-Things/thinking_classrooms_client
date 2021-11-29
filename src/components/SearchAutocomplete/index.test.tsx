@@ -9,7 +9,7 @@ import Input from "./index";
 import { Suggestion, SuggestionList } from "./styledComponents";
 
 describe("Input component", () => {
-  it("should allow letters to be inputted", () => {
+  it("displays inputted value", () => {
     render(
       <Input
         suggestions={[
@@ -33,7 +33,7 @@ describe("Input component", () => {
     expect(input.value).toBe("Good Day");
   });
 
-  it("should show suggestions list matching input target", () => {
+  it("should show suggestions list matching input value", () => {
     render(
       <Input
         suggestions={[
@@ -62,7 +62,7 @@ describe("Input component", () => {
     expect(items.length).toBe(4);
   });
 
-  it("should show in input field chosen suggestion", () => {
+  it("should display picked suggestion as input value", () => {
     render(
       <Input
         suggestions={[

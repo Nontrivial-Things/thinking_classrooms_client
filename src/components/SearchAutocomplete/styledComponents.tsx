@@ -97,7 +97,7 @@ const Suggestion = styled.li<SuggestionProps>`
 const Button = styled.button`
   width: auto;
   border: none;
-  right: 0.5em;
+  left: 24.5em;
   top: calc(50% - 1.5em / 2 - 0.5px);
   bottom: 0;
   position: absolute;
@@ -105,6 +105,18 @@ const Button = styled.button`
   background: transparent;
 `;
 
+const Combobox = styled.div`
+  width: 100%;
+  height: 5em;
+  box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
+  z-index: 10;
+  @media ${minDevice.desktopTablet} {
+    width: 22.5em;
+  }
+  @media ${minDevice.desktopL} {
+    width: 31.4375em;
+  }
+`;
 export {
   Form,
   Input,
@@ -115,4 +127,5 @@ export {
   RemoveIcon,
   FormWrapper,
   Button,
+  Combobox,
 };

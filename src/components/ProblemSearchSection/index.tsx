@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-import SearchInput from "../Input";
+import SearchAutocomplete from "../SearchAutocomplete";
 import Wrapper from "../Wrapper/styledComponents";
-import P from "../P/styledComponents";
-import { darkGradientBackground, white } from "../../assets/styles/colors";
+import H2 from "./styledComponents";
+import { darkGradientBackground } from "../../assets/styles/colors";
 
-const SearchingSection: FC = () => {
+const ProblemSearchSection: FC = () => {
   return (
     <Wrapper
       background={darkGradientBackground}
@@ -14,16 +14,8 @@ const SearchingSection: FC = () => {
       padding="1.5em 1em"
       paddingDT="1.5em 1em"
     >
-      <P
-        color={white}
-        paddingBottom="1em"
-        fontSize="1.125em"
-        fontSizeDL="1.5em"
-        fontWeight="700"
-      >
-        Szukaj problemów matematycznych
-      </P>
-      <SearchInput
+      <H2>Szukaj problemów matematycznych</H2>
+      <SearchAutocomplete
         suggestions={[
           "Alligator",
           "Bask",
@@ -41,4 +33,4 @@ const SearchingSection: FC = () => {
   );
 };
 
-export default SearchingSection;
+export default ProblemSearchSection;
