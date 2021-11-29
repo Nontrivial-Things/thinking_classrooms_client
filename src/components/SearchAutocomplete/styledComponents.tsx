@@ -28,6 +28,7 @@ const FormWrapper = styled.div`
 const Form = styled.form`
   width: 100%;
   background: ${white};
+  position: relative;
 `;
 
 const Input = styled.input`
@@ -97,7 +98,7 @@ const Suggestion = styled.li<SuggestionProps>`
 const Button = styled.button`
   width: auto;
   border: none;
-  left: 24.5em;
+  left: 0.5em;
   top: calc(50% - 1.5em / 2 - 0.5px);
   bottom: 0;
   position: absolute;

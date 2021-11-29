@@ -50,7 +50,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
   //It's working, but I would like to prevent behaviour that
   //after I hit the last suggestion the background style don't vanish
 
-  const onKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
@@ -80,23 +80,12 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
       aria-haspopup="listbox"
     >
       <Form
-        action="/"
-        method="get"
         onSubmit={(e) => {
           e.preventDefault();
         }}
       >
         <Label htmlFor="input-search" id="input-search-label">
           <SearchIcon />
-          {showClearButton && searchTerm && (
-            <Button aria-label="Remove button" onClick={() => clearInput()}>
-              <span id="Remove button" hidden>
-                Remove input text button
-              </span>
-
-              <RemoveIcon aria-hidden="true" />
-            </Button>
-          )}
         </Label>
         <Input
           id="input-search"
@@ -107,11 +96,20 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
           aria-controls="autocomplete-options"
           value={searchTerm}
           onChange={handleChange}
-          onKeyDown={(e) => onKeyDown(e)}
+          onKeyDown={(e) => e}
           onSubmit={(e) => {
             e.preventDefault();
           }}
         />
+        {showClearButton && searchTerm && (
+          <Button aria-label="Remove button" onClick={() => clearInput()}>
+            <span id="Remove button" hidden>
+              Remove input text button
+            </span>
+
+            <RemoveIcon aria-hidden="true" />
+          </Button>
+        )}
         {showSuggestions && searchTerm && (
           <SuggestionsListComponent
             filteredSuggestions={filteredSuggestions}
