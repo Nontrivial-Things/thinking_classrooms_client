@@ -96,13 +96,13 @@ const Suggestion = styled.li<SuggestionProps>`
 `;
 
 const Button = styled.button`
-  width: auto;
+  width: 1em;
+  height: 1em;
   border: none;
-  left: 0.5em;
-  top: calc(50% - 1.5em / 2 - 0.5px);
+  right: 1.25em;
+  top: 0.7em;
   bottom: 0;
   position: absolute;
-  cursor: pointer;
   background: transparent;
 `;
 
