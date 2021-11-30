@@ -7,6 +7,7 @@ interface WraperProps {
   alignItems: string;
   background: string;
   width: string;
+  paddingDT: string;
 }
 
 export type PropsOptional = Partial<WraperProps>;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
 import { minDevice } from "../../assets/styles/breakpoints";
+
 import { PropsOptional } from "./interface";
 
 const Wrapper = styled.div<PropsOptional>`
@@ -8,14 +8,12 @@ const Wrapper = styled.div<PropsOptional>`
   flex-direction: ${(props) => props.flexDirection || "row"};
   justify-content: ${(props) => props.justifyContent || "inherit"};
   align-items: ${(props) => props.alignItems || "inherit"};
-  padding: ${(props) => props.padding || "0 1em"};
-  margin: ${(props) => props.margin || "0"};
+  padding: ${(props) => props.padding || "1em"};
+  margin: ${(props) => props.margin || "1em"};
   background: ${(props) => props.background};
-  width: "100vw";
-
   @media ${minDevice.desktopTablet} {
     flex-direction: ${(props) => props.flexDirectionDT};
-    padding: 0 1.5em;
+    padding: ${(props) => props.paddingDT || "0 1.5em"};
   }
   @media ${minDevice.desktopL} {
     padding: 0 6.25em;

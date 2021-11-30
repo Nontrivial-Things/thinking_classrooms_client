@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import { white, copyrights } from "../../assets/styles/colors";
 import Mail from "../../assets/img/icons/mail.svg";
 import Logo from "../Logo";
 import P from "../P/styledComponents";
@@ -14,6 +13,7 @@ import {
   FooterP,
   MailA,
 } from "./styledComponents";
+import { white, lightGrey } from "../../assets/styles/colors";
 
 const Footer: FC = () => {
   return (
@@ -39,7 +39,7 @@ const Footer: FC = () => {
       </Wrapper>
       <Column>
         <P
-          color={copyrights}
+          color={lightGrey}
           textAlign="center"
           fontSize="0.875em"
           paddingBottom="0.25em"

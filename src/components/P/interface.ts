@@ -9,4 +9,5 @@ export default interface PProps {
   width: string;
   shadow: string;
   paddingBottom: string;
+  fontSizeDL: string;
 }

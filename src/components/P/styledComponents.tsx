@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PProps from "./interface";
+import { minDevice } from "../../assets/styles/breakpoints";
 
 type PropsOptional = Partial<PProps>;
 
@@ -14,6 +15,9 @@ const P = styled.p<PropsOptional>`
   width: ${(props) => props.width || "auto"};
   text-shadow: ${(props) => props.shadow || "0"};
   padding-bottom: ${(props) => props.paddingBottom || "0"};
+  @media ${minDevice.desktopL} {
+    font-size: ${(props) => props.fontSizeDL};
+  }
 `;
 
 export default P;
