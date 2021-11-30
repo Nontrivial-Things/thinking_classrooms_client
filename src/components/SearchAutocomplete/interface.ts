@@ -5,7 +5,7 @@ export interface SearchAutocompleteProps {
 export interface SuggestionsProps {
   filteredSuggestions: Array<string>;
   activeSuggestionIndex: number;
-  chooseSuggestion: (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+  chooseSuggestion: (suggestion: string) => void;
 }
 
 export interface SuggestionProps {

@@ -8,7 +8,7 @@ const SuggestionsListComponent: FC<SuggestionsProps> = ({
   activeSuggestionIndex,
   chooseSuggestion,
 }) => {
-  const ref = useRef<any>(); //I didn't find proper type for this one.
+  const ref = useRef<HTMLUListElement>(null);
 
   return filteredSuggestions.length ? (
     <SuggestionList
@@ -20,7 +20,7 @@ const SuggestionsListComponent: FC<SuggestionsProps> = ({
       {filteredSuggestions.map((suggestion: string, index: number) => (
         <Suggestion
           key={suggestion}
-          onClick={(e: React.MouseEvent<HTMLLIElement>) => chooseSuggestion(e)}
+          onClick={() => chooseSuggestion(suggestion)}
           isSelected={index === activeSuggestionIndex}
         >
           <Clipboard style={{ paddingRight: "0.5em" }} />

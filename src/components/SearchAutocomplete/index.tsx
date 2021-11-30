@@ -2,7 +2,7 @@ import React, { FC, useState, KeyboardEvent } from "react";
 
 import { SearchAutocompleteProps } from "./interface";
 
-import SuggestionsListComponent from "./suggestionsListComponent";
+import SuggestionsListComponent from "./SuggestionsListComponent";
 import {
   Form,
   Input,
@@ -15,7 +15,7 @@ import {
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
-  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
@@ -29,7 +29,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
 
     setSearchTerm(e.currentTarget.value);
     setFilteredSuggestions(filteredList);
-    setActiveSuggestionIndex(0);
     setShowSuggestions(true);
     setShowClearButton(true);
   };
@@ -39,22 +38,19 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
     setShowClearButton(false);
   };
 
-  const chooseSuggestion = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    e.preventDefault();
+  const chooseSuggestion = (suggestion: string) => {
     setFilteredSuggestions([]);
-    setSearchTerm(e.currentTarget.innerText);
-    setActiveSuggestionIndex(0);
+    setSearchTerm(suggestion);
+    setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
-
-  //It's working, but I would like to prevent behaviour that
-  //after I hit the last suggestion the background style don't vanish
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
-        setSearchTerm(filteredSuggestions[activeSuggestionIndex]);
+        const test = filteredSuggestions[activeSuggestionIndex];
+        setSearchTerm(test);
         setFilteredSuggestions([]);
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
@@ -80,6 +76,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
       aria-haspopup="listbox"
     >
       <Form
+        // autoComplete="off"
         onSubmit={(e) => {
           e.preventDefault();
         }}
@@ -90,13 +87,14 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
         <Input
           id="input-search"
           type="text"
+          autoComplete="off"
           placeholder="Szukaj problemów matematycznych"
           aria-label="Szukaj problemów"
           aria-autocomplete="list"
           aria-controls="autocomplete-options"
           value={searchTerm}
           onChange={handleChange}
-          onKeyDown={(e) => e}
+          onKeyDown={handleKeyDown}
           onSubmit={(e) => {
             e.preventDefault();
           }}
