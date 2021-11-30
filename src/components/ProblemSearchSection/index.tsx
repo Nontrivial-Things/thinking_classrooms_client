@@ -12,7 +12,7 @@ const ProblemSearchSection: FC = () => {
       flexDirection="column"
       margin="0"
       padding="1.5em 1em"
-      paddingDT="1.5em 1em"
+      paddingDT="1.5em"
     >
       <H2>Szukaj problemów matematycznych</H2>
       <SearchAutocomplete

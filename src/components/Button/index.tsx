@@ -8,10 +8,10 @@ import {
 import { ButtonProps } from "./interface";
 
 const Button: FC<ButtonProps> = ({
+  children,
   isPrimary = true,
   disabled = false,
   withDownloadIcon = false,
-  children,
   isHidden = false,
 }) => {
   return (

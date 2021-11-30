@@ -9,7 +9,7 @@ import { primaryBackground } from "../../assets/styles/colors";
 
 const ProblemIndex: FC = () => {
   return (
-    <Wrapper background={primaryBackground} flexDirection="column">
+    <Wrapper background={primaryBackground} flexDirection="column" margin="0">
       <ResultCountLabel count={3}></ResultCountLabel>
       <SearchResultTile
         text="Określenie ciągu. Sposoby opisywania ciągów."

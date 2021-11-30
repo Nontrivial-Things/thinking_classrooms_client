@@ -21,7 +21,7 @@ const Wrapper = styled.div<PropsOptional>`
     padding: 0 6.25em;
   }
   @media ${minDevice.desktopXL} {
-    padding: 0 12.5em;
+    padding: 1.5em 12.5em;
   }
 `;
 
