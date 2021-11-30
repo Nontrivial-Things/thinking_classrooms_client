@@ -2,23 +2,23 @@ import { render, screen } from "@testing-library/react";
 
 import SearchResultTile from "./index";
 
-describe("Search Problem Result Tile", () => {
+describe("<SearchResultTile />", () => {
+  const date = new Intl.DateTimeFormat("pl-PL", {
+    dateStyle: "medium",
+  }).format(new Date());
+
   it("displays given problem text details", () => {
     render(
       <SearchResultTile
         text="Określenie ciągu"
         tags={["ciągi", "noga"]}
-        date={new Intl.DateTimeFormat("en-GB", {
+        date={new Intl.DateTimeFormat("pl-PL", {
           dateStyle: "medium",
         }).format(new Date())}
         author="Maria Salomea Skłodowska-Curie"
         educationStage="Dowolony etap edukacji"
       />
     );
-
-    const date = new Intl.DateTimeFormat("en-GB", {
-      dateStyle: "medium",
-    }).format(new Date());
 
     expect(screen.getByText("Określenie ciągu")).toBeInTheDocument();
     expect(screen.getByText(date)).toBeInTheDocument();
@@ -28,21 +28,20 @@ describe("Search Problem Result Tile", () => {
     expect(screen.getByText("ciągi")).toBeInTheDocument();
     expect(screen.getByText("Dowolony etap edukacji")).toBeInTheDocument();
   });
-  it("shoud displays button", () => {
+
+  it("displays button to see given problem details", () => {
     render(
       <SearchResultTile
         text="Określenie ciągu"
         tags={["ciągi", "noga"]}
-        date={new Intl.DateTimeFormat("en-GB", {
-          dateStyle: "medium",
-        }).format(new Date())}
+        date={date}
         author="Maria Salomea Skłodowska-Curie"
         educationStage="Dowolony etap edukacji"
       />
     );
 
-    const button = screen.queryByRole("button", { name: "Zobacz treści" });
-    expect(screen.getByText("Zobacz treści")).toBeInTheDocument();
+    const button = screen.queryByRole("button", { name: "Zobacz treść" });
+    expect(screen.getByText("Zobacz treść")).toBeInTheDocument();
     expect(button).not.toBeInTheDocument();
   });
 });

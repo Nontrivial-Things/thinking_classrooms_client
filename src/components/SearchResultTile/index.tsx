@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import Tag from "../Tag";
 import Button from "../Button";
 import {
@@ -6,9 +7,9 @@ import {
   AuthorWrapper,
   TagWrapper,
   DetailsWrapper,
-  DetailsP,
-  TitleP,
-  StageP,
+  Details,
+  Title,
+  Stage,
 } from "./styledComponents";
 import { SearchResultTileProps } from "./interface";
 
@@ -22,22 +23,20 @@ const SearchResultTile: FC<SearchResultTileProps> = ({
   return (
     <SearchResultTileWrapper>
       <DetailsWrapper>
-        <TitleP>{text}</TitleP>
+        <Title>{text}</Title>
         <AuthorWrapper>
-          <DetailsP>{author}</DetailsP>
-          <DetailsP>•</DetailsP>
-          <DetailsP>{date}</DetailsP>
+          <Details>{author}</Details>
+          <Details>•</Details>
+          <Details>{date}</Details>
         </AuthorWrapper>
         <TagWrapper>
-          <StageP>{educationStage}</StageP>
+          <Stage>{educationStage}</Stage>
           {tags &&
-            tags.map((tagText: string, index: number) => {
-              return <Tag text={tagText} key={tagText} />;
-            })}
+            tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </TagWrapper>
       </DetailsWrapper>
       <Button isPrimary={false} isHidden>
-        Zobacz treści
+        Zobacz treść
       </Button>
     </SearchResultTileWrapper>
   );
