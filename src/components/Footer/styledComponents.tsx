@@ -8,10 +8,10 @@ const FooterWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   background: ${darkGradientBackground};
   padding-top: 1em;
+  bottom: 0;
 `;
 
 const ContactWrapper = styled.div`
