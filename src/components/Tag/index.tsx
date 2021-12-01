@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { TagWrapper, RemoveButton, RemoveTagIcon } from "./styledComponents";
+import { TagWrapper, RemoveButton, RemoveTagIcon } from "./styles";
 import { TagProps } from "./interface";
 
 const Tag: FC<TagProps> = ({ text, isDroppable = false }) => {

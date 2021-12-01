@@ -2,17 +2,12 @@ import { FC } from "react";
 
 import Mail from "../../assets/img/icons/mail.svg";
 import Logo from "../Logo";
-import P from "../P/styledComponents";
-import Row from "../Row/styledComponents";
-import Icon from "../Icon/styledComponents";
-import Wrapper from "../Wrapper/styledComponents";
-import Column from "../Column/styledComponents";
-import {
-  FooterWrapper,
-  ContactWrapper,
-  FooterP,
-  MailA,
-} from "./styledComponents";
+import P from "../P";
+import Row from "../Row";
+import Icon from "../Icon";
+import Wrapper from "../Wrapper";
+import Column from "../Column";
+import { FooterWrapper, ContactWrapper, FooterP, MailA } from "./styles";
 import { white, lightGrey } from "../../assets/styles/colors";
 
 const Footer: FC = () => {

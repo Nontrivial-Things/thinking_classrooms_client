@@ -8,7 +8,7 @@ import {
   NavbarMenuItem,
   HamburgerImg,
   MenuIconButton,
-} from "./styledComponents";
+} from "./styles";
 import hamburger from "../../assets/img/icons/menu.svg";
 import hamburgerX from "../../assets/img/icons/x.svg";
 

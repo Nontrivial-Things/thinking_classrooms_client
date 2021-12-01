@@ -2,7 +2,7 @@ import React, { FC, useState, KeyboardEvent } from "react";
 
 import { SearchAutocompleteProps } from "./interface";
 
-import SuggestionsListComponent from "./SuggestionsListComponent";
+import SuggestionsList from "./suggestionsList";
 import {
   Form,
   Input,
@@ -11,7 +11,7 @@ import {
   RemoveIcon,
   Combobox,
   Button,
-} from "./styledComponents";
+} from "./styles";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
@@ -109,7 +109,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
           </Button>
         )}
         {showSuggestions && searchTerm && (
-          <SuggestionsListComponent
+          <SuggestionsList
             filteredSuggestions={filteredSuggestions}
             activeSuggestionIndex={activeSuggestionIndex}
             chooseSuggestion={chooseSuggestion}

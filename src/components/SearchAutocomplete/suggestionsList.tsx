@@ -1,6 +1,6 @@
 import React, { FC, useRef } from "react";
 import { SuggestionsProps } from "./interface";
-import { SuggestionList, Suggestion } from "./styledComponents";
+import { SuggestionList, Suggestion } from "./styles";
 import { ReactComponent as Clipboard } from "../../assets/img/icons/clipboard.svg";
 
 const SuggestionsListComponent: FC<SuggestionsProps> = ({

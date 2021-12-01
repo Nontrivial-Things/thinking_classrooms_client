@@ -4,7 +4,7 @@ import {
   Button as SButton,
   DownloadIconDisabled,
   DownloadIcon,
-} from "./styledComponents";
+} from "./styles";
 import { ButtonProps } from "./interface";
 
 const Button: FC<ButtonProps> = ({

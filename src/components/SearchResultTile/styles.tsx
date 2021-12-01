@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { minDevice } from "../../assets/styles/breakpoints";
 import { textDetails, white, lightGrey } from "../../assets/styles/colors";
-import Wrapper from "../Wrapper/styledComponents";
+import Wrapper from "../Wrapper";
 
 const SearchResultTileWrapper = styled(Wrapper)`
   width: 100%;

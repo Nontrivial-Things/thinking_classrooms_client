@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ResultCountWrapper, ResultCountP } from "./styledComponents";
+import { ResultCountWrapper, ResultCountP } from "./styles";
 import { ResultCountWrapperProps } from "./interface";
 
 const ResultCountLabel: FC<ResultCountWrapperProps> = ({ count }) => {

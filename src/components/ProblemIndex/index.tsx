@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import ResultCountLabel from "../ResultCountLabel";
-import Wrapper from "../Wrapper/styledComponents";
+import Wrapper from "../Wrapper";
 import SearchResultTile from "../SearchResultTile";
 import { primaryBackground } from "../../assets/styles/colors";
 

@@ -10,7 +10,7 @@ import {
   Details,
   Title,
   Stage,
-} from "./styledComponents";
+} from "./styles";
 import { SearchResultTileProps } from "./interface";
 
 const SearchResultTile: FC<SearchResultTileProps> = ({

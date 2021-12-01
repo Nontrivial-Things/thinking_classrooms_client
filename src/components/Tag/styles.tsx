@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Wrapper from "../Wrapper/styledComponents";
+import Wrapper from "../Wrapper";
 
 import { tagBackground, tagText } from "../../assets/styles/colors";
 import { ReactComponent as RemoveIcon } from "../../assets/img/icons/remove-icon.svg";
