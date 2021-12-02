@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
     color: #1F1F1F;
+    position: relative;
   }
 
   input:-webkit-autofill {

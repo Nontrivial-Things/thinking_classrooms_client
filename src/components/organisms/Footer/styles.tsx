@@ -8,7 +8,7 @@ const FooterWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   background: ${darkGradientBackground};
   padding-top: 1.6rem;
   bottom: 0;
