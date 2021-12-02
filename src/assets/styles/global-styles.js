@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
     color: #1F1F1F;
+
     /* -webkit-font-smoothing: antialiased; */
   }
 
@@ -25,6 +26,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'PT Sans', sans-serif;
+    font-size: 160%;
+    font-size: 1.6rem;
+  }
+
+  html {
+    font-size: 62.5%;
   }
 
   #app {
@@ -54,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
     vertical-align: baseline;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -73,6 +80,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     line-height: 1;
+
   }
 
   ol, ul {

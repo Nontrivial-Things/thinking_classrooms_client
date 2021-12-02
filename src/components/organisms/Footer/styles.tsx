@@ -34,7 +34,7 @@ const FooterP = styled(P)`
   font-weight: 700;
   color: ${white};
   @media ${minDevice.desktopTablet} {
-    font-size: 3.2rem;
+    font-size: 2rem;
   }
   @media ${minDevice.desktopL} {
     font-size: 2.4rem;

@@ -93,6 +93,9 @@ const Suggestion = styled.li<SuggestionProps>`
     css`
       background: rgba(22, 28, 86, 0.1);
     `}
+  &>span {
+    font-size: 1.4rem;
+  }
 `;
 
 const Button = styled.button`
