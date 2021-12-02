@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-import ResultCountLabel from "../../components/atoms/ResultCountLabel";
-import Wrapper from "../../components/atoms/Wrapper";
-import SearchResultTile from "../../components/molecules/SearchResultTile";
-import { primaryBackground } from "../../assets/styles/colors";
+import ResultCountLabel from "../../atoms/ResultCountLabel";
+import Wrapper from "../../atoms/Wrapper";
+import SearchResultTile from "../../molecules/SearchResultTile";
+import { primaryBackground } from "../../../assets/styles/colors";
 
 const ProblemIndex: FC = () => {
   return (
