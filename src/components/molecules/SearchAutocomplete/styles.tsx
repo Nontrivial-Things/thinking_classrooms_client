@@ -36,9 +36,9 @@ const Input = styled.input`
   height: 4.8rem;
   box-sizing: border-box;
   padding: 0 4rem;
-  border-radius: 5px;
   background: ${white};
   border: none;
+  border-radius: 5px;
   font-family: inherit;
   font-size: 1.4rem;
   line-height: 2.4rem;
@@ -67,11 +67,14 @@ const RemoveIcon = styled(ClearIcon)`
 `;
 
 const SuggestionList = styled.ul`
-  position: relative;
+  position: absolute;
+  background-color: ${white};
   width: 100%;
   max-height: 36rem;
   border-top: 1px solid;
   border-top-color: ${activeButton};
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgb(0 0 0 / 10%);
   overflow: scroll;
   @media ${minDevice.desktopL} {
     max-height: 48.9rem;
@@ -111,7 +114,6 @@ const Button = styled.button`
 
 const Combobox = styled.div`
   width: 100%;
-  height: 8rem;
   box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
   z-index: 10;
   @media ${minDevice.desktopTablet} {

@@ -41,7 +41,7 @@ const Button = styled.button<ButtonStyleProps>`
 
   @media ${minDevice.desktopL} {
     padding: 1.6rem 4.8rem;
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
   ${(props) =>
@@ -66,7 +66,7 @@ const Button = styled.button<ButtonStyleProps>`
       }
       @media ${minDevice.desktopL} {
         padding: 1.6rem 3.2rem;
-        font-size: 1rem;
+        font-size: 1.6rem;
       }
     `}
 

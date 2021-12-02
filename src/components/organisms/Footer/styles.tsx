@@ -19,13 +19,13 @@ const ContactWrapper = styled.div`
   margin-top: 1.6rem;
   @media ${minDevice.desktopTablet} {
     margin-top: 0;
-    padding-right: calc(8.3rem - 2.4rem);
+    padding-right: 5.9rem;
   }
   @media ${minDevice.desktopL} {
-    padding-right: calc(24.6rem - 10rem);
+    padding-right: 14.6rem;
   }
   @media ${minDevice.desktopXL} {
-    padding-right: calc(32.7rem - 20rem);
+    padding-right: 12.7rem;
   }
 `;
 
