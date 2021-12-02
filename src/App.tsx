@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 import Navbar from "./components/atoms/Navbar";
-import Footer from "./components/molecules/Footer";
-import ProblemIndex from "./components/organisms/ProblemIndex";
-import ProblemSearchSection from "./components/molecules/ProblemSearchSection";
+import Footer from "./components/organisms/Footer";
+import ProblemIndex from "./components/ProblemIndex";
+import ProblemSearchSection from "./components/organisms/ProblemSearchSection";
 
 const App: FC = () => {
   return (

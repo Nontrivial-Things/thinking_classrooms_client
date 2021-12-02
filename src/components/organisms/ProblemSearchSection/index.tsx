@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import SearchAutocomplete from "../SearchAutocomplete";
+import SearchAutocomplete from "../../molecules/SearchAutocomplete";
 import Wrapper from "../../atoms/Wrapper";
 import H2 from "./styles";
 import { darkGradientBackground } from "../../../assets/styles/colors";
