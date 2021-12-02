@@ -16,8 +16,6 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
     color: #1F1F1F;
-
-    /* -webkit-font-smoothing: antialiased; */
   }
 
   input:-webkit-autofill {
@@ -61,7 +59,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    /* font-size: 62.5%; */
     vertical-align: baseline;
   }
   h1, h2, h3, h4, h5, h6 {
