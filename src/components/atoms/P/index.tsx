@@ -5,7 +5,7 @@ import { minDevice } from "../../../assets/styles/breakpoints";
 type PropsOptional = Partial<PProps>;
 
 const P = styled.p<PropsOptional>`
-  font-size: ${(props) => props.fontSize || "1em"};
+  font-size: ${(props) => props.fontSize || "1.6rem"};
   font-weight: ${(props) => props.fontWeight || "400"};
   color: ${(props) => props.color || "inherit"};
   text-align: ${(props) => props.textAlign || "inherit"};

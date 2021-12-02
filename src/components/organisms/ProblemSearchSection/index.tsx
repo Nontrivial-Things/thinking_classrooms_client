@@ -11,8 +11,8 @@ const ProblemSearchSection: FC = () => {
       background={darkGradientBackground}
       flexDirection="column"
       margin="0"
-      padding="1.5em 1em"
-      paddingDT="1.5em"
+      padding="2.4rem 1.6rem"
+      paddingDT="2.4rem"
     >
       <H2>Szukaj problemów matematycznych</H2>
       <SearchAutocomplete

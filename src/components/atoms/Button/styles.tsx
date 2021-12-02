@@ -14,13 +14,13 @@ const Button = styled.button<ButtonStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 32px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  padding: 0.8rem 3.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   border: none;
   border-radius: 5px;
   background-color: ${activeButton};
   font-family: "PT Sans", sans-serif;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.04rem;
@@ -40,7 +40,7 @@ const Button = styled.button<ButtonStyleProps>`
   }
 
   @media ${minDevice.desktopL} {
-    padding: 16px 48px;
+    padding: 1.6rem 4.8rem;
     font-size: 1rem;
   }
 
@@ -65,7 +65,7 @@ const Button = styled.button<ButtonStyleProps>`
         stroke: ${disabledButton};
       }
       @media ${minDevice.desktopL} {
-        padding: 16px 32px;
+        padding: 1.6rem 3.2rem;
         font-size: 1rem;
       }
     `}
@@ -81,9 +81,9 @@ const Button = styled.button<ButtonStyleProps>`
 `;
 
 const DownloadIcon = styled(Download)`
-  width: 16px;
+  width: 1.6rem;
   stroke: ${activeButton};
-  margin-right: 8px;
+  margin-right: 0.8rem;
 `;
 
 const DownloadIconDisabled = styled(DownloadIcon)`

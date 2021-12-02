@@ -8,20 +8,20 @@ const Wrapper = styled.div<PropsOptional>`
   flex-direction: ${(props) => props.flexDirection || "row"};
   justify-content: ${(props) => props.justifyContent || "inherit"};
   align-items: ${(props) => props.alignItems || "inherit"};
-  padding: ${(props) => props.padding || "1em"};
-  margin: ${(props) => props.margin || "1em"};
+  padding: ${(props) => props.padding || "1.6rem"};
+  margin: ${(props) => props.margin || "1.6rem"};
   background: ${(props) => props.background};
   width: auto;
 
   @media ${minDevice.desktopTablet} {
     flex-direction: ${(props) => props.flexDirectionDT};
-    padding: ${(props) => props.paddingDT || "0 1.5em"};
+    padding: ${(props) => props.paddingDT || "0 2.4rem"};
   }
   @media ${minDevice.desktopL} {
-    padding: 0 6.25em;
+    padding: 0 10rem;
   }
   @media ${minDevice.desktopXL} {
-    padding: 1.5em 12.5em;
+    padding: 2.4rem 20rem;
   }
 `;
 

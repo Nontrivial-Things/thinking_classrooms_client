@@ -23,7 +23,7 @@ const Footer: FC = () => {
         <S.ContactWrapper>
           <S.FooterP>Kontakt</S.FooterP>
           <Row>
-            <Icon color={white} width="1em">
+            <Icon color={white} width="1.6rem">
               <img src={Mail} />
             </Icon>
             <S.MailA href="mailto:myslaceklasy@email.com">
@@ -36,9 +36,9 @@ const Footer: FC = () => {
         <P
           color={lightGrey}
           textAlign="center"
-          fontSize="0.875em"
-          paddingBottom="0.25em"
-          marginTop="1.75em"
+          fontSize="1.4rem"
+          paddingBottom="0.4rem"
+          marginTop="2.8rem"
         >
           © Copyrights 2020.
         </P>

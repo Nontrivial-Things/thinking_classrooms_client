@@ -10,47 +10,47 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   position: relative;
   background: ${darkGradientBackground};
-  padding-top: 1em;
+  padding-top: 1.6rem;
   bottom: 0;
 `;
 
 const ContactWrapper = styled.div`
-  padding-left: 2em;
-  margin-top: 1em;
+  padding-left: 3.2rem;
+  margin-top: 1.6rem;
   @media ${minDevice.desktopTablet} {
     margin-top: 0;
-    padding-right: calc(83px - 1.5em);
+    padding-right: calc(8.3rem - 2.4rem);
   }
   @media ${minDevice.desktopL} {
-    padding-right: calc(246px - 6.25em);
+    padding-right: calc(24.6rem - 10rem);
   }
   @media ${minDevice.desktopXL} {
-    padding-right: calc(327px - 12.5em);
+    padding-right: calc(32.7rem - 20rem);
   }
 `;
 
 const FooterP = styled(P)`
-  font-size: 0.875em;
+  font-size: 1.4rem;
   font-weight: 700;
   color: ${white};
   @media ${minDevice.desktopTablet} {
-    font-size: 1.25em;
+    font-size: 3.2rem;
   }
   @media ${minDevice.desktopL} {
-    font-size: 1.5em;
+    font-size: 2.4rem;
   }
 `;
 
 const MailA = styled.a`
-  font-size: 0.75em;
+  font-size: 1.2rem;
   font-weight: 400;
   color: ${white};
   &:hover {
     text-decoration-line: underline;
   }
   @media ${minDevice.desktopTablet} {
-    font-size: 1em;
-    line-height: 2em;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
   }
 `;
 

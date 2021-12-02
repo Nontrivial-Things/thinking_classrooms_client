@@ -17,7 +17,7 @@ const Icon = styled.div<PropsOptional>`
     color: ${(props) => props.hoverColor};
   }
   @media ${minDevice.desktopTablet} {
-    padding-right: ${(props) => props.paddingRight || "0.2em"};
+    padding-right: ${(props) => props.paddingRight || "0.32rem"};
   }
 `;
 
