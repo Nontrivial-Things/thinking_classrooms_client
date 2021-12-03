@@ -33,12 +33,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex; 
     flex-direction: column; 
   }
-/* 
-  #app {
-    background-color: #E5E5E5;
-    min-height: 100%;
-    min-width: 100%;
-  } */
 
   p,
   label {
