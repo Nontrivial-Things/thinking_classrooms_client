@@ -10,12 +10,15 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-display: auto;
   }
+  
   html,
   body {
     height: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
     color: #1F1F1F;
+    display: flex; 
+    flex-direction: column; 
   }
 
   input:-webkit-autofill {
@@ -30,12 +33,6 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-  }
-
-  #app {
-    background-color: #E5E5E5;
-    min-height: 100%;
-    min-width: 100%;
   }
 
   p,

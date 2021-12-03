@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SuggestionProps } from "./interface";
+import { SuggestionProps, InputStyleProps } from "./interface";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
@@ -29,16 +29,19 @@ const Form = styled.form`
   width: 100%;
   background: ${white};
   position: relative;
+  border-radius: 5px;
 `;
 
-const Input = styled.input`
+const Input = styled.input<InputStyleProps>`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
   padding: 0 3.5rem;
   background: ${white};
   border: none;
-  border-radius: 5px;
+  border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   font-family: inherit;
   font-size: 1.4rem;
   line-height: 2.4rem;
@@ -82,7 +85,8 @@ const SuggestionList = styled.ul`
   max-height: 36rem;
   border-top: 1px solid;
   border-top-color: ${activeButton};
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   box-shadow: 0px 2px 8px rgb(0 0 0 / 10%);
   overflow: scroll;
   @media ${minDevice.desktopL} {

@@ -18,6 +18,7 @@ const Footer: FC = () => {
         flexDirectionDT="row"
         justifyContent="space-between"
         alignItems="flex-start"
+        margin="0"
       >
         <Logo isBackgroundDark />
         <S.ContactWrapper>

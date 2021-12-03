@@ -7,7 +7,12 @@ import { primaryBackground } from "../../../assets/styles/colors";
 
 const ProblemIndex: FC = () => {
   return (
-    <Wrapper background={primaryBackground} flexDirection="column" margin="0">
+    <Wrapper
+      background={primaryBackground}
+      flexDirection="column"
+      margin="0"
+      minHeight="100vh"
+    >
       <ResultCountLabel count={3}></ResultCountLabel>
       <SearchResultTile
         text="Określenie ciągu. Sposoby opisywania ciągów."

@@ -11,3 +11,7 @@ export interface SuggestionsProps {
 export interface SuggestionProps {
   isSelected?: boolean;
 }
+
+export interface InputStyleProps {
+  showSuggestions: boolean;
+}

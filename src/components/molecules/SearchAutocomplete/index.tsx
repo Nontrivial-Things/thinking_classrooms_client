@@ -28,6 +28,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
   const clearInput = () => {
     setSearchTerm("");
     setShowClearButton(false);
+    setShowSuggestions(false);
   };
 
   const chooseSuggestion = (suggestion: string) => {
@@ -68,7 +69,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
       aria-haspopup="listbox"
     >
       <S.Form
-        // autoComplete="off"
         onSubmit={(e) => {
           e.preventDefault();
         }}
@@ -90,6 +90,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
           onSubmit={(e) => {
             e.preventDefault();
           }}
+          showSuggestions={showSuggestions}
         />
         {showClearButton && searchTerm && (
           <S.Button aria-label="Remove button" onClick={() => clearInput()}>

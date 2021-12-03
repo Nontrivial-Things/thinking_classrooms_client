@@ -3,11 +3,12 @@ interface WraperProps {
   flexDirectionDT: string;
   margin: string;
   padding: string;
+  paddingDT: string;
   justifyContent: string;
   alignItems: string;
   background: string;
   width: string;
-  paddingDT: string;
+  minHeight: string;
 }
 
 export type PropsOptional = Partial<WraperProps>;

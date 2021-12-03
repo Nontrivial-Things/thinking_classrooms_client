@@ -8,10 +8,16 @@ const FooterWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
   background: ${darkGradientBackground};
   padding-top: 1.6rem;
-  bottom: 0;
+  min-height: 15.2rem;
+  margin-top: auto;
+  @media ${minDevice.desktopTablet} {
+    min-height: 12.8rem;
+  }
+  @media ${minDevice.desktopL} {
+    min-height: 16rem;
+  }
 `;
 
 const ContactWrapper = styled.div`

@@ -12,6 +12,7 @@ const Wrapper = styled.div<PropsOptional>`
   margin: ${(props) => props.margin || "1.6rem"};
   background: ${(props) => props.background};
   width: auto;
+  min-height: ${(props) => props.minHeight};
 
   @media ${minDevice.desktopTablet} {
     flex-direction: ${(props) => props.flexDirectionDT};
