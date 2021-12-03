@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
   
   html,
   body {
-    min-height: 100vh;
+    height: 100%;
+    min-height: 100%;
     width: 100%;
     color: #1F1F1F;
     display: flex; 
