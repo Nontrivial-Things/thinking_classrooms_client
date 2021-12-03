@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   }
   html,
   body {
-    height: 100%;
     min-height: 100vh;
     width: 100%;
     color: #1F1F1F;
@@ -31,13 +30,15 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
+    display: flex; 
+    flex-direction: column; 
   }
-
+/* 
   #app {
     background-color: #E5E5E5;
     min-height: 100%;
     min-width: 100%;
-  }
+  } */
 
   p,
   label {

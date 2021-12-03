@@ -12,6 +12,8 @@ const FooterWrapper = styled.div`
   background: ${darkGradientBackground};
   padding-top: 1.6rem;
   bottom: 0;
+  min-height: 16rem;
+  margin-top: auto;
 `;
 
 const ContactWrapper = styled.div`
