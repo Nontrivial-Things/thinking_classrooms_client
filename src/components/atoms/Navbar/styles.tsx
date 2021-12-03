@@ -3,11 +3,28 @@ import styled from "styled-components";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { activeLink } from "../../../assets/styles/colors";
 import Wrapper from "../Wrapper";
+import Row from "../Row";
+import { WrapperProps } from "../Wrapper/interface";
 
-const NavbarDiv = styled(Wrapper)`
-  height: 8rem;
+const HeaderWrapper = styled.div`
+  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 11;
+  display: flex;
+`;
+
+const NavbarWrapper = styled(Wrapper)`
+  height: 8rem;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  z-index: 5000;
+  background: white;
+  padding-top: 3.2rem;
+  padding-bottom: 1.6rem;
+  box-sizing: border-box;
 
   &.active {
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
@@ -15,58 +32,73 @@ const NavbarDiv = styled(Wrapper)`
 
   @media ${minDevice.desktopTablet} {
     height: 6.4rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
     box-shadow: none;
   }
 
   @media ${minDevice.desktopL} {
     height: 7.2rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
   }
 `;
 const NavbarMenu = styled.nav`
   transform: translateY(-150%);
   position: absolute;
   z-index: 2;
-
-  @media ${minDevice.desktopTablet} {
-    transform: translateY(-0%);
-    position: relative;
-  }
-`;
-
-const NavbarMenuList = styled.ol`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   height: 11.2rem;
   transform: translateY(-150%);
   transition: transform 0.5s;
   background-color: white;
-  position: absolute;
+  display: flex;
+  justify-content: flex-start;
 
   &.active {
-    transform: translateY(-30%);
+    transform: translateY(0%);
     top: 8rem;
     width: 100vw;
-    position: absolute;
     z-index: 3;
   }
+
+  @media ${minDevice.desktopTablet} {
+    transform: translateY(-0%);
+    position: relative;
+    padding-right: 2.4rem;
+    height: auto;
+  }
+
+  @media ${minDevice.desktopL} {
+    padding-right: 10rem;
+  }
+
+  @media ${minDevice.desktopXL} {
+    padding-right: 20rem;
+  }
+`;
+
+const NavbarMenuList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 2rem;
 
   @media ${minDevice.desktopTablet} {
     flex-direction: row;
     transform: translateY(-0%);
     transition: none;
-    position: relative;
     align-items: center;
     height: auto;
+    white-space: nowrap;
   }
 `;
 
 const NavbarMenuItem = styled.li`
   font-size: 1.4rem;
-  display: flex;
-  position: relative;
   cursor: pointer;
-  padding-left: 1.1rem;
+
+  width: 100%;
 
   @media ${minDevice.desktopTablet} {
     display: block;
@@ -115,7 +147,8 @@ const MenuIconButton = styled.button`
 `;
 
 export {
-  NavbarDiv,
+  HeaderWrapper,
+  NavbarWrapper,
   NavbarMenu,
   NavbarMenuList,
   NavbarMenuItem,
