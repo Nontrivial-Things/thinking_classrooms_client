@@ -10,12 +10,14 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-display: auto;
   }
+  
   html,
   body {
     min-height: 100vh;
     width: 100%;
     color: #1F1F1F;
-    position: relative;
+    display: flex; 
+    flex-direction: column; 
   }
 
   input:-webkit-autofill {
@@ -30,8 +32,6 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-    display: flex; 
-    flex-direction: column; 
   }
 
   p,

@@ -16,7 +16,7 @@ const FooterWrapper = styled.div`
     min-height: 12.8rem;
   }
   @media ${minDevice.desktopL} {
-    padding-right: 16rem;
+    min-height: 16rem;
   }
 `;
 
