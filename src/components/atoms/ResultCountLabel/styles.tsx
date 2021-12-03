@@ -12,7 +12,7 @@ const ResultCountWrapper = styled(Wrapper)`
   justify-content: flex-start;
   align-items: center;
   z-index: 1;
-  margin: 1.5em 0;
+  margin: 2.4rem 0;
   padding: 0;
 
   &::after {
@@ -36,12 +36,12 @@ const ResultCountWrapper = styled(Wrapper)`
 `;
 
 const ResultCountP = styled(P)`
-  line-height: 1.5em;
+  line-height: 2.4rem;
   background-color: ${primaryBackground};
-  height: 1.5em;
-  padding-right: 8px;
+  height: 2.4rem;
+  padding-right: 0.8rem;
   z-index: 3;
   position: relative;
-  font-size: 0.875em;
+  font-size: 1.4rem;
 `;
 export { ResultCountWrapper, ResultCountP };

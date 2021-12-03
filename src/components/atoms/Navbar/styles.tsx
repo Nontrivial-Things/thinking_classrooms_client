@@ -5,7 +5,7 @@ import { activeLink } from "../../../assets/styles/colors";
 import Wrapper from "../Wrapper";
 
 const NavbarDiv = styled(Wrapper)`
-  height: 5em;
+  height: 8rem;
   justify-content: space-between;
   align-items: center;
 
@@ -14,12 +14,12 @@ const NavbarDiv = styled(Wrapper)`
   }
 
   @media ${minDevice.desktopTablet} {
-    height: 4em;
+    height: 6.4rem;
     box-shadow: none;
   }
 
   @media ${minDevice.desktopL} {
-    height: 4.5em;
+    height: 7.2rem;
   }
 `;
 const NavbarMenu = styled.nav`
@@ -37,7 +37,7 @@ const NavbarMenuList = styled.ol`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 7em;
+  height: 11.2rem;
   transform: translateY(-150%);
   transition: transform 0.5s;
   background-color: white;
@@ -45,7 +45,7 @@ const NavbarMenuList = styled.ol`
 
   &.active {
     transform: translateY(-30%);
-    top: 80px;
+    top: 8rem;
     width: 100vw;
     position: absolute;
     z-index: 3;
@@ -62,18 +62,18 @@ const NavbarMenuList = styled.ol`
 `;
 
 const NavbarMenuItem = styled.li`
-  font-size: 0.875em;
+  font-size: 1.4rem;
   display: flex;
   position: relative;
   cursor: pointer;
-  padding-left: 0.69em;
+  padding-left: 1.1rem;
 
   @media ${minDevice.desktopTablet} {
     display: block;
     padding: 0;
 
     &:nth-child(1) {
-      margin-right: 1.5em;
+      margin-right: 2.4rem;
     }
     &:hover {
       font-weight: 700;
@@ -81,22 +81,22 @@ const NavbarMenuItem = styled.li`
 
     &.active {
       &::after {
-        height: 0.25em;
+        height: 0.4rem;
         width: 100%;
         background-color: ${activeLink};
-        border-radius: 0.625em 0.625em 0px 0px;
+        border-radius: 1rem 1rem 0 0;
         content: "";
         position: absolute;
-        bottom: -1.25em;
+        bottom: -2rem;
         left: 0;
       }
     }
   }
 
   @media ${minDevice.desktopL} {
-    font-size: 1em;
+    font-size: 1.6rem;
     &:nth-child(1) {
-      margin-right: 2em;
+      margin-right: 3.2rem;
     }
   }
 `;

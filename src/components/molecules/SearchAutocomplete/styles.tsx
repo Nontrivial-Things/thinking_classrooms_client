@@ -14,14 +14,14 @@ import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-ic
 
 const FormWrapper = styled.div`
   width: 100%;
-  height: 5em;
+  height: 8rem;
   box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
   z-index: 10;
   @media ${minDevice.desktopTablet} {
-    width: 22.5em;
+    width: 36rem;
   }
   @media ${minDevice.desktopL} {
-    width: 31.4375em;
+    width: 50.3rem;
   }
 `;
 
@@ -33,20 +33,29 @@ const Form = styled.form`
 
 const Input = styled.input`
   width: 100%;
-  height: 3em;
+  height: 4.8rem;
   box-sizing: border-box;
-  padding: 0 2.5em;
-  border-radius: 5px;
+  padding: 0 3.5rem;
   background: ${white};
   border: none;
+  border-radius: 5px;
   font-family: inherit;
-  font-size: 0.875em;
-  line-height: 1.5em;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
   ::placeholder {
     color: ${placeholder};
   }
   &:focus-visible {
     outline: none;
+  }
+
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
+
+  @media ${minDevice.desktopL} {
+    font-size: 1.6rem;
+    line-height: 3.2rem;
   }
 `;
 
@@ -56,32 +65,35 @@ const Label = styled.label`
 
 const SearchIcon = styled(LensIcon)`
   stroke: ${activeButton};
-  left: 0.5em;
+  left: 0.8rem;
   bottom: 0;
   position: absolute;
 `;
 
 const RemoveIcon = styled(ClearIcon)`
   fill: ${lightGrey};
-  width: 1em;
+  width: 1.6rem;
 `;
 
 const SuggestionList = styled.ul`
-  position: relative;
+  position: absolute;
+  background-color: ${white};
   width: 100%;
-  max-height: 22.5em;
+  max-height: 36rem;
   border-top: 1px solid;
   border-top-color: ${activeButton};
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgb(0 0 0 / 10%);
   overflow: scroll;
   @media ${minDevice.desktopL} {
-    max-height: 30.5625em;
+    max-height: 48.9rem;
   }
 `;
 
 const Suggestion = styled.li<SuggestionProps>`
-  font-size: 0.875em;
+  font-size: 1.4rem;
   box-sizing: border-box;
-  padding: 0.5em;
+  padding: 0.8rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -93,14 +105,17 @@ const Suggestion = styled.li<SuggestionProps>`
     css`
       background: rgba(22, 28, 86, 0.1);
     `}
+  &>span {
+    font-size: 1.4rem;
+  }
 `;
 
 const Button = styled.button`
-  width: 1em;
-  height: 1em;
+  width: 1.6rem;
+  height: 1.6rem;
   border: none;
-  right: 1.25em;
-  top: 0.7em;
+  right: 2rem;
+  top: 1.12rem;
   bottom: 0;
   position: absolute;
   background: transparent;
@@ -108,14 +123,13 @@ const Button = styled.button`
 
 const Combobox = styled.div`
   width: 100%;
-  height: 5em;
   box-shadow: 0px 4px 15px 0px rgba(22, 28, 86, 0.2);
   z-index: 10;
   @media ${minDevice.desktopTablet} {
-    width: 22.5em;
+    width: 36rem;
   }
   @media ${minDevice.desktopL} {
-    width: 31.4375em;
+    width: 50.3rem;
   }
 `;
 export {

@@ -1,9 +1,9 @@
 const size = {
   base: 0,
-  mobile: "320px",
-  desktopTablet: "600px",
-  desktopL: "900px",
-  desktopXL: "1280px",
+  mobile: "20em",
+  desktopTablet: "37.5em",
+  desktopL: "56.25em",
+  desktopXL: "80em",
 };
 
 export const minDevice = {

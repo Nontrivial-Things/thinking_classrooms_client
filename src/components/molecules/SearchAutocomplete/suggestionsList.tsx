@@ -23,7 +23,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
           onClick={() => chooseSuggestion(suggestion)}
           isSelected={index === activeSuggestionIndex}
         >
-          <Clipboard style={{ paddingRight: "0.5em" }} />
+          <Clipboard style={{ paddingRight: "0.8rem" }} />
           <span data-test-id="suggestion-text">{suggestion}</span>
         </S.Suggestion>
       ))}

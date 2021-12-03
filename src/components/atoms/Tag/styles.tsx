@@ -9,12 +9,12 @@ const TagWrapper = styled(Wrapper)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.75em 0 0.755em;
+  padding: 0 1.2rem 0 1.2rem;
   width: fit-content;
   background-color: ${tagBackground};
-  border-radius: 0.938em;
-  line-height: 1.5em;
-  font-size: 1em;
+  border-radius: 1.5rem;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
   color: ${tagText};
   font-weight: 700;
   margin: 0;
@@ -33,8 +33,8 @@ const RemoveButton = styled.button`
 
 const RemoveTagIcon = styled(RemoveIcon)`
   fill: ${tagText};
-  margin-left: 0.625em;
-  width: 0.875em;
+  margin-left: 1rem;
+  width: 1.4rem;
 `;
 
 export { TagWrapper, RemoveButton, RemoveTagIcon };
