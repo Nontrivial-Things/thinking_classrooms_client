@@ -35,7 +35,7 @@ const Input = styled.input`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
-  padding: 0 4rem;
+  padding: 0 3.5rem;
   background: ${white};
   border: none;
   border-radius: 5px;
@@ -47,6 +47,15 @@ const Input = styled.input`
   }
   &:focus-visible {
     outline: none;
+  }
+
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
+
+  @media ${minDevice.desktopL} {
+    font-size: 1.6rem;
+    line-height: 3.2rem;
   }
 `;
 
