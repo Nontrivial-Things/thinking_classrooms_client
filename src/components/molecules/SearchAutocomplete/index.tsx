@@ -69,8 +69,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
       aria-haspopup="listbox"
     >
       <S.Form
-        // autoComplete="off"
-        showSuggestions={showSuggestions}
         onSubmit={(e) => {
           e.preventDefault();
         }}

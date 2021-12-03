@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SuggestionProps, InputProps } from "./interface";
+import { SuggestionProps, InputStyleProps } from "./interface";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
@@ -25,14 +25,14 @@ const FormWrapper = styled.div`
   }
 `;
 
-const Form = styled.form<InputProps>`
+const Form = styled.form`
   width: 100%;
   background: ${white};
   position: relative;
   border-radius: 5px;
 `;
 
-const Input = styled.input<InputProps>`
+const Input = styled.input<InputStyleProps>`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
