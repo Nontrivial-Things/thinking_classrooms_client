@@ -23,8 +23,9 @@ const SearchResultTile: FC<SearchResultTileProps> = ({
         </S.AuthorWrapper>
         <S.TagWrapper>
           <S.Stage>{educationStage}</S.Stage>
-          {tags &&
-            tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
+          {/* {tags &&
+            tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)} */}
+          <Tag text={tags} key={tags} />
         </S.TagWrapper>
       </S.DetailsWrapper>
       <Button isPrimary={false} isHidden>
