@@ -4,7 +4,6 @@ import { minDevice } from "../../../assets/styles/breakpoints";
 
 const LogoDiv = styled.div<LogoDivProps>`
   width: ${(props) => props.width || "13.7rem"};
-  display: flex;
 
   @media ${minDevice.desktopTablet} {
     width: 15.8rem;

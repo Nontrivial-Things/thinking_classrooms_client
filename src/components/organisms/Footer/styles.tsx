@@ -37,13 +37,16 @@ const ContactWrapper = styled.div`
 
 const FooterP = styled(P)`
   font-size: 1.4rem;
+  line-height: 2.4rem;
   font-weight: 700;
   color: ${white};
   @media ${minDevice.desktopTablet} {
     font-size: 2rem;
+    line-height: 3.2rem;
   }
   @media ${minDevice.desktopL} {
     font-size: 2.4rem;
+    line-height: 4.8rem;
   }
 `;
 
