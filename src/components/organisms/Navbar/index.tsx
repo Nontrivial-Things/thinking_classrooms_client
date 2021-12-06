@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import Logo from "../Logo";
+import Logo from "../../atoms/Logo";
 import * as S from "./styles";
 import hamburger from "../../../assets/img/icons/menu.svg";
 import hamburgerX from "../../../assets/img/icons/x.svg";

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import Wrapper from "../Wrapper";
+import Wrapper from "../../atoms/Wrapper";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { activeLink, white } from "../../../assets/styles/colors";
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -14,9 +14,9 @@ const HeaderWrapper = styled.div`
 `;
 
 const NavbarWrapper = styled(Wrapper)`
-  height: 8rem;
+  /* height: 8rem; */
   width: 100%;
-  position: relative;
+  /* position: relative; */
   z-index: 12;
   background: ${white};
   padding-top: 3.2rem;
@@ -79,6 +79,7 @@ const NavbarMenuList = styled.ul`
   justify-content: space-evenly;
   align-items: flex-start;
   padding-left: 2rem;
+  width: 100vw;
 
   @media ${minDevice.desktopTablet} {
     flex-direction: row;
@@ -87,6 +88,7 @@ const NavbarMenuList = styled.ul`
     align-items: center;
     height: auto;
     white-space: nowrap;
+    width: auto;
   }
 `;
 
