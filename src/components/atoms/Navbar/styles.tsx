@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { activeLink } from "../../../assets/styles/colors";
 import Wrapper from "../Wrapper";
-import Row from "../Row";
-import { WrapperProps } from "../Wrapper/interface";
+
+import { minDevice } from "../../../assets/styles/breakpoints";
+import { activeLink, white } from "../../../assets/styles/colors";
 
 const HeaderWrapper = styled.div`
-  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -18,10 +16,9 @@ const HeaderWrapper = styled.div`
 const NavbarWrapper = styled(Wrapper)`
   height: 8rem;
   width: 100%;
-  justify-content: space-between;
   position: relative;
-  z-index: 5000;
-  background: white;
+  z-index: 12;
+  background: ${white};
   padding-top: 3.2rem;
   padding-bottom: 1.6rem;
   box-sizing: border-box;
@@ -50,9 +47,8 @@ const NavbarMenu = styled.nav`
   height: 11.2rem;
   transform: translateY(-150%);
   transition: transform 0.5s;
-  background-color: white;
+  background-color: ${white};
   display: flex;
-  justify-content: flex-start;
 
   &.active {
     transform: translateY(0%);
@@ -62,7 +58,7 @@ const NavbarMenu = styled.nav`
   }
 
   @media ${minDevice.desktopTablet} {
-    transform: translateY(-0%);
+    transform: translateY(0);
     position: relative;
     padding-right: 2.4rem;
     height: auto;
@@ -97,12 +93,10 @@ const NavbarMenuList = styled.ul`
 const NavbarMenuItem = styled.li`
   font-size: 1.4rem;
   cursor: pointer;
-
   width: 100%;
 
   @media ${minDevice.desktopTablet} {
     display: block;
-    padding: 0;
 
     &:nth-child(1) {
       margin-right: 2.4rem;
