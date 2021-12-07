@@ -20,16 +20,14 @@ const ProblemIndex: FC = () => {
       minHeight="100vh"
     >
       <ResultCountLabel count={problems?.length || 0}></ResultCountLabel>
-      {problems?.map(({ title, tag }, id) => (
+      {problems?.map(({ title, author, createdAt, level, tags }, id) => (
         <SearchResultTile
           key={id}
-          text={title}
-          tags={tag}
-          date={new Intl.DateTimeFormat("pl-PL", {
-            dateStyle: "medium",
-          }).format(new Date())}
-          author="Maria Salomea Skłodowska-Curie"
-          educationStage="Dowolony etap edukacji"
+          title={title}
+          tags={tags}
+          createdAt={createdAt}
+          author={author}
+          level={level}
         />
       ))}
     </Wrapper>

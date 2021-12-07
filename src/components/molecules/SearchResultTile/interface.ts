@@ -1,8 +1,12 @@
-export interface SearchResultTileProps {
-  text: string;
-  // tags: Array<string>;
-  tags: string;
-  date: string;
+export enum Level {
+  PRIMARY,
+  SECONDARY,
+  ANY,
+}
+export interface ProblemSummaryProps {
+  title: string;
+  tags: Array<string>;
+  createdAt: string;
   author: string;
-  educationStage: string;
+  level: Level;
 }

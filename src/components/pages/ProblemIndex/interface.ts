@@ -1,14 +1,18 @@
 import { gql } from "@apollo/client";
+import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 export interface GetProblemsQuery {
-  problems: { title: string; tag: string }[];
+  problems: Array<ProblemSummaryProps>;
 }
 
 export const PROBLEMS = gql`
   query GetProblems {
     problems {
       title
-      tag
+      author
+      createdAt
+      level
+      tags
     }
   }
 `;
