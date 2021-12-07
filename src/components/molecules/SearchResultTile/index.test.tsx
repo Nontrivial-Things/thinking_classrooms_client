@@ -1,47 +1,43 @@
 import { render, screen } from "@testing-library/react";
 
 import SearchResultTile from "./index";
+import { Level } from "./interface";
 
 describe("<SearchResultTile />", () => {
-  const date = new Intl.DateTimeFormat("pl-PL", {
-    dateStyle: "medium",
-  }).format(new Date());
-
   it("displays given problem text details", () => {
     render(
       <SearchResultTile
-        text="Określenie ciągu"
+        title="Określenie ciągu"
         tags={["ciągi", "noga"]}
-        date={new Intl.DateTimeFormat("pl-PL", {
-          dateStyle: "medium",
-        }).format(new Date())}
+        createdAt="01.01.2021"
         author="Maria Salomea Skłodowska-Curie"
-        educationStage="Dowolony etap edukacji"
+        level={Level.PRIMARY}
       />
     );
 
     expect(screen.getByText("Określenie ciągu")).toBeInTheDocument();
-    expect(screen.getByText(date)).toBeInTheDocument();
+    expect(screen.getByText("01.01.2021")).toBeInTheDocument();
     expect(
       screen.getByText("Maria Salomea Skłodowska-Curie")
     ).toBeInTheDocument();
     expect(screen.getByText("ciągi")).toBeInTheDocument();
-    expect(screen.getByText("Dowolony etap edukacji")).toBeInTheDocument();
+    expect(screen.getByText("noga")).toBeInTheDocument();
+    expect(screen.getByText("szkoła podstawowa")).toBeInTheDocument();
   });
 
-  it("displays button to see given problem details", () => {
-    render(
+  xit("displays button to see given problem details", () => {
+    const { debug } = render(
       <SearchResultTile
-        text="Określenie ciągu"
+        title="Określenie ciągu"
         tags={["ciągi", "noga"]}
-        date={date}
+        createdAt="01.01.2021"
         author="Maria Salomea Skłodowska-Curie"
-        educationStage="Dowolony etap edukacji"
+        level={Level.SECONDARY}
       />
     );
-
-    const button = screen.queryByRole("button", { name: "Zobacz treść" });
+    debug();
+    const button = screen.getByRole("button");
     expect(screen.getByText("Zobacz treść")).toBeInTheDocument();
-    expect(button).not.toBeInTheDocument();
+    expect(button).toBeInTheDocument();
   });
 });

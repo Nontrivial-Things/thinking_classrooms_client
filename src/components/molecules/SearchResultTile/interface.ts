@@ -1,7 +1,7 @@
 export enum Level {
-  PRIMARY,
-  SECONDARY,
-  ANY,
+  PRIMARY = "szkoła podstawowa",
+  SECONDARY = "szkoła średnia",
+  ANY = "dowolny etap edukacji",
 }
 export interface ProblemSummaryProps {
   title: string;
