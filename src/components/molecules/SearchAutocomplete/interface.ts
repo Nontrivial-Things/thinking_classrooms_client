@@ -1,9 +1,11 @@
-export interface SearchAutocompleteProps {
-  suggestions: Array<string>;
-}
+// export interface SearchAutocompleteProps {
+//   suggestions: Array<string>;
+// }
+
+import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
 
 export interface SuggestionsProps {
-  filteredSuggestions: Array<string>;
+  filteredSuggestions: Array<Suggestion>;
   activeSuggestionIndex: number;
   chooseSuggestion: (suggestion: string) => void;
 }

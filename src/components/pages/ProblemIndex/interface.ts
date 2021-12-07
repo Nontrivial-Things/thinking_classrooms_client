@@ -13,6 +13,7 @@ export const PROBLEMS = gql`
       createdAt
       level
       tags
+      id
     }
   }
 `;

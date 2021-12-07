@@ -9,4 +9,5 @@ export interface ProblemSummaryProps {
   createdAt: string;
   author: string;
   level: Level;
+  id: number;
 }

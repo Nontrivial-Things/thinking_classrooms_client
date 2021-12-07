@@ -17,14 +17,14 @@ const SuggestionsList: FC<SuggestionsProps> = ({
       aria-labelledby="search-input-label"
       role="listbox"
     >
-      {filteredSuggestions.map((suggestion: string, index: number) => (
+      {filteredSuggestions.map((suggestion, index) => (
         <S.Suggestion
-          key={suggestion}
-          onClick={() => chooseSuggestion(suggestion)}
+          key={suggestion.id}
+          // onClick={() => chooseSuggestion(suggestion)}
           isSelected={index === activeSuggestionIndex}
         >
           <Clipboard style={{ paddingRight: "0.8rem" }} />
-          <span data-test-id="suggestion-text">{suggestion}</span>
+          <span data-test-id="suggestion-text">{suggestion.title}</span>
         </S.Suggestion>
       ))}
     </S.SuggestionList>

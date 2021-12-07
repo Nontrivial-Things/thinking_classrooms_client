@@ -1,22 +1,44 @@
-import React, { FC, useState, KeyboardEvent } from "react";
+import React, { FC, useState, useEffect, KeyboardEvent } from "react";
+import { gql, useQuery } from "@apollo/client";
 
-import { SearchAutocompleteProps } from "./interface";
-
+import {
+  GetSuggestionsQuery,
+  Suggestion,
+} from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
 import * as S from "./styles";
+const SUGGESTIONS = gql`
+  query GetSuggestions {
+    suggestions {
+      type
+      title
+      id
+    }
+  }
+`;
+const SearchAutocomplete: FC = () => {
+  const { data } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
 
-const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
-  const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
+    []
+  );
+
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
+  useEffect(() => {
+    if (data) {
+      setFilteredSuggestions(data.suggestions);
+    }
+  }, [data]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
-    const filteredList = suggestions.filter(
+    const filteredList = filteredSuggestions.filter(
       (suggestion) =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
     setSearchTerm(e.currentTarget.value);
@@ -42,8 +64,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
-        const test = filteredSuggestions[activeSuggestionIndex];
-        setSearchTerm(test);
+        const activeSuggestion = filteredSuggestions[activeSuggestionIndex];
+        setSearchTerm(activeSuggestion.title);
         setFilteredSuggestions([]);
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
