@@ -66,6 +66,12 @@ const SearchAutocomplete: FC = () => {
     setShowSuggestions(false);
   };
 
+  const handleKeyUp = (e: KeyboardEvent) => {
+    if (searchTerm === "") {
+      clearInput();
+    }
+  };
+
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Backspace") {
       if (!loading && data) {
@@ -122,6 +128,7 @@ const SearchAutocomplete: FC = () => {
           value={searchTerm}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
           onSubmit={(e) => {
             e.preventDefault();
           }}
