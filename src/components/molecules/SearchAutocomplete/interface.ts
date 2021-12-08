@@ -7,7 +7,7 @@ import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
 export interface SuggestionsProps {
   filteredSuggestions: Array<Suggestion>;
   activeSuggestionIndex: number;
-  chooseSuggestion: (suggestion: string) => void;
+  chooseSuggestion: (suggestion: Suggestion) => void;
 }
 
 export interface SuggestionProps {

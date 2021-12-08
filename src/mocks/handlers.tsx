@@ -58,19 +58,50 @@ export const handlers = [
             id: 1,
           },
           {
+            type: SuggestionType.PROBLEM,
+            title: "Ciągi muzyczne",
+            id: 2,
+          },
+          {
+            type: SuggestionType.PROBLEM,
+            title: "Maczugi keczupowe",
+            id: 3,
+          },
+          {
+            type: SuggestionType.PROBLEM,
+            title: "Foki",
+            id: 4,
+          },
+          {
+            type: SuggestionType.TAG,
+            title: "Maczugi",
+            id: 14,
+          },
+          {
             type: SuggestionType.TAG,
             title: "Ciągi",
             id: 15,
           },
-          {
-            type: SuggestionType.PROBLEM,
-            title: "Maczugi",
-            id: 3,
-          },
+
           {
             type: SuggestionType.TAG,
             title: "Jedzenie",
             id: 16,
+          },
+          {
+            type: SuggestionType.TAG,
+            title: "Muzyka",
+            id: 17,
+          },
+          {
+            type: SuggestionType.TAG,
+            title: "Ocean",
+            id: 18,
+          },
+          {
+            type: SuggestionType.TAG,
+            title: "Zwierzęta",
+            id: 19,
           },
         ],
       })

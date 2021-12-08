@@ -20,7 +20,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
       {filteredSuggestions.map((suggestion, index) => (
         <S.Suggestion
           key={suggestion.id}
-          // onClick={() => chooseSuggestion(suggestion)}
+          onClick={() => chooseSuggestion(suggestion)}
           isSelected={index === activeSuggestionIndex}
         >
           <Clipboard style={{ paddingRight: "0.8rem" }} />

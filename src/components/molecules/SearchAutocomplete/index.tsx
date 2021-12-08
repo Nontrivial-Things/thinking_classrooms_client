@@ -7,7 +7,8 @@ import {
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
 import * as S from "./styles";
-const SUGGESTIONS = gql`
+import userEvent from "@testing-library/user-event";
+export const SUGGESTIONS = gql`
   query GetSuggestions {
     suggestions {
       type
@@ -17,7 +18,7 @@ const SUGGESTIONS = gql`
   }
 `;
 const SearchAutocomplete: FC = () => {
-  const { data } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
+  const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
 
   const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
     []
@@ -29,7 +30,7 @@ const SearchAutocomplete: FC = () => {
   const [showClearButton, setShowClearButton] = useState(false);
 
   useEffect(() => {
-    if (data) {
+    if (!loading && data) {
       setFilteredSuggestions(data.suggestions);
     }
   }, [data]);
@@ -53,9 +54,9 @@ const SearchAutocomplete: FC = () => {
     setShowSuggestions(false);
   };
 
-  const chooseSuggestion = (suggestion: string) => {
+  const chooseSuggestion = (suggestion: Suggestion) => {
     setFilteredSuggestions([]);
-    setSearchTerm(suggestion);
+    setSearchTerm(suggestion.title);
     setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
@@ -83,7 +84,7 @@ const SearchAutocomplete: FC = () => {
     }
   };
 
-  return (
+  return loading ? null : (
     <S.Combobox
       id="combobox"
       aria-expanded="false"
