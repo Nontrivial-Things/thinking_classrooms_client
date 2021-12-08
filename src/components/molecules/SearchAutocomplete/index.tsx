@@ -7,7 +7,7 @@ import {
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
 import * as S from "./styles";
-import userEvent from "@testing-library/user-event";
+
 export const SUGGESTIONS = gql`
   query GetSuggestions {
     suggestions {
@@ -52,22 +52,34 @@ const SearchAutocomplete: FC = () => {
     setSearchTerm("");
     setShowClearButton(false);
     setShowSuggestions(false);
+    if (!loading && data) {
+      setFilteredSuggestions(data.suggestions);
+    }
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
-    setFilteredSuggestions([]);
+    if (!loading && data) {
+      setFilteredSuggestions(data.suggestions);
+    }
     setSearchTerm(suggestion.title);
     setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Backspace") {
+      if (!loading && data) {
+        setFilteredSuggestions(data.suggestions);
+      }
+    }
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
         const activeSuggestion = filteredSuggestions[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
-        setFilteredSuggestions([]);
+        if (!loading && data) {
+          setFilteredSuggestions(data.suggestions);
+        }
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
       }
