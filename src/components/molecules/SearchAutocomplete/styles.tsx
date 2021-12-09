@@ -136,6 +136,14 @@ const Combobox = styled.div`
     width: 50.3rem;
   }
 `;
+
+const TagSearchIcon = styled(LensIcon)`
+  padding-right: 0.8rem;
+  stroke: black;
+  font-size: 1.4rem;
+  width: 1.6rem;
+`;
+
 export {
   Form,
   Input,
@@ -147,4 +155,5 @@ export {
   FormWrapper,
   Button,
   Combobox,
+  TagSearchIcon,
 };

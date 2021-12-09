@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 import Wrapper from "../Wrapper";
+import { TagWrapperProps } from "./interface";
 
 import { tagBackground, tagText } from "../../../assets/styles/colors";
 import { ReactComponent as RemoveIcon } from "../../../assets/img/icons/remove-icon.svg";
 
-const TagWrapper = styled(Wrapper)`
+const TagWrapper = styled(Wrapper)<TagWrapperProps>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +15,7 @@ const TagWrapper = styled(Wrapper)`
   background-color: ${tagBackground};
   border-radius: 1.5rem;
   line-height: 2.4rem;
-  font-size: 1.6rem;
+  font-size: ${(props) => props.fontSize || "1.6rem"};
   color: ${tagText};
   font-weight: 700;
   margin: 0;

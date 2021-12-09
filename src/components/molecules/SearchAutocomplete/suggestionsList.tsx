@@ -1,5 +1,6 @@
 import { FC, useRef } from "react";
 import { SuggestionsProps } from "./interface";
+import Tag from "../../atoms/Tag";
 import * as S from "./styles";
 import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
@@ -17,6 +18,17 @@ const SuggestionsList: FC<SuggestionsProps> = ({
       aria-labelledby="search-input-label"
       role="listbox"
     >
+      {filteredSuggestions.map((suggestion, index) => (
+        <S.Suggestion
+          key={suggestion.id}
+          onClick={() => chooseSuggestion(suggestion)}
+          isSelected={index === activeSuggestionIndex}
+        >
+          <S.TagSearchIcon />
+          <Tag text={suggestion.title} fontSize="1.4rem" />
+        </S.Suggestion>
+      ))}
+
       {filteredSuggestions.map((suggestion, index) => (
         <S.Suggestion
           key={suggestion.id}
