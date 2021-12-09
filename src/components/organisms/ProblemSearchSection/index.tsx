@@ -1,16 +1,12 @@
 import { FC } from "react";
-import { gql, useQuery } from "@apollo/client";
 
 import SearchAutocomplete from "../../molecules/SearchAutocomplete";
-import { ProblemSearchSectionProps, GetSuggestionsQuery } from "./interface";
+import { ProblemSearchSectionProps } from "./interface";
 
 import * as S from "./styles";
 import { darkGradientBackground } from "../../../assets/styles/colors";
 
-const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
-  problems,
-  setTag,
-}) => {
+const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({ setTag }) => {
   return (
     <S.SearchWrapper
       background={darkGradientBackground}

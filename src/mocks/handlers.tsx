@@ -58,6 +58,11 @@ export const handlers = [
             id: 1,
           },
           {
+            type: SuggestionType.TAG,
+            title: "Maczugi",
+            id: 14,
+          },
+          {
             type: SuggestionType.PROBLEM,
             title: "Ciągi muzyczne",
             id: 2,
@@ -72,11 +77,7 @@ export const handlers = [
             title: "Foki",
             id: 4,
           },
-          {
-            type: SuggestionType.TAG,
-            title: "Maczugi",
-            id: 14,
-          },
+
           {
             type: SuggestionType.TAG,
             title: "Ciągi",

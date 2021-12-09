@@ -36,9 +36,17 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
     }
   }, [data]);
 
+  const filteredSuggestionsByType = () => {
+    const filteredSuggestionsCopy = [...filteredSuggestions];
+    filteredSuggestionsCopy.sort((a, b) =>
+      a.type < b.type ? 1 : a.type > b.type ? -1 : 0
+    );
+    return filteredSuggestionsCopy;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
-    const filteredList = filteredSuggestions.filter(
+    const filteredList = filteredSuggestionsByType().filter(
       (suggestion) =>
         suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
@@ -83,7 +91,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
-        const activeSuggestion = filteredSuggestions[activeSuggestionIndex];
+        const activeSuggestion =
+          filteredSuggestionsByType()[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
         setTag(activeSuggestion.title);
         if (!loading && data) {
@@ -148,7 +157,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
         )}
         {showSuggestions && searchTerm && (
           <SuggestionsList
-            filteredSuggestions={filteredSuggestions}
+            filteredSuggestions={filteredSuggestionsByType()}
             activeSuggestionIndex={activeSuggestionIndex}
             chooseSuggestion={chooseSuggestion}
           />

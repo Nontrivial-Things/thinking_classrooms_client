@@ -1,6 +1,7 @@
 import { FC, useRef } from "react";
 import { SuggestionsProps } from "./interface";
 import Tag from "../../atoms/Tag";
+import { SuggestionType } from "../../organisms/ProblemSearchSection/interface";
 import * as S from "./styles";
 import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
@@ -24,19 +25,17 @@ const SuggestionsList: FC<SuggestionsProps> = ({
           onClick={() => chooseSuggestion(suggestion)}
           isSelected={index === activeSuggestionIndex}
         >
-          <S.TagSearchIcon />
-          <Tag text={suggestion.title} fontSize="1.4rem" />
-        </S.Suggestion>
-      ))}
-
-      {filteredSuggestions.map((suggestion, index) => (
-        <S.Suggestion
-          key={suggestion.id}
-          onClick={() => chooseSuggestion(suggestion)}
-          isSelected={index === activeSuggestionIndex}
-        >
-          <Clipboard style={{ paddingRight: "0.8rem" }} />
-          <span data-test-id="suggestion-text">{suggestion.title}</span>
+          {suggestion.type === SuggestionType.TAG ? (
+            <>
+              <S.TagSearchIcon />
+              <Tag text={suggestion.title} fontSize="1.4rem" />
+            </>
+          ) : (
+            <>
+              <Clipboard style={{ paddingRight: "0.8rem" }} />
+              <span data-test-id="suggestion-text">{suggestion.title}</span>
+            </>
+          )}
         </S.Suggestion>
       ))}
     </S.SuggestionList>
