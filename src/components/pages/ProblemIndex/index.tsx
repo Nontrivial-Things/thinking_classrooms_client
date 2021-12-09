@@ -34,7 +34,9 @@ const ProblemIndex: FC = () => {
         margin="0"
         minHeight="100vh"
       >
-        <ResultCountLabel count={allProblems?.length || 0}></ResultCountLabel>
+        <ResultCountLabel
+          count={filteredProblems()?.length || 0}
+        ></ResultCountLabel>
         {filteredProblems()?.map(
           ({ title, author, createdAt, level, tags, id }) => (
             <SearchResultTile
