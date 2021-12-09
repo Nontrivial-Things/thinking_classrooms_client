@@ -1,8 +1,8 @@
-// export interface SearchAutocompleteProps {
-//   suggestions: Array<string>;
-// }
-
 import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
+
+export interface SearchAutocompleteProps {
+  setTag: (tag: string) => void;
+}
 
 export interface SuggestionsProps {
   filteredSuggestions: Array<Suggestion>;

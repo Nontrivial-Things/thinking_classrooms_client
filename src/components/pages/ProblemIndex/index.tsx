@@ -6,40 +6,48 @@ import Wrapper from "../../atoms/Wrapper";
 import SearchResultTile from "../../molecules/SearchResultTile";
 import ProblemSearchSection from "../../organisms/ProblemSearchSection";
 import { GetProblemsQuery, PROBLEMS } from "./interface";
-import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 import { primaryBackground } from "../../../assets/styles/colors";
-import { queryByTestId } from "@testing-library/dom";
 
 const ProblemIndex: FC = () => {
-  // const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
-
   const { data } = useQuery<GetProblemsQuery>(PROBLEMS);
 
-  const test = (data?.problems && data?.problems) || [];
-  // setProblems(test);
+  const allProblems = (data?.problems && data?.problems) || [];
+
+  const [tag, setTag] = useState<string>("");
+
+  const filteredProblems = () => {
+    if (tag === "") return allProblems;
+    else {
+      return allProblems.filter((problem) => {
+        return problem.tags && problem.tags.includes(tag);
+      });
+    }
+  };
 
   return (
     <>
-      <ProblemSearchSection problems={test} />
+      <ProblemSearchSection setTag={setTag} problems={allProblems} />
       <Wrapper
         background={primaryBackground}
         flexDirection="column"
         margin="0"
         minHeight="100vh"
       >
-        <ResultCountLabel count={test?.length || 0}></ResultCountLabel>
-        {test?.map(({ title, author, createdAt, level, tags, id }) => (
-          <SearchResultTile
-            key={id}
-            title={title}
-            tags={tags}
-            createdAt={createdAt}
-            author={author}
-            level={level}
-            id={id}
-          />
-        ))}
+        <ResultCountLabel count={allProblems?.length || 0}></ResultCountLabel>
+        {filteredProblems()?.map(
+          ({ title, author, createdAt, level, tags, id }) => (
+            <SearchResultTile
+              key={id}
+              title={title}
+              tags={tags}
+              createdAt={createdAt}
+              author={author}
+              level={level}
+              id={id}
+            />
+          )
+        )}
       </Wrapper>
     </>
   );

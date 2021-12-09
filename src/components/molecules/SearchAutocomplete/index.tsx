@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { gql, useQuery } from "@apollo/client";
 
+import { SearchAutocompleteProps } from "./interface";
 import {
   GetSuggestionsQuery,
   Suggestion,
@@ -17,7 +18,7 @@ export const SUGGESTIONS = gql`
     }
   }
 `;
-const SearchAutocomplete: FC = () => {
+const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
 
   const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
@@ -62,6 +63,7 @@ const SearchAutocomplete: FC = () => {
       setFilteredSuggestions(data.suggestions);
     }
     setSearchTerm(suggestion.title);
+    setTag(suggestion.title);
     setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
@@ -83,6 +85,7 @@ const SearchAutocomplete: FC = () => {
         e.preventDefault();
         const activeSuggestion = filteredSuggestions[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
+        setTag(activeSuggestion.title);
         if (!loading && data) {
           setFilteredSuggestions(data.suggestions);
         }

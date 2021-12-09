@@ -12,6 +12,7 @@ describe("<SearchResultTile />", () => {
         createdAt="01.01.2021"
         author="Maria Salomea Skłodowska-Curie"
         level={Level.PRIMARY}
+        id={1}
       />
     );
 
@@ -33,6 +34,7 @@ describe("<SearchResultTile />", () => {
         createdAt="01.01.2021"
         author="Maria Salomea Skłodowska-Curie"
         level={Level.SECONDARY}
+        id={1}
       />
     );
     debug();
