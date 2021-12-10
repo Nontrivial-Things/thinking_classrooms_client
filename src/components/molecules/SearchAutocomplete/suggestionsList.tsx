@@ -16,7 +16,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
     <S.SuggestionList
       ref={ref}
       id="autocomplete-options"
-      aria-labelledby="search-input-label"
+      aria-label="search-input-label"
       role="listbox"
     >
       {filteredSuggestions.map((suggestion, index) => (

@@ -20,7 +20,6 @@ export const SUGGESTIONS = gql`
 `;
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
-
   const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
     []
   );
@@ -30,10 +29,14 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
-  useEffect(() => {
+  const updateSuggestions = () => {
     if (!loading && data) {
       setFilteredSuggestions(data.suggestions);
     }
+  };
+
+  useEffect(() => {
+    updateSuggestions();
   }, [data]);
 
   const filteredSuggestionsByType = () => {
@@ -50,7 +53,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
       (suggestion) =>
         suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
-
     setSearchTerm(e.currentTarget.value);
     setFilteredSuggestions(filteredList);
     setShowSuggestions(true);
@@ -61,22 +63,18 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
     setSearchTerm("");
     setShowClearButton(false);
     setShowSuggestions(false);
-    if (!loading && data) {
-      setFilteredSuggestions(data.suggestions);
-    }
+    updateSuggestions();
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
-    if (!loading && data) {
-      setFilteredSuggestions(data.suggestions);
-    }
+    updateSuggestions();
     setSearchTerm(suggestion.title);
     setTag(suggestion.title);
     setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
 
-  const handleKeyUp = (e: KeyboardEvent) => {
+  const handleKeyUp = () => {
     if (searchTerm === "") {
       clearInput();
     }
@@ -84,9 +82,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Backspace") {
-      if (!loading && data) {
-        setFilteredSuggestions(data.suggestions);
-      }
+      updateSuggestions();
     }
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
@@ -95,9 +91,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
           filteredSuggestionsByType()[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
         setTag(activeSuggestion.title);
-        if (!loading && data) {
-          setFilteredSuggestions(data.suggestions);
-        }
+        updateSuggestions();
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
       }

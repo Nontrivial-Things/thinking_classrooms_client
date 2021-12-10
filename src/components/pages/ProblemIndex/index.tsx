@@ -11,10 +11,9 @@ import { primaryBackground } from "../../../assets/styles/colors";
 
 const ProblemIndex: FC = () => {
   const { data } = useQuery<GetProblemsQuery>(PROBLEMS);
-
-  const allProblems = (data?.problems && data?.problems) || [];
-
   const [tag, setTag] = useState<string>("");
+
+  const allProblems = data?.problems || [];
 
   const filteredProblems = () => {
     if (tag === "") return allProblems;

@@ -1,4 +1,4 @@
-export interface TagProps {
+export interface TagStyleProps {
   text: string;
   isDroppable?: boolean;
   fontSize?: string;

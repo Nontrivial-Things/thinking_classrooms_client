@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 import * as S from "./styles";
-import { TagProps } from "./interface";
+import { TagStyleProps } from "./interface";
 
-const Tag: FC<TagProps> = ({ text, isDroppable = false, fontSize }) => {
+const Tag: FC<TagStyleProps> = ({ text, isDroppable = false, fontSize }) => {
   return (
     <S.TagWrapper fontSize={fontSize}>
       {text}
