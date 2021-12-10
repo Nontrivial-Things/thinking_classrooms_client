@@ -27,13 +27,13 @@ const SuggestionsList: FC<SuggestionsProps> = ({
         >
           {suggestion.type === SuggestionType.TAG ? (
             <>
-              <S.TagSearchIcon />
+              <S.TagSearchIcon aria-label="Ikona wyszukiwania po tagu" />
               <Tag text={suggestion.title} fontSize="1.4rem" />
             </>
           ) : (
             <>
               <Clipboard style={{ paddingRight: "0.8rem" }} />
-              <span data-test-id="suggestion-text">{suggestion.title}</span>
+              <span>{suggestion.title}</span>
             </>
           )}
         </S.Suggestion>

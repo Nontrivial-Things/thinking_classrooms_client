@@ -93,4 +93,30 @@ describe("Input component", () => {
     fireEvent.keyDown(input, { key: "Enter", code: 13 });
     expect(input.value).toBe("Ocean");
   });
+
+  it("should display search icon on tag suggestion", async () => {
+    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    fireEvent.change(input, { target: { value: "Oc" } });
+    expect(screen.getByText("Ocean")).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Ikona wyszukiwania po tagu")
+    ).toBeInTheDocument();
+  });
+
+  it("should display problem suggestion", async () => {
+    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    fireEvent.change(input, { target: { value: "F" } });
+    expect(screen.queryByText("Foki")).toBeInTheDocument();
+    expect(
+      screen.queryByLabelText("Ikona wyszukiwania po tagu")
+    ).not.toBeInTheDocument();
+  });
 });
