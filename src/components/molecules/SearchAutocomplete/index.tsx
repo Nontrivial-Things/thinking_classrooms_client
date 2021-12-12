@@ -64,6 +64,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
     setShowClearButton(false);
     setShowSuggestions(false);
     updateSuggestions();
+    setTag("");
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
