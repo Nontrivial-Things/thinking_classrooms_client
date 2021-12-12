@@ -1,3 +1,4 @@
+import { gql } from "@apollo/client";
 import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
 
 export interface SearchAutocompleteProps {
@@ -17,3 +18,13 @@ export interface SuggestionProps {
 export interface InputStyleProps {
   showSuggestions: boolean;
 }
+
+export const SUGGESTIONS = gql`
+  query GetSuggestions {
+    suggestions {
+      type
+      title
+      id
+    }
+  }
+`;

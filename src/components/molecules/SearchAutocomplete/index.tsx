@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { gql, useQuery } from "@apollo/client";
 
-import { SearchAutocompleteProps } from "./interface";
+import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
   GetSuggestionsQuery,
   Suggestion,
@@ -9,15 +9,6 @@ import {
 import SuggestionsList from "./suggestionsList";
 import * as S from "./styles";
 
-export const SUGGESTIONS = gql`
-  query GetSuggestions {
-    suggestions {
-      type
-      title
-      id
-    }
-  }
-`;
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
   const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(

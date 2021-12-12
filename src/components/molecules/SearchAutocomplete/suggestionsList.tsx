@@ -3,7 +3,6 @@ import { SuggestionsProps } from "./interface";
 import Tag from "../../atoms/Tag";
 import { SuggestionType } from "../../organisms/ProblemSearchSection/interface";
 import * as S from "./styles";
-import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
 const SuggestionsList: FC<SuggestionsProps> = ({
   filteredSuggestions,
@@ -32,7 +31,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
             </>
           ) : (
             <>
-              <Clipboard style={{ paddingRight: "0.8rem" }} />
+              <S.ClipboardIcon />
               <span>{suggestion.title}</span>
             </>
           )}
