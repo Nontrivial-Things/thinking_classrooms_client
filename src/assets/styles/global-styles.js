@@ -1,15 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import PTSans from "../fonts/PTSans-Regular.ttf";
+import fonts from "./fonts.css";
 
 const GlobalStyle = createGlobalStyle`
 
-@font-face {
-    font-family: 'PT Sans';
-    src: url(${PTSans}) format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: auto;
-  }
+${fonts}
   
   html,
   body {
