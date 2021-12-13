@@ -11,6 +11,7 @@ import {
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
+import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -136,6 +137,26 @@ const Combobox = styled.div`
     width: 50.3rem;
   }
 `;
+
+const TagSearchIcon = styled(LensIcon)`
+  padding-right: 0.8rem;
+  stroke: black;
+  font-size: 1.4rem;
+  width: 1.6rem;
+  display: none;
+  @media ${minDevice.desktopTablet} {
+    display: flex;
+  }
+`;
+
+const ClipboardIcon = styled(Clipboard)`
+  padding-right: 0.8rem;
+  display: none;
+  @media ${minDevice.desktopTablet} {
+    display: flex;
+  }
+`;
+
 export {
   Form,
   Input,
@@ -147,4 +168,6 @@ export {
   FormWrapper,
   Button,
   Combobox,
+  TagSearchIcon,
+  ClipboardIcon,
 };

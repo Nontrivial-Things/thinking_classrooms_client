@@ -1,7 +1,13 @@
-export interface SearchResultTileProps {
-  text: string;
+export enum Level {
+  PRIMARY = "szkoła podstawowa",
+  SECONDARY = "szkoła średnia",
+  ANY = "dowolny etap edukacji",
+}
+export interface ProblemSummaryProps {
+  title: string;
   tags: Array<string>;
-  date: string;
+  createdAt: string;
   author: string;
-  educationStage: string;
+  level: Level;
+  id: number;
 }

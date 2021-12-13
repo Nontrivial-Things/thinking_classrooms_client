@@ -1,26 +1,46 @@
-import React, { FC, useState, KeyboardEvent } from "react";
+import React, { FC, useState, useEffect, KeyboardEvent } from "react";
+import { useQuery } from "@apollo/client";
 
-import { SearchAutocompleteProps } from "./interface";
-
+import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
+import {
+  GetSuggestionsQuery,
+  Suggestion,
+} from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
-import * as S from "./styles";
 
-const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
-  const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+import * as S from "./styles";
+import { sortSuggestions } from "../../pages/ProblemIndex/utils";
+
+const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
+  const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
+  const updateSuggestions = () => {
+    if (!loading && data) {
+      const { suggestions } = data;
+
+      const sortedSuggestions = sortSuggestions(suggestions);
+      setSuggestions(sortedSuggestions);
+    }
+  };
+
+  useEffect(() => {
+    updateSuggestions();
+  }, [data?.suggestions.length]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
     const filteredList = suggestions.filter(
       (suggestion) =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
 
     setSearchTerm(e.currentTarget.value);
-    setFilteredSuggestions(filteredList);
+    setSuggestions(filteredList);
     setShowSuggestions(true);
     setShowClearButton(true);
   };
@@ -29,22 +49,35 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
     setSearchTerm("");
     setShowClearButton(false);
     setShowSuggestions(false);
+    updateSuggestions();
+    setTag("");
   };
 
-  const chooseSuggestion = (suggestion: string) => {
-    setFilteredSuggestions([]);
-    setSearchTerm(suggestion);
+  const chooseSuggestion = (suggestion: Suggestion) => {
+    updateSuggestions();
+    setSearchTerm(suggestion.title);
+    setTag(suggestion.title);
     setActiveSuggestionIndex(-1);
     setShowSuggestions(false);
   };
 
+  const handleKeyUp = () => {
+    if (searchTerm === "") {
+      clearInput();
+    }
+  };
+
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Backspace") {
+      updateSuggestions();
+    }
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
-        const test = filteredSuggestions[activeSuggestionIndex];
-        setSearchTerm(test);
-        setFilteredSuggestions([]);
+        const activeSuggestion = suggestions[activeSuggestionIndex];
+        setSearchTerm(activeSuggestion.title);
+        setTag(activeSuggestion.title);
+        updateSuggestions();
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
       }
@@ -54,14 +87,14 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
         setActiveSuggestionIndex(activeSuggestionIndex - 1);
       }
     } else if (e.key === "ArrowDown") {
-      if (activeSuggestionIndex < filteredSuggestions.length) {
+      if (activeSuggestionIndex < suggestions.length) {
         e.preventDefault();
         setActiveSuggestionIndex(activeSuggestionIndex + 1);
       }
     }
   };
 
-  return (
+  return loading ? null : (
     <S.Combobox
       id="combobox"
       aria-expanded="false"
@@ -87,6 +120,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
           value={searchTerm}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
           onSubmit={(e) => {
             e.preventDefault();
           }}
@@ -103,7 +137,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ suggestions }) => {
         )}
         {showSuggestions && searchTerm && (
           <SuggestionsList
-            filteredSuggestions={filteredSuggestions}
+            filteredSuggestions={suggestions}
             activeSuggestionIndex={activeSuggestionIndex}
             chooseSuggestion={chooseSuggestion}
           />

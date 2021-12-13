@@ -20,6 +20,14 @@ const SearchResultTileWrapper = styled(Wrapper)`
   @media ${minDevice.desktopTablet} {
     padding: 2.4rem;
   }
+
+  @media ${minDevice.desktopL} {
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
 `;
 
 const AuthorWrapper = styled(Wrapper)`

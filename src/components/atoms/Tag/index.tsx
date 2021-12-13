@@ -1,11 +1,11 @@
 import { FC } from "react";
 
 import * as S from "./styles";
-import { TagProps } from "./interface";
+import { TagStyleProps } from "./interface";
 
-const Tag: FC<TagProps> = ({ text, isDroppable = false }) => {
+const Tag: FC<TagStyleProps> = ({ text, fontSize, isDroppable = false }) => {
   return (
-    <S.TagWrapper>
+    <S.TagWrapper fontSize={fontSize}>
       {text}
       {isDroppable && (
         <S.RemoveButton aria-label="Usuń tag">
