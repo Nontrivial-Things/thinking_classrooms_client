@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
@@ -7,14 +7,13 @@ import {
   Suggestion,
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
+
 import * as S from "./styles";
+import { sortSuggestions } from "../../pages/ProblemIndex/utils";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
-  const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestion[]>(
-    []
-  );
-
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,35 +21,31 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
 
   const updateSuggestions = () => {
     if (!loading && data) {
-      setFilteredSuggestions(data.suggestions);
+      const { suggestions } = data;
+
+      const sortedSuggestions = sortSuggestions(suggestions);
+      setSuggestions(sortedSuggestions);
     }
   };
 
   useEffect(() => {
-    updateSuggestions();
-  }, [data]);
+    if (!loading && data) {
+      const { suggestions } = data;
 
-  const sortedSuggestions = () => {
-    const filteredSuggestionsCopy = [...filteredSuggestions];
-
-    const sortedSuggestionsAlphabetically = filteredSuggestionsCopy.sort(
-      (a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-    );
-
-    sortedSuggestionsAlphabetically.sort((a, b) =>
-      a.type < b.type ? 1 : a.type > b.type ? -1 : 0
-    );
-    return filteredSuggestionsCopy;
-  };
+      const sortedSuggestions = sortSuggestions(suggestions);
+      setSuggestions(sortedSuggestions);
+    }
+  }, [data?.suggestions.length]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
-    const filteredList = sortedSuggestions().filter(
+    const filteredList = suggestions.filter(
       (suggestion) =>
         suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
+
     setSearchTerm(e.currentTarget.value);
-    setFilteredSuggestions(filteredList);
+    setSuggestions(filteredList);
     setShowSuggestions(true);
     setShowClearButton(true);
   };
@@ -84,7 +79,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
     if (e.key === "Enter") {
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
-        const activeSuggestion = sortedSuggestions()[activeSuggestionIndex];
+        const activeSuggestion = suggestions[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
         setTag(activeSuggestion.title);
         updateSuggestions();
@@ -97,7 +92,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
         setActiveSuggestionIndex(activeSuggestionIndex - 1);
       }
     } else if (e.key === "ArrowDown") {
-      if (activeSuggestionIndex < filteredSuggestions.length) {
+      if (activeSuggestionIndex < suggestions.length) {
         e.preventDefault();
         setActiveSuggestionIndex(activeSuggestionIndex + 1);
       }
@@ -147,7 +142,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
         )}
         {showSuggestions && searchTerm && (
           <SuggestionsList
-            filteredSuggestions={sortedSuggestions()}
+            filteredSuggestions={suggestions}
             activeSuggestionIndex={activeSuggestionIndex}
             chooseSuggestion={chooseSuggestion}
           />
