@@ -79,7 +79,6 @@ const NavbarMenuList = styled.ul`
   justify-content: space-evenly;
   align-items: flex-start;
   padding-left: 2rem;
-  width: 100vw;
 
   @media ${minDevice.desktopTablet} {
     flex-direction: row;
