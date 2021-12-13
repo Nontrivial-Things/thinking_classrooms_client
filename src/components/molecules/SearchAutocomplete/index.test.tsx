@@ -5,8 +5,9 @@ import { testRenderer } from "../../../setupTests";
 import SearchAutocomplete from "./index";
 
 describe("Input component", () => {
+  const setTag = jest.fn();
   it("displays inputted value", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
 
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -19,7 +20,7 @@ describe("Input component", () => {
   });
 
   it("should show suggestions list matching input value", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
 
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -37,7 +38,7 @@ describe("Input component", () => {
   });
 
   it("should display picked suggestion as input value", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -57,7 +58,7 @@ describe("Input component", () => {
   });
 
   it("should display remove button in input field only when the input value is not empty", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -79,7 +80,7 @@ describe("Input component", () => {
   });
 
   it("should key press correctly", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -95,7 +96,7 @@ describe("Input component", () => {
   });
 
   it("should display search icon on tag suggestion", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -108,7 +109,7 @@ describe("Input component", () => {
   });
 
   it("should display problem suggestion", async () => {
-    testRenderer(<SearchAutocomplete setTag={() => {}} />);
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
