@@ -29,12 +29,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
   };
 
   useEffect(() => {
-    if (!loading && data) {
-      const { suggestions } = data;
-
-      const sortedSuggestions = sortSuggestions(suggestions);
-      setSuggestions(sortedSuggestions);
-    }
+    updateSuggestions();
   }, [data?.suggestions.length]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
