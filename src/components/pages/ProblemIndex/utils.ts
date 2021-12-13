@@ -8,9 +8,9 @@ export const sortSuggestions = (
   const sortedSuggestionsAlphabetically = suggestionsCopy.sort((a, b) =>
     a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   );
-
   sortedSuggestionsAlphabetically.sort((a, b) =>
     a.type < b.type ? 1 : a.type > b.type ? -1 : 0
   );
+
   return sortedSuggestionsAlphabetically;
 };
