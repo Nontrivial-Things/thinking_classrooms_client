@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 import {
-  activeButton,
-  hoverButton,
+  blue100,
+  blue200,
   disabledButton,
   hoverSecondaryButton,
 } from "../../../assets/styles/colors";
@@ -18,7 +18,7 @@ const Button = styled.button<ButtonStyleProps>`
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   border: none;
   border-radius: 5px;
-  background-color: ${activeButton};
+  background-color: ${blue100};
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
@@ -27,7 +27,7 @@ const Button = styled.button<ButtonStyleProps>`
 
   &:hover,
   &:active {
-    background-color: ${hoverButton};
+    background-color: ${blue200};
   }
 
   &:active {
@@ -48,9 +48,9 @@ const Button = styled.button<ButtonStyleProps>`
     !props.isPrimary &&
     css`
       background-color: transparent;
-      color: ${activeButton};
+      color: ${blue100};
       font-weight: bold;
-      border: 1.5px solid ${activeButton};
+      border: 1.5px solid ${blue100};
       box-shadow: none;
 
       &:hover,
@@ -82,7 +82,7 @@ const Button = styled.button<ButtonStyleProps>`
 
 const DownloadIcon = styled(Download)`
   width: 1.6rem;
-  stroke: ${activeButton};
+  stroke: ${blue100};
   margin-right: 0.8rem;
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Wrapper from "../../atoms/Wrapper";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
-import { activeLink, white } from "../../../assets/styles/colors";
+import { blue100, white } from "../../../assets/styles/colors";
 
 const HeaderWrapper = styled.header`
   justify-content: space-between;
@@ -110,7 +110,7 @@ const NavbarMenuItem = styled.li`
       &::after {
         height: 0.4rem;
         width: 100%;
-        background-color: ${activeLink};
+        background-color: ${blue100};
         border-radius: 1rem 1rem 0 0;
         content: "";
         position: absolute;

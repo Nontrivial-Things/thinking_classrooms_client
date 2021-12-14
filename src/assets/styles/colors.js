@@ -10,15 +10,15 @@ const darkGradientBackground =
 const lightGradientBackground =
   "linear-gradient(93.51deg, #1782DC 8.9%, #6AB7F7 94.31%)";
 
-const activeButton = "#3678E3";
+const blue100 = "#3678E3";
 
-const hoverButton = "#124CAB";
+const blue200 = "#124CAB";
+
+const blue300 = "#161C56";
 
 const disabledButton = "#C9DAF6";
 
 const hoverSecondaryButton = "#E5EFFF";
-
-const activeLink = "#3678E3";
 
 const placeholder = "#A8A8A8";
 
@@ -29,10 +29,6 @@ const successMessage = "#058C23";
 const tagText = "#DA7602";
 
 const tagBackground = "#FFF1DE";
-
-const mainHeader = "#161C56";
-
-const primarySubtitle = "#124CAB";
 
 const secondarySubtitle = "#F88B0C";
 
@@ -46,18 +42,16 @@ export {
   primaryBackground,
   darkGradientBackground,
   lightGradientBackground,
-  activeButton,
-  hoverButton,
+  blue100,
+  blue200,
+  blue300,
   disabledButton,
   hoverSecondaryButton,
-  activeLink,
   placeholder,
   errorMessage,
   successMessage,
   tagText,
   tagBackground,
-  mainHeader,
-  primarySubtitle,
   secondarySubtitle,
   lightGrey,
   textDetails,
