@@ -78,7 +78,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
         setSearchTerm(activeSuggestion.title);
         setTag(activeSuggestion.title);
         updateSuggestions();
-        setActiveSuggestionIndex(0);
+        setActiveSuggestionIndex(-1);
+        debugger;
         setShowSuggestions(false);
       }
     } else if (e.key === "ArrowUp") {
