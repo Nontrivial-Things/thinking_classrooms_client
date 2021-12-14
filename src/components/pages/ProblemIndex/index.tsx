@@ -12,7 +12,7 @@ import { primaryBackground } from "../../../assets/styles/colors";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 const ProblemIndex: FC = () => {
-  const { data, error, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
+  const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
   const [tag, setTag] = useState<string>("");
   const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
 
