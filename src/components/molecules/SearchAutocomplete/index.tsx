@@ -5,13 +5,17 @@ import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
   GetSuggestionsQuery,
   Suggestion,
+  SuggestionType,
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
 
 import * as S from "./styles";
 import { sortSuggestions } from "../../pages/ProblemIndex/utils";
 
-const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
+const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
+  setTag,
+  setProblems,
+}) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
@@ -72,14 +76,19 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({ setTag }) => {
       updateSuggestions();
     }
     if (e.key === "Enter") {
+      debugger;
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
         const activeSuggestion = suggestions[activeSuggestionIndex];
+        if (activeSuggestion.type === SuggestionType.TAG) {
+          setTag(activeSuggestion.title);
+        }
         setSearchTerm(activeSuggestion.title);
-        setTag(activeSuggestion.title);
         updateSuggestions();
         setActiveSuggestionIndex(-1);
         setShowSuggestions(false);
+      } else {
+        setProblems([]);
       }
     } else if (e.key === "ArrowUp") {
       if (activeSuggestionIndex >= 0) {

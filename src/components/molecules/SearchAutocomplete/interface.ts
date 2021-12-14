@@ -1,8 +1,10 @@
 import { gql } from "@apollo/client";
 import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
+import { ProblemSummaryProps } from "../SearchResultTile/interface";
 
 export interface SearchAutocompleteProps {
   setTag: (tag: string) => void;
+  setProblems: (problems: Array<ProblemSummaryProps>) => void;
 }
 
 export interface SuggestionsProps {

@@ -34,7 +34,7 @@ const ProblemIndex: FC = () => {
 
   return (
     <>
-      <ProblemSearchSection setTag={setTag} problems={problems} />
+      <ProblemSearchSection setTag={setTag} setProblems={setProblems} />
       <Wrapper
         background={primaryBackground}
         flexDirection="column"

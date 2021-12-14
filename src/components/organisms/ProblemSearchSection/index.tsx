@@ -6,7 +6,10 @@ import { ProblemSearchSectionProps } from "./interface";
 import * as S from "./styles";
 import { darkGradientBackground } from "../../../assets/styles/colors";
 
-const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({ setTag }) => {
+const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
+  setTag,
+  setProblems,
+}) => {
   return (
     <S.SearchWrapper
       background={darkGradientBackground}
@@ -16,7 +19,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({ setTag }) => {
       paddingDT="2.4rem"
     >
       <S.H2>Szukaj problemów matematycznych</S.H2>
-      <SearchAutocomplete setTag={setTag} />
+      <SearchAutocomplete setTag={setTag} setProblems={setProblems} />
     </S.SearchWrapper>
   );
 };
