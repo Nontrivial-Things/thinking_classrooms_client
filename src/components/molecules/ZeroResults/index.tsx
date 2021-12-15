@@ -1,10 +1,14 @@
 import { FC } from "react";
+import { ZeroResultsProps } from "./interface";
 
 import * as S from "./styles";
 
-const ZeroResults = () => {
-  const suggestions = ["Wyrazenia algebraiczne", "Liceum", "Algebra"];
+const ZeroResults: FC<ZeroResultsProps> = ({ setTag }) => {
+  const suggestions = ["Ciągi", "Jedzenie", "Zwierzęta"];
 
+  const handleOnClick = (el: string) => {
+    setTag(el);
+  };
   return (
     <S.ZeroResultsWrapper>
       <S.ZeroResultsImg />
@@ -15,13 +19,13 @@ const ZeroResults = () => {
           if (id < suggestions.length - 1) {
             return (
               <li key={id}>
-                <a>{suggestion}</a>,&nbsp;
+                <a onClick={() => setTag(suggestion)}>{suggestion}</a>,&nbsp;
               </li>
             );
           } else if (id === suggestions.length - 1) {
             return (
               <li key={id}>
-                <a>{suggestion}</a>
+                <a onClick={() => handleOnClick(suggestion)}>{suggestion}</a>
               </li>
             );
           }

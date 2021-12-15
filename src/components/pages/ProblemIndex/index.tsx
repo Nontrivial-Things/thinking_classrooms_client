@@ -43,7 +43,7 @@ const ProblemIndex: FC = () => {
       >
         <ResultCountLabel count={problems.length}></ResultCountLabel>
         {problems.length === 0 && !loading ? (
-          <ZeroResults />
+          <ZeroResults setTag={setTag} />
         ) : (
           problems.map(({ title, author, createdAt, level, tags, id }) => (
             <SearchResultTile
