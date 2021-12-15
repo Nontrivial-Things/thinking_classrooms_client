@@ -8,6 +8,7 @@ import {
   SuggestionType,
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
+import Tag from "../../atoms/Tag";
 
 import * as S from "./styles";
 import { sortSuggestions } from "../../pages/ProblemIndex/utils";
@@ -138,6 +139,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         <S.Input
           id="input-search"
           type="text"
+          pattern="^Ciągi"
           autoComplete="off"
           tag={suggestionType === "tag"}
           placeholder="Szukaj problemów matematycznych"

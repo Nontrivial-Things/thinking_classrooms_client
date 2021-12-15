@@ -8,12 +8,14 @@ import {
   placeholder,
   blue100,
   lightGrey,
+  tagBackground,
+  tagText,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
 import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
-import { tagBackground, tagText } from "../../../assets/styles/colors";
+import Tag from "../../atoms/Tag";
 
 const inputTagStyle = css`
   flex-direction: row;
@@ -68,11 +70,9 @@ const Input = styled.input<InputStyleProps>`
   &:focus-visible {
     outline: none;
   }
-  ${(props) =>
-    props.tag &&
-    css`
-      ${inputTagStyle}
-    `}
+  &:valid {
+    ${inputTagStyle}
+  }
   @media ${minDevice.desktopL} {
     padding: 0 4rem;
   }
