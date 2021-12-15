@@ -5,6 +5,8 @@ import { ProblemSummaryProps } from "../SearchResultTile/interface";
 export interface SearchAutocompleteProps {
   setTag: (tag: string) => void;
   setProblems: (problems: Array<ProblemSummaryProps>) => void;
+  setSearchTerm: (searchTerm: string) => void;
+  searchTerm: string;
 }
 
 export interface SuggestionsProps {

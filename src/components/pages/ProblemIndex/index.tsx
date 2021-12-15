@@ -15,6 +15,7 @@ const ProblemIndex: FC = () => {
   const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
   const [tag, setTag] = useState<string>("");
   const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (data?.problems) {
@@ -34,7 +35,12 @@ const ProblemIndex: FC = () => {
 
   return (
     <>
-      <ProblemSearchSection setTag={setTag} setProblems={setProblems} />
+      <ProblemSearchSection
+        setTag={setTag}
+        setProblems={setProblems}
+        setSearchTerm={setSearchTerm}
+        searchTerm={searchTerm}
+      />
       <Wrapper
         background={primaryBackground}
         flexDirection="column"
@@ -43,7 +49,7 @@ const ProblemIndex: FC = () => {
       >
         <ResultCountLabel count={problems.length}></ResultCountLabel>
         {problems.length === 0 && !loading ? (
-          <ZeroResults setTag={setTag} />
+          <ZeroResults setTag={setTag} setSearchTerm={setSearchTerm} />
         ) : (
           problems.map(({ title, author, createdAt, level, tags, id }) => (
             <SearchResultTile

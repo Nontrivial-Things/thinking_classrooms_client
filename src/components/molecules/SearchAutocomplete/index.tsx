@@ -15,12 +15,13 @@ import { sortSuggestions } from "../../pages/ProblemIndex/utils";
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   setTag,
   setProblems,
+  setSearchTerm,
+  searchTerm,
 }) => {
   const { data, loading } = useQuery<GetSuggestionsQuery>(SUGGESTIONS);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [showClearButton, setShowClearButton] = useState(false);
 
   const updateSuggestions = () => {
