@@ -42,7 +42,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       (suggestion) =>
         suggestion.title.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
-
     setSearchTerm(e.currentTarget.value);
     setSuggestions(filteredList);
     setShowSuggestions(true);
@@ -55,13 +54,16 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     setShowSuggestions(false);
     updateSuggestions();
     setTag("");
+    setActiveSuggestionIndex(-1);
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
-    updateSuggestions();
     setSearchTerm(suggestion.title);
-    setTag(suggestion.title);
-    setActiveSuggestionIndex(-1);
+
+    if (suggestion.type === SuggestionType.TAG) {
+      setTag(suggestion.title);
+    }
+
     setShowSuggestions(false);
   };
 
@@ -73,32 +75,43 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Backspace") {
+      setActiveSuggestionIndex(-1);
+      setShowSuggestions(true);
       updateSuggestions();
+
+      if (searchTerm == "") {
+        setTag("");
+      }
     }
     if (e.key === "Enter") {
-      if (activeSuggestionIndex !== -1) {
-        e.preventDefault();
-        const activeSuggestion = suggestions[activeSuggestionIndex];
-        if (activeSuggestion.type === SuggestionType.TAG) {
-          setTag(activeSuggestion.title);
-        }
-        setSearchTerm(activeSuggestion.title);
-        updateSuggestions();
-        setActiveSuggestionIndex(-1);
-        setShowSuggestions(false);
-      } else {
+      e.preventDefault();
+      const activeSuggestion = suggestions[activeSuggestionIndex];
+
+      if (!activeSuggestion) {
         setProblems([]);
+      } else if (
+        activeSuggestion &&
+        activeSuggestion.type === SuggestionType.PROBLEM
+      ) {
+        setSearchTerm(activeSuggestion.title);
+      } else if (
+        activeSuggestion &&
+        activeSuggestion.type === SuggestionType.TAG
+      ) {
+        setTag(activeSuggestion.title);
+        setSearchTerm(activeSuggestion.title);
       }
-    } else if (e.key === "ArrowUp") {
-      if (activeSuggestionIndex >= 0) {
-        e.preventDefault();
-        setActiveSuggestionIndex(activeSuggestionIndex - 1);
-      }
-    } else if (e.key === "ArrowDown") {
-      if (activeSuggestionIndex < suggestions.length) {
-        e.preventDefault();
-        setActiveSuggestionIndex(activeSuggestionIndex + 1);
-      }
+
+      setShowSuggestions(false);
+    } else if (e.key === "ArrowUp" && activeSuggestionIndex >= 0) {
+      e.preventDefault();
+      setActiveSuggestionIndex(activeSuggestionIndex - 1);
+    } else if (
+      e.key === "ArrowDown" &&
+      activeSuggestionIndex < suggestions.length
+    ) {
+      e.preventDefault();
+      setActiveSuggestionIndex(activeSuggestionIndex + 1);
     }
   };
 
