@@ -37,11 +37,21 @@ const ResultCountWrapper = styled(Wrapper)`
 
 const ResultCountP = styled(P)`
   line-height: 2.4rem;
+  font-size: 1.4rem;
   background-color: ${primaryBackground};
   height: 2.4rem;
   padding-right: 0.8rem;
   z-index: 3;
   position: relative;
-  font-size: 1.4rem;
+
+  @media ${minDevice.desktopTablet} {
+    line-height: 3.2rem;
+    font-size: 1.6rem;
+  }
+
+  @media ${minDevice.desktopL} {
+    line-height: 2.4rem;
+    font-size: 1.8rem;
+  }
 `;
 export { ResultCountWrapper, ResultCountP };

@@ -112,6 +112,12 @@ const Suggestion = styled.li<SuggestionProps>`
     `}
   &>span {
     font-size: 1.4rem;
+    line-height: 2.4rem;
+
+    @media ${minDevice.desktopL} {
+      font-size: 1.6rem;
+      line-height: 3.2rem;
+    }
   }
 `;
 
