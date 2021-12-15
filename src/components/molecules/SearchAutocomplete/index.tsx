@@ -76,7 +76,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       updateSuggestions();
     }
     if (e.key === "Enter") {
-      debugger;
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
         const activeSuggestion = suggestions[activeSuggestionIndex];

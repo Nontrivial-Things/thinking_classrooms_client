@@ -63,7 +63,7 @@ const ZeroResultsP = styled(P)`
   margin-bottom: 0.85rem;
 
   @media ${minDevice.desktopL} {
-    font-size: 1.6;
+    font-size: 1.6rem;
     line-height: 3.2rem;
     margin-bottom: 0;
   }
@@ -75,7 +75,7 @@ const ZeroResultsSuggestions = styled.ul`
   display: flex;
 
   @media ${minDevice.desktopL} {
-    font-size: 1.6;
+    font-size: 1.6rem;
     line-height: 3.2rem;
   }
 
