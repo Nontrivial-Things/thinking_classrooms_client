@@ -124,7 +124,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   const handelRemoveTag = () => {
     searchTerm && clearInput();
   };
-  console.log(suggestionType);
+
   return loading ? null : (
     <S.Combobox
       id="combobox"
@@ -137,32 +137,32 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           e.preventDefault();
         }}
       >
-        {/* {suggestionType === "tag" ? (
-          <InputWithTags onRemoveTag={handelRemoveTag} text={searchTerm} />
+        {searchTerm && suggestionType === "tag" ? (
+          <InputWithTags text={searchTerm} onRemoveTag={clearInput} />
         ) : (
-          <> */}
-        <S.Label htmlFor="input-search" id="input-search-label">
-          <S.SearchIcon />
-        </S.Label>
-        <S.Input
-          id="input-search"
-          type="text"
-          autoComplete="off"
-          placeholder="Szukaj problemów matematycznych"
-          aria-label="Szukaj problemów"
-          aria-autocomplete="list"
-          aria-controls="autocomplete-options"
-          value={searchTerm}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-          showSuggestions={showSuggestions}
-        />
-        {/* </>
-        )} */}
+          <>
+            <S.Label htmlFor="input-search" id="input-search-label">
+              <S.SearchIcon />
+            </S.Label>
+            <S.Input
+              id="input-search"
+              type="text"
+              autoComplete="off"
+              placeholder="Szukaj problemów matematycznych"
+              aria-label="Szukaj problemów"
+              aria-autocomplete="list"
+              aria-controls="autocomplete-options"
+              value={searchTerm}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onKeyUp={handleKeyUp}
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+              showSuggestions={showSuggestions}
+            />
+          </>
+        )}
 
         {showClearButton && searchTerm && (
           <>

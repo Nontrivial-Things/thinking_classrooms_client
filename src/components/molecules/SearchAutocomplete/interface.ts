@@ -24,7 +24,7 @@ export interface InputStyleProps {
 }
 
 export interface InputWithTagsProps {
-  onRemoveTag: (e: any) => void;
+  onRemoveTag?: () => void;
   text: string;
 }
 

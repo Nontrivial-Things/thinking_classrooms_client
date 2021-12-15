@@ -84,7 +84,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
   left: 0.8rem;
   bottom: 0;
   position: absolute;
-  ${(props) => props.top}
+  top: ${(props) => props.top};
 `;
 
 const RemoveIcon = styled(ClearIcon)`
