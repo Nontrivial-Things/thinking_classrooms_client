@@ -18,20 +18,17 @@ const ProblemIndex: FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    if (data?.problems) {
+    if (data?.problems && !loading) {
       const { problems } = data;
-      const filteredProblems = () => {
-        if (tag === "") return problems;
-        else {
-          return problems.filter((problem) => {
-            return problem.tags && problem.tags.includes(tag);
-          });
-        }
-      };
-
+      const filteredProblems =
+        tag === ""
+          ? problems
+          : problems.filter((problem) => {
+              return problem.tags && problem.tags.includes(tag);
+            });
       setProblems(filteredProblems);
     }
-  }, [data?.problems.length, tag]);
+  }, [data?.problems.length, tag, loading]);
 
   return (
     <>

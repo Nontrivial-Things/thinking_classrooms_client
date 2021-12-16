@@ -13,7 +13,7 @@ const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
 
   return (
     <S.ZeroResultsWrapper>
-      <S.ZeroResultsImg />
+      <S.ZeroResultsImg aria-label="Dziewczyna patrząca przez lornetkę" />
       <S.ZeroResultsHeader>Brak wyników</S.ZeroResultsHeader>
       <S.ZeroResultsP>Spróbuj wyszukać:</S.ZeroResultsP>
       <S.ZeroResultsSuggestions>

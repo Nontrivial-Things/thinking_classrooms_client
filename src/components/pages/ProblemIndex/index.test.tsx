@@ -35,4 +35,20 @@ describe("<ProblemIndex/>", () => {
       await screen.findByText("Wyniki wyszukiwania (2)")
     ).toBeInTheDocument();
   });
+
+  xit("displays zero results view when result count = 0", async () => {
+    testRenderer(<ProblemIndex />);
+
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "xx" } });
+    fireEvent.keyDown(input, { key: "Enter" });
+
+    expect(
+      await screen.findByText("Wyniki wyszukiwania (0)")
+    ).toBeInTheDocument();
+
+    expect(await screen.findByText(/Spróbuj/i)).toBeInTheDocument();
+  });
 });
