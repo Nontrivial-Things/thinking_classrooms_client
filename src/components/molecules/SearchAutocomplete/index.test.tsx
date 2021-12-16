@@ -172,4 +172,52 @@ describe("Input component", () => {
       screen.queryByLabelText("Ikona wyszukiwania po tagu")
     ).not.toBeInTheDocument();
   });
+
+  it("should display input with tag as a value and return to default input after removing tag", async () => {
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    fireEvent.change(input, { target: { value: "J" } });
+    expect(screen.queryByText("Jedzenie")).toBeInTheDocument();
+    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
+    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+
+    const removeTagButton = (await screen.findByRole("button", {
+      name: /Usuń tag/i,
+    })) as HTMLButtonElement;
+    expect(removeTagButton).toBeInTheDocument();
+    fireEvent.click(removeTagButton);
+
+    let defaultInput = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+    expect(defaultInput.value).toBe("");
+  });
+
+  it.only("should display input with tag and return to default input after using Backspace", async () => {
+    testRenderer(<SearchAutocomplete setTag={setTag} />);
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    fireEvent.change(input, { target: { value: "J" } });
+    expect(screen.queryByText("Jedzenie")).toBeInTheDocument();
+    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
+    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+
+    const removeTagButton = (await screen.findByRole("button", {
+      name: /Usuń tag/i,
+    })) as HTMLButtonElement;
+    expect(removeTagButton).toBeInTheDocument();
+    fireEvent.click(await screen.findByLabelText("Input z wyszukanym tagiem"));
+
+    fireEvent.keyDown(input, { key: "Backspace", code: 8 });
+
+    let defaultInput = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+    // expect(defaultInput.value).toBe("Jedzeni");
+  });
 });

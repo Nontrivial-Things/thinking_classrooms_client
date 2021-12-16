@@ -91,7 +91,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
     if (e.key === "Enter") {
       e.preventDefault();
-<<<<<<< HEAD
       const activeSuggestion = suggestions[activeSuggestionIndex];
 
       if (!activeSuggestion) {
@@ -100,13 +99,9 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         activeSuggestion &&
         activeSuggestion.type === SuggestionType.PROBLEM
       ) {
-=======
-      return false;
-
       if (activeSuggestionIndex !== -1) {
         e.preventDefault();
         const activeSuggestion = suggestions[activeSuggestionIndex];
->>>>>>> 47837db (Add editable span to InputWihtTags and prevent eneter on it)
         setSearchTerm(activeSuggestion.title);
       } else if (
         activeSuggestion &&
