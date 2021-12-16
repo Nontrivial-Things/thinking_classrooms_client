@@ -91,6 +91,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
     if (e.key === "Enter") {
       e.preventDefault();
+<<<<<<< HEAD
       const activeSuggestion = suggestions[activeSuggestionIndex];
 
       if (!activeSuggestion) {
@@ -99,6 +100,13 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         activeSuggestion &&
         activeSuggestion.type === SuggestionType.PROBLEM
       ) {
+=======
+      return false;
+
+      if (activeSuggestionIndex !== -1) {
+        e.preventDefault();
+        const activeSuggestion = suggestions[activeSuggestionIndex];
+>>>>>>> 47837db (Add editable span to InputWihtTags and prevent eneter on it)
         setSearchTerm(activeSuggestion.title);
       } else if (
         activeSuggestion &&
@@ -121,10 +129,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
   };
 
-  const handelRemoveTag = () => {
-    clearInput();
-  };
-
   return loading ? null : (
     <S.Combobox
       id="combobox"
@@ -138,7 +142,11 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         }}
       >
         {searchTerm && suggestionType === "tag" ? (
-          <InputWithTags text={searchTerm} onRemoveTag={clearInput} />
+          <InputWithTags
+            text={searchTerm}
+            onRemoveTag={clearInput}
+            setSuggestionType={setSuggestionType}
+          />
         ) : (
           <>
             <S.Label htmlFor="input-search" id="input-search-label">
@@ -152,6 +160,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
               aria-label="Szukaj problemów"
               aria-autocomplete="list"
               aria-controls="autocomplete-options"
+              autoFocus
               value={searchTerm}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
@@ -163,7 +172,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
             />
           </>
         )}
-
         {showClearButton && searchTerm && (
           <>
             <S.Button aria-label="Remove button" onClick={() => clearInput()}>

@@ -74,13 +74,8 @@ const Label = styled.label`
   position: relative;
 `;
 
-<<<<<<< HEAD
 const SearchIcon = styled(LensIcon)`
   stroke: ${blue100};
-=======
-const SearchIcon = styled(LensIcon)<SearchIconProps>`
-  stroke: ${activeButton};
->>>>>>> 29a5ec9 (Create new input with tag component)
   left: 0.8rem;
   bottom: 0;
   position: absolute;

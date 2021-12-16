@@ -12,7 +12,10 @@ const Tag: FC<TagProps> = ({
   <S.TagWrapper fontSize={fontSize}>
     {text}
     {isDroppable && (
-      <S.RemoveButton aria-label="Usuń tag" onClick={() => onRemoveTag!()}>
+      <S.RemoveButton
+        aria-label="Usuń tag"
+        onClick={() => !!onRemoveTag && onRemoveTag()}
+      >
         <S.RemoveTagIcon />
       </S.RemoveButton>
     )}
