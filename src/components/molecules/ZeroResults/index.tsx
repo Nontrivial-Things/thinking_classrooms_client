@@ -19,7 +19,9 @@ const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
       <S.ZeroResultsSuggestions>
         {suggestions.map((suggestion, id) => (
           <li key={id}>
-            <a onClick={() => handleOnClick(suggestion)}>{suggestion}</a>
+            <a onClick={() => handleOnClick(suggestion)}>
+              {(id ? ", " : "") + suggestion}
+            </a>
           </li>
         ))}
       </S.ZeroResultsSuggestions>

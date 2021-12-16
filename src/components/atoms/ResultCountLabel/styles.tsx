@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Wrapper from "../Wrapper";
 import P from "../P";
+import { ResultCountPProps } from "./interface";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { textDetails, primaryBackground } from "../../../assets/styles/colors";
 
@@ -35,23 +36,17 @@ const ResultCountWrapper = styled(Wrapper)`
   }
 `;
 
-const ResultCountP = styled(P)`
+const ResultCountP = styled(P)<ResultCountPProps>`
   line-height: 2.4rem;
-  font-size: 1.4rem;
-  background-color: ${primaryBackground};
+  background-color: ${(props) => props.backgroundColor};
   height: 2.4rem;
   padding-right: 0.8rem;
   z-index: 3;
   position: relative;
+  font-size: 1.4rem;
 
   @media ${minDevice.desktopTablet} {
-    line-height: 3.2rem;
-    font-size: 1.6rem;
-  }
-
-  @media ${minDevice.desktopL} {
-    line-height: 2.4rem;
-    font-size: 1.8rem;
+    background-color: ${primaryBackground};
   }
 `;
 export { ResultCountWrapper, ResultCountP };

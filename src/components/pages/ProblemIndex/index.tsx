@@ -8,7 +8,7 @@ import ZeroResults from "../../molecules/ZeroResults";
 import ProblemSearchSection from "../../organisms/ProblemSearchSection";
 import { GetProblemsQuery, PROBLEMS } from "./interface";
 
-import { primaryBackground } from "../../../assets/styles/colors";
+import { white, primaryBackground } from "../../../assets/styles/colors";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 const ProblemIndex: FC = () => {
@@ -42,7 +42,8 @@ const ProblemIndex: FC = () => {
         searchTerm={searchTerm}
       />
       <Wrapper
-        background={primaryBackground}
+        background={problems.length === 0 ? white : primaryBackground}
+        backgroundDT={primaryBackground}
         flexDirection="column"
         margin="0"
         minHeight="100vh"
