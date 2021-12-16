@@ -122,7 +122,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   };
 
   const handelRemoveTag = () => {
-    searchTerm && clearInput();
+    clearInput();
   };
 
   return loading ? null : (

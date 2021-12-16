@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 import * as S from "./styles";
-import { TagStyleProps } from "./interface";
+import { TagProps } from "./interface";
 
-const Tag: FC<TagStyleProps> = ({
+const Tag: FC<TagProps> = ({
   text,
   fontSize,
   onRemoveTag,
@@ -12,7 +12,7 @@ const Tag: FC<TagStyleProps> = ({
   <S.TagWrapper fontSize={fontSize}>
     {text}
     {isDroppable && (
-      <S.RemoveButton aria-label="Usuń tag" onClick={onRemoveTag}>
+      <S.RemoveButton aria-label="Usuń tag" onClick={() => onRemoveTag!()}>
         <S.RemoveTagIcon />
       </S.RemoveButton>
     )}

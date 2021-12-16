@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Wrapper from "../Wrapper";
-import { TagWrapperProps, ButtonProps } from "./interface";
+import TagWrapperProps from "./interface";
 
 import { tagBackground, tagText } from "../../../assets/styles/colors";
 import { ReactComponent as RemoveIcon } from "../../../assets/img/icons/remove-icon.svg";
@@ -21,7 +21,7 @@ const TagWrapper = styled(Wrapper)<TagWrapperProps>`
   margin: 0;
 `;
 
-const RemoveButton = styled.button<ButtonProps>`
+const RemoveButton = styled.button`
   border: none;
   background: none;
   width: fit-content;
