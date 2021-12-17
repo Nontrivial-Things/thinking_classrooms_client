@@ -70,16 +70,16 @@ describe("Input component", () => {
     expect(input.value).toBe("");
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
 
-    fireEvent.change(input, { target: { value: "Oce" } });
-    expect(input).toHaveValue("Oce");
+    fireEvent.change(input, { target: { value: "Ciągi" } });
+    expect(input).toHaveValue("Ciągi");
     const list = await screen.findByRole("listbox");
     const { findAllByRole } = within(list);
     const suggestions = await findAllByRole("listitem");
-    expect(suggestions.length).toBe(1);
-    const suggestion = screen.getByText("Ocean");
+    expect(suggestions.length).toBe(3);
+    const suggestion = screen.getByText("Ciągi matematyczne");
     userEvent.click(suggestion);
 
-    expect(input).toHaveValue("Ocean");
+    expect(input).toHaveValue("Ciągi matematyczne");
   });
 
   it("should display remove button in input field only when the input value is not empty", async () => {
@@ -124,14 +124,14 @@ describe("Input component", () => {
       "Szukaj problemów"
     )) as HTMLInputElement;
 
-    fireEvent.change(input, { target: { value: "Oc" } });
+    fireEvent.change(input, { target: { value: "Ciągi matematyczne" } });
     const items = await screen.findAllByRole("listitem");
-    expect(screen.getByText("Ocean")).toBeInTheDocument();
+    expect(screen.getByText("Ciągi matematyczne")).toBeInTheDocument();
     expect(items).toHaveLength(1);
 
     fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
     fireEvent.keyDown(input, { key: "Enter", code: 13 });
-    expect(input.value).toBe("Ocean");
+    expect(input.value).toBe("Ciągi matematyczne");
   });
 
   it("should display search icon on tag suggestion", async () => {
