@@ -2,6 +2,6 @@ export interface ResultCountWrapperProps {
   count: number;
 }
 
-export interface ResultCountPProps {
+export interface ResultCountSpanProps {
   backgroundColor?: string;
 }

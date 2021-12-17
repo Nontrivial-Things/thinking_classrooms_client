@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 import Wrapper from "../Wrapper";
-import P from "../P";
-import { ResultCountPProps } from "./interface";
+import { ResultCountSpanProps } from "./interface";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { textDetails, primaryBackground } from "../../../assets/styles/colors";
 
@@ -36,7 +35,7 @@ const ResultCountWrapper = styled(Wrapper)`
   }
 `;
 
-const ResultCountP = styled(P)<ResultCountPProps>`
+const ResultCountSpan = styled.span<ResultCountSpanProps>`
   line-height: 2.4rem;
   background-color: ${(props) => props.backgroundColor};
   height: 2.4rem;
@@ -49,4 +48,4 @@ const ResultCountP = styled(P)<ResultCountPProps>`
     background-color: ${primaryBackground};
   }
 `;
-export { ResultCountWrapper, ResultCountP };
+export { ResultCountWrapper, ResultCountSpan };

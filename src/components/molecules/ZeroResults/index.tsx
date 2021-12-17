@@ -4,27 +4,25 @@ import { ZeroResultsProps } from "./interface";
 import * as S from "./styles";
 
 const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
-  const suggestions = ["Ciągi", "Jedzenie", "Zwierzęta"];
+  const suggestedTags = ["Ciągi", "Jedzenie", "Zwierzęta"];
 
-  const handleOnClick = (el: string) => {
-    setTag(el);
-    setSearchTerm(el);
+  const handleOnClick = (tag: string) => {
+    setTag(tag);
+    setSearchTerm(tag);
   };
 
   return (
     <S.ZeroResultsWrapper>
-      <S.ZeroResultsImg aria-label="Dziewczyna patrząca przez lornetkę" />
+      <S.ZeroResultsImg aria-hidden="true" />
       <S.ZeroResultsHeader>Brak wyników</S.ZeroResultsHeader>
-      <S.ZeroResultsP>Spróbuj wyszukać:</S.ZeroResultsP>
-      <S.ZeroResultsSuggestions>
-        {suggestions.map((suggestion, id) => (
+      <S.ZeroResultsSpan>Spróbuj wyszukać:</S.ZeroResultsSpan>
+      <S.ZeroResultsTagSuggestions>
+        {suggestedTags.map((tag, id) => (
           <li key={id}>
-            <a onClick={() => handleOnClick(suggestion)}>
-              {(id ? ", " : "") + suggestion}
-            </a>
+            <a onClick={() => handleOnClick(tag)}>{(id ? ", " : "") + tag}</a>
           </li>
         ))}
-      </S.ZeroResultsSuggestions>
+      </S.ZeroResultsTagSuggestions>
     </S.ZeroResultsWrapper>
   );
 };

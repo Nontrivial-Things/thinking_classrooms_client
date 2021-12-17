@@ -7,9 +7,11 @@ import { white, primaryBackground } from "../../../assets/styles/colors";
 const ResultCountLabel: FC<ResultCountWrapperProps> = ({ count }) => {
   return (
     <S.ResultCountWrapper>
-      <S.ResultCountP backgroundColor={count === 0 ? white : primaryBackground}>
+      <S.ResultCountSpan
+        backgroundColor={count === 0 ? white : primaryBackground}
+      >
         Wyniki wyszukiwania ({count})
-      </S.ResultCountP>
+      </S.ResultCountSpan>
     </S.ResultCountWrapper>
   );
 };

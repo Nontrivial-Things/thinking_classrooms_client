@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import Column from "../../atoms/Column";
-import P from "../../atoms/P";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { blue100, blue200 } from "../../../assets/styles/colors";
@@ -57,7 +56,7 @@ const ZeroResultsHeader = styled.p`
   }
 `;
 
-const ZeroResultsP = styled(P)`
+const ZeroResultsSpan = styled.span`
   font-size: 1.4rem;
   line-height: 2.4rem;
   margin-bottom: 0.85rem;
@@ -69,7 +68,7 @@ const ZeroResultsP = styled(P)`
   }
 `;
 
-const ZeroResultsSuggestions = styled.ul`
+const ZeroResultsTagSuggestions = styled.ul`
   font-size: 1.4rem;
   line-height: 2.4rem;
   display: flex;
@@ -89,6 +88,6 @@ export {
   ZeroResultsWrapper,
   ZeroResultsImg,
   ZeroResultsHeader,
-  ZeroResultsP,
-  ZeroResultsSuggestions,
+  ZeroResultsSpan,
+  ZeroResultsTagSuggestions,
 };

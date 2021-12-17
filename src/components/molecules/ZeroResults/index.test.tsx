@@ -14,8 +14,8 @@ describe("<ZeroResults />", () => {
       await screen.findByLabelText("Dziewczyna patrząca przez lornetkę")
     ).toBeInTheDocument();
 
-    let jedzenie = await screen.findByText(/Jedzenie/i);
-    fireEvent.click(jedzenie);
+    let tag = await screen.findByText(/Jedzenie/i);
+    fireEvent.click(tag);
     testRenderer(<ProblemIndex />);
 
     expect(
