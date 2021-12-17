@@ -1,5 +1,6 @@
 import { screen, fireEvent, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { debug } from "util";
 
 import { testRenderer } from "../../../setupTests";
 import SearchAutocomplete from "./index";
@@ -196,7 +197,7 @@ describe("Input component", () => {
     expect(defaultInput.value).toBe("");
   });
 
-  it.only("should display input with tag and return to default input after using Backspace", async () => {
+  it("should display input with tag and return to default input after using Backspace", async () => {
     testRenderer(<SearchAutocomplete setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -207,17 +208,16 @@ describe("Input component", () => {
     fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
     fireEvent.keyDown(input, { key: "Enter", code: 13 });
 
-    const removeTagButton = (await screen.findByRole("button", {
+    const removeTagButton = await screen.findByRole("button", {
       name: /Usuń tag/i,
-    })) as HTMLButtonElement;
+    });
     expect(removeTagButton).toBeInTheDocument();
-    fireEvent.click(await screen.findByLabelText("Input z wyszukanym tagiem"));
-
-    fireEvent.keyDown(input, { key: "Backspace", code: 8 });
+    const inputWithTag = await screen.findByLabelText("Input z tagiem");
+    fireEvent.keyDown(inputWithTag, { key: "Backspace" });
 
     let defaultInput = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
-    // expect(defaultInput.value).toBe("Jedzeni");
+    expect(defaultInput.value).toBe("Jedzenie");
   });
 });

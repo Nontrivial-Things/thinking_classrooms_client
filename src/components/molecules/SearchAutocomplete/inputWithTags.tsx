@@ -22,7 +22,7 @@ const InputWithTags: FC<InputWithTagsProps> = ({
 
   return (
     <S.InputWithTags
-      aria-label="Input z wyszukanym tagiem"
+      aria-label="Input z tagiem"
       contentEditable="true"
       suppressContentEditableWarning={true}
       onKeyDown={(e) => handleKeyDown(e)}
