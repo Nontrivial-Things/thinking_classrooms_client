@@ -33,6 +33,7 @@ const ProblemIndex: FC = () => {
   return (
     <>
       <ProblemSearchSection
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}

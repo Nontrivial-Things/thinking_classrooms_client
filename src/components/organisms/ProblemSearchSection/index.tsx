@@ -11,6 +11,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
   setProblems,
   setSearchTerm,
   searchTerm,
+  tag,
 }) => {
   return (
     <S.SearchWrapper
@@ -22,6 +23,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
     >
       <S.H2>Szukaj problemów matematycznych</S.H2>
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}

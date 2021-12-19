@@ -1,6 +1,5 @@
 import { screen, fireEvent, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { debug } from "util";
 
 import { testRenderer } from "../../../setupTests";
 import SearchAutocomplete from "./index";
@@ -70,7 +69,8 @@ describe("Input component", () => {
     expect(input.value).toBe("");
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
 
-    fireEvent.change(input, { target: { value: "Ciągi" } });
+    userEvent.type(input, "Ciągi");
+
     expect(input).toHaveValue("Ciągi");
     const list = await screen.findByRole("listbox");
     const { findAllByRole } = within(list);
@@ -114,6 +114,7 @@ describe("Input component", () => {
   it("should key press correctly", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -175,7 +176,7 @@ describe("Input component", () => {
   });
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
-    testRenderer(<SearchAutocomplete setTag={setTag} />);
+    testRenderer(<SearchAutocomplete tag={"Jedzenie"} setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -198,7 +199,7 @@ describe("Input component", () => {
   });
 
   it("should display input with tag and return to default input after using Backspace", async () => {
-    testRenderer(<SearchAutocomplete setTag={setTag} />);
+    testRenderer(<SearchAutocomplete tag={"Jedzenie"} setTag={setTag} />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;

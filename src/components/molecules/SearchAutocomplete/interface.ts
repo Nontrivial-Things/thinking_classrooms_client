@@ -3,6 +3,7 @@ import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
 import { ProblemSummaryProps } from "../SearchResultTile/interface";
 
 export interface SearchAutocompleteProps {
+  tag: string;
   setTag: (tag: string) => void;
   setProblems: (problems: Array<ProblemSummaryProps>) => void;
   setSearchTerm: (searchTerm: string) => void;
@@ -24,8 +25,8 @@ export interface InputStyleProps {
 }
 
 export interface InputWithTagsProps {
-  onRemoveTag: () => void;
   text: string;
+  onRemoveTag: () => void;
   setSuggestionType: (type: string) => void;
 }
 

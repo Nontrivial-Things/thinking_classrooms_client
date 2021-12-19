@@ -14,6 +14,7 @@ import * as S from "./styles";
 import { sortSuggestions } from "../../pages/ProblemIndex/utils";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
+  tag,
   setTag,
   setProblems,
   setSearchTerm,
@@ -136,7 +137,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           e.preventDefault();
         }}
       >
-        {searchTerm && suggestionType === "tag" ? (
+        {searchTerm && !!tag ? (
           <InputWithTags
             text={searchTerm}
             onRemoveTag={clearInput}
@@ -165,17 +166,20 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
               }}
               showSuggestions={showSuggestions}
             />
-          </>
-        )}
-        {showClearButton && searchTerm && (
-          <>
-            <S.Button aria-label="Remove button" onClick={() => clearInput()}>
-              <span id="Remove button" hidden>
-                Remove input text button
-              </span>
+            {showClearButton && searchTerm && (
+              <>
+                <S.Button
+                  aria-label="Remove button"
+                  onClick={() => clearInput()}
+                >
+                  <span id="Remove button" hidden>
+                    Remove input text button
+                  </span>
 
-              <S.RemoveIcon aria-hidden="true" />
-            </S.Button>
+                  <S.RemoveIcon aria-hidden="true" />
+                </S.Button>
+              </>
+            )}
           </>
         )}
         {showSuggestions && searchTerm && (

@@ -2,6 +2,7 @@ import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface"
 
 export interface ProblemSearchSectionProps {
   setProblems: (problems: ProblemSummaryProps[]) => void;
+  tag: string;
   setTag: (tag: string) => void;
   setSearchTerm: (searchTerm: string) => void;
   searchTerm: string;
