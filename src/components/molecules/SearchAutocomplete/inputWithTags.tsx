@@ -11,11 +11,13 @@ const InputWithTags: FC<InputWithTagsProps> = ({
   setTag,
 }) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
-    if (e.key === "Backspace") {
-      setTag("");
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      return false;
+    switch (e.key) {
+      case "Backspace":
+        break;
+      case "Enter":
+        e.preventDefault();
+        break;
+      default:
     }
   };
 

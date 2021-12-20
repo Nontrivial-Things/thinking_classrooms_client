@@ -20,7 +20,6 @@ describe("Input component", () => {
         searchTerm=""
       />
     );
-
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -213,7 +212,7 @@ describe("Input component", () => {
     expect(defaultInput.value).toBe("");
   });
 
-  it.only("should display input with tag and return to default input after using Backspace", async () => {
+  it("should display input with tag and return to default input after using Backspace", async () => {
     testRenderer(
       <SearchAutocomplete
         tag={"Jedzenie"}
