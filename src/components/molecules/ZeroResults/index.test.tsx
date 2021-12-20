@@ -7,12 +7,11 @@ import ProblemIndex from "../../pages/ProblemIndex/index";
 describe("<ZeroResults />", () => {
   const setTag = jest.fn();
   const setSearchTerm = jest.fn();
-  it("displays image", async () => {
+  it("displays no results informaction and possible tags to choose", async () => {
     testRenderer(<ZeroResults setTag={setTag} setSearchTerm={setSearchTerm} />);
 
-    expect(
-      await screen.findByLabelText("Dziewczyna patrząca przez lornetkę")
-    ).toBeInTheDocument();
+    expect(await screen.findByText(/Brak wyników/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Spróbuj wyszukać/i)).toBeInTheDocument();
 
     let tag = await screen.findByText(/Jedzenie/i);
     fireEvent.click(tag);
