@@ -4,54 +4,63 @@ import { useQuery } from "@apollo/client";
 import ResultCountLabel from "../../atoms/ResultCountLabel";
 import Wrapper from "../../atoms/Wrapper";
 import SearchResultTile from "../../molecules/SearchResultTile";
+import ZeroResults from "../../molecules/ZeroResults";
 import ProblemSearchSection from "../../organisms/ProblemSearchSection";
 import { GetProblemsQuery, PROBLEMS } from "./interface";
 
-import { primaryBackground } from "../../../assets/styles/colors";
+import { white, primaryBackground } from "../../../assets/styles/colors";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 const ProblemIndex: FC = () => {
-  const { data } = useQuery<GetProblemsQuery>(PROBLEMS);
+  const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
   const [tag, setTag] = useState<string>("");
   const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    if (data?.problems) {
+    if (data?.problems && !loading) {
       const { problems } = data;
-      const filteredProblems = () => {
-        if (tag === "") return problems;
-        else {
-          return problems.filter((problem) => {
-            return problem.tags && problem.tags.includes(tag);
-          });
-        }
-      };
-
+      const filteredProblems =
+        tag === ""
+          ? problems
+          : problems.filter((problem) => {
+              return problem.tags && problem.tags.includes(tag);
+            });
       setProblems(filteredProblems);
     }
-  }, [data?.problems.length, tag]);
+  }, [data?.problems.length, tag, loading]);
 
   return (
     <>
-      <ProblemSearchSection setTag={setTag} problems={problems} />
+      <ProblemSearchSection
+        setTag={setTag}
+        setProblems={setProblems}
+        setSearchTerm={setSearchTerm}
+        searchTerm={searchTerm}
+      />
       <Wrapper
-        background={primaryBackground}
+        background={problems.length === 0 ? white : primaryBackground}
+        backgroundDT={primaryBackground}
         flexDirection="column"
         margin="0"
         minHeight="100vh"
       >
         <ResultCountLabel count={problems.length}></ResultCountLabel>
-        {problems.map(({ title, author, createdAt, level, tags, id }) => (
-          <SearchResultTile
-            key={id}
-            title={title}
-            tags={tags}
-            createdAt={createdAt}
-            author={author}
-            level={level}
-            id={id}
-          />
-        ))}
+        {problems.length === 0 && !loading ? (
+          <ZeroResults setTag={setTag} setSearchTerm={setSearchTerm} />
+        ) : (
+          problems.map(({ title, author, createdAt, level, tags, id }) => (
+            <SearchResultTile
+              key={id}
+              title={title}
+              tags={tags}
+              createdAt={createdAt}
+              author={author}
+              level={level}
+              id={id}
+            />
+          ))
+        )}
       </Wrapper>
     </>
   );

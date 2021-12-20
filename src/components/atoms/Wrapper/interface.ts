@@ -7,6 +7,7 @@ export interface WrapperProps {
   justifyContent?: string;
   alignItems?: string;
   background?: string;
+  backgroundDT?: string;
   width?: string;
   minHeight?: string;
 }

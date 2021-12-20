@@ -11,7 +11,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
 }) => {
   const ref = useRef<HTMLUListElement>(null);
 
-  return filteredSuggestions.length ? (
+  return (
     <S.SuggestionList
       ref={ref}
       id="autocomplete-options"
@@ -38,10 +38,6 @@ const SuggestionsList: FC<SuggestionsProps> = ({
         </S.Suggestion>
       ))}
     </S.SuggestionList>
-  ) : (
-    <div>
-      <em>Brak wyników</em>
-    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import { minDevice } from "../../../assets/styles/breakpoints";
 import {
   white,
   placeholder,
-  activeButton,
+  blue100,
   lightGrey,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
@@ -68,7 +68,7 @@ const Label = styled.label`
 `;
 
 const SearchIcon = styled(LensIcon)`
-  stroke: ${activeButton};
+  stroke: ${blue100};
   left: 0.8rem;
   bottom: 0;
   position: absolute;
@@ -85,7 +85,7 @@ const SuggestionList = styled.ul`
   width: 100%;
   max-height: 36rem;
   border-top: 1px solid;
-  border-top-color: ${activeButton};
+  border-top-color: ${blue100};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 0px 2px 8px rgb(0 0 0 / 10%);
