@@ -125,6 +125,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
   };
 
+  console.log(tag);
+
   return loading ? null : (
     <S.Combobox
       id="combobox"

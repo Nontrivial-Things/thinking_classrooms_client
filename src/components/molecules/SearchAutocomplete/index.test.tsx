@@ -130,8 +130,8 @@ describe("Input component", () => {
     expect(screen.getByText("Ciągi matematyczne")).toBeInTheDocument();
     expect(items).toHaveLength(1);
 
-    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
-    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "Enter" });
     expect(input.value).toBe("Ciągi matematyczne");
   });
 
@@ -183,8 +183,8 @@ describe("Input component", () => {
 
     fireEvent.change(input, { target: { value: "J" } });
     expect(screen.queryByText("Jedzenie")).toBeInTheDocument();
-    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
-    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "Enter" });
 
     const removeTagButton = (await screen.findByRole("button", {
       name: /Usuń tag/i,
@@ -206,8 +206,8 @@ describe("Input component", () => {
 
     fireEvent.change(input, { target: { value: "J" } });
     expect(screen.queryByText("Jedzenie")).toBeInTheDocument();
-    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
-    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "Enter" });
 
     const removeTagButton = await screen.findByRole("button", {
       name: /Usuń tag/i,
