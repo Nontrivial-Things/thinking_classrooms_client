@@ -5,6 +5,7 @@ import { testRenderer } from "../../../setupTests";
 import SearchAutocomplete from "./index";
 
 describe("Input component", () => {
+  const tag = "";
   const setTag = jest.fn();
   const setProblems = jest.fn();
   const setSearchTerm = jest.fn();
@@ -12,6 +13,7 @@ describe("Input component", () => {
   it("displays inputted value", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -32,6 +34,7 @@ describe("Input component", () => {
   it("should show suggestions list matching input value", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -57,6 +60,7 @@ describe("Input component", () => {
   it("should display picked suggestion as input value", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -85,6 +89,7 @@ describe("Input component", () => {
   it("should display remove button in input field only when the input value is not empty", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -138,6 +143,7 @@ describe("Input component", () => {
   it("should display search icon on tag suggestion", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -158,6 +164,7 @@ describe("Input component", () => {
   it("should display problem suggestion", async () => {
     testRenderer(
       <SearchAutocomplete
+        tag={tag}
         setTag={setTag}
         setProblems={setProblems}
         setSearchTerm={setSearchTerm}
@@ -176,7 +183,15 @@ describe("Input component", () => {
   });
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
-    testRenderer(<SearchAutocomplete tag={"Jedzenie"} setTag={setTag} />);
+    testRenderer(
+      <SearchAutocomplete
+        tag={"Jedzenie"}
+        setTag={setTag}
+        setProblems={setProblems}
+        setSearchTerm={setSearchTerm}
+        searchTerm=""
+      />
+    );
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -198,8 +213,16 @@ describe("Input component", () => {
     expect(defaultInput.value).toBe("");
   });
 
-  it("should display input with tag and return to default input after using Backspace", async () => {
-    testRenderer(<SearchAutocomplete tag={"Jedzenie"} setTag={setTag} />);
+  it.only("should display input with tag and return to default input after using Backspace", async () => {
+    testRenderer(
+      <SearchAutocomplete
+        tag={"Jedzenie"}
+        setTag={setTag}
+        setProblems={setProblems}
+        setSearchTerm={setSearchTerm}
+        searchTerm=""
+      />
+    );
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;

@@ -74,7 +74,7 @@ const Label = styled.label`
   position: relative;
 `;
 
-const SearchIcon = styled(LensIcon)`
+const SearchIcon = styled(LensIcon)<SearchIconProps>`
   stroke: ${blue100};
   left: 0.8rem;
   bottom: 0;

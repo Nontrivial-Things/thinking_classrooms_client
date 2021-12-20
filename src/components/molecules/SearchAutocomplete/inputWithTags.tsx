@@ -8,13 +8,12 @@ import { InputWithTagsProps } from "./interface";
 const InputWithTags: FC<InputWithTagsProps> = ({
   text,
   onRemoveTag,
-  setSuggestionType,
+  setTag,
 }) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
     if (e.key === "Backspace") {
-      setSuggestionType("");
-    }
-    if (e.key === "Enter") {
+      setTag("");
+    } else if (e.key === "Enter") {
       e.preventDefault();
       return false;
     }

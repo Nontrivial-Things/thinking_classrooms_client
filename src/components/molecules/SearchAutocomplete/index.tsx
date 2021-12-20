@@ -25,7 +25,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showClearButton, setShowClearButton] = useState(false);
-  const [suggestionType, setSuggestionType] = useState("");
 
   const updateSuggestions = () => {
     if (!loading && data) {
@@ -59,7 +58,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     updateSuggestions();
     setTag("");
     setActiveSuggestionIndex(-1);
-    setSuggestionType("");
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
@@ -70,7 +68,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
 
     setShowSuggestions(false);
-    setSuggestionType(suggestion.type);
   };
 
   const handleKeyUp = () => {
@@ -88,7 +85,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       if (searchTerm == "") {
         setTag("");
       }
-      setSuggestionType("");
     }
     if (e.key === "Enter") {
       e.preventDefault();
@@ -100,9 +96,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         activeSuggestion &&
         activeSuggestion.type === SuggestionType.PROBLEM
       ) {
-      if (activeSuggestionIndex !== -1) {
-        e.preventDefault();
-        const activeSuggestion = suggestions[activeSuggestionIndex];
         setSearchTerm(activeSuggestion.title);
       } else if (
         activeSuggestion &&
@@ -125,8 +118,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
   };
 
-  console.log(tag);
-
   return loading ? null : (
     <S.Combobox
       id="combobox"
@@ -143,7 +134,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           <InputWithTags
             text={searchTerm}
             onRemoveTag={clearInput}
-            setSuggestionType={setSuggestionType}
+            setTag={setTag}
           />
         ) : (
           <>

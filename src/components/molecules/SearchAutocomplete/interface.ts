@@ -27,7 +27,7 @@ export interface InputStyleProps {
 export interface InputWithTagsProps {
   text: string;
   onRemoveTag: () => void;
-  setSuggestionType: (type: string) => void;
+  setTag: (tag: string) => void;
 }
 
 export interface SearchIconProps {

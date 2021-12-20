@@ -1,11 +1,11 @@
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 export interface ProblemSearchSectionProps {
-  setProblems: (problems: ProblemSummaryProps[]) => void;
   tag: string;
-  setTag: (tag: string) => void;
-  setSearchTerm: (searchTerm: string) => void;
   searchTerm: string;
+  setTag: (tag: string) => void;
+  setProblems: (problems: ProblemSummaryProps[]) => void;
+  setSearchTerm: (searchTerm: string) => void;
 }
 
 export enum SuggestionType {
