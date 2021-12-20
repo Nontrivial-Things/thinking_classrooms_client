@@ -21,6 +21,7 @@ export interface SuggestionProps {
 
 export interface InputStyleProps {
   showSuggestions: boolean;
+  tag: boolean;
 }
 
 export const SUGGESTIONS = gql`

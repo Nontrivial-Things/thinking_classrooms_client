@@ -13,6 +13,22 @@ import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
 import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
 
+import { tagBackground, tagText } from "../../../assets/styles/colors";
+
+const inputTagStyle = css`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.2rem 0 1.2rem;
+  width: fit-content;
+  background-color: ${tagBackground};
+  border-radius: 1.5rem;
+  line-height: 2.4rem;
+  color: ${tagText};
+  font-weight: 700;
+  margin: 0;
+`;
+
 const FormWrapper = styled.div`
   width: 100%;
   height: 8rem;
@@ -52,7 +68,11 @@ const Input = styled.input<InputStyleProps>`
   &:focus-visible {
     outline: none;
   }
-
+  ${(props) =>
+    props.tag &&
+    css`
+      ${inputTagStyle}
+    `}
   @media ${minDevice.desktopL} {
     padding: 0 4rem;
   }

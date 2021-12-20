@@ -23,6 +23,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showClearButton, setShowClearButton] = useState(false);
+  const [suggestionType, setSuggestionType] = useState("");
 
   const updateSuggestions = () => {
     if (!loading && data) {
@@ -56,6 +57,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     updateSuggestions();
     setTag("");
     setActiveSuggestionIndex(-1);
+    setSuggestionType("");
   };
 
   const chooseSuggestion = (suggestion: Suggestion) => {
@@ -66,6 +68,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
 
     setShowSuggestions(false);
+    setSuggestionType(suggestion.type);
   };
 
   const handleKeyUp = () => {
@@ -83,6 +86,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       if (searchTerm == "") {
         setTag("");
       }
+      setSuggestionType("");
     }
     if (e.key === "Enter") {
       e.preventDefault();
@@ -135,6 +139,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           id="input-search"
           type="text"
           autoComplete="off"
+          tag={suggestionType === "tag"}
           placeholder="Szukaj problemów matematycznych"
           aria-label="Szukaj problemów"
           aria-autocomplete="list"
@@ -148,14 +153,17 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           }}
           showSuggestions={showSuggestions}
         />
-        {showClearButton && searchTerm && (
-          <S.Button aria-label="Remove button" onClick={() => clearInput()}>
-            <span id="Remove button" hidden>
-              Remove input text button
-            </span>
 
-            <S.RemoveIcon aria-hidden="true" />
-          </S.Button>
+        {showClearButton && searchTerm && (
+          <>
+            <S.Button aria-label="Remove button" onClick={() => clearInput()}>
+              <span id="Remove button" hidden>
+                Remove input text button
+              </span>
+
+              <S.RemoveIcon aria-hidden="true" />
+            </S.Button>
+          </>
         )}
         {showSuggestions && searchTerm && (
           <SuggestionsList
