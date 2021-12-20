@@ -8,7 +8,7 @@ import {
   SuggestionType,
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
-import Tag from "../../atoms/Tag";
+import InputWithTags from "./inputWithTags";
 
 import * as S from "./styles";
 import { sortSuggestions } from "../../pages/ProblemIndex/utils";
@@ -121,6 +121,10 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
     }
   };
 
+  const handelRemoveTag = () => {
+    searchTerm && clearInput();
+  };
+  console.log(suggestionType);
   return loading ? null : (
     <S.Combobox
       id="combobox"
@@ -133,15 +137,17 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           e.preventDefault();
         }}
       >
+        {/* {suggestionType === "tag" ? (
+          <InputWithTags onRemoveTag={handelRemoveTag} text={searchTerm} />
+        ) : (
+          <> */}
         <S.Label htmlFor="input-search" id="input-search-label">
           <S.SearchIcon />
         </S.Label>
         <S.Input
           id="input-search"
           type="text"
-          pattern="^Ciągi"
           autoComplete="off"
-          tag={suggestionType === "tag"}
           placeholder="Szukaj problemów matematycznych"
           aria-label="Szukaj problemów"
           aria-autocomplete="list"
@@ -155,6 +161,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           }}
           showSuggestions={showSuggestions}
         />
+        {/* </>
+        )} */}
 
         {showClearButton && searchTerm && (
           <>

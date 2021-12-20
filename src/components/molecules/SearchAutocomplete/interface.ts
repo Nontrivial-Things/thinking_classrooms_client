@@ -21,7 +21,15 @@ export interface SuggestionProps {
 
 export interface InputStyleProps {
   showSuggestions: boolean;
-  tag: boolean;
+}
+
+export interface InputWithTagsProps {
+  onRemoveTag: (e: any) => void;
+  text: string;
+}
+
+export interface SearchIconProps {
+  top?: string;
 }
 
 export const SUGGESTIONS = gql`

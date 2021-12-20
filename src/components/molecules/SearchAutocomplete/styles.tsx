@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SuggestionProps, InputStyleProps } from "./interface";
+import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
@@ -8,28 +8,10 @@ import {
   placeholder,
   blue100,
   lightGrey,
-  tagBackground,
-  tagText,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
 import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
-
-import Tag from "../../atoms/Tag";
-
-const inputTagStyle = css`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1.2rem 0 1.2rem;
-  width: fit-content;
-  background-color: ${tagBackground};
-  border-radius: 1.5rem;
-  line-height: 2.4rem;
-  color: ${tagText};
-  font-weight: 700;
-  margin: 0;
-`;
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -51,28 +33,20 @@ const Form = styled.form`
   border-radius: 5px;
 `;
 
-const Input = styled.input<InputStyleProps>`
+const inputStyles = css`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
   padding: 0 3.5rem;
   background: ${white};
   border: none;
-  border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   font-family: inherit;
   font-size: 1.4rem;
   line-height: 2.4rem;
-  ::placeholder {
-    color: ${placeholder};
-  }
   &:focus-visible {
     outline: none;
   }
-  &:valid {
-    ${inputTagStyle}
-  }
+
   @media ${minDevice.desktopL} {
     padding: 0 4rem;
   }
@@ -83,15 +57,34 @@ const Input = styled.input<InputStyleProps>`
   }
 `;
 
+const Input = styled.input<InputStyleProps>`
+  border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  ::placeholder {
+    color: ${placeholder};
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  ${inputStyles}
+`;
+
 const Label = styled.label`
   position: relative;
 `;
 
+<<<<<<< HEAD
 const SearchIcon = styled(LensIcon)`
   stroke: ${blue100};
+=======
+const SearchIcon = styled(LensIcon)<SearchIconProps>`
+  stroke: ${activeButton};
+>>>>>>> 29a5ec9 (Create new input with tag component)
   left: 0.8rem;
   bottom: 0;
   position: absolute;
+  ${(props) => props.top}
 `;
 
 const RemoveIcon = styled(ClearIcon)`
@@ -183,6 +176,13 @@ const ClipboardIcon = styled(Clipboard)`
   }
 `;
 
+const InputWithTags = styled.div`
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  ${inputStyles}
+`;
+
 export {
   Form,
   Input,
@@ -196,4 +196,5 @@ export {
   Combobox,
   TagSearchIcon,
   ClipboardIcon,
+  InputWithTags,
 };
