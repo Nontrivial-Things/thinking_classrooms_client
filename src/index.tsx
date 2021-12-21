@@ -1,6 +1,8 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+
 import App from "./App";
 import GlobalStyle from "./assets/styles/global-styles";
 
@@ -13,11 +15,13 @@ if (process.env.NODE_ENV === "development") {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <GlobalStyle />
-      <App />
-    </ApolloProvider>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <ApolloProvider client={client}>
+        <GlobalStyle />
+        <App />
+      </ApolloProvider>
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById("root")
 );

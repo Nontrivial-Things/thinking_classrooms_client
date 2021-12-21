@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import Tag from "../../atoms/Tag";
 import Button from "../../atoms/Button";
@@ -15,7 +16,9 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
   return (
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
-        <S.Title>{title}</S.Title>
+        <Link to="/problem">
+          <S.Title>{title}</S.Title>
+        </Link>
         <S.AuthorWrapper>
           <S.Details>{author}</S.Details>
           <S.Details>•</S.Details>
@@ -27,9 +30,11 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <Button isPrimary={false} isHidden>
-        Zobacz treść
-      </Button>
+      <Link to="/problem">
+        <Button isPrimary={false} isHidden>
+          Zobacz treść
+        </Button>
+      </Link>
     </S.SearchResultTileWrapper>
   );
 };
