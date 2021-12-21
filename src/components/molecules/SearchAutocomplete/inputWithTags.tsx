@@ -29,7 +29,12 @@ const InputWithTags: FC<InputWithTagsProps> = ({
       onKeyDown={(e) => handleKeyDown(e)}
     >
       <S.SearchIcon top="1.5rem" />
-      <Tag text={text} isDroppable onRemoveTag={onRemoveTag} />
+      <Tag
+        text={text}
+        fontSize="1.4rem"
+        isDroppable
+        onRemoveTag={onRemoveTag}
+      />
     </S.InputWithTags>
   );
 };
