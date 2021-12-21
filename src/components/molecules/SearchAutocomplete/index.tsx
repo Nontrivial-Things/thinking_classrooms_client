@@ -8,11 +8,13 @@ import {
   SuggestionType,
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
+import InputWithTags from "./inputWithTags";
 
 import * as S from "./styles";
 import { sortSuggestions } from "../../pages/ProblemIndex/utils";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
+  tag,
   setTag,
   setProblems,
   setSearchTerm,
@@ -128,34 +130,50 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
           e.preventDefault();
         }}
       >
-        <S.Label htmlFor="input-search" id="input-search-label">
-          <S.SearchIcon />
-        </S.Label>
-        <S.Input
-          id="input-search"
-          type="text"
-          autoComplete="off"
-          placeholder="Szukaj problemów matematycznych"
-          aria-label="Szukaj problemów"
-          aria-autocomplete="list"
-          aria-controls="autocomplete-options"
-          value={searchTerm}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-          showSuggestions={showSuggestions}
-        />
-        {showClearButton && searchTerm && (
-          <S.Button aria-label="Remove button" onClick={() => clearInput()}>
-            <span id="Remove button" hidden>
-              Remove input text button
-            </span>
+        {searchTerm && !!tag ? (
+          <InputWithTags
+            text={searchTerm}
+            onRemoveTag={clearInput}
+            setTag={setTag}
+          />
+        ) : (
+          <>
+            <S.Label htmlFor="input-search" id="input-search-label">
+              <S.SearchIcon />
+            </S.Label>
+            <S.Input
+              id="input-search"
+              type="text"
+              autoComplete="off"
+              placeholder="Szukaj problemów matematycznych"
+              aria-label="Szukaj problemów"
+              aria-autocomplete="list"
+              aria-controls="autocomplete-options"
+              autoFocus
+              value={searchTerm}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onKeyUp={handleKeyUp}
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+              showSuggestions={showSuggestions}
+            />
+            {showClearButton && searchTerm && (
+              <>
+                <S.Button
+                  aria-label="Remove button"
+                  onClick={() => clearInput()}
+                >
+                  <span id="Remove button" hidden>
+                    Remove input text button
+                  </span>
 
-            <S.RemoveIcon aria-hidden="true" />
-          </S.Button>
+                  <S.RemoveIcon aria-hidden="true" />
+                </S.Button>
+              </>
+            )}
+          </>
         )}
         {showSuggestions && searchTerm && (
           <SuggestionsList

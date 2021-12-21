@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { SuggestionProps, InputStyleProps } from "./interface";
+import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
@@ -33,22 +33,16 @@ const Form = styled.form`
   border-radius: 5px;
 `;
 
-const Input = styled.input<InputStyleProps>`
+const inputStyles = css`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
   padding: 0 3.5rem;
   background: ${white};
   border: none;
-  border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   font-family: inherit;
   font-size: 1.4rem;
   line-height: 2.4rem;
-  ::placeholder {
-    color: ${placeholder};
-  }
   &:focus-visible {
     outline: none;
   }
@@ -63,15 +57,29 @@ const Input = styled.input<InputStyleProps>`
   }
 `;
 
+const Input = styled.input<InputStyleProps>`
+  border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  ::placeholder {
+    color: ${placeholder};
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  ${inputStyles}
+`;
+
 const Label = styled.label`
   position: relative;
 `;
 
-const SearchIcon = styled(LensIcon)`
+const SearchIcon = styled(LensIcon)<SearchIconProps>`
   stroke: ${blue100};
   left: 0.8rem;
   bottom: 0;
   position: absolute;
+  top: ${(props) => props.top};
 `;
 
 const RemoveIcon = styled(ClearIcon)`
@@ -163,6 +171,13 @@ const ClipboardIcon = styled(Clipboard)`
   }
 `;
 
+const InputWithTags = styled.div`
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  ${inputStyles}
+`;
+
 export {
   Form,
   Input,
@@ -176,4 +191,5 @@ export {
   Combobox,
   TagSearchIcon,
   ClipboardIcon,
+  InputWithTags,
 };

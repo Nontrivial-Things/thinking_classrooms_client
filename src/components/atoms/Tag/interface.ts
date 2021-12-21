@@ -1,9 +1,20 @@
-export interface TagStyleProps {
+type CommonTagProps = {
   text: string;
-  isDroppable?: boolean;
   fontSize?: string;
-}
+};
 
-export interface TagWrapperProps {
+type Tag = {
+  isDroppable?: false;
+  onRemoveTag?: never;
+};
+
+type DroppableTag = {
+  isDroppable?: true;
+  onRemoveTag?: () => void;
+};
+
+export type TagProps = (Tag | DroppableTag) & CommonTagProps;
+
+export default interface TagWrapperProps {
   fontSize?: string;
 }

@@ -3,6 +3,7 @@ import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
 import { ProblemSummaryProps } from "../SearchResultTile/interface";
 
 export interface SearchAutocompleteProps {
+  tag: string;
   setTag: (tag: string) => void;
   setProblems: (problems: Array<ProblemSummaryProps>) => void;
   setSearchTerm: (searchTerm: string) => void;
@@ -21,6 +22,16 @@ export interface SuggestionProps {
 
 export interface InputStyleProps {
   showSuggestions: boolean;
+}
+
+export interface InputWithTagsProps {
+  text: string;
+  onRemoveTag: () => void;
+  setTag: (tag: string) => void;
+}
+
+export interface SearchIconProps {
+  top?: string;
 }
 
 export const SUGGESTIONS = gql`
