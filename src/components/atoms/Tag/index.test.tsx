@@ -13,7 +13,7 @@ describe("ResultCountWrapper", () => {
 
   it("displays given text in tag and a remove tag button", () => {
     render(<Tag text="ciągi" isDroppable={true} />);
-    const button = screen.queryByRole("button", { name: /Usuń tag/i });
+    const button = screen.getByRole("button", { name: /Usuń tag/i });
 
     expect(screen.getByText("ciągi")).toBeInTheDocument();
     expect(button).toBeInTheDocument();

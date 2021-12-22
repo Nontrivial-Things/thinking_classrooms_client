@@ -1,4 +1,4 @@
-import { screen, fireEvent, within } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { testRenderer } from "../../../setupTests";
 
@@ -13,7 +13,7 @@ describe("<ProblemIndex/>", () => {
     )) as HTMLInputElement;
     expect(input.value).toBe("");
 
-    fireEvent.change(input, { target: { value: "Good Day" } });
+    userEvent.type(input, "Good Day");
 
     expect(input.value).toBe("Good Day");
   });
@@ -27,7 +27,7 @@ describe("<ProblemIndex/>", () => {
     expect(input.value).toBe("");
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
 
-    fireEvent.change(input, { target: { value: "c" } });
+    userEvent.type(input, "c");
 
     expect(input.value).toBe("c");
     const list = await screen.findByRole("listbox");
@@ -43,7 +43,7 @@ describe("<ProblemIndex/>", () => {
       "Szukaj problemów"
     )) as HTMLInputElement;
 
-    fireEvent.change(input, { target: { value: "Oce" } });
+    userEvent.type(input, "Oce");
 
     const list = await screen.findByRole("listbox");
     const { findAllByRole } = within(list);
@@ -67,14 +67,14 @@ describe("<ProblemIndex/>", () => {
     });
     expect(removeButtonNotVisible).not.toBeInTheDocument();
 
-    fireEvent.change(input, { target: { value: "B" } });
+    userEvent.type(input, "B");
     expect(input.value).toBe("B");
 
-    const removeButton = screen.queryByRole("button", {
+    const removeButton = screen.getByRole("button", {
       name: /Remove button/i,
     }) as HTMLButtonElement;
     expect(removeButton).toBeInTheDocument();
-    fireEvent.click(removeButton);
+    userEvent.click(removeButton);
     expect(input.value).toBe("");
   });
 
@@ -84,13 +84,13 @@ describe("<ProblemIndex/>", () => {
       "Szukaj problemów"
     )) as HTMLInputElement;
 
-    fireEvent.change(input, { target: { value: "Oc" } });
+    userEvent.type(input, "Oc");
     const suggestions = await screen.findAllByRole("listitem");
     expect(suggestions).toHaveLength(1);
     const firstSuggestion = suggestions[0];
     expect(firstSuggestion).toHaveTextContent("Ocean");
-    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
-    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
 
     expect(input.value).toBe("Ocean");
   });
@@ -102,7 +102,7 @@ describe("<ProblemIndex/>", () => {
       "Szukaj problemów"
     )) as HTMLInputElement;
 
-    fireEvent.change(input, { target: { value: "Oc" } });
+    userEvent.type(input, "Oc");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
     expect(firstSuggestion).toHaveTextContent("Ocean");
@@ -111,15 +111,17 @@ describe("<ProblemIndex/>", () => {
     ).toBeInTheDocument();
   });
 
-  xit("should display problem suggestion", async () => {
+  it("should display problem suggestion", async () => {
     testRenderer(<ProblemIndex />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 
-    fireEvent.change(input, { target: { value: "F" } });
-    expect(screen.queryByText("Foki")).toBeInTheDocument();
+    userEvent.type(input, "F");
+    const suggestions = await screen.findAllByRole("listitem");
+    const firstSuggestion = suggestions[0];
+    expect(firstSuggestion).toHaveTextContent("Foki");
     expect(
       screen.queryByLabelText("Ikona wyszukiwania po tagu")
     ).not.toBeInTheDocument();
@@ -133,9 +135,9 @@ describe("<ProblemIndex/>", () => {
     ).toBeInTheDocument();
 
     const input = await screen.findByLabelText("Szukaj problemów");
-    fireEvent.change(input, { target: { value: "Ci" } });
-    fireEvent.keyDown(input, { key: "ArrowDown", code: 40 });
-    fireEvent.keyDown(input, { key: "Enter", code: 13 });
+    userEvent.type(input, "Ci");
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
 
     expect(
       await screen.findByRole("heading", {
@@ -163,8 +165,8 @@ describe("<ProblemIndex/>", () => {
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
-    fireEvent.change(input, { target: { value: "xx" } });
-    fireEvent.keyDown(input, { key: "Enter" });
+    userEvent.type(input, "xx");
+    userEvent.type(input, "{enter}");
 
     expect(
       await screen.findByText("Wyniki wyszukiwania (0)")

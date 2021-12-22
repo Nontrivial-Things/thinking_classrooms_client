@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import Button from "./index";
 
 describe("<Button>", () => {
-  // children
   it("renders given children for primary button", () => {
     render(<Button>Basia</Button>);
     expect(screen.getByText("Basia")).toBeInTheDocument();
@@ -13,7 +12,6 @@ describe("<Button>", () => {
     expect(screen.getByText("Kasia")).toBeInTheDocument();
   });
 
-  // download icon
   it("renders no download icon for non primary button as a default", () => {
     render(<Button isPrimary={false} />);
     expect(screen.queryByTitle(/Ikona Pobierania/i)).not.toBeInTheDocument();
@@ -24,7 +22,6 @@ describe("<Button>", () => {
     expect(screen.getByTitle(/Ikona Pobierania/i)).toBeInTheDocument();
   });
 
-  // disabled
   it("renders active primary button as a default", () => {
     render(<Button />);
     expect(screen.getByRole("button")).not.toBeDisabled();
