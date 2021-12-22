@@ -6,7 +6,7 @@ const DetailedProblemView: FC = () => {
     <>
       <span>Opis problemu</span>
       <br></br>
-      <Link to="/problemindex">Wyszukaj problem</Link>
+      <Link to="/">Wyszukaj problem</Link>
     </>
   );
 };

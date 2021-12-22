@@ -36,7 +36,9 @@ const Navbar: FC = () => {
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
-        <Logo isBackgroundDark={false}></Logo>
+        <Link to="/">
+          <Logo isBackgroundDark={false}></Logo>
+        </Link>
         <S.MenuIconButton aria-label="Otwórz menu">
           <S.HamburgerImg
             className={navbarMenuStyle}

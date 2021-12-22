@@ -7,13 +7,15 @@ import ProblemIndex from "./components/pages/ProblemIndex";
 import DetailedProblemView from "./components/pages/DetailedProblemView";
 import AboutMethod from "./components/molecules/AboutMethod";
 import Moderator from "./components/molecules/Moderator";
+import LandingPage from "./components/pages/LandingPage";
 
 const App: FC = () => {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/problemindex" element={<ProblemIndex />} />
+        {/* <Route path="/" element {<LandingPage/>}> */}
+        <Route path="/" element={<ProblemIndex />} />
         <Route path="/problem" element={<DetailedProblemView />} />
         <Route path="/about" element={<AboutMethod />} />
         <Route path="/moderator" element={<Moderator />} />

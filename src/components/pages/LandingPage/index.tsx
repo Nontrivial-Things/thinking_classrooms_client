@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-const Moderator: FC = () => {
+const LandingPage: FC = () => {
   return (
     <>
-      <span>Strefa moderatora</span>
+      <span>To jest strona główna</span>
       <br></br>
       <Link to="/">Wyszukaj problem</Link>
     </>
   );
 };
 
-export default Moderator;
+export default LandingPage;
