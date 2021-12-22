@@ -16,7 +16,7 @@ const App: FC = () => {
       <Routes>
         {/* <Route path="/" element {<LandingPage/>}> */}
         <Route path="/" element={<ProblemIndex />} />
-        <Route path="/problem" element={<DetailedProblemView />} />
+        <Route path="/problems/:problemId" element={<DetailedProblemView />} />
         <Route path="/about" element={<AboutMethod />} />
         <Route path="/moderator" element={<Moderator />} />
       </Routes>

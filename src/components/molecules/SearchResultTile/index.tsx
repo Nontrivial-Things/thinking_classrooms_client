@@ -12,11 +12,12 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
   author,
   createdAt,
   level,
+  id,
 }) => {
   return (
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
-        <Link to="/problem">
+        <Link to={`/problems/${id}`}>
           <S.Title>{title}</S.Title>
         </Link>
         <S.AuthorWrapper>
@@ -30,7 +31,7 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <Link to="/problem">
+      <Link to={`/problems/${id}`}>
         <Button isPrimary={false} isHidden>
           Zobacz treść
         </Button>
