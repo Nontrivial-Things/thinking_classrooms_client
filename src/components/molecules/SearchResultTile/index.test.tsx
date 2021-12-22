@@ -26,8 +26,8 @@ describe("<SearchResultTile />", () => {
     expect(screen.getByText("szkoła podstawowa")).toBeInTheDocument();
   });
 
-  xit("displays button to see given problem details", () => {
-    const { debug } = render(
+  it("displays button to see given problem details", () => {
+    render(
       <SearchResultTile
         title="Określenie ciągu"
         tags={["ciągi", "noga"]}
@@ -37,9 +37,7 @@ describe("<SearchResultTile />", () => {
         id={1}
       />
     );
-    debug();
-    const button = screen.getByRole("button");
+
     expect(screen.getByText("Zobacz treść")).toBeInTheDocument();
-    expect(button).toBeInTheDocument();
   });
 });

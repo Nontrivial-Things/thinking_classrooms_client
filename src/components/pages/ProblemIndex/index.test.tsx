@@ -1,5 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { debug } from "util";
 import { testRenderer } from "../../../setupTests";
 
 import ProblemIndex from "./index";
@@ -53,7 +54,11 @@ describe("<ProblemIndex/>", () => {
     expect(firstSuggestion).toHaveTextContent("Ocean");
     userEvent.click(firstSuggestion);
 
-    expect(input).toHaveValue("Ocean");
+    const containerWithPickedTag = (await screen.findByLabelText(
+      "Input filtrujący po tagu"
+    )) as HTMLInputElement;
+    expect(containerWithPickedTag).toBeInTheDocument();
+    expect(containerWithPickedTag).toHaveTextContent("Ocean");
   });
 
   it("should display remove button in input field only when the input value is not empty", async () => {
@@ -92,7 +97,11 @@ describe("<ProblemIndex/>", () => {
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
-    expect(input.value).toBe("Ocean");
+    const pickedTag = (await screen.findByLabelText(
+      "Input filtrujący po tagu"
+    )) as HTMLInputElement;
+    expect(pickedTag).toBeInTheDocument();
+    expect(pickedTag).toHaveTextContent("Ocean");
   });
 
   it("should display search icon on tag suggestion", async () => {
@@ -159,7 +168,7 @@ describe("<ProblemIndex/>", () => {
     ).toBeInTheDocument();
   });
 
-  xit("displays zero results view when result count = 0", async () => {
+  it("displays zero results view when result count = 0", async () => {
     testRenderer(<ProblemIndex />);
 
     const input = (await screen.findByLabelText(
@@ -173,5 +182,61 @@ describe("<ProblemIndex/>", () => {
     ).toBeInTheDocument();
 
     expect(await screen.findByText(/Spróbuj/i)).toBeInTheDocument();
+  });
+
+  it("should display input with tag as a value and return to default input after removing tag", async () => {
+    testRenderer(<ProblemIndex />);
+    let input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    userEvent.type(input, "J");
+    const suggestions = await screen.findAllByRole("listitem");
+    const firstSuggestion = suggestions[0];
+    expect(firstSuggestion).toHaveTextContent("Jedzenie");
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
+
+    const removeTagButton = (await screen.findByRole("button", {
+      name: /Usuń tag/i,
+    })) as HTMLButtonElement;
+    expect(removeTagButton).toBeInTheDocument();
+    userEvent.click(removeTagButton);
+
+    const defaultInput = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+    expect(defaultInput.value).toBe("");
+  });
+
+  it("should display input with tag and return to default problems set input after using Backspace", async () => {
+    testRenderer(<ProblemIndex />);
+    const input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    userEvent.type(input, "J");
+    const suggestions = await screen.findAllByRole("listitem");
+    const firstSuggestion = suggestions[0];
+    expect(firstSuggestion).toHaveTextContent("Jedzenie");
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
+
+    const removeTagButton = await screen.findByRole("button", {
+      name: /Usuń tag/i,
+    });
+    expect(removeTagButton).toBeInTheDocument();
+    const inputWithTag = await screen.findByLabelText(
+      "Input filtrujący po tagu"
+    );
+    const { findByText } = within(inputWithTag);
+    const test = await findByText("Jedzenie");
+    userEvent.type(test, "{backspace}");
+
+    const defaultInput = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+    expect(defaultInput).toHaveValue("");
+    expect(screen.getByText("Wyniki wyszukiwania (4)")).toBeInTheDocument();
   });
 });
