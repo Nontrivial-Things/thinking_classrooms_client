@@ -4,15 +4,15 @@ import fonts from "./fonts.css";
 const GlobalStyle = createGlobalStyle`
 
 ${fonts}
-  
+
   html,
   body {
     height: 100%;
     min-height: 100%;
     width: 100%;
     color: #1F1F1F;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
   }
 
   input:-webkit-autofill {
@@ -34,6 +34,7 @@ ${fonts}
     line-height: 2.4rem;
     letter-spacing: 0.016rem;
   }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -61,6 +62,10 @@ ${fonts}
     transition: color 0.05s ease-in-out;
   }
 
+  a:visited {
+    color: inherit
+  }
+
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
@@ -68,7 +73,6 @@ ${fonts}
 
   body {
     line-height: 1;
-
   }
 
   ol, ul {
