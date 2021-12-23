@@ -53,6 +53,7 @@ ${fonts}
     border: 0;
     vertical-align: baseline;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
   }
@@ -60,10 +61,7 @@ ${fonts}
   a {
     text-decoration: none;
     transition: color 0.05s ease-in-out;
-  }
-
-  a:visited {
-    color: inherit
+    color: inherit;
   }
 
   article, aside, details, figcaption, figure,

@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "../../../setupTests";
-import ZeroResults from "./index";
+import ZeroResults from "../../pages/ProblemsPage";
 
 describe("<ZeroResults />", () => {
   const setTag = jest.fn();

@@ -11,7 +11,7 @@ import SuggestionsList from "./suggestionsList";
 import InputWithTags from "./inputWithTags";
 
 import * as S from "./styles";
-import { sortSuggestions } from "../../pages/ProblemIndex/utils";
+import { sortSuggestions } from "../../pages/ProblemsPage/utils";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   tag,

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-const AboutMethod: FC = () => {
+const AboutMethodPage: FC = () => {
   return (
     <>
       <span>O metodzie</span>
@@ -11,4 +11,4 @@ const AboutMethod: FC = () => {
   );
 };
 
-export default AboutMethod;
+export default AboutMethodPage;

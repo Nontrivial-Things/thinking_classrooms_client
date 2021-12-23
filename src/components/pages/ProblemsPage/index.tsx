@@ -11,7 +11,7 @@ import { GetProblemsQuery, PROBLEMS } from "./interface";
 import { white, primaryBackground } from "../../../assets/styles/colors";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
-const ProblemIndex: FC = () => {
+const ProblemsPage: FC = () => {
   const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
   const [tag, setTag] = useState<string>("");
   const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
@@ -67,4 +67,4 @@ const ProblemIndex: FC = () => {
   );
 };
 
-export default ProblemIndex;
+export default ProblemsPage;

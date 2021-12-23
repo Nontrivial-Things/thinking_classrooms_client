@@ -31,11 +31,12 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <Link to={`/problems/${id}`}>
-        <Button isPrimary={false} isHidden>
-          Zobacz treść
-        </Button>
-      </Link>
+      {/* <Button as={Link} to={`/problems/${id}`} isPrimary={false} isHidden>
+        Kot
+      </Button> */}
+      <Button isPrimary={false} isHidden>
+        <Link to={`/problems/${id}`}>Zobacz treść</Link>
+      </Button>
     </S.SearchResultTileWrapper>
   );
 };

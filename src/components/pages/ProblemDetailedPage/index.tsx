@@ -2,26 +2,27 @@ import { FC, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import { GetProblemsQuery, PROBLEMS } from "../ProblemIndex/interface";
+import { GetProblemsQuery, PROBLEMS } from "../ProblemsPage/interface";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
-const DetailedProblemView: FC = () => {
+const ProblemDetailedPage: FC = () => {
   const params = useParams();
-  const id: any = params.problemId;
+  const id: string = params.problemId || "";
 
   const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
-  const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
   const [problemDetails, setProblemDetails] = useState({
     title: "",
     author: "",
   });
 
+  const problemsLoaded = data?.problems && !loading;
+
   useEffect(() => {
-    if (data?.problems && !loading) {
-      const { problems } = data;
-      const filteredProblems = problems;
-      const currentProblem = problems[id - 1];
-      setProblems(filteredProblems);
+    if (problemsLoaded) {
+      const { problems } = data; // any type
+
+      const currentProblem = problems[parseInt(id) - 1];
+
       setProblemDetails({
         title: currentProblem.title,
         author: currentProblem.author,
@@ -29,7 +30,7 @@ const DetailedProblemView: FC = () => {
     }
   }, [data?.problems.length, loading]);
 
-  return data?.problems && !loading ? (
+  return problemsLoaded ? (
     <>
       <p>Tytuł: {problemDetails.title}</p>
       <ul>
@@ -41,4 +42,4 @@ const DetailedProblemView: FC = () => {
   );
 };
 
-export default DetailedProblemView;
+export default ProblemDetailedPage;

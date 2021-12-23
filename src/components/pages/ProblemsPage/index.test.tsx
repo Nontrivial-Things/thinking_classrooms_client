@@ -3,11 +3,11 @@ import userEvent from "@testing-library/user-event";
 import { debug } from "util";
 import { testRenderer } from "../../../setupTests";
 
-import ProblemIndex from "./index";
+import ProblemsPage from "./index";
 
-describe("<ProblemIndex/>", () => {
+describe("<ProblemsPage/>", () => {
   it("displays inputted value", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -20,7 +20,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should show suggestions list matching input value", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -38,7 +38,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display picked suggestion as input value", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -62,7 +62,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display remove button in input field only when the input value is not empty", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -84,7 +84,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should key press correctly", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -105,7 +105,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display search icon on tag suggestion", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -121,7 +121,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display problem suggestion", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -137,7 +137,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("filters problems by chosen tag and shows problems' count", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     expect(
       await screen.findByText("Wyniki wyszukiwania (4)")
@@ -169,7 +169,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("displays zero results view when result count = 0", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
@@ -185,7 +185,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
     let input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
@@ -210,7 +210,7 @@ describe("<ProblemIndex/>", () => {
   });
 
   it("should display input with tag and return to default problems set input after using Backspace", async () => {
-    testRenderer(<ProblemIndex />);
+    testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
