@@ -51,12 +51,12 @@ const Navbar: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <Link to="/about">
-            <S.NavbarMenuItem>O metodzie</S.NavbarMenuItem>
-          </Link>
-          <Link to="/moderator">
-            <S.NavbarMenuItem>Strefa moderatora</S.NavbarMenuItem>
-          </Link>
+          <S.NavbarMenuItem>
+            <Link to="/about">O metodzie </Link>
+          </S.NavbarMenuItem>
+          <S.NavbarMenuItem>
+            <Link to="/moderator">Strefa moderatora</Link>
+          </S.NavbarMenuItem>
         </S.NavbarMenuList>
       </S.NavbarMenu>
     </S.HeaderWrapper>

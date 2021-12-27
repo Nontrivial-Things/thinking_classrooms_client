@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import {
+  white,
   blue100,
   blue200,
   disabledButton,
@@ -10,7 +11,7 @@ import { ReactComponent as Download } from "../../../assets/img/icons/download.s
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { ButtonStyleProps } from "./interface";
 
-const Button = styled.button<ButtonStyleProps>`
+const buttonStyles = css<ButtonStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +23,7 @@ const Button = styled.button<ButtonStyleProps>`
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: ${white};
   letter-spacing: 0.04rem;
 
   &:hover,
@@ -80,6 +81,10 @@ const Button = styled.button<ButtonStyleProps>`
     `}
 `;
 
+const Button = styled.button<ButtonStyleProps>`
+  ${buttonStyles};
+`;
+
 const DownloadIcon = styled(Download)`
   width: 1.6rem;
   stroke: ${blue100};
@@ -90,4 +95,4 @@ const DownloadIconDisabled = styled(DownloadIcon)`
   stroke: ${disabledButton};
 `;
 
-export { Button, DownloadIcon, DownloadIconDisabled };
+export { buttonStyles, Button, DownloadIcon, DownloadIconDisabled };
