@@ -10,7 +10,6 @@ const Button: FC<ButtonProps> = ({
   withDownloadIcon = false,
   isHidden = false,
   as,
-  to,
 }) => {
   return (
     <S.Button

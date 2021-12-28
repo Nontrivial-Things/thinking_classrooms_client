@@ -1,16 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
-import {
-  textDetails,
-  white,
-  lightGrey,
-  blue100,
-  blue200,
-  disabledButton,
-  hoverSecondaryButton,
-} from "../../../assets/styles/colors";
+import { textDetails, white, lightGrey } from "../../../assets/styles/colors";
 import Wrapper from "../../atoms/Wrapper";
 import { ButtonStyleProps } from "../../atoms/Button/interface";
 import { buttonStyles } from "../../atoms/Button/styles";

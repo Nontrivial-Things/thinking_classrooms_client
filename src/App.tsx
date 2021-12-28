@@ -7,7 +7,6 @@ import ProblemsPage from "./components/pages/ProblemsPage";
 import ProblemDetailedPage from "./components/pages/ProblemDetailedPage";
 import AboutMethodPage from "./components/pages/AboutMethodPage";
 import Moderator from "./components/molecules/Moderator";
-import LandingPage from "./components/pages/LandingPage";
 
 const App: FC = () => {
   return (

@@ -9,5 +9,4 @@ export interface ButtonStyleProps {
   isPrimary: boolean;
   isHidden?: boolean;
   as?: any;
-  to?: any;
 }

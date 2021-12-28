@@ -1,9 +1,8 @@
 import { FC, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { GetProblemsQuery, PROBLEMS } from "../ProblemsPage/interface";
-import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 const ProblemDetailedPage: FC = () => {
   const params = useParams();
@@ -19,7 +18,7 @@ const ProblemDetailedPage: FC = () => {
 
   useEffect(() => {
     if (problemsLoaded) {
-      const { problems } = data; // any type
+      const { problems } = data;
 
       const currentProblem = problems[parseInt(id) - 1];
 

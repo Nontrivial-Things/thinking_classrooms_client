@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import Tag from "../../atoms/Tag";
-import Button from "../../atoms/Button";
 import * as S from "./styles";
 import { ProblemSummaryProps } from "./interface";
 
