@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import throttle from "lodash.throttle";
 
 import * as S from "./styles";
 
@@ -17,11 +18,10 @@ const ScrollToTopButton: FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
     });
   };
 
-  window.addEventListener("scroll", toggleVisible);
+  window.addEventListener("scroll", throttle(toggleVisible, 100));
 
   return (
     <S.ScrollButton>

@@ -5,7 +5,7 @@ import { testRenderer } from "../../../setupTests";
 import ScrollToTopButton from "./index";
 
 describe("<ScrollToTopButtom />", () => {
-  it("doesn't display ScrollButton when the page is render", async () => {
+  it("doesn't display ScrollButton when the page is first render", async () => {
     testRenderer(<ScrollToTopButton />);
 
     expect(
