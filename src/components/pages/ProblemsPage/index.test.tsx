@@ -185,7 +185,7 @@ describe("<ProblemsPage/>", () => {
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
     testRenderer(<ProblemsPage />);
-    let input = (await screen.findByLabelText(
+    const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 
@@ -237,5 +237,17 @@ describe("<ProblemsPage/>", () => {
     )) as HTMLInputElement;
     expect(defaultInput).toHaveValue("");
     expect(screen.getByText("Wyniki wyszukiwania (4)")).toBeInTheDocument();
+  });
+
+  it("navigates to problem show after clicking on the suggestion", async () => {
+    testRenderer(<ProblemsPage />);
+    const input = (await screen.findByLabelText(
+      "Szukaj problemów"
+    )) as HTMLInputElement;
+
+    userEvent.type(input, "f");
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
+    await expect(screen.findByText("Tytuł: Foki"));
   });
 });

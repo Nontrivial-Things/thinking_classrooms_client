@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AboutMethodPage: FC = () => {
   return (
     <>
-      <span>O metodzie</span>
+      <span>Co to są Myślące Klasy?</span>
       <br></br>
       <Link to="/">Wyszukaj problem</Link>
     </>
