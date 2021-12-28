@@ -30,7 +30,7 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <S.StyledButtonLink isPrimary={false} isHidden to={`/problems/${id}`}>
+      <S.StyledButtonLink $isPrimary={false} $isHidden to={`/problems/${id}`}>
         Zobacz treść
       </S.StyledButtonLink>
     </S.SearchResultTileWrapper>

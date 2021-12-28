@@ -5,19 +5,13 @@ import { ButtonProps } from "./interface";
 
 const Button: FC<ButtonProps> = ({
   children,
-  isPrimary = true,
+  $isPrimary = true,
   disabled = false,
   withDownloadIcon = false,
-  isHidden = false,
-  as,
+  $isHidden = false,
 }) => {
   return (
-    <S.Button
-      isPrimary={isPrimary}
-      disabled={disabled}
-      isHidden={isHidden}
-      as={as}
-    >
+    <S.Button $isPrimary={$isPrimary} disabled={disabled} $isHidden={$isHidden}>
       {withDownloadIcon &&
         (disabled ? (
           <S.DownloadIconDisabled aria-hidden title="Ikona Pobierania" />

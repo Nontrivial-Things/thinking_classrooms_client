@@ -46,7 +46,7 @@ const buttonStyles = css<ButtonStyleProps>`
   }
 
   ${(props) =>
-    !props.isPrimary &&
+    !props.$isPrimary &&
     css`
       background-color: transparent;
       color: ${blue100};
@@ -72,7 +72,7 @@ const buttonStyles = css<ButtonStyleProps>`
     `}
 
   ${(props) =>
-    props.isHidden &&
+    props.$isHidden &&
     css`
       display: none;
       @media ${minDevice.desktopL} {
