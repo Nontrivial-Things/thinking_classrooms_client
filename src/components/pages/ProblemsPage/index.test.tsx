@@ -167,7 +167,7 @@ describe("<ProblemsPage/>", () => {
     ).toBeInTheDocument();
   });
 
-  it("displays zero results view when result count = 0", async () => {
+  xit("displays zero results view when result count = 0", async () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(

@@ -1,11 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
+import { testRenderer } from "../../../setupTests";
 import SearchResultTile from "./index";
 import { Level } from "./interface";
 
 describe("<SearchResultTile />", () => {
   it("displays given problem text details", () => {
-    render(
+    testRenderer(
       <SearchResultTile
         title="Określenie ciągu"
         tags={["ciągi", "noga"]}
@@ -27,7 +28,7 @@ describe("<SearchResultTile />", () => {
   });
 
   it("displays button to see given problem details", () => {
-    render(
+    testRenderer(
       <SearchResultTile
         title="Określenie ciągu"
         tags={["ciągi", "noga"]}
