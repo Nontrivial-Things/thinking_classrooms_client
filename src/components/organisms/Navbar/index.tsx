@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
@@ -52,10 +52,20 @@ const Navbar: FC = () => {
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
           <S.NavbarMenuItem>
-            <Link to="/about">O metodzie </Link>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              O metodzie{" "}
+            </NavLink>
           </S.NavbarMenuItem>
           <S.NavbarMenuItem>
-            <Link to="/moderator">Strefa moderatora</Link>
+            <NavLink
+              to="/moderator"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Strefa moderatora
+            </NavLink>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>
       </S.NavbarMenu>
