@@ -1,3 +1,3 @@
 export interface ArrowUpIconStyleProps {
-  visible: boolean;
+  display: string;
 }

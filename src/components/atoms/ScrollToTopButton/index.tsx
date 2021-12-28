@@ -25,7 +25,11 @@ const ScrollToTopButton: FC = () => {
 
   return (
     <S.ScrollButton>
-      <S.ArrowUpIcon onClick={scrollToTop} visible={visible} />
+      <S.ArrowUpIcon
+        title="Ikona przewijania strony do początku"
+        onClick={scrollToTop}
+        display={visible ? "inline" : "none"}
+      />
     </S.ScrollButton>
   );
 };

@@ -15,7 +15,7 @@ const ScrollButton = styled.button`
 `;
 
 const ArrowUpIcon = styled(ArrowUp)<ArrowUpIconStyleProps>`
-  display: ${(props) => (props.visible ? "inline" : "none")};
+  display: ${(props) => props.display};
   width: 4rem;
   height: 4rem;
   @media ${minDevice.desktopL} {
