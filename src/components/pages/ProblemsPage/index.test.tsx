@@ -1,8 +1,7 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { debug } from "util";
-import { testRenderer } from "../../../setupTests";
 
+import { testRenderer } from "../../../setupTests";
 import ProblemsPage from "./index";
 
 describe("<ProblemsPage/>", () => {

@@ -1,6 +1,8 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
+
 import { client } from "./apolloClient";
 import { server } from "./mocks/server";
 
@@ -21,4 +23,8 @@ afterAll(() => {
 });
 
 export const testRenderer = (children) =>
-  render(<ApolloProvider client={client}>{children}</ApolloProvider>);
+  render(
+    <BrowserRouter>
+      <ApolloProvider client={client}>{children}</ApolloProvider>
+    </BrowserRouter>
+  );
