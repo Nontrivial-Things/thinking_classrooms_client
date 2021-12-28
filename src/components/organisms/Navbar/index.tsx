@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
@@ -35,7 +36,9 @@ const Navbar: FC = () => {
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
-        <Logo isBackgroundDark={false}></Logo>
+        <Link to="/">
+          <Logo isBackgroundDark={false}></Logo>
+        </Link>
         <S.MenuIconButton aria-label="Otwórz menu">
           <S.HamburgerImg
             className={navbarMenuStyle}
@@ -48,8 +51,22 @@ const Navbar: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <S.NavbarMenuItem>O metodzie</S.NavbarMenuItem>
-          <S.NavbarMenuItem>Strefa moderatora</S.NavbarMenuItem>
+          <S.NavbarMenuItem>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              O metodzie{" "}
+            </NavLink>
+          </S.NavbarMenuItem>
+          <S.NavbarMenuItem>
+            <NavLink
+              to="/moderator"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Strefa moderatora
+            </NavLink>
+          </S.NavbarMenuItem>
         </S.NavbarMenuList>
       </S.NavbarMenu>
     </S.HeaderWrapper>

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import Mail from "../../../assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
@@ -20,7 +21,9 @@ const Footer: FC = () => {
         alignItems="flex-start"
         margin="0"
       >
-        <Logo isBackgroundDark />
+        <Link to="/">
+          <Logo isBackgroundDark />
+        </Link>
         <S.ContactWrapper>
           <S.FooterP>Kontakt</S.FooterP>
           <Row>

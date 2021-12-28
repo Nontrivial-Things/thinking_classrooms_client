@@ -11,12 +11,11 @@ const HeaderWrapper = styled.header`
   position: relative;
   z-index: 11;
   display: flex;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.08);
 `;
 
 const NavbarWrapper = styled(Wrapper)`
-  /* height: 8rem; */
   width: 100%;
-  /* position: relative; */
   z-index: 12;
   background: ${white};
   padding-top: 3.2rem;
@@ -31,7 +30,6 @@ const NavbarWrapper = styled(Wrapper)`
     height: 6.4rem;
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;
-    box-shadow: none;
   }
 
   @media ${minDevice.desktopL} {
@@ -94,7 +92,7 @@ const NavbarMenuList = styled.ul`
 const NavbarMenuItem = styled.li`
   font-size: 1.4rem;
   cursor: pointer;
-  width: 100%;
+  position: relative;
 
   @media ${minDevice.desktopTablet} {
     display: block;
@@ -105,7 +103,9 @@ const NavbarMenuItem = styled.li`
     &:hover {
       font-weight: 700;
     }
+  }
 
+  a {
     &.active {
       &::after {
         height: 0.4rem;
@@ -114,8 +114,16 @@ const NavbarMenuItem = styled.li`
         border-radius: 1rem 1rem 0 0;
         content: "";
         position: absolute;
-        bottom: -2rem;
+        bottom: -2.5rem;
         left: 0;
+        display: none;
+
+        @media ${minDevice.desktopTablet} {
+          display: block;
+        }
+        @media ${minDevice.desktopL} {
+          bottom: -2.8rem;
+        }
       }
     }
   }
