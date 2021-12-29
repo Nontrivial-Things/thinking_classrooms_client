@@ -16,11 +16,15 @@ const blue200 = "#124CAB";
 
 const blue300 = "#161C56";
 
+const grey100 = "#A8A8A8";
+
+const grey200 = "#DCDCDC";
+
+const grey300 = "#757575";
+
 const disabledButton = "#C9DAF6";
 
 const hoverSecondaryButton = "#E5EFFF";
-
-const placeholder = "#A8A8A8";
 
 const errorMessage = "#E12D43";
 
@@ -32,10 +36,6 @@ const tagBackground = "#FFF1DE";
 
 const secondarySubtitle = "#F88B0C";
 
-const lightGrey = "#DCDCDC";
-
-const textDetails = "#757575";
-
 export {
   white,
   primaryText,
@@ -45,14 +45,14 @@ export {
   blue100,
   blue200,
   blue300,
+  grey100,
+  grey200,
+  grey300,
   disabledButton,
   hoverSecondaryButton,
-  placeholder,
   errorMessage,
   successMessage,
   tagText,
   tagBackground,
   secondarySubtitle,
-  lightGrey,
-  textDetails,
 };

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
-import { textDetails, white, lightGrey } from "../../../assets/styles/colors";
+import { grey300, white, grey200 } from "../../../assets/styles/colors";
 import Wrapper from "../../atoms/Wrapper";
 import { ButtonStyleProps } from "../../atoms/Button/interface";
 import { buttonStyles } from "../../atoms/Button/styles";
@@ -15,7 +15,7 @@ const SearchResultTileWrapper = styled(Wrapper)`
   background-color: ${white};
   margin: 0.5rem 0;
   padding: 0.8rem 1.6rem;
-  border: 0.5px solid ${lightGrey};
+  border: 0.5px solid ${grey200};
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@ const DetailsWrapper = styled.div`
 
 const Details = styled.span`
   line-height: 1.5;
-  color: ${textDetails};
+  color: ${grey300};
   font-size: 1.4rem;
 `;
 
@@ -72,7 +72,7 @@ const Title = styled.h3`
 
 const Stage = styled.h5`
   display: none;
-  color: ${textDetails};
+  color: ${grey300};
   text-transform: uppercase;
   font-size: 1.4rem;
   align-self: center;

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { SubtitleHeaderStyleProps } from "./interface";
 import Wrapper from "../Wrapper";
 import { minDevice } from "../../../assets/styles/breakpoints";
-import { blue200, placeholder } from "../../../assets/styles/colors";
+import { blue200, grey100 } from "../../../assets/styles/colors";
 
 const SubtitleWrapper = styled(Wrapper)`
-  color: ${placeholder};
+  color: ${grey100};
   text-align: left;
   position: relative;
   justify-content: flex-start;
@@ -19,7 +19,7 @@ const SubtitleWrapper = styled(Wrapper)`
     content: "";
     position: absolute;
     width: 100%;
-    border-bottom: 0.5px solid ${placeholder};
+    border-bottom: 0.5px solid ${grey100};
     top: 0;
     bottom: 0;
     @media ${minDevice.desktopTablet} {
