@@ -181,6 +181,7 @@ const InputWithTags = styled.div`
 
 const ProblemLink = styled(Link)`
   display: flex;
+  width: 100%;
 `;
 
 export {

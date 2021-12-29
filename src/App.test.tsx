@@ -34,37 +34,30 @@ describe("App", () => {
   });
 
   it("navigates to problem show after choosing suggestion using keyboard", async () => {
-    const { debug } = testRenderer(<App />);
+    testRenderer(<App />);
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 
     userEvent.type(input, "f");
-    const list = await screen.findByRole("listbox");
-    const { findAllByRole } = within(list);
-    await findAllByRole("listitem");
-    await userEvent.type(input, "{arrowdown}");
-    await userEvent.type(input, "{enter}");
-    debug();
-    await expect(screen.findByText(/Tytuł: Foki/i)).toBeInTheDocument();
+    userEvent.type(input, "{arrowdown}");
+    userEvent.type(input, "{enter}");
+
+    expect(await screen.findByText(/Tytuł: Foki/i)).toBeInTheDocument();
   });
 
-  it("navigates to problem show after clicking on suggestion", async () => {
+  it.only("navigates to problem show after clicking on suggestion", async () => {
     testRenderer(<App />);
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 
     userEvent.type(input, "p");
-    const list = await screen.findByRole("listbox");
-    const { findAllByRole } = within(list);
-    const suggestions = await findAllByRole("listitem");
-    const firstSuggestion = suggestions[0];
-    expect(firstSuggestion).toHaveTextContent("Maczugi keczupowe");
-    userEvent.click(firstSuggestion);
+    const searchedTerm = await screen.findAllByText("Maczugi keczupowe");
+    userEvent.click(searchedTerm[0]);
 
-    await expect(
-      screen.findByText("Tytuł: Maczugi keczupowe")
+    expect(
+      await screen.findByText(/Tytuł: Maczugi keczupowe/i)
     ).toBeInTheDocument();
   });
 });
