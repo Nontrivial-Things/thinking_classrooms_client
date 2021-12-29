@@ -28,7 +28,7 @@ const ScrollToTopButton: FC = () => {
       <S.ArrowUpIcon
         title="Ikona przewijania strony do początku"
         onClick={scrollToTop}
-        display={visible ? "inline" : "none"}
+        $visible={visible}
       />
     </S.ScrollButton>
   );

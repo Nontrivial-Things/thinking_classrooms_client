@@ -14,7 +14,7 @@ const ScrollButton = styled.button`
 `;
 
 const ArrowUpIcon = styled(ArrowUp)<ArrowUpIconStyleProps>`
-  display: ${(props) => props.display};
+  display: ${(props) => (props.$visible ? "inline" : "none")};
   width: 4rem;
   height: 4rem;
   scroll-behavior: smooth;
