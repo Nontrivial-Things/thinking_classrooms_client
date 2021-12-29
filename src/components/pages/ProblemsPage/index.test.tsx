@@ -238,16 +238,4 @@ describe("<ProblemsPage/>", () => {
     expect(defaultInput).toHaveValue("");
     expect(screen.getByText("Wyniki wyszukiwania (4)")).toBeInTheDocument();
   });
-
-  it("navigates to problem show after clicking on the suggestion", async () => {
-    testRenderer(<ProblemsPage />);
-    const input = (await screen.findByLabelText(
-      "Szukaj problemów"
-    )) as HTMLInputElement;
-
-    userEvent.type(input, "f");
-    userEvent.type(input, "{arrowdown}");
-    userEvent.type(input, "{enter}");
-    await expect(screen.findByText("Tytuł: Foki"));
-  });
 });

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 const Moderator: FC = () => {
   return (
     <>
-      <span>Strefa moderatora</span>
-      <br></br>
+      <h2>Witaj, moderatorze!</h2>
       <Link to="/">Wyszukaj problem</Link>
     </>
   );
