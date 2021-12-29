@@ -46,15 +46,19 @@ describe("App", () => {
     expect(await screen.findByText(/Tytuł: Foki/i)).toBeInTheDocument();
   });
 
-  it.only("navigates to problem show after clicking on suggestion", async () => {
+  it("navigates to problem show after clicking on suggestion", async () => {
     testRenderer(<App />);
     const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 
     userEvent.type(input, "p");
-    const searchedTerm = await screen.findAllByText("Maczugi keczupowe");
-    userEvent.click(searchedTerm[0]);
+    const list = screen.getByRole("listbox");
+    const { findAllByRole } = within(list);
+    const suggestionLinks = await findAllByRole("link");
+    const firstSuggestion = suggestionLinks[0];
+    expect(firstSuggestion).toHaveTextContent("Maczugi keczupowe");
+    userEvent.click(firstSuggestion);
 
     expect(
       await screen.findByText(/Tytuł: Maczugi keczupowe/i)
