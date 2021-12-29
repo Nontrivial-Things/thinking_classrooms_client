@@ -22,9 +22,9 @@ afterAll(() => {
   server.close();
 });
 
-export const testRenderer = (children) =>
-  render(
-    <BrowserRouter>
-      <ApolloProvider client={client}>{children}</ApolloProvider>
-    </BrowserRouter>
-  );
+export const testRenderer = (children, { route = "/" } = {}) => {
+  window.history.pushState({}, "Test page", route);
+  return render(<ApolloProvider client={client}>{children}</ApolloProvider>, {
+    wrapper: BrowserRouter,
+  });
+};
