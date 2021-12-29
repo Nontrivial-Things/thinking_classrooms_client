@@ -6,7 +6,7 @@ import Footer from "./components/organisms/Footer";
 import ProblemsPage from "./components/pages/ProblemsPage";
 import ProblemDetailedPage from "./components/pages/ProblemDetailedPage";
 import AboutMethodPage from "./components/pages/AboutMethodPage";
-import Moderator from "./components/molecules/Moderator";
+import Moderator from "./components/pages/Moderator";
 
 const App: FC = () => {
   return (

@@ -185,7 +185,7 @@ describe("<ProblemsPage/>", () => {
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
     testRenderer(<ProblemsPage />);
-    let input = (await screen.findByLabelText(
+    const input = (await screen.findByLabelText(
       "Szukaj problemów"
     )) as HTMLInputElement;
 

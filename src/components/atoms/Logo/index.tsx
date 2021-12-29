@@ -8,7 +8,10 @@ import * as S from "./styles";
 const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
   return (
     <S.LogoDiv>
-      <S.Img src={isBackgroundDark ? logoWhite : logoBlack} />
+      <S.Img
+        src={isBackgroundDark ? logoWhite : logoBlack}
+        alt="Logo aplikacji"
+      />
     </S.LogoDiv>
   );
 };

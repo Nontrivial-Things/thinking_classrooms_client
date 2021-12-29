@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { useQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
@@ -34,6 +35,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       setSuggestions(sortedSuggestions);
     }
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     updateSuggestions();
@@ -97,6 +100,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         activeSuggestion.type === SuggestionType.PROBLEM
       ) {
         setSearchTerm(activeSuggestion.title);
+        navigate(`/problems/${activeSuggestion.id}`);
       } else if (
         activeSuggestion &&
         activeSuggestion.type === SuggestionType.TAG
@@ -168,7 +172,6 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
                   <span id="Remove button" hidden>
                     Remove input text button
                   </span>
-
                   <S.RemoveIcon aria-hidden="true" />
                 </S.Button>
               </>

@@ -1,4 +1,5 @@
 import { FC, useRef } from "react";
+
 import { SuggestionsProps } from "./interface";
 import Tag from "../../atoms/Tag";
 import { SuggestionType } from "../../organisms/ProblemSearchSection/interface";
@@ -30,10 +31,10 @@ const SuggestionsList: FC<SuggestionsProps> = ({
               <Tag text={suggestion.title} fontSize="1.4rem" />
             </>
           ) : (
-            <>
+            <S.ProblemLink to={`/problems/${suggestion.id}`}>
               <S.ClipboardIcon />
               <span>{suggestion.title}</span>
-            </>
+            </S.ProblemLink>
           )}
         </S.Suggestion>
       ))}

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
@@ -178,6 +179,11 @@ const InputWithTags = styled.div`
   ${inputStyles}
 `;
 
+const ProblemLink = styled(Link)`
+  display: flex;
+  width: 100%;
+`;
+
 export {
   Form,
   Input,
@@ -192,4 +198,5 @@ export {
   TagSearchIcon,
   ClipboardIcon,
   InputWithTags,
+  ProblemLink,
 };
