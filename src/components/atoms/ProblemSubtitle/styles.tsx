@@ -39,7 +39,7 @@ const SubtitleWrapper = styled(Wrapper)`
 const SubtitleHeader = styled.h4<SubtitleHeaderStyleProps>`
   font-weight: 700;
   font-size: 1.8rem;
-  line-height: 1.4rem;
+  line-height: 2.4rem;
   margin-bottom: 0.8rem;
   color: ${(props) => props.color || blue200};
 `;
