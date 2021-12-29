@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { GetProblemsQuery, PROBLEMS } from "../ProblemsPage/interface";
+import ProblemSubtitle from "../../atoms/ProblemSubtitle";
+import Wrapper from "../../atoms/Wrapper";
+import { white, secondarySubtitle } from "../../../assets/styles/colors";
 
 const ProblemDetailedPage: FC = () => {
   const params = useParams();
@@ -30,12 +33,22 @@ const ProblemDetailedPage: FC = () => {
   }, [data?.problems.length, loading]);
 
   return problemsLoaded ? (
-    <>
+    <Wrapper
+      background={white}
+      flexDirection="column"
+      margin="0"
+      minHeight="100vh"
+    >
       <p>Tytuł: {problemDetails.title}</p>
       <ul>
         <li>Autor: {problemDetails.author}</li>
       </ul>
-    </>
+      <ProblemSubtitle subtitle={problemDetails.title} />
+      <ProblemSubtitle
+        color={secondarySubtitle}
+        subtitle={problemDetails.title}
+      />
+    </Wrapper>
   ) : (
     <div>Brak danych</div>
   );

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import Wrapper from "../Wrapper";
 import { ResultCountSpanProps } from "./interface";
 import { minDevice } from "../../../assets/styles/breakpoints";
-import { textDetails, primaryBackground } from "../../../assets/styles/colors";
+import { grey300, primaryBackground } from "../../../assets/styles/colors";
 
 const ResultCountWrapper = styled(Wrapper)`
-  color: ${textDetails};
+  color: ${grey300};
   text-align: left;
   position: relative;
   justify-content: flex-start;
@@ -19,7 +19,7 @@ const ResultCountWrapper = styled(Wrapper)`
     content: "";
     position: absolute;
     width: 100%;
-    border-bottom: 0.5px solid ${textDetails};
+    border-bottom: 0.5px solid ${grey300};
     top: 50%;
     @media ${minDevice.desktopTablet} {
       padding: 0;

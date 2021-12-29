@@ -5,9 +5,9 @@ import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
   white,
-  placeholder,
+  grey100,
   blue100,
-  lightGrey,
+  grey200,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
@@ -62,7 +62,7 @@ const Input = styled.input<InputStyleProps>`
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   ::placeholder {
-    color: ${placeholder};
+    color: ${grey100};
   }
   &:focus-visible {
     outline: none;
@@ -83,7 +83,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
 `;
 
 const RemoveIcon = styled(ClearIcon)`
-  fill: ${lightGrey};
+  fill: ${grey200};
   width: 1.6rem;
 `;
 

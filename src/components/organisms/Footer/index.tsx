@@ -9,7 +9,7 @@ import Icon from "../../atoms/Icon";
 import Wrapper from "../../atoms/Wrapper";
 import Column from "../../atoms/Column";
 import * as S from "./styles";
-import { white, lightGrey } from "../../../assets/styles/colors";
+import { white, grey200 } from "../../../assets/styles/colors";
 
 const Footer: FC = () => {
   return (
@@ -38,7 +38,7 @@ const Footer: FC = () => {
       </Wrapper>
       <Column>
         <P
-          color={lightGrey}
+          color={grey200}
           textAlign="center"
           fontSize="1.4rem"
           paddingBottom="0.4rem"
