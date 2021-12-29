@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 
 import ResultCountLabel from "../../atoms/ResultCountLabel";
 import Wrapper from "../../atoms/Wrapper";
+import ScrollToTopButton from "../../atoms/ScrollToTopButton";
 import SearchResultTile from "../../molecules/SearchResultTile";
 import ZeroResults from "../../molecules/ZeroResults";
 import ProblemSearchSection from "../../organisms/ProblemSearchSection";
@@ -63,6 +64,7 @@ const ProblemsPage: FC = () => {
           ))
         )}
       </Wrapper>
+      <ScrollToTopButton />
     </>
   );
 };
