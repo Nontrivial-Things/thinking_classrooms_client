@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { testRenderer } from "../../../setupTests";
 
+import { testRenderer } from "../../../setupTests";
 import ProblemSubtitle from "./index";
 
 describe("<ProblemSubtitle />", () => {
