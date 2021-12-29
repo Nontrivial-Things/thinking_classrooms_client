@@ -4,27 +4,27 @@ import userEvent from "@testing-library/user-event";
 import { testRenderer } from "./setupTests";
 import App from "./App";
 
-describe("App", () => {
-  it("navigates to 'O metodzie' page after clicking on it on header", async () => {
+describe("<App />", () => {
+  it("navigates to 'About' page after clicking on it on header", async () => {
     testRenderer(<App />);
-    const aboutPage = screen.getByText(/O metodzie/i);
-    userEvent.click(aboutPage);
+    const aboutPageNavLink = screen.getByText(/O metodzie/i);
+    userEvent.click(aboutPageNavLink);
 
     expect(screen.getByText("Co to są Myślące Klasy?")).toBeInTheDocument();
   });
 
-  it("navigates to 'Strefa moderatora' page after clicking on it on header", async () => {
+  it("navigates to 'Moderator' page after clicking on it on header", async () => {
     testRenderer(<App />);
-    const moderatorPage = screen.getByText(/Strefa moderatora/i);
-    userEvent.click(moderatorPage);
+    const moderatorPageNavLink = screen.getByText(/Strefa moderatora/i);
+    userEvent.click(moderatorPageNavLink);
 
     expect(screen.getByText("Witaj, moderatorze!")).toBeInTheDocument();
   });
 
   it("navigates to main page after clicking on the logo", async () => {
     testRenderer(<App />);
-    const moderatorPage = screen.getByText(/Strefa moderatora/i);
-    userEvent.click(moderatorPage);
+    const moderatorPageNavLink = screen.getByText(/Strefa moderatora/i);
+    userEvent.click(moderatorPageNavLink);
     const logo = screen.getAllByAltText(/Logo aplikacji/i);
     userEvent.click(logo[0]);
 
