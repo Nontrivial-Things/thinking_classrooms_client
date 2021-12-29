@@ -1,6 +1,5 @@
-export interface ProblemSubtitleProps {
+export interface ProblemSubtitleProps extends SubtitleHeaderStyleProps {
   subtitle: string;
-  color?: string;
 }
 
 export interface SubtitleHeaderStyleProps {
