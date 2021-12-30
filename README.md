@@ -1,12 +1,16 @@
-# Thinking Calssrooms Client
+# Thinking Classrooms UI
 
-**Thinking Calssrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking through them until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
+![Logo](src/assets/img/logo-black.svg)
+
+**Thinking Classrooms** project is created to help math teachers in Poland to share theirs ideas for conducting lessons according to the Thinking Classroom. Through our platform, they will be able to easily search for an interesting issue along with ideas for math classes.
+
+**Thinking Classrooms** platofrm is a MVP version which will be developed in accordance with the needs of its users.
+
+**Thinking Classrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking through them until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
 
 - _Stand up._ Standing up while solving problems helps students remain engaged with the work before them. Standing also leads to collaboration.
 - _Hint, don’t answer._ Give enough hints to keep your students on the right path, but don’t walk the path for them.
 - _Work on erasable boards._ Solving math problems is a process, often done by trial and error. Erasable boards suggest that errors aren’t permanent.
-
-This project is created to helps teachers in POland to share there ideas and solutions ot teaching Math in
 
 ## Technology overview
 
@@ -24,7 +28,7 @@ Here are the service this project uses:
 
 - [`Netlify`](https://www.netlify.com/)
 
-## How to run Thinking Calssrooms in development mode
+## How to run Thinking Classrooms in development mode
 
 1. Make sure you have Git and Node installed on your local machine. Required Node version: 16.13.0
 2. Download or clone the repository.
@@ -33,8 +37,9 @@ Here are the service this project uses:
 5. With your server running, open your browser and visit the site:
    [`http://localhost:3000/`](http://localhost:3000/)
 
-## How to run Thinking Calssrooms in production mode
+## How to run Thinking Classrooms in production mode
 
+Just visit this site:
 [https://zealous-spence-867386.netlify.app/](https://zealous-spence-867386.netlify.app/)
 
 ## Available Scripts
