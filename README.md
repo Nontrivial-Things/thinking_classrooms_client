@@ -19,7 +19,7 @@
 
 **Thinking Classrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking them through until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
 
-- _Stand up._ Standing up while solving problems helps students remain engaged with the work before them. Standing also leads to collaboration.
+- _Stand up._ Standing up while solving problems helps students remain engaged with the work in front of them. Standing also leads to collaboration.
 - _Hint, don’t answer._ Give enough hints to keep your students on the right path, but don’t walk the path for them.
 - _Work on erasable boards._ Solving math problems is a process, often done by trial and error. Erasable boards suggest that errors aren’t permanent.
 
