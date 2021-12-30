@@ -2,7 +2,7 @@
 
 **Thinking Classrooms** project is created to help math teachers in Poland to share theirs ideas for conducting lessons according to the Thinking Classroom. method Through our platform, they will be able to easily search for an interesting issue along with ideas for math classes.
 
-**Thinking Classrooms** platofrm is a MVP version which will be developed in accordance with the needs of its users.
+**Thinking Classrooms** platform is an MVP version which will be developed in accordance with the needs of its users.
 
 ![Logo](src/assets/img/logo-black.svg)
 
