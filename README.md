@@ -17,7 +17,7 @@
 
 ## About Thinking Classrooms method
 
-**Thinking Classrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking through them until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
+**Thinking Classrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking them through until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
 
 - _Stand up._ Standing up while solving problems helps students remain engaged with the work before them. Standing also leads to collaboration.
 - _Hint, don’t answer._ Give enough hints to keep your students on the right path, but don’t walk the path for them.
