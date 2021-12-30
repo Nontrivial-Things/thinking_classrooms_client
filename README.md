@@ -1,10 +1,21 @@
 # Thinking Classrooms UI
 
-![Logo](src/assets/img/logo-black.svg)
-
 **Thinking Classrooms** project is created to help math teachers in Poland to share theirs ideas for conducting lessons according to the Thinking Classroom. Through our platform, they will be able to easily search for an interesting issue along with ideas for math classes.
 
 **Thinking Classrooms** platofrm is a MVP version which will be developed in accordance with the needs of its users.
+
+![Logo](src/assets/img/logo-black.svg)
+
+## Table of Contents
+
+- [About Thinking Classrooms method](#about-thinking-classrooms-method)
+- [Technology overview](#technology-overview)
+- [How to run Thinking Classrooms in development mode](#how-to-run-thinking-classrooms-in-development-mode)
+- [How to run Thinking Classrooms in production mode](##how-to-run-thinking-classrooms-in-production-mode)
+- [Available Scripts](#available-scripts)
+- [License](#license)
+
+## About Thinking Classrooms method
 
 **Thinking Classrooms** is the concept developed by Peter Liljedahl. The goal of Thinking Classrooms is to get students to solve problems by thinking through them until they arrive at a solution. Some of the takeaways from Liljedahl’s work are easy to implement.:
 
@@ -68,3 +79,7 @@ Your app is ready to be deployed!
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+## License
+
+MIT
