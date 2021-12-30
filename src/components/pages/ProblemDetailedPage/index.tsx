@@ -1,36 +1,38 @@
 import { FC, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import { GetProblemsQuery, PROBLEMS } from "../ProblemsPage/interface";
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
 import Wrapper from "../../atoms/Wrapper";
 import { white, secondarySubtitle } from "../../../assets/styles/colors";
+import * as S from "./styles";
+import { GetProblemDetailsQuery, GET_PROBLEM_DETAILS } from "./interface";
 
 const ProblemDetailedPage: FC = () => {
   const params = useParams();
   const id: string = params.problemId || "";
 
-  const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
-  const [problemDetails, setProblemDetails] = useState({
-    title: "",
-    author: "",
-  });
+  const { data, loading } = useQuery<GetProblemDetailsQuery>(
+    GET_PROBLEM_DETAILS
+    // {
+    //   // variables: { id },
+    // }
+  );
+  debugger;
+  const [problemDetails, setProblemDetails] = useState<any>({});
 
-  const problemsLoaded = data?.problems && !loading;
+  const problemsLoaded = data && !loading;
 
   useEffect(() => {
     if (problemsLoaded) {
-      const { problems } = data;
-
-      const currentProblem = problems[parseInt(id) - 1];
+      const problem = data;
 
       setProblemDetails({
-        title: currentProblem.title,
-        author: currentProblem.author,
+        description: problem.guidance,
+        question: problem.guidance,
       });
     }
-  }, [data?.problems.length, loading]);
+  }, [data, loading]);
 
   return problemsLoaded ? (
     <Wrapper
@@ -39,14 +41,18 @@ const ProblemDetailedPage: FC = () => {
       margin="0"
       minHeight="100vh"
     >
-      <p>Tytuł: {problemDetails.title}</p>
+      <S.GoToBackWrapper to="/">
+        <S.Arrow />
+        <S.GoToBackSpan>Powrót do listy problemów</S.GoToBackSpan>
+      </S.GoToBackWrapper>
+      <p>Tytuł: {problemDetails.description}</p>
       <ul>
-        <li>Autor: {problemDetails.author}</li>
+        <li>Autor: {problemDetails.question}</li>
       </ul>
-      <ProblemSubtitle subtitle={problemDetails.title} />
+      <ProblemSubtitle subtitle={problemDetails.question} />
       <ProblemSubtitle
         color={secondarySubtitle}
-        subtitle={problemDetails.title}
+        subtitle={problemDetails.question}
       />
     </Wrapper>
   ) : (

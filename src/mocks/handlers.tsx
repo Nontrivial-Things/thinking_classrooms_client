@@ -6,6 +6,7 @@ import {
   GetSuggestionsQuery,
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
+import { GetProblemDetailsQuery } from "../components/pages/ProblemDetailedPage/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {
@@ -108,4 +109,30 @@ export const handlers = [
       })
     );
   }),
+  graphql.query<GetProblemDetailsQuery>(
+    "GetProblemDetails",
+    (req, res, ctx) => {
+      return res(
+        ctx.data({
+          // title: "Ciągi matematyczne",
+          // tags: ["Ciągi"],
+          // author: "Maria Konopnicka",
+          // createdAt: "01.01.2021",
+          // level: Level.PRIMARY,
+          // id: 1,
+          // description: "description",
+          // question: "question?",
+          // answer: "answer",
+          // resources: "additional resources",
+          // extension: {
+          //   description: "extension description",
+          //   question: "extension question?",
+          //   answer: "extension answer",
+          // },
+          guidance: "guidance",
+          closingGuidance: "closing guidance",
+        })
+      );
+    }
+  ),
 ];
