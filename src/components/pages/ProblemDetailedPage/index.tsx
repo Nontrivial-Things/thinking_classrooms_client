@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,9 @@ import {
 import { formatDate } from "./utils";
 import { secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
+
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 const ProblemDetailedPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
@@ -47,6 +50,23 @@ const ProblemDetailedPage: FC = () => {
 
   const formattedDate =
     problemDetails.createdAt && formatDate(problemDetails.createdAt);
+
+  const printRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadPdf = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element as HTMLDivElement);
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("print.pdf");
+  };
 
   return problemsLoaded ? (
     <S.ProblemDetailedWrapper>
