@@ -4,7 +4,9 @@
 
 **Thinking Classrooms** platform is an MVP version which will be developed in accordance with the needs of its users.
 
-![Logo](src/assets/img/logo-black.svg)
+<p align="center">
+    <img width="33%" src="src/assets/img/logo-black.svg" alt="Logo">
+</p>
 
 ## Table of Contents
 
