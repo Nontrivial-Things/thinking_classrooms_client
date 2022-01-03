@@ -112,27 +112,115 @@ export const handlers = [
   graphql.query<GetProblemDetailsQuery>(
     "GetProblemDetails",
     (req, res, ctx) => {
-      return res(
-        ctx.data({
-          // title: "Ciągi matematyczne",
-          // tags: ["Ciągi"],
-          // author: "Maria Konopnicka",
-          // createdAt: "01.01.2021",
-          // level: Level.PRIMARY,
-          // id: 1,
-          // description: "description",
-          // question: "question?",
-          // answer: "answer",
-          // resources: "additional resources",
-          // extension: {
-          //   description: "extension description",
-          //   question: "extension question?",
-          //   answer: "extension answer",
-          // },
-          guidance: "guidance",
-          closingGuidance: "closing guidance",
-        })
-      );
+      const { id } = req.variables;
+
+      switch (id) {
+        case "1":
+          return res(
+            ctx.data({
+              test: {
+                problem: {
+                  title: "Ciągi matematyczne",
+                  tags: ["Ciągi"],
+                  author: "Maria Konopnicka",
+                  createdAt: "01.01.2021",
+                  level: Level.PRIMARY,
+                  id: 1,
+                  description: "description",
+                  question: "question?",
+                  answer: "answer",
+                  resources: "additional resources",
+                  guidance: "guidance",
+                  closingGuidance: "closing guidance 123",
+                  extension: {
+                    description: "extension description",
+                    question: "extension question?",
+                    answer: "extension answer",
+                  },
+                },
+              },
+            })
+          );
+        case "2":
+          return res(
+            ctx.data({
+              test: {
+                problem: {
+                  title: "Ciągi muzyczne",
+                  tags: ["Ciągi", "Muzyka"],
+                  author: "Witold Lutosławski",
+                  createdAt: "01.06.2021",
+                  level: Level.SECONDARY,
+                  id: 2,
+                  description: "description",
+                  question: "question?",
+                  answer: "answer",
+                  resources: "additional resources",
+                  guidance: "guidance",
+                  closingGuidance: "closing guidance 123",
+                  extension: {
+                    description: "extension description",
+                    question: "extension question?",
+                    answer: "extension answer",
+                  },
+                },
+              },
+            })
+          );
+        case "3":
+          return res(
+            ctx.data({
+              test: {
+                problem: {
+                  title: "Maczugi keczupowe",
+                  tags: ["Maczugi", "Jedzenie"],
+                  author: "Kasia Frania",
+                  createdAt: "01.09.2021",
+                  level: Level.ANY,
+                  id: 3,
+                  description: "description",
+                  question: "question?",
+                  answer: "answer",
+                  resources: "additional resources",
+                  guidance: "guidance",
+                  closingGuidance: "closing guidance 123",
+                  extension: {
+                    description: "extension description",
+                    question: "extension question?",
+                    answer: "extension answer",
+                  },
+                },
+              },
+            })
+          );
+
+        case "4":
+          return res(
+            ctx.data({
+              test: {
+                problem: {
+                  title: "Foki",
+                  tags: ["Zwierzęta", "Ocean"],
+                  author: "Jan Kowalski",
+                  createdAt: "01.03.2021",
+                  level: Level.ANY,
+                  id: 4,
+                  description: "description",
+                  question: "question?",
+                  answer: "answer",
+                  resources: "additional resources",
+                  guidance: "guidance",
+                  closingGuidance: "closing guidance 123",
+                  extension: {
+                    description: "extension description",
+                    question: "extension question?",
+                    answer: "extension answer",
+                  },
+                },
+              },
+            })
+          );
+      }
     }
   ),
 ];
