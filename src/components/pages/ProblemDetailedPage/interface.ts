@@ -11,6 +11,7 @@ export interface ProblemDetails {
 export interface Test extends ProblemSummaryProps, ProblemDetails {
   extension?: ProblemDetails;
   guidance: string;
+  openingGuidance: string;
   closingGuidance: string;
 }
 
@@ -30,6 +31,7 @@ export const PROBLEM_DETAILS_FRAGMENT = gql`
 export const GUIDANCE_FRAGMENT = gql`
   fragment GuidanceFragment on GetProblemDetailsQuery {
     guidance
+    openingGuidance
     closingGuidance
   }
 `;

@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { format } from "date-fns";
+import { pl } from "date-fns/locale";
 
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
+import Tag from "../../atoms/Tag";
 import Wrapper from "../../atoms/Wrapper";
 import { white, secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
@@ -28,23 +31,86 @@ const ProblemDetailedPage: FC = () => {
     }
   }, [data, loading]);
 
+  const formattedDate =
+    problemDetails.createdAt &&
+    format(new Date(problemDetails.createdAt), "d MMM y", {
+      locale: pl,
+    });
+
   return problemsLoaded ? (
     <Wrapper
       background={white}
       flexDirection="column"
-      margin="0"
+      margin="1.6rem 0 8rem 0"
       minHeight="100vh"
     >
       <S.GoToBackWrapper to="/">
         <S.Arrow />
         <S.GoToBackSpan>Powrót do listy problemów</S.GoToBackSpan>
       </S.GoToBackWrapper>
-      <p>Tytuł: {problemDetails.title}</p>
-      <ul>
-        <li>Autor: {problemDetails.author}</li>
-      </ul>
-      <ProblemSubtitle subtitle="Treść problemu" />
-      <ProblemSubtitle subtitle="Odpowiedź" />
+      <S.EducationLevel>{problemDetails.level}</S.EducationLevel>
+      <S.TitleHeading>{problemDetails.title}</S.TitleHeading>
+      <S.ProblemCreationDetailsWrapper>
+        <S.ProblemCreationDetails>
+          {problemDetails.author}
+        </S.ProblemCreationDetails>
+        <S.ProblemCreationDetails>{formattedDate}</S.ProblemCreationDetails>
+      </S.ProblemCreationDetailsWrapper>
+      <S.TagsWrapper>
+        {problemDetails.tags &&
+          problemDetails.tags.map((tagText: string) => (
+            <Tag text={tagText} key={tagText} />
+          ))}
+      </S.TagsWrapper>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Treść problemu" />
+        <S.ProblemSectionP>{problemDetails.description}</S.ProblemSectionP>
+        <S.ProblemSectionP>{problemDetails.question}</S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Odpowiedź" />
+        <S.ProblemSectionP>{problemDetails.answer}</S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Pobierz materiały dodatkowe" />
+        <S.ProblemSectionP>{problemDetails.resources}</S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Propozycja wprowadzenia do zajęć" />
+        <S.ProblemSectionP>{problemDetails.openingGuidance}</S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemExtensionHeading>
+        Rozszerzenie problemu
+      </S.ProblemExtensionHeading>
+      <S.ProblemSection>
+        <ProblemSubtitle
+          color={secondarySubtitle}
+          subtitle="Treść rozszerzenia"
+        ></ProblemSubtitle>
+        <S.ProblemSectionP>
+          {problemDetails.extension?.description}
+        </S.ProblemSectionP>
+        <S.ProblemSectionP>
+          {problemDetails.extension?.question}
+        </S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle
+          color={secondarySubtitle}
+          subtitle="Odpowiedź"
+        ></ProblemSubtitle>
+        <S.ProblemSectionP>
+          {problemDetails.extension?.answer}
+        </S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Wskazówki"></ProblemSubtitle>
+        <S.ProblemSectionP>{problemDetails.guidance}</S.ProblemSectionP>
+      </S.ProblemSection>
+      <S.ProblemSection>
+        <ProblemSubtitle subtitle="Propozycja podsumowania zajęć"></ProblemSubtitle>
+        <S.ProblemSectionP>{problemDetails.guidance}</S.ProblemSectionP>
+      </S.ProblemSection>
     </Wrapper>
   ) : (
     <div>Brak danych</div>
