@@ -54,18 +54,31 @@ const ProblemDetailedPage: FC = () => {
   const printRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadPdf = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element as HTMLDivElement);
-    const data = canvas.toDataURL("image/png");
+    const element = printRef.current as HTMLDivElement;
+    // const element = document.getElementById("pdf");
 
-    const pdf = new jsPDF();
-    const imgProperties = pdf.getImageProperties(data);
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm");
+    let position = 0;
+
+    const imgProperties = pdf.getImageProperties(imgData);
     const pdfWidth = pdf.internal.pageSize.getWidth();
-
+    const pageHeight = 295;
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("print.pdf");
+    let heightLeft = pdfHeight;
+
+    pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft >= 0) {
+      position = heightLeft - pdfHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
+      heightLeft -= pageHeight;
+    }
+    pdf.save(`${problemDetails.title}`);
   };
 
   return problemsLoaded ? (
