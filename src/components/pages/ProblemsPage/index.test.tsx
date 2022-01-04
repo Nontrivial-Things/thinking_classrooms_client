@@ -50,14 +50,14 @@ describe("<ProblemsPage/>", () => {
     const suggestions = await findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
 
-    expect(firstSuggestion).toHaveTextContent("Ocean");
+    expect(firstSuggestion).toHaveTextContent("ocean");
     userEvent.click(firstSuggestion);
 
     const containerWithPickedTag = (await screen.findByLabelText(
       "Input filtrujący po tagu"
     )) as HTMLInputElement;
     expect(containerWithPickedTag).toBeInTheDocument();
-    expect(containerWithPickedTag).toHaveTextContent("Ocean");
+    expect(containerWithPickedTag).toHaveTextContent("ocean");
   });
 
   it("should display remove button in input field only when the input value is not empty", async () => {
@@ -92,7 +92,7 @@ describe("<ProblemsPage/>", () => {
     const suggestions = await screen.findAllByRole("listitem");
     expect(suggestions).toHaveLength(1);
     const firstSuggestion = suggestions[0];
-    expect(firstSuggestion).toHaveTextContent("Ocean");
+    expect(firstSuggestion).toHaveTextContent("ocean");
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
@@ -100,7 +100,7 @@ describe("<ProblemsPage/>", () => {
       "Input filtrujący po tagu"
     )) as HTMLInputElement;
     expect(pickedTag).toBeInTheDocument();
-    expect(pickedTag).toHaveTextContent("Ocean");
+    expect(pickedTag).toHaveTextContent("ocean");
   });
 
   it("should display search icon on tag suggestion", async () => {
@@ -113,7 +113,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.type(input, "Oc");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
-    expect(firstSuggestion).toHaveTextContent("Ocean");
+    expect(firstSuggestion).toHaveTextContent("ocean");
     expect(
       screen.getByLabelText("Ikona wyszukiwania po tagu")
     ).toBeInTheDocument();
@@ -192,7 +192,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.type(input, "J");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
-    expect(firstSuggestion).toHaveTextContent("Jedzenie");
+    expect(firstSuggestion).toHaveTextContent("jedzenie");
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
@@ -217,7 +217,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.type(input, "J");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
-    expect(firstSuggestion).toHaveTextContent("Jedzenie");
+    expect(firstSuggestion).toHaveTextContent("jedzenie");
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
@@ -229,7 +229,7 @@ describe("<ProblemsPage/>", () => {
       "Input filtrujący po tagu"
     );
     const { findByText } = within(inputWithTag);
-    const test = await findByText("Jedzenie");
+    const test = await findByText("jedzenie");
     userEvent.type(test, "{backspace}");
 
     const defaultInput = (await screen.findByLabelText(

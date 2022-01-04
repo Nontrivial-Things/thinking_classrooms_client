@@ -11,6 +11,6 @@ describe("<ZeroResults />", () => {
 
     expect(await screen.findByText(/Brak wyników/i)).toBeInTheDocument();
     expect(await screen.findByText(/Spróbuj wyszukać/i)).toBeInTheDocument();
-    expect(await screen.findByText(/Jedzenie/i)).toBeInTheDocument();
+    expect(await screen.findByText(/jedzenie/i)).toBeInTheDocument();
   });
 });

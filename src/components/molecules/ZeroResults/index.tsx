@@ -4,7 +4,7 @@ import { ZeroResultsProps } from "./interface";
 import * as S from "./styles";
 
 const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
-  const suggestedTags = ["Ciągi", "Jedzenie", "Zwierzęta"];
+  const suggestedTags = ["ciągi", "jedzenie", "zwierzęta"];
 
   const handleOnClick = (tag: string) => {
     setTag(tag);
