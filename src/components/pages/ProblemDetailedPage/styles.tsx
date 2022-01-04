@@ -54,6 +54,8 @@ const GoToBackSpan = styled.span`
   }
 `;
 
+const ProblemDetailedContent = styled.div``;
+
 const EducationLevel = styled.span`
   font-size: 1.4rem;
   line-height: 2.4rem;
@@ -166,6 +168,7 @@ export {
   GoToBackWrapper,
   Arrow,
   GoToBackSpan,
+  ProblemDetailedContent,
   EducationLevel,
   TitleHeading,
   ProblemCreationDetailsWrapper,

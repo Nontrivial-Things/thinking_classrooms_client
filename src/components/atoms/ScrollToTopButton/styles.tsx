@@ -7,10 +7,11 @@ import { minDevice } from "../../../assets/styles/breakpoints";
 const ScrollButton = styled.button`
   position: fixed;
   left: 85%;
-  top: 10%;
+  top: 30%;
   width: fit-content;
   background: none;
   border: none;
+  z-index: 1;
 `;
 
 const ArrowUpIcon = styled(ArrowUp)<ArrowUpIconStyleProps>`

@@ -1,4 +1,4 @@
-import { screen, within } from "@testing-library/react";
+import { screen, within, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "./setupTests";
@@ -61,5 +61,34 @@ describe("<App />", () => {
     userEvent.click(firstSuggestion);
 
     expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
+  });
+
+  it("navigates from detailed page to problems page after clicking on 'return to problems list' button", async () => {
+    testRenderer(<App />);
+    const problem = (await screen.findByText(
+      "Ciągi matematyczne"
+    )) as HTMLInputElement;
+    userEvent.click(problem);
+
+    const returnButton = (await screen.findByText(
+      "Powrót do listy problemów"
+    )) as HTMLInputElement;
+    userEvent.click(returnButton);
+
+    expect(
+      await screen.findByText(/Szukaj problemów matematycznych/i)
+    ).toBeInTheDocument();
+  });
+
+  it("shows problem extension after clicking on suggestion ", async () => {
+    testRenderer(<App />);
+    const problem = (await screen.findByText(
+      "Ciągi matematyczne"
+    )) as HTMLInputElement;
+    userEvent.click(problem);
+
+    expect(
+      await screen.findByText(/rozszerzenie problemu/i)
+    ).toBeInTheDocument();
   });
 });
