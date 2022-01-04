@@ -6,8 +6,7 @@ import { pl } from "date-fns/locale";
 
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
 import Tag from "../../atoms/Tag";
-import Wrapper from "../../atoms/Wrapper";
-import { white, secondarySubtitle } from "../../../assets/styles/colors";
+import { secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
 import { GetProblemDetailsQuery, PROBLEM_DETAILS } from "./interface";
 import Button from "../../atoms/Button";
@@ -25,9 +24,9 @@ const ProblemDetailedPage: FC = () => {
 
   useEffect(() => {
     if (problemsLoaded) {
-      const { problem } = data.test;
+      const { details } = data.problem;
       setProblemDetails({
-        ...problem,
+        ...details,
       });
     }
   }, [data, loading]);
@@ -59,12 +58,7 @@ const ProblemDetailedPage: FC = () => {
               <Tag text={tagText} key={tagText} />
             ))}
         </S.TagsWrapper>
-        <Button
-          $isPrimary={false}
-          withDownloadIcon={true}
-          $alignSelf="center"
-          // $margin="0 0 4.8rem 0"
-        >
+        <Button $isPrimary={false} withDownloadIcon={true} $alignSelf="center">
           Pobierz treść
         </Button>
       </S.Section>

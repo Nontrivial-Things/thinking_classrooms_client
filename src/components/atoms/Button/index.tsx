@@ -6,7 +6,6 @@ import { ButtonProps } from "./interface";
 const Button: FC<ButtonProps> = ({
   children,
   $alignSelf,
-  $margin,
   $isPrimary = true,
   disabled = false,
   withDownloadIcon = false,
@@ -18,7 +17,6 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
       $isHidden={$isHidden}
       $alignSelf={$alignSelf}
-      $margin={$margin}
     >
       {withDownloadIcon &&
         (disabled ? (

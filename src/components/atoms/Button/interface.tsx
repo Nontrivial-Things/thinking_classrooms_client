@@ -7,5 +7,4 @@ export interface ButtonStyleProps {
   $isPrimary: boolean;
   $isHidden?: boolean;
   $alignSelf?: string;
-  $margin?: string;
 }

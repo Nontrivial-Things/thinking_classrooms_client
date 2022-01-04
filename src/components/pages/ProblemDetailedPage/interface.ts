@@ -8,7 +8,9 @@ export interface ProblemDetails {
   answer: string;
   resources?: string;
 }
-export interface Test extends ProblemSummaryProps, ProblemDetails {
+export interface ExtendedProblemDetails
+  extends ProblemSummaryProps,
+    ProblemDetails {
   extension?: ProblemDetails;
   guidance: string;
   openingGuidance: string;
@@ -16,7 +18,7 @@ export interface Test extends ProblemSummaryProps, ProblemDetails {
 }
 
 export interface GetProblemDetailsQuery {
-  test: { problem: Test };
+  problem: { details: ExtendedProblemDetails };
 }
 
 export const PROBLEM_DETAILS_FRAGMENT = gql`
@@ -41,12 +43,12 @@ export const PROBLEM_DETAILS = gql`
   ${PROBLEM_DETAILS_FRAGMENT}
   ${GUIDANCE_FRAGMENT}
   query GetProblemDetails($id: id) {
-    test(id: $id) {
-      problem {
+    problem(id: $id) {
+      details {
         extension
         ...ProblemDetailsFragment
       }
-      problem
+      details
       ...ProblemDetailsFragment
       ...ProblemSummaryFragment
       ...GuidanceFragment
