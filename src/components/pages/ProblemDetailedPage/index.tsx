@@ -10,6 +10,7 @@ import Wrapper from "../../atoms/Wrapper";
 import { white, secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
 import { GetProblemDetailsQuery, PROBLEM_DETAILS } from "./interface";
+import Button from "../../atoms/Button";
 
 const ProblemDetailedPage: FC = () => {
   const params = useParams();
@@ -62,6 +63,14 @@ const ProblemDetailedPage: FC = () => {
             <Tag text={tagText} key={tagText} />
           ))}
       </S.TagsWrapper>
+      <Button
+        $isPrimary={false}
+        withDownloadIcon={true}
+        $alignSelf="center"
+        $margin="0 0 4.8rem 0"
+      >
+        Pobierz treść
+      </Button>
       <S.ProblemSection>
         <ProblemSubtitle subtitle="Treść problemu" />
         <S.ProblemSectionP>{problemDetails.description}</S.ProblemSectionP>

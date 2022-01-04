@@ -69,7 +69,6 @@ const TagsWrapper = styled.div`
 const ProblemSection = styled.section`
   font-size: 1.4rem;
   line-height: 2.4rem;
-  /* margin-top: 1rem; */
 `;
 
 const ProblemSectionP = styled.p`
