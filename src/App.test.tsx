@@ -43,7 +43,7 @@ describe("<App />", () => {
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
-    expect(await screen.findByText(/Tytuł: Foki/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
   });
 
   it("navigates to problem show after clicking on suggestion", async () => {
@@ -60,8 +60,6 @@ describe("<App />", () => {
     expect(firstSuggestion).toHaveTextContent("Maczugi keczupowe");
     userEvent.click(firstSuggestion);
 
-    expect(
-      await screen.findByText(/Tytuł: Maczugi keczupowe/i)
-    ).toBeInTheDocument();
+    expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
   });
 });
