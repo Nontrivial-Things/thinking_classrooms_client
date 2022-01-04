@@ -1,11 +1,15 @@
 import { FC, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+<<<<<<< HEAD
 import { useTranslation } from "react-i18next";
+=======
+>>>>>>> f9683b8 (Allow to download pdf file)
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
+<<<<<<< HEAD
 import Tag from "../../atoms/Tag";
 import ScrollToTopButton from "../../atoms/ScrollToTopButton";
 import Button from "../../atoms/Button";
@@ -21,6 +25,12 @@ import * as S from "./styles";
 import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
 import { DownloadIcon } from "../../atoms/Button/styles";
 
+=======
+import Wrapper from "../../atoms/Wrapper";
+import { white, secondarySubtitle } from "../../../assets/styles/colors";
+import * as S from "../../molecules/SearchResultTile/styles";
+// import * as Pdf from "./problem_detailed_page.pdf";
+>>>>>>> f9683b8 (Allow to download pdf file)
 
 const ProblemDetailedPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
