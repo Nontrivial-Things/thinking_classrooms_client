@@ -15,7 +15,7 @@ export const handlers = [
         problems: [
           {
             title: "Ciągi matematyczne",
-            tags: ["Ciągi"],
+            tags: ["ciągi"],
             author: "Maria Konopnicka",
             createdAt: "2022-01-09",
             level: Level.PRIMARY,
@@ -23,7 +23,7 @@ export const handlers = [
           },
           {
             title: "Ciągi muzyczne",
-            tags: ["Ciągi", "Muzyka"],
+            tags: ["ciągi", "muzyka"],
             author: "Witold Lutosławski",
             createdAt: "2021-05-28",
             level: Level.SECONDARY,
@@ -31,7 +31,7 @@ export const handlers = [
           },
           {
             title: "Maczugi keczupowe",
-            tags: ["Maczugi", "Jedzenie"],
+            tags: ["maczugi", "jedzenie"],
             author: "Kasia Frania",
             createdAt: "2021-04-16",
             level: Level.ANY,
@@ -39,7 +39,7 @@ export const handlers = [
           },
           {
             title: "Foki",
-            tags: ["Zwierzęta", "Ocean"],
+            tags: ["zwierzęta", "ocean"],
             author: "Jan Kowalski",
             createdAt: "2021-12-18",
             level: Level.ANY,
@@ -81,28 +81,28 @@ export const handlers = [
 
           {
             type: SuggestionType.TAG,
-            title: "Ciągi",
+            title: "ciągi",
             id: 15,
           },
 
           {
             type: SuggestionType.TAG,
-            title: "Jedzenie",
+            title: "jedzenie",
             id: 16,
           },
           {
             type: SuggestionType.TAG,
-            title: "Muzyka",
+            title: "muzyka",
             id: 17,
           },
           {
             type: SuggestionType.TAG,
-            title: "Ocean",
+            title: "ocean",
             id: 18,
           },
           {
             type: SuggestionType.TAG,
-            title: "Zwierzęta",
+            title: "zwierzęta",
             id: 19,
           },
         ],
@@ -121,7 +121,7 @@ export const handlers = [
               test: {
                 problem: {
                   title: "Ciągi matematyczne",
-                  tags: ["Ciągi"],
+                  tags: ["ciągi"],
                   author: "Maria Konopnicka",
                   createdAt: "2022-01-09",
                   level: Level.PRIMARY,
@@ -155,7 +155,7 @@ export const handlers = [
               test: {
                 problem: {
                   title: "Ciągi muzyczne",
-                  tags: ["Ciągi", "Muzyka"],
+                  tags: ["ciągi", "muzyka"],
                   author: "Witold Lutosławski",
                   createdAt: "2021-05-28",
                   level: Level.SECONDARY,
@@ -182,7 +182,7 @@ export const handlers = [
               test: {
                 problem: {
                   title: "Maczugi keczupowe",
-                  tags: ["Maczugi", "Jedzenie"],
+                  tags: ["maczugi", "jedzenie"],
                   author: "Kasia Frania",
                   createdAt: "2021-04-16",
                   level: Level.ANY,
@@ -210,7 +210,7 @@ export const handlers = [
               test: {
                 problem: {
                   title: "Foki",
-                  tags: ["Zwierzęta", "Ocean"],
+                  tags: ["zwierzęta", "ocean"],
                   author: "Jan Kowalski",
                   createdAt: "2021-12-18",
                   level: Level.ANY,

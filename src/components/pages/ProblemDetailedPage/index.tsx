@@ -39,12 +39,7 @@ const ProblemDetailedPage: FC = () => {
     });
 
   return problemsLoaded ? (
-    <Wrapper
-      background={white}
-      flexDirection="column"
-      margin="1.6rem 0 8rem 0"
-      minHeight="100vh"
-    >
+    <S.ProblemDetailedWrapper>
       <S.GoToBackWrapper to="/">
         <S.Arrow />
         <S.GoToBackSpan>Powrót do listy problemów</S.GoToBackSpan>
@@ -57,20 +52,22 @@ const ProblemDetailedPage: FC = () => {
         </S.ProblemCreationDetails>
         <S.ProblemCreationDetails>{formattedDate}</S.ProblemCreationDetails>
       </S.ProblemCreationDetailsWrapper>
-      <S.TagsWrapper>
-        {problemDetails.tags &&
-          problemDetails.tags.map((tagText: string) => (
-            <Tag text={tagText} key={tagText} />
-          ))}
-      </S.TagsWrapper>
-      <Button
-        $isPrimary={false}
-        withDownloadIcon={true}
-        $alignSelf="center"
-        $margin="0 0 4.8rem 0"
-      >
-        Pobierz treść
-      </Button>
+      <S.Section>
+        <S.TagsWrapper>
+          {problemDetails.tags &&
+            problemDetails.tags.map((tagText: string) => (
+              <Tag text={tagText} key={tagText} />
+            ))}
+        </S.TagsWrapper>
+        <Button
+          $isPrimary={false}
+          withDownloadIcon={true}
+          $alignSelf="center"
+          // $margin="0 0 4.8rem 0"
+        >
+          Pobierz treść
+        </Button>
+      </S.Section>
       <S.ProblemSection>
         <ProblemSubtitle subtitle="Treść problemu" />
         <S.ProblemSectionP>{problemDetails.description}</S.ProblemSectionP>
@@ -120,7 +117,7 @@ const ProblemDetailedPage: FC = () => {
         <ProblemSubtitle subtitle="Propozycja podsumowania zajęć"></ProblemSubtitle>
         <S.ProblemSectionP>{problemDetails.guidance}</S.ProblemSectionP>
       </S.ProblemSection>
-    </Wrapper>
+    </S.ProblemDetailedWrapper>
   ) : (
     <div>Brak danych</div>
   );

@@ -15,6 +15,10 @@ const SubtitleWrapper = styled(Wrapper)`
   margin-bottom: 1.6rem;
   padding: 0;
 
+  @media ${minDevice.desktopTablet} {
+    margin-bottom: 2.4rem;
+  }
+
   &::after {
     content: "";
     position: absolute;
