@@ -15,6 +15,7 @@ const buttonStyles = css<ButtonStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: ${(props) => props.$alignSelf};
   padding: 0.8rem 3.2rem;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   border: none;

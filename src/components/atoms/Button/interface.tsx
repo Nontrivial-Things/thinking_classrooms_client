@@ -6,4 +6,5 @@ export interface ButtonProps extends Partial<ButtonStyleProps> {
 export interface ButtonStyleProps {
   $isPrimary: boolean;
   $isHidden?: boolean;
+  $alignSelf?: string;
 }

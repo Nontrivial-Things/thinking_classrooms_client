@@ -12,8 +12,12 @@ const SubtitleWrapper = styled(Wrapper)`
   justify-content: flex-start;
   align-items: center;
   z-index: 1;
-  margin: 2.4rem 0;
+  margin-bottom: 1.6rem;
   padding: 0;
+
+  @media ${minDevice.desktopTablet} {
+    margin-bottom: 2.4rem;
+  }
 
   &::after {
     content: "";

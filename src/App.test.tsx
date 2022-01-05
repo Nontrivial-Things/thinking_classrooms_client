@@ -1,4 +1,4 @@
-import { screen, within } from "@testing-library/react";
+import { screen, within, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "./setupTests";
@@ -43,7 +43,7 @@ describe("<App />", () => {
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
 
-    expect(await screen.findByText(/Tytuł: Foki/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
   });
 
   it("navigates to problem show after clicking on suggestion", async () => {
@@ -60,8 +60,35 @@ describe("<App />", () => {
     expect(firstSuggestion).toHaveTextContent("Maczugi keczupowe");
     userEvent.click(firstSuggestion);
 
+    expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
+  });
+
+  it("navigates from detailed page to problems page after clicking on back to problems list button", async () => {
+    testRenderer(<App />);
+    const problem = (await screen.findByText(
+      "Ciągi matematyczne"
+    )) as HTMLInputElement;
+    userEvent.click(problem);
+
+    const returnButton = (await screen.findByText(
+      "Powrót do listy problemów"
+    )) as HTMLInputElement;
+    userEvent.click(returnButton);
+
     expect(
-      await screen.findByText(/Tytuł: Maczugi keczupowe/i)
+      await screen.findByText(/Szukaj problemów matematycznych/i)
+    ).toBeInTheDocument();
+  });
+
+  it("shows problem detailed page after clicking on suggestion ", async () => {
+    testRenderer(<App />);
+    const problem = (await screen.findByText(
+      "Ciągi matematyczne"
+    )) as HTMLInputElement;
+    userEvent.click(problem);
+
+    expect(
+      await screen.findByText(/rozszerzenie problemu/i)
     ).toBeInTheDocument();
   });
 });

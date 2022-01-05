@@ -6,6 +6,7 @@ import {
   GetSuggestionsQuery,
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
+import { GetProblemDetailsQuery } from "../components/pages/ProblemDetailedPage/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {
@@ -14,33 +15,33 @@ export const handlers = [
         problems: [
           {
             title: "Ciągi matematyczne",
-            tags: ["Ciągi"],
+            tags: ["ciągi"],
             author: "Maria Konopnicka",
-            createdAt: "01.01.2021",
+            createdAt: "2022-01-09",
             level: Level.PRIMARY,
             id: 1,
           },
           {
             title: "Ciągi muzyczne",
-            tags: ["Ciągi", "Muzyka"],
+            tags: ["ciągi", "muzyka"],
             author: "Witold Lutosławski",
-            createdAt: "01.06.2021",
+            createdAt: "2021-05-28",
             level: Level.SECONDARY,
             id: 2,
           },
           {
             title: "Maczugi keczupowe",
-            tags: ["Maczugi", "Jedzenie"],
+            tags: ["maczugi", "jedzenie"],
             author: "Kasia Frania",
-            createdAt: "01.09.2021",
+            createdAt: "2021-04-16",
             level: Level.ANY,
             id: 3,
           },
           {
             title: "Foki",
-            tags: ["Zwierzęta", "Ocean"],
+            tags: ["zwierzęta", "ocean"],
             author: "Jan Kowalski",
-            createdAt: "01.03.2021",
+            createdAt: "2021-12-18",
             level: Level.ANY,
             id: 4,
           },
@@ -80,32 +81,178 @@ export const handlers = [
 
           {
             type: SuggestionType.TAG,
-            title: "Ciągi",
+            title: "ciągi",
             id: 15,
           },
 
           {
             type: SuggestionType.TAG,
-            title: "Jedzenie",
+            title: "jedzenie",
             id: 16,
           },
           {
             type: SuggestionType.TAG,
-            title: "Muzyka",
+            title: "muzyka",
             id: 17,
           },
           {
             type: SuggestionType.TAG,
-            title: "Ocean",
+            title: "ocean",
             id: 18,
           },
           {
             type: SuggestionType.TAG,
-            title: "Zwierzęta",
+            title: "zwierzęta",
             id: 19,
           },
         ],
       })
     );
   }),
+  graphql.query<GetProblemDetailsQuery>(
+    "GetProblemDetails",
+    (req, res, ctx) => {
+      const { id } = req.variables;
+
+      switch (id) {
+        case "1":
+          return res(
+            ctx.data({
+              problem: {
+                details: {
+                  title: "Ciągi matematyczne",
+                  tags: ["ciągi"],
+                  author: "Maria Konopnicka",
+                  createdAt: "2022-01-09",
+                  level: Level.PRIMARY,
+                  id: 1,
+                  description:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  question:
+                    "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                  answer: "a) 24  b) 46  c) 57  d) 98",
+                  resources: "additional resources",
+                  guidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  openingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  closingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  extension: {
+                    description:
+                      "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                    question:
+                      "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                    answer: "a) 24  b) 46  c) 57  d) 98",
+                  },
+                },
+              },
+            })
+          );
+        case "2":
+          return res(
+            ctx.data({
+              problem: {
+                details: {
+                  title: "Ciągi muzyczne",
+                  tags: ["ciągi", "muzyka"],
+                  author: "Witold Lutosławski",
+                  createdAt: "2021-05-28",
+                  level: Level.SECONDARY,
+                  id: 2,
+                  description:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  question:
+                    "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                  answer: "a) 24  b) 46  c) 57  d) 98",
+                  resources: "additional resources",
+                  guidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  openingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  closingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  extension: {
+                    description:
+                      "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                    question:
+                      "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                    answer: "a) 24  b) 46  c) 57  d) 98",
+                  },
+                },
+              },
+            })
+          );
+        case "3":
+          return res(
+            ctx.data({
+              problem: {
+                details: {
+                  title: "Maczugi keczupowe",
+                  tags: ["maczugi", "jedzenie"],
+                  author: "Kasia Frania",
+                  createdAt: "2021-04-16",
+                  level: Level.ANY,
+                  id: 3,
+                  description:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  question:
+                    "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                  answer: "a) 24  b) 46  c) 57  d) 98",
+                  resources: "additional resources",
+                  guidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  openingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  closingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  extension: {
+                    description:
+                      "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                    question:
+                      "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                    answer: "a) 24  b) 46  c) 57  d) 98",
+                  },
+                },
+              },
+            })
+          );
+
+        case "4":
+          return res(
+            ctx.data({
+              problem: {
+                details: {
+                  title: "Foki",
+                  tags: ["zwierzęta", "ocean"],
+                  author: "Jan Kowalski",
+                  createdAt: "2021-12-18",
+                  level: Level.ANY,
+                  id: 4,
+                  description:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  question:
+                    "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                  answer: "a) 24  b) 46  c) 57  d) 98",
+                  resources: "additional resources",
+                  guidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  openingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  closingGuidance:
+                    "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                  extension: {
+                    description:
+                      "Dzielimy klasę na trzyosobowe grupy (i ewentualne pary) przy pomocy kart. Wyświetlamy na rzutniku (warto zaznaczyć, że do podanych przykładów będziemy się wielokrotnie odnosić podczas tej lekcji):",
+                    question:
+                      "PYTANIE: Jaka liczba będzie stała w każdym z nawiasów na 23 miejscu? Rozpoczęcie pracy w grupach nad danym problemem.",
+                    answer: "a) 24  b) 46  c) 57  d) 98",
+                  },
+                },
+              },
+            })
+          );
+      }
+    }
+  ),
 ];
