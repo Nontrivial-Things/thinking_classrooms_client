@@ -1,7 +1,5 @@
-import { FC, useEffect, useState, useRef } from "react";
+import { FC, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
 
 import ResultCountLabel from "../../atoms/ResultCountLabel";
 import Wrapper from "../../atoms/Wrapper";
@@ -33,23 +31,6 @@ const ProblemsPage: FC = () => {
     }
   }, [data?.problems.length, tag, loading]);
 
-  const printRef = useRef<HTMLDivElement>(null);
-
-  const handleDownloadPdf = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element as HTMLDivElement);
-    const data = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF();
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("print.pdf");
-  };
-
   return (
     <>
       <ProblemSearchSection
@@ -59,16 +40,12 @@ const ProblemsPage: FC = () => {
         setSearchTerm={setSearchTerm}
         searchTerm={searchTerm}
       />
-      <button type="button" onClick={handleDownloadPdf}>
-        Download as PDF
-      </button>
       <Wrapper
         background={problems.length === 0 ? white : primaryBackground}
         backgroundDT={primaryBackground}
         flexDirection="column"
         margin="0"
         minHeight="100vh"
-        ref={printRef}
       >
         <ResultCountLabel count={problems.length}></ResultCountLabel>
         {problems.length === 0 && !loading ? (
