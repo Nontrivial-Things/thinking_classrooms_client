@@ -1,14 +1,18 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { format } from "date-fns";
-import { pl } from "date-fns/locale";
 
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
 import Tag from "../../atoms/Tag";
 import ScrollToTopButton from "../../atoms/ScrollToTopButton";
 import Button from "../../atoms/Button";
-import { GetProblemDetailsQuery, PROBLEM_DETAILS } from "./interface";
+
+import {
+  ExtendedProblemDetails,
+  GetProblemDetailsQuery,
+  PROBLEM_DETAILS,
+} from "./interface";
+import { formatDate } from "./utils";
 import { secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
 
@@ -19,9 +23,15 @@ const ProblemDetailedPage: FC = () => {
   const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
     variables: { id },
   });
-  const [problemDetails, setProblemDetails] = useState<any>({});
 
-  const problemsLoaded = data && !loading;
+  const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
+    {} as ExtendedProblemDetails
+  );
+
+  const problemsLoaded =
+    !!data?.problem?.details &&
+    Object.keys(data?.problem?.details).length > 0 &&
+    !loading;
 
   useEffect(() => {
     if (problemsLoaded) {
@@ -33,17 +43,16 @@ const ProblemDetailedPage: FC = () => {
   }, [data, loading]);
 
   const formattedDate =
-    problemDetails.createdAt &&
-    format(new Date(problemDetails.createdAt), "d MMM y", {
-      locale: pl,
-    });
+    problemDetails.createdAt && formatDate(problemDetails.createdAt);
 
   return problemsLoaded ? (
     <S.ProblemDetailedWrapper>
-      <S.GoToBackWrapper to="/">
+      <S.GoToProblemsListWrapper to="/">
         <S.Arrow />
-        <S.GoToBackSpan>Powrót do listy problemów</S.GoToBackSpan>
-      </S.GoToBackWrapper>
+        <S.GoToProblemsListSpan>
+          Powrót do listy problemów
+        </S.GoToProblemsListSpan>
+      </S.GoToProblemsListWrapper>
       <S.ProblemDetailedContent>
         <S.EducationLevel>{problemDetails.level}</S.EducationLevel>
         <S.TitleHeading>{problemDetails.title}</S.TitleHeading>

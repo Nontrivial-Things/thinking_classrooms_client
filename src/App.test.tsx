@@ -63,7 +63,7 @@ describe("<App />", () => {
     expect(await screen.findByText(/Treść problemu/i)).toBeInTheDocument();
   });
 
-  it("navigates from detailed page to problems page after clicking on 'return to problems list' button", async () => {
+  it("navigates from detailed page to problems page after clicking on back to problems list button", async () => {
     testRenderer(<App />);
     const problem = (await screen.findByText(
       "Ciągi matematyczne"
@@ -80,7 +80,7 @@ describe("<App />", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows problem extension after clicking on suggestion ", async () => {
+  it("shows problem detailed page after clicking on suggestion ", async () => {
     testRenderer(<App />);
     const problem = (await screen.findByText(
       "Ciągi matematyczne"

@@ -21,7 +21,7 @@ const ProblemDetailedWrapper = styled(Wrapper)`
   }
 `;
 
-const GoToBackWrapper = styled(Link)`
+const GoToProblemsListWrapper = styled(Link)`
   display: flex;
   align-items: center;
   color: ${blue100};
@@ -40,7 +40,7 @@ const Arrow = styled(ArrowLeft)`
   width: 1.6rem;
 `;
 
-const GoToBackSpan = styled.span`
+const GoToProblemsListSpan = styled.span`
   font-size: 1.4rem;
   line-height: 2.4rem;
   margin-left: 1.1rem;
@@ -165,9 +165,9 @@ const ProblemExtensionHeading = styled.h1`
 
 export {
   ProblemDetailedWrapper,
-  GoToBackWrapper,
+  GoToProblemsListWrapper,
   Arrow,
-  GoToBackSpan,
+  GoToProblemsListSpan,
   ProblemDetailedContent,
   EducationLevel,
   TitleHeading,
