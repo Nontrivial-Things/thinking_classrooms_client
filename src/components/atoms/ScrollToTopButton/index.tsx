@@ -24,11 +24,10 @@ const ScrollToTopButton: FC = () => {
   window.addEventListener("scroll", throttle(toggleVisible, 100));
 
   return (
-    <S.ScrollButton>
+    <S.ScrollButton $visible={visible}>
       <S.ArrowUpIcon
         title="Ikona przewijania strony do początku"
         onClick={scrollToTop}
-        $visible={visible}
       />
     </S.ScrollButton>
   );
