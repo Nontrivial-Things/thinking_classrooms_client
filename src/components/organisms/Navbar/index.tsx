@@ -18,7 +18,7 @@ const NavbarClass = {
 };
 
 const Navbar: FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("", { keyPrefix: "navbar" });
 
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
@@ -59,7 +59,7 @@ const Navbar: FC = () => {
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {t("navbar.aboutMethodLink")}
+              {t("aboutMethodPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
           <S.NavbarMenuItem>
@@ -67,7 +67,7 @@ const Navbar: FC = () => {
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {t("navbar.moderatorPageLink")}
+              {t("moderatorPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>

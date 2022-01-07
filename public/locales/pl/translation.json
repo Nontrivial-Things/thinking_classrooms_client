@@ -1,6 +1,22 @@
 {
+  "common": {
+    "logoAlt": "Logo aplikacji"
+  },
   "navbar": {
-    "aboutMethodLink": "O metodzie",
+    "aboutMethodPageLink": "O metodzie",
     "moderatorPageLink": "Strefa moderatora"
+  },
+  "problemDetailedPage": {
+    "goBackToProblemsList": "Powrót do listy problemów",
+    "downloadProblem": "Pobierz treść",
+    "problemContent": "Treść problemu",
+    "openingGuidance": "Propozycja wprowadzenia do zajęć",
+    "ressources": "Pobierz materiały dodatkowe",
+    "problemExtension": "Rozszerzenie problemu",
+    "problemExtensionContent": "Treść rozszerzenia",
+    "answer": "Odpowiedź",
+    "resources": "Pobierz materiały dodatkowe",
+    "guidance": "Wskazówki",
+    "closingGuidance": "Propozycja podsumowania zajęć"
   }
 }

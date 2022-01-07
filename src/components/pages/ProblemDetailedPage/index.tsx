@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { useTranslation } from "react-i18next";
 
 import ProblemSubtitle from "../../atoms/ProblemSubtitle";
 import Tag from "../../atoms/Tag";
@@ -17,6 +18,8 @@ import { secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
 
 const ProblemDetailedPage: FC = () => {
+  const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
+
   const params = useParams();
   const id: string = params.problemId || "";
 
@@ -50,7 +53,7 @@ const ProblemDetailedPage: FC = () => {
       <S.GoToProblemsListWrapper to="/">
         <S.Arrow />
         <S.GoToProblemsListSpan>
-          Powrót do listy problemów
+          {t("goBackToProblemsList")}
         </S.GoToProblemsListSpan>
       </S.GoToProblemsListWrapper>
       <S.ProblemDetailedContent>
@@ -74,35 +77,35 @@ const ProblemDetailedPage: FC = () => {
             withDownloadIcon={true}
             $alignSelf="center"
           >
-            Pobierz treść
+            {t("downloadProblem")}
           </Button>
         </S.Section>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Treść problemu" />
+          <ProblemSubtitle subtitle={t("problemContent")} />
           <S.ProblemSectionP>{problemDetails.description}</S.ProblemSectionP>
           <S.ProblemSectionP>{problemDetails.question}</S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Odpowiedź" />
+          <ProblemSubtitle subtitle={t("answer")} />
           <S.ProblemSectionP>{problemDetails.answer}</S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Pobierz materiały dodatkowe" />
+          <ProblemSubtitle subtitle={t("resources")} />
           <S.ProblemSectionP>{problemDetails.resources}</S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Propozycja wprowadzenia do zajęć" />
+          <ProblemSubtitle subtitle={t("openingGuidance")} />
           <S.ProblemSectionP>
             {problemDetails.openingGuidance}
           </S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemExtensionHeading>
-          Rozszerzenie problemu
+          {t("problemExtension")}
         </S.ProblemExtensionHeading>
         <S.ProblemSection>
           <ProblemSubtitle
             color={secondarySubtitle}
-            subtitle="Treść rozszerzenia"
+            subtitle={t("problemExtensionContent")}
           ></ProblemSubtitle>
           <S.ProblemSectionP>
             {problemDetails.extension?.description}
@@ -114,26 +117,26 @@ const ProblemDetailedPage: FC = () => {
         <S.ProblemSection>
           <ProblemSubtitle
             color={secondarySubtitle}
-            subtitle="Odpowiedź"
+            subtitle={t("answer")}
           ></ProblemSubtitle>
           <S.ProblemSectionP>
             {problemDetails.extension?.answer}
           </S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Wskazówki"></ProblemSubtitle>
+          <ProblemSubtitle subtitle={t("guidance")}></ProblemSubtitle>
           <S.ProblemSectionP>{problemDetails.guidance}</S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle="Propozycja podsumowania zajęć"></ProblemSubtitle>
-          <S.ProblemSectionP>{problemDetails.guidance}</S.ProblemSectionP>
+          <ProblemSubtitle subtitle={t("closingGuidance")}></ProblemSubtitle>
+          <S.ProblemSectionP>
+            {problemDetails.closingGuidance}
+          </S.ProblemSectionP>
         </S.ProblemSection>
       </S.ProblemDetailedContent>
       <ScrollToTopButton />
     </S.ProblemDetailedWrapper>
-  ) : (
-    <div>Brak danych</div>
-  );
+  ) : null;
 };
 
 export default ProblemDetailedPage;
