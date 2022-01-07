@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
@@ -17,6 +18,8 @@ const NavbarClass = {
 };
 
 const Navbar: FC = () => {
+  const { t } = useTranslation();
+
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
   );
@@ -56,7 +59,7 @@ const Navbar: FC = () => {
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              O metodzie{" "}
+              {t("navbar.aboutMethodLink")}
             </NavLink>
           </S.NavbarMenuItem>
           <S.NavbarMenuItem>
@@ -64,7 +67,7 @@ const Navbar: FC = () => {
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Strefa moderatora
+              {t("navbar.moderatorPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>

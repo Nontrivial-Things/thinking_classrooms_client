@@ -2,12 +2,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { ApolloProvider } from "@apollo/client";
 
 import App from "./App";
+import { client } from "./apolloClient";
 import GlobalStyle from "./assets/styles/global-styles";
 
-import { ApolloProvider } from "@apollo/client";
-import { client } from "./apolloClient";
+import "./i18n";
 
 const { worker } = require("./mocks/browser");
 worker.start();

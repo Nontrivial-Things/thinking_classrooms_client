@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/organisms/Navbar";
@@ -10,7 +10,7 @@ import Moderator from "./components/pages/Moderator";
 
 const App: FC = () => {
   return (
-    <>
+    <Suspense fallback="loading">
       <Navbar />
       <Routes>
         {/* <Route path="/" element {<LandingPage/>}> */}
@@ -20,7 +20,7 @@ const App: FC = () => {
         <Route path="/moderator" element={<Moderator />} />
       </Routes>
       <Footer />
-    </>
+    </Suspense>
   );
 };
 
