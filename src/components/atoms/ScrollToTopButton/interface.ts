@@ -1,3 +1,3 @@
-export interface ArrowUpIconStyleProps {
+export interface ScrollButtonStyleProps {
   $visible: boolean;
 }
