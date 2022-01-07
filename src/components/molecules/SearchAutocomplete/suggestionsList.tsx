@@ -1,4 +1,5 @@
 import { FC, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import { SuggestionsProps } from "./interface";
 import Tag from "../../atoms/Tag";
@@ -10,6 +11,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
   activeSuggestionIndex,
   chooseSuggestion,
 }) => {
+  const { t } = useTranslation("", { keyPrefix: "common" });
   const ref = useRef<HTMLUListElement>(null);
 
   return (
@@ -27,7 +29,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
         >
           {suggestion.type === SuggestionType.TAG ? (
             <>
-              <S.TagSearchIcon aria-label="Ikona wyszukiwania po tagu" />
+              <S.TagSearchIcon aria-label={t("searchByTagIcon")} />
               <Tag text={suggestion.title} fontSize="1.4rem" />
             </>
           ) : (

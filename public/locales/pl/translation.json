@@ -1,6 +1,10 @@
 {
   "common": {
-    "logoAlt": "Logo aplikacji"
+    "logoAlt": "Logo aplikacji",
+    "scrollIconTitle": "Ikona przewijania strony do początku",
+    "downloadIcon": "Ikona pobierania",
+    "searchByTagIcon": "Ikona wyszukiwania po tagu",
+    "filterByTagInput": "Input filtrujący po tagu"
   },
   "navbar": {
     "aboutMethodPageLink": "O metodzie",
@@ -24,9 +28,12 @@
   "problemsPage": {
     "inputHeader": "Szukaj problemów matematycznych",
     "inputPlaceholder": "Wpisz nazwę zagadnienia",
-    "searchResults": "Wyniki wyszukiwania",
-    "zeroResultsHeader": "Brak wyników",
-    "zeroResultsText": "Spróbuj wyszukać: "
+    "searchResults": "Wyniki wyszukiwania ({{count}})",
+    "zeroResultsNoResultsHeader": "Brak wyników",
+    "zeroResultsNoResultsText": "Spróbuj wyszukać: "
+  },
+  "button": {
+    "downloadIcon": "Ikona pobierania"
   },
   "footer": {
     "contact": "Kontakt",

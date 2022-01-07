@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import * as S from "./styles";
 import { ButtonProps } from "./interface";
+import { useTranslation } from "react-i18next";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -11,6 +12,8 @@ const Button: FC<ButtonProps> = ({
   withDownloadIcon = false,
   $isHidden = false,
 }) => {
+  const { t } = useTranslation("", { keyPrefix: "common" });
+
   return (
     <S.Button
       $isPrimary={$isPrimary}
@@ -20,9 +23,9 @@ const Button: FC<ButtonProps> = ({
     >
       {withDownloadIcon &&
         (disabled ? (
-          <S.DownloadIconDisabled aria-hidden title="Ikona Pobierania" />
+          <S.DownloadIconDisabled aria-hidden title={t("downloadIcon")} />
         ) : (
-          <S.DownloadIcon aria-hidden title="Ikona Pobierania" />
+          <S.DownloadIcon aria-hidden title={t("downloadIcon")} />
         ))}
       {children}
     </S.Button>

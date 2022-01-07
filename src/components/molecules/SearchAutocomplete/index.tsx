@@ -152,7 +152,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
               type="text"
               autoComplete="off"
               placeholder={t("inputPlaceholder")}
-              aria-label="Szukaj problemów"
+              aria-label={t("inputPlaceholder")}
               aria-autocomplete="list"
               aria-controls="autocomplete-options"
               autoFocus

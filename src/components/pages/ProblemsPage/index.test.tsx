@@ -9,7 +9,7 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     expect(input.value).toBe("");
 
@@ -22,7 +22,7 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     expect(input.value).toBe("");
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
@@ -40,7 +40,7 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "Oce");
@@ -54,7 +54,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.click(firstSuggestion);
 
     const containerWithPickedTag = (await screen.findByLabelText(
-      "Input filtrujący po tagu"
+      "filterByTagInput"
     )) as HTMLInputElement;
     expect(containerWithPickedTag).toBeInTheDocument();
     expect(containerWithPickedTag).toHaveTextContent("ocean");
@@ -64,7 +64,7 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     const removeButtonNotVisible = screen.queryByRole("button", {
       name: /Remove button/i,
@@ -85,7 +85,7 @@ describe("<ProblemsPage/>", () => {
   it("should key press correctly", async () => {
     testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "Oc");
@@ -97,7 +97,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.type(input, "{enter}");
 
     const pickedTag = (await screen.findByLabelText(
-      "Input filtrujący po tagu"
+      "filterByTagInput"
     )) as HTMLInputElement;
     expect(pickedTag).toBeInTheDocument();
     expect(pickedTag).toHaveTextContent("ocean");
@@ -107,32 +107,28 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "Oc");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
     expect(firstSuggestion).toHaveTextContent("ocean");
-    expect(
-      screen.getByLabelText("Ikona wyszukiwania po tagu")
-    ).toBeInTheDocument();
+    expect(screen.getByLabelText("searchByTagIcon")).toBeInTheDocument();
   });
 
   it("should display problem suggestion", async () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "F");
     const suggestions = await screen.findAllByRole("listitem");
     const firstSuggestion = suggestions[0];
     expect(firstSuggestion).toHaveTextContent("Foki");
-    expect(
-      screen.queryByLabelText("Ikona wyszukiwania po tagu")
-    ).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("searchByTagIcon")).not.toBeInTheDocument();
   });
 
   it("filters problems by chosen tag and shows problems' count", async () => {
@@ -140,7 +136,7 @@ describe("<ProblemsPage/>", () => {
 
     expect(await screen.findByText("searchResults (4)")).toBeInTheDocument();
 
-    const input = await screen.findByLabelText("Szukaj problemów");
+    const input = await screen.findByLabelText("inputPlaceholder");
     userEvent.type(input, "Ci");
     userEvent.type(input, "{arrowdown}");
     userEvent.type(input, "{enter}");
@@ -167,7 +163,7 @@ describe("<ProblemsPage/>", () => {
     testRenderer(<ProblemsPage />);
 
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     userEvent.type(input, "xx");
     userEvent.type(input, "{enter}");
@@ -180,7 +176,7 @@ describe("<ProblemsPage/>", () => {
   it("should display input with tag as a value and return to default input after removing tag", async () => {
     testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "J");
@@ -197,7 +193,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.click(removeTagButton);
 
     const defaultInput = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     expect(defaultInput.value).toBe("");
   });
@@ -205,7 +201,7 @@ describe("<ProblemsPage/>", () => {
   it("should display input with tag and return to default problems set input after using Backspace", async () => {
     testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
 
     userEvent.type(input, "J");
@@ -219,15 +215,13 @@ describe("<ProblemsPage/>", () => {
       name: /Usuń tag/i,
     });
     expect(removeTagButton).toBeInTheDocument();
-    const inputWithTag = await screen.findByLabelText(
-      "Input filtrujący po tagu"
-    );
+    const inputWithTag = await screen.findByLabelText(/filterByTagInput/);
     const { findByText } = within(inputWithTag);
     const test = await findByText("jedzenie");
     userEvent.type(test, "{backspace}");
 
     const defaultInput = (await screen.findByLabelText(
-      "Szukaj problemów"
+      "inputPlaceholder"
     )) as HTMLInputElement;
     expect(defaultInput).toHaveValue("");
     expect(screen.getByText("searchResults (4)")).toBeInTheDocument();

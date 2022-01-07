@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 import Tag from "../../atoms/Tag";
 
@@ -6,6 +7,8 @@ import * as S from "./styles";
 import { InputWithTagsProps } from "./interface";
 
 const InputWithTags: FC<InputWithTagsProps> = ({ text, onRemoveTag }) => {
+  const { t } = useTranslation("", { keyPrefix: "common" });
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
     if (e.key === "Backspace") {
       onRemoveTag();
@@ -16,7 +19,7 @@ const InputWithTags: FC<InputWithTagsProps> = ({ text, onRemoveTag }) => {
 
   return (
     <S.InputWithTags
-      aria-label="Input filtrujący po tagu"
+      aria-label={t("filterByTagInput")}
       contentEditable="true"
       suppressContentEditableWarning={true}
       onKeyDown={handleKeyDown}

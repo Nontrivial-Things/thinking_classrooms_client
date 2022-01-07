@@ -1,10 +1,12 @@
 import { FC, useState } from "react";
 import throttle from "lodash.throttle";
+import { useTranslation } from "react-i18next";
 
 import * as S from "./styles";
 
 const ScrollToTopButton: FC = () => {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("", { keyPrefix: "common" });
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -25,10 +27,7 @@ const ScrollToTopButton: FC = () => {
 
   return (
     <S.ScrollButton $visible={visible}>
-      <S.ArrowUpIcon
-        title="Ikona przewijania strony do początku"
-        onClick={scrollToTop}
-      />
+      <S.ArrowUpIcon title={t("scrollIconTitle")} onClick={scrollToTop} />
     </S.ScrollButton>
   );
 };
