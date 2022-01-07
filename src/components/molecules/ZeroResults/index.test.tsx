@@ -9,8 +9,8 @@ describe("<ZeroResults />", () => {
   it("displays no results informaction and possible tags to choose", async () => {
     testRenderer(<ZeroResults setTag={setTag} setSearchTerm={setSearchTerm} />);
 
-    expect(await screen.findByText(/Brak wyników/i)).toBeInTheDocument();
-    expect(await screen.findByText(/Spróbuj wyszukać/i)).toBeInTheDocument();
+    expect(await screen.findByText(/zeroResultsHeader/)).toBeInTheDocument();
+    expect(await screen.findByText(/zeroResultsText/)).toBeInTheDocument();
     expect(await screen.findByText(/jedzenie/i)).toBeInTheDocument();
   });
 });

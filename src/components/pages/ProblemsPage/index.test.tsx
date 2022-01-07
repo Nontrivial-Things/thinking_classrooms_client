@@ -138,9 +138,7 @@ describe("<ProblemsPage/>", () => {
   it("filters problems by chosen tag and shows problems' count", async () => {
     testRenderer(<ProblemsPage />);
 
-    expect(
-      await screen.findByText("Wyniki wyszukiwania (4)")
-    ).toBeInTheDocument();
+    expect(await screen.findByText("searchResults (4)")).toBeInTheDocument();
 
     const input = await screen.findByLabelText("Szukaj problemów");
     userEvent.type(input, "Ci");
@@ -162,9 +160,7 @@ describe("<ProblemsPage/>", () => {
         name: "Maczugi keczupowe",
       })
     ).not.toBeInTheDocument();
-    expect(
-      await screen.findByText("Wyniki wyszukiwania (2)")
-    ).toBeInTheDocument();
+    expect(await screen.findByText("searchResults (2)")).toBeInTheDocument();
   });
 
   xit("displays zero results view when result count = 0", async () => {
@@ -176,9 +172,7 @@ describe("<ProblemsPage/>", () => {
     userEvent.type(input, "xx");
     userEvent.type(input, "{enter}");
 
-    expect(
-      await screen.findByText("Wyniki wyszukiwania (0)")
-    ).toBeInTheDocument();
+    expect(await screen.findByText("searchResults (0)")).toBeInTheDocument();
 
     expect(await screen.findByText(/Spróbuj/i)).toBeInTheDocument();
   });
@@ -236,6 +230,6 @@ describe("<ProblemsPage/>", () => {
       "Szukaj problemów"
     )) as HTMLInputElement;
     expect(defaultInput).toHaveValue("");
-    expect(screen.getByText("Wyniki wyszukiwania (4)")).toBeInTheDocument();
+    expect(screen.getByText("searchResults (4)")).toBeInTheDocument();
   });
 });

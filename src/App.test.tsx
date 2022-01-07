@@ -28,9 +28,7 @@ describe("<App />", () => {
     const logo = screen.getAllByAltText(/logoAlt/);
     userEvent.click(logo[0]);
 
-    expect(
-      screen.getByText("Szukaj problemów matematycznych")
-    ).toBeInTheDocument();
+    expect(screen.getByText("inputHeader")).toBeInTheDocument();
   });
 
   it("navigates to problem show after choosing suggestion using keyboard", async () => {
@@ -75,9 +73,7 @@ describe("<App />", () => {
     )) as HTMLInputElement;
     userEvent.click(returnButton);
 
-    expect(
-      await screen.findByText(/Szukaj problemów matematycznych/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText("inputHeader")).toBeInTheDocument();
   });
 
   it("shows problem detailed page after clicking on suggestion ", async () => {

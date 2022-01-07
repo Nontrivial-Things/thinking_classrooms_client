@@ -7,7 +7,7 @@ describe("Navbar", () => {
   it("should open menu when Hamburger is clicked", () => {
     testRenderer(<Navbar />);
 
-    expect(screen.getByRole("button", { name: /otwórz menu/i }));
+    expect(screen.getByRole("button", { name: /hamburgerAlt/ }));
     expect(screen.getByText("aboutMethodPageLink")).toBeInTheDocument();
     expect(screen.getByText("moderatorPageLink")).toBeInTheDocument();
   });

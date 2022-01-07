@@ -4,7 +4,9 @@
   },
   "navbar": {
     "aboutMethodPageLink": "O metodzie",
-    "moderatorPageLink": "Strefa moderatora"
+    "moderatorPageLink": "Strefa moderatora",
+    "hamburgerAlt": "Otwórz menu",
+    "menuIconAlt": "Ikona menu"
   },
   "problemDetailedPage": {
     "goBackToProblemsList": "Powrót do listy problemów",
@@ -18,5 +20,17 @@
     "resources": "Pobierz materiały dodatkowe",
     "guidance": "Wskazówki",
     "closingGuidance": "Propozycja podsumowania zajęć"
+  },
+  "problemsPage": {
+    "inputHeader": "Szukaj problemów matematycznych",
+    "inputPlaceholder": "Wpisz nazwę zagadnienia",
+    "searchResults": "Wyniki wyszukiwania",
+    "zeroResultsHeader": "Brak wyników",
+    "zeroResultsText": "Spróbuj wyszukać: "
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "email": "myslaceklasy@email.com",
+    "copyrights": "© Copyrights 2020."
   }
 }

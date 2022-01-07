@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Mail from "../../../assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
@@ -12,6 +13,8 @@ import * as S from "./styles";
 import { white, grey200 } from "../../../assets/styles/colors";
 
 const Footer: FC = () => {
+  const { t } = useTranslation("", { keyPrefix: "footer" });
+
   return (
     <S.FooterWrapper>
       <Wrapper
@@ -25,14 +28,12 @@ const Footer: FC = () => {
           <Logo isBackgroundDark />
         </Link>
         <S.ContactWrapper>
-          <S.FooterP>Kontakt</S.FooterP>
+          <S.FooterP>{t("contact")}</S.FooterP>
           <Row>
             <Icon color={white} width="1.6rem">
               <img src={Mail} />
             </Icon>
-            <S.MailA href="mailto:myslaceklasy@email.com">
-              myslaceklasy@email.com
-            </S.MailA>
+            <S.MailA href={`mailto:${t("email")}`}>{t("email")}</S.MailA>
           </Row>
         </S.ContactWrapper>
       </Wrapper>
@@ -44,7 +45,7 @@ const Footer: FC = () => {
           paddingBottom="0.4rem"
           marginTop="2.8rem"
         >
-          © Copyrights 2020.
+          {t("copyrights")}
         </P>
       </Column>
     </S.FooterWrapper>

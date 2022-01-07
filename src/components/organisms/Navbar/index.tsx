@@ -42,13 +42,13 @@ const Navbar: FC = () => {
         <Link to="/">
           <Logo isBackgroundDark={false}></Logo>
         </Link>
-        <S.MenuIconButton aria-label="Otwórz menu">
+        <S.MenuIconButton aria-label={t("hamburgerAlt")}>
           <S.HamburgerImg
             className={navbarMenuStyle}
             onClick={toggleHamburger}
             src={isNavbarMenuActive ? hamburgerX : hamburger}
             aria-hidden
-            alt="Ikona menu"
+            alt={t("menuIconAlt")}
           ></S.HamburgerImg>
         </S.MenuIconButton>
       </S.NavbarWrapper>
