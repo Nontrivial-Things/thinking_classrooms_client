@@ -55,27 +55,27 @@ const ProblemDetailedPage: FC = () => {
 
   const handleDownloadPdf = async () => {
     const element = printRef.current as HTMLDivElement;
-    // const element = document.getElementById("pdf");
 
     const canvas = await html2canvas(element);
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF("p", "mm");
+
     let position = 0;
 
     const imgProperties = pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfWidth = pdf.internal.pageSize.getWidth() - 20;
     const pageHeight = 295;
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
     let heightLeft = pdfHeight;
 
-    pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
+    pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
     heightLeft -= pageHeight;
 
     while (heightLeft >= 0) {
       position = heightLeft - pdfHeight;
       pdf.addPage();
-      pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
       heightLeft -= pageHeight;
     }
     pdf.save(`${problemDetails.title}`);
@@ -89,7 +89,7 @@ const ProblemDetailedPage: FC = () => {
           {t("goBackToProblemsList")}
         </S.GoToProblemsListSpan>
       </S.GoToProblemsListWrapper>
-      <S.ProblemDetailedContent>
+      <S.ProblemDetailedContent ref={printRef}>
         <S.EducationLevel>{problemDetails.level}</S.EducationLevel>
         <S.TitleHeading>{problemDetails.title}</S.TitleHeading>
         <S.ProblemCreationDetailsWrapper>
@@ -109,6 +109,7 @@ const ProblemDetailedPage: FC = () => {
             $isPrimary={false}
             withDownloadIcon={true}
             $alignSelf="center"
+            onClick={handleDownloadPdf}
           >
             {t("downloadProblem")}
           </Button>
