@@ -35,7 +35,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
           ) : (
             <S.ProblemLink to={`/problems/${suggestion.id}`}>
               <S.ClipboardIcon />
-              <span>{suggestion.title}</span>
+              <S.ProblemLinkSpan>{suggestion.title}</S.ProblemLinkSpan>
             </S.ProblemLink>
           )}
         </S.Suggestion>

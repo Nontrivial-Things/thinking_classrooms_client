@@ -14,12 +14,12 @@ describe("<Button>", () => {
 
   it("renders no download icon for non primary button as a default", () => {
     render(<Button $isPrimary={false} />);
-    expect(screen.queryByTitle(/downloadIcon/)).not.toBeInTheDocument();
+    expect(screen.queryByTitle("downloadIcon")).not.toBeInTheDocument();
   });
 
   it("renders download icon for non primary button when set do to so", () => {
     render(<Button $isPrimary={false} withDownloadIcon />);
-    expect(screen.getByTitle(/downloadIcon/)).toBeInTheDocument();
+    expect(screen.getByTitle("downloadIcon")).toBeInTheDocument();
   });
 
   it("renders active primary button as a default", () => {

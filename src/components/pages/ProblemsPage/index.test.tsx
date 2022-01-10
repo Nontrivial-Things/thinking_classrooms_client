@@ -170,7 +170,7 @@ describe("<ProblemsPage/>", () => {
 
     expect(await screen.findByText("searchResults (0)")).toBeInTheDocument();
 
-    expect(await screen.findByText(/zeroResultsHeader/)).toBeInTheDocument();
+    expect(await screen.findByText("zeroResultsHeader")).toBeInTheDocument();
   });
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
@@ -215,7 +215,7 @@ describe("<ProblemsPage/>", () => {
       name: /Usuń tag/i,
     });
     expect(removeTagButton).toBeInTheDocument();
-    const inputWithTag = await screen.findByLabelText(/filterByTagInput/);
+    const inputWithTag = await screen.findByLabelText("filterByTagInput");
     const { findByText } = within(inputWithTag);
     const test = await findByText("jedzenie");
     userEvent.type(test, "{backspace}");

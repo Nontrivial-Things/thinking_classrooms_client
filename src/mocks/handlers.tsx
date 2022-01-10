@@ -60,7 +60,7 @@ export const handlers = [
           },
           {
             type: SuggestionType.TAG,
-            title: "Maczugi",
+            title: "maczugi",
             id: 14,
           },
           {

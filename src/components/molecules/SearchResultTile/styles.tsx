@@ -62,6 +62,9 @@ const Details = styled.span`
 const Title = styled.h3`
   font-weight: 700;
   font-size: 1.6rem;
+  &::first-letter {
+    text-transform: capitalize;
+  }
   @media ${minDevice.desktopTablet} {
     font-size: 1.8rem;
   }

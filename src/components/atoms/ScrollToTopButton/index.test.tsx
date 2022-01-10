@@ -7,6 +7,6 @@ describe("<ScrollToTopButtom />", () => {
   it("doesn't display ScrollButton when the page is first render", async () => {
     testRenderer(<ScrollToTopButton />);
 
-    expect(screen.queryByTitle(/scrollIconTitle/)).not.toBeVisible();
+    expect(screen.queryByTitle("scrollIconTitle")).not.toBeVisible();
   });
 });
