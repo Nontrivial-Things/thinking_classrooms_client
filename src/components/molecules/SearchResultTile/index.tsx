@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Tag from "../../atoms/Tag";
 import * as S from "./styles";
@@ -13,6 +14,8 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
   level,
   id,
 }) => {
+  const { t } = useTranslation("", { keyPrefix: "button" });
+
   return (
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
@@ -31,7 +34,7 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
         </S.TagWrapper>
       </S.DetailsWrapper>
       <S.StyledButtonLink $isPrimary={false} $isHidden to={`/problems/${id}`}>
-        Zobacz treść
+        {t("showDetails")}
       </S.StyledButtonLink>
     </S.SearchResultTileWrapper>
   );

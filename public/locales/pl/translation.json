@@ -28,12 +28,13 @@
   "problemsPage": {
     "inputHeader": "Szukaj problemów matematycznych",
     "inputPlaceholder": "Wpisz nazwę zagadnienia",
-    "searchResults": "Wyniki wyszukiwania ({{count}})",
+    "searchResults": "Wyniki wyszukiwania",
     "zeroResultsNoResultsHeader": "Brak wyników",
     "zeroResultsNoResultsText": "Spróbuj wyszukać: "
   },
   "button": {
-    "downloadIcon": "Ikona pobierania"
+    "downloadIcon": "Ikona pobierania",
+    "showDetails": "Zobacz treść"
   },
   "footer": {
     "contact": "Kontakt",
