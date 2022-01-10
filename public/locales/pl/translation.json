@@ -1,7 +1,7 @@
 {
   "common": {
     "logoAlt": "Logo aplikacji",
-    "scrollIconTitle": "Ikona przewijania strony do początku",
+    "scrollIcon": "Ikona przewijania strony do początku",
     "downloadIcon": "Ikona pobierania",
     "searchByTagIcon": "Ikona wyszukiwania po tagu",
     "filterByTagInput": "Input filtrujący po tagu"
@@ -17,7 +17,6 @@
     "downloadProblem": "Pobierz treść",
     "problemContent": "Treść problemu",
     "openingGuidance": "Propozycja wprowadzenia do zajęć",
-    "ressources": "Pobierz materiały dodatkowe",
     "problemExtension": "Rozszerzenie problemu",
     "problemExtensionContent": "Treść rozszerzenia",
     "answer": "Odpowiedź",
@@ -26,7 +25,7 @@
     "closingGuidance": "Propozycja podsumowania zajęć"
   },
   "problemsPage": {
-    "inputHeader": "Szukaj problemów matematycznych",
+    "searchInputHeader": "Szukaj problemów matematycznych",
     "inputPlaceholder": "Wpisz nazwę zagadnienia",
     "searchResults": "Wyniki wyszukiwania",
     "zeroResultsHeader": "Brak wyników",

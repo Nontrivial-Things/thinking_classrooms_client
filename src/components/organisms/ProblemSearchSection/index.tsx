@@ -24,7 +24,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
       padding="2.4rem 1.6rem"
       paddingDT="2.4rem"
     >
-      <S.H2>{t("inputHeader")}</S.H2>
+      <S.H2>{t("searchInputHeader")}</S.H2>
       <SearchAutocomplete
         tag={tag}
         setTag={setTag}
