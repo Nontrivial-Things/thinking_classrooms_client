@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
 import Tag from "../../atoms/Tag";
+import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
 import * as S from "./styles";
 import { ProblemSummaryProps } from "./interface";
 
@@ -32,9 +33,9 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <S.StyledButtonLink $isPrimary={false} $isHidden to={`/problems/${id}`}>
+      <StyledButtonLink $isPrimary={false} $isHidden to={`/problems/${id}`}>
         {t("showDetails")}
-      </S.StyledButtonLink>
+      </StyledButtonLink>
     </S.SearchResultTileWrapper>
   );
 };

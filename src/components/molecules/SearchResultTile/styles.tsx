@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { grey300, white, grey200 } from "../../../assets/styles/colors";
 import Wrapper from "../../atoms/Wrapper";
-import { ButtonStyleProps } from "../../atoms/Button/interface";
-import { buttonStyles } from "../../atoms/Button/styles";
 
 const SearchResultTileWrapper = styled(Wrapper)`
   width: 100%;
@@ -101,10 +98,6 @@ const Stage = styled.h5`
   }
 `;
 
-const StyledButtonLink = styled(Link)<ButtonStyleProps>`
-  ${buttonStyles}
-`;
-
 export {
   SearchResultTileWrapper,
   AuthorWrapper,
@@ -114,5 +107,4 @@ export {
   Title,
   StyledTitleLink,
   Stage,
-  StyledButtonLink,
 };

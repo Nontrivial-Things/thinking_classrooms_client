@@ -16,6 +16,8 @@ import {
 import { formatDate } from "./utils";
 import { secondarySubtitle } from "../../../assets/styles/colors";
 import * as S from "./styles";
+import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
+import { DownloadIcon } from "../../atoms/Button/styles";
 
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
@@ -125,7 +127,16 @@ const ProblemDetailedPage: FC = () => {
         </S.ProblemSection>
         <S.ProblemSection>
           <ProblemSubtitle subtitle={t("resources")} />
-          <S.ProblemSectionP>{problemDetails.resources}</S.ProblemSectionP>
+          <StyledButtonLink
+            $isPrimary={false}
+            $alignSelf={"flex-start"}
+            to={"/problem_detailed_page.pdf"}
+            target="_blank"
+            download={problemDetails.resources}
+          >
+            <DownloadIcon aria-hidden title="Ikona Pobierania" />
+            {problemDetails.resources}
+          </StyledButtonLink>
         </S.ProblemSection>
         <S.ProblemSection>
           <ProblemSubtitle subtitle={t("openingGuidance")} />
