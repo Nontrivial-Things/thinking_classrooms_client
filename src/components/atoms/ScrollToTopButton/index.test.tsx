@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "../../../setupTests";
 import ScrollToTopButton from "./index";
@@ -9,16 +8,5 @@ describe("<ScrollToTopButtom />", () => {
     testRenderer(<ScrollToTopButton />);
 
     expect(screen.queryByTitle(/scrollIconTitle/)).not.toBeVisible();
-  });
-
-  // I think we need to test this case in the component when the button will be implemented
-  xit("scroll to the top of the page", async () => {
-    testRenderer(<ScrollToTopButton />);
-
-    const scrolllButton = screen.queryByTitle(/scrollIconTitle/) as HTMLElement;
-
-    userEvent.click(scrolllButton);
-
-    screen.debug();
   });
 });

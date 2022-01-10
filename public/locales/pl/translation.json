@@ -29,8 +29,8 @@
     "inputHeader": "Szukaj problemów matematycznych",
     "inputPlaceholder": "Wpisz nazwę zagadnienia",
     "searchResults": "Wyniki wyszukiwania",
-    "zeroResultsNoResultsHeader": "Brak wyników",
-    "zeroResultsNoResultsText": "Spróbuj wyszukać: "
+    "zeroResultsHeader": "Brak wyników",
+    "zeroResultsText": "Spróbuj wyszukać: "
   },
   "button": {
     "downloadIcon": "Ikona pobierania",

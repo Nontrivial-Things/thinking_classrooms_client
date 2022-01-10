@@ -170,7 +170,7 @@ describe("<ProblemsPage/>", () => {
 
     expect(await screen.findByText("searchResults (0)")).toBeInTheDocument();
 
-    expect(await screen.findByText(/Spróbuj/i)).toBeInTheDocument();
+    expect(await screen.findByText(/zeroResultsHeader/)).toBeInTheDocument();
   });
 
   it("should display input with tag as a value and return to default input after removing tag", async () => {
