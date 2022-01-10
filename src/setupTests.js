@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
+import "jest-canvas-mock";
 
 import { client } from "./apolloClient";
 import { server } from "./mocks/server";
