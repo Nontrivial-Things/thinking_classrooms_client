@@ -125,13 +125,13 @@ const ProblemDetailedPage: FC = () => {
           <S.ProblemSectionP>{problemDetails.answer}</S.ProblemSectionP>
         </S.ProblemSection>
         <S.ProblemSection>
-          <ProblemSubtitle subtitle={t("resources")} />
+          <ProblemSubtitle subtitle="Pobierz materiały dodatkowe" />
           <StyledButtonLink
             $isPrimary={false}
             $alignSelf={"flex-start"}
             to={"/problem_detailed_page.pdf"}
             target="_blank"
-            download="problem_detailed_page"
+            download={problemDetails.resources}
           >
             <DownloadIcon aria-hidden title="Ikona Pobierania" />
             {problemDetails.resources}
