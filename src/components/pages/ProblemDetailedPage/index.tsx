@@ -131,7 +131,7 @@ const ProblemDetailedPage: FC = () => {
             $alignSelf={"flex-start"}
             to={"/problem_detailed_page.pdf"}
             target="_blank"
-            download={problemDetails.resources}
+            download="problem_detailed_page"
           >
             <DownloadIcon aria-hidden title="Ikona Pobierania" />
             {problemDetails.resources}
