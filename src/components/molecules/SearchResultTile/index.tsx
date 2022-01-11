@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import Tag from "../../atoms/Tag";
@@ -19,9 +18,9 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
   return (
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
-        <Link to={`/problems/${id}`}>
-          <S.Title>{title}</S.Title>
-        </Link>
+        <S.Title>
+          <S.StyledTitleLink to={`/problems/${id}`}>{title}</S.StyledTitleLink>
+        </S.Title>
         <S.AuthorWrapper>
           <S.Details>{author}</S.Details>
           <S.Details>•</S.Details>
