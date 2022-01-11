@@ -80,7 +80,7 @@ const ProblemDetailedPage: FC = () => {
       pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
       heightLeft -= pageHeight;
     }
-    pdf.save(`${problemDetails.title}`);
+    pdf.save(`Ciągi_matematyczne`);
   };
 
   return problemsLoaded ? (
@@ -132,7 +132,7 @@ const ProblemDetailedPage: FC = () => {
             $alignSelf={"flex-start"}
             to={"/problem_detailed_page.pdf"}
             target="_blank"
-            download={problemDetails.resources}
+            download="problem_detailed_page"
           >
             <DownloadIcon aria-hidden title="Ikona Pobierania" />
             {problemDetails.resources}

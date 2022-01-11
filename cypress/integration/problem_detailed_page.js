@@ -19,4 +19,29 @@ describe("Problem Detailed Page", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
     cy.contains("Pobierz treść");
   });
+
+  const path = require("path");
+
+  it("Initiate download pdf file containing problem details and verify it", () => {
+    cy.get(`a[href="/problems/1"]`).first().click();
+
+    cy.get('[class*="Button-sc-1v3p2bo-0 kuukQO"]')
+      .should("be.visible")
+      .click();
+    cy.wait(1000);
+    const downloadsFolder = Cypress.config("downloadsFolder");
+    cy.readFile(path.join(downloadsFolder, "Ciągi_matematyczne.pdf")).should(
+      "exist"
+    );
+  });
+
+  it("Initiate download pdf file containing additional resources and verify it", () => {
+    cy.get(`a[href="/problems/1"]`).first().click();
+    cy.get('[class*="StyledButtonLink"]').should("be.visible").click();
+
+    const downloadsFolder = Cypress.config("downloadsFolder");
+    cy.readFile(path.join(downloadsFolder, "problem_detailed_page.pdf")).should(
+      "exist"
+    );
+  });
 });
