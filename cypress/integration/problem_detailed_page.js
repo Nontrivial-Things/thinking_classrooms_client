@@ -30,7 +30,7 @@ describe("Problem Detailed Page", () => {
       .click();
     cy.wait(1000);
     const downloadsFolder = Cypress.config("downloadsFolder");
-    cy.readFile(path.join(downloadsFolder, "Ciągi_matematyczne.pdf")).should(
+    cy.readFile(path.join(downloadsFolder, "Ciągi matematyczne.pdf")).should(
       "exist"
     );
   });

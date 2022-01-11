@@ -80,7 +80,7 @@ const ProblemDetailedPage: FC = () => {
       pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
       heightLeft -= pageHeight;
     }
-    pdf.save(`Ciągi_matematyczne`);
+    pdf.save(problemDetails.title);
   };
 
   return problemsLoaded ? (
