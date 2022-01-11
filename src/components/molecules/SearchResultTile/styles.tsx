@@ -19,6 +19,7 @@ const SearchResultTileWrapper = styled(Wrapper)`
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 
   @media ${minDevice.desktopTablet} {
     padding: 2.4rem;
@@ -70,6 +71,17 @@ const Title = styled.h3`
   }
 `;
 
+const StyledTitleLink = styled(Link)`
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+`;
+
 const Stage = styled.h5`
   display: none;
   color: ${grey300};
@@ -92,6 +104,7 @@ export {
   DetailsWrapper,
   Details,
   Title,
+  StyledTitleLink,
   Stage,
   StyledButtonLink,
 };
