@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
@@ -17,6 +18,8 @@ const NavbarClass = {
 };
 
 const Navbar: FC = () => {
+  const { t } = useTranslation("", { keyPrefix: "navbar" });
+
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
   );
@@ -39,13 +42,13 @@ const Navbar: FC = () => {
         <Link to="/">
           <Logo isBackgroundDark={false}></Logo>
         </Link>
-        <S.MenuIconButton aria-label="Otwórz menu">
+        <S.MenuIconButton aria-label={t("hamburgerAlt")}>
           <S.HamburgerImg
             className={navbarMenuStyle}
             onClick={toggleHamburger}
             src={isNavbarMenuActive ? hamburgerX : hamburger}
             aria-hidden
-            alt="Ikona menu"
+            alt={t("menuIconAlt")}
           ></S.HamburgerImg>
         </S.MenuIconButton>
       </S.NavbarWrapper>
@@ -56,7 +59,7 @@ const Navbar: FC = () => {
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              O metodzie{" "}
+              {t("aboutMethodPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
           <S.NavbarMenuItem>
@@ -64,7 +67,7 @@ const Navbar: FC = () => {
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Strefa moderatora
+              {t("moderatorPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>

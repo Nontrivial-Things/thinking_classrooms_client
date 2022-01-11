@@ -16,6 +16,7 @@ const TagWrapper = styled(Wrapper)<TagWrapperProps>`
   border-radius: 1.5rem;
   line-height: 2.4rem;
   font-size: ${(props) => props.fontSize || "1.6rem"};
+  text-transform: lowercase;
   color: ${tagText};
   font-weight: 700;
   margin: 0;

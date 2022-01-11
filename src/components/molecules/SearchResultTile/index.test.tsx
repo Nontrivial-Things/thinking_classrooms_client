@@ -39,6 +39,6 @@ describe("<SearchResultTile />", () => {
       />
     );
 
-    expect(screen.getByText("Zobacz treść")).toBeInTheDocument();
+    expect(screen.getByText("showDetails")).toBeInTheDocument();
   });
 });

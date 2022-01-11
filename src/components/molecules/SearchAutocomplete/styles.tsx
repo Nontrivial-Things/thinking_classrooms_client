@@ -184,6 +184,12 @@ const ProblemLink = styled(Link)`
   width: 100%;
 `;
 
+const ProblemLinkSpan = styled.span`
+  &::first-letter {
+    text-transform: capitalize;
+  }
+`;
+
 export {
   Form,
   Input,
@@ -199,4 +205,5 @@ export {
   ClipboardIcon,
   InputWithTags,
   ProblemLink,
+  ProblemLinkSpan,
 };

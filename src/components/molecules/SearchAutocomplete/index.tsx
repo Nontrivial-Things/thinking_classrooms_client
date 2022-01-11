@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
@@ -26,6 +27,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showClearButton, setShowClearButton] = useState(false);
+  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
 
   const updateSuggestions = () => {
     if (!loading && data) {
@@ -149,8 +151,8 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
               id="input-search"
               type="text"
               autoComplete="off"
-              placeholder="Szukaj problemów matematycznych"
-              aria-label="Szukaj problemów"
+              placeholder={t("inputPlaceholder")}
+              aria-label={t("inputPlaceholder")}
               aria-autocomplete="list"
               aria-controls="autocomplete-options"
               autoFocus

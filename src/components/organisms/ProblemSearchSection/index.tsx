@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 import SearchAutocomplete from "../../molecules/SearchAutocomplete";
 import { ProblemSearchSectionProps } from "./interface";
@@ -13,6 +14,8 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
   searchTerm,
   tag,
 }) => {
+  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
+
   return (
     <S.SearchWrapper
       background={darkGradientBackground}
@@ -21,7 +24,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
       padding="2.4rem 1.6rem"
       paddingDT="2.4rem"
     >
-      <S.H2>Szukaj problemów matematycznych</S.H2>
+      <S.H2>{t("searchInputHeader")}</S.H2>
       <SearchAutocomplete
         tag={tag}
         setTag={setTag}

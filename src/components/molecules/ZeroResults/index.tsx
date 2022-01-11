@@ -1,10 +1,12 @@
 import { FC } from "react";
 import { ZeroResultsProps } from "./interface";
+import { useTranslation } from "react-i18next";
 
 import * as S from "./styles";
 
 const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
   const suggestedTags = ["ciągi", "jedzenie", "zwierzęta"];
+  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
 
   const handleOnClick = (tag: string) => {
     setTag(tag);
@@ -14,8 +16,8 @@ const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
   return (
     <S.ZeroResultsWrapper>
       <S.ZeroResultsImg aria-hidden="true" />
-      <S.ZeroResultsHeader>Brak wyników</S.ZeroResultsHeader>
-      <S.ZeroResultsSpan>Spróbuj wyszukać:</S.ZeroResultsSpan>
+      <S.ZeroResultsHeader>{t("zeroResultsHeader")}</S.ZeroResultsHeader>
+      <S.ZeroResultsSpan>{t("zeroResultsText")}</S.ZeroResultsSpan>
       <S.ZeroResultsTagSuggestions>
         {suggestedTags.map((tag, id) => (
           <li key={id}>

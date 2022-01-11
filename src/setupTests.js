@@ -6,6 +6,10 @@ import { ApolloProvider } from "@apollo/client";
 import { client } from "./apolloClient";
 import { server } from "./mocks/server";
 
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key) => key }),
+}));
+
 beforeAll(() => {
   server.listen();
 });
