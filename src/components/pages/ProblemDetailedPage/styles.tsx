@@ -129,6 +129,8 @@ const TagsWrapper = styled.div`
 `;
 
 const ProblemSection = styled.section`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 3.2rem;
 
   @media ${minDevice.desktopTablet} {
