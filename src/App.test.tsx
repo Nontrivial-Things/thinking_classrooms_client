@@ -93,6 +93,6 @@ describe("<App />", () => {
     )) as HTMLInputElement;
     userEvent.click(author);
 
-    expect(await screen.findByText(/Wyniki wyszukiwania/i)).toBeInTheDocument();
+    expect(await screen.findByText(/searchResults/)).toBeInTheDocument();
   });
 });
