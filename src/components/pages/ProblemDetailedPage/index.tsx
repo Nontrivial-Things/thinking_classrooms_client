@@ -99,7 +99,7 @@ const ProblemDetailedPage: FC = () => {
           </S.ProblemCreationDetails>
           <S.ProblemCreationDetails>{formattedDate}</S.ProblemCreationDetails>
         </S.ProblemCreationDetailsWrapper>
-        <S.Section>
+        <S.Section data-html2canvas-ignore="true">
           <S.TagsWrapper>
             {problemDetails.tags &&
               problemDetails.tags.map((tagText: string) => (
@@ -124,8 +124,8 @@ const ProblemDetailedPage: FC = () => {
           <ProblemSubtitle subtitle={t("answer")} />
           <S.ProblemSectionP>{problemDetails.answer}</S.ProblemSectionP>
         </S.ProblemSection>
-        <S.ProblemSection>
-          <ProblemSubtitle subtitle="Pobierz materiały dodatkowe" />
+        <S.ProblemSection data-html2canvas-ignore="true">
+          <ProblemSubtitle subtitle={t("resources")} />
           <StyledButtonLink
             $isPrimary={false}
             $alignSelf={"flex-start"}
