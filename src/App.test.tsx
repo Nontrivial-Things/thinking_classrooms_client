@@ -76,7 +76,7 @@ describe("<App />", () => {
     expect(screen.getByText("searchInputHeader")).toBeInTheDocument();
   });
 
-  it("shows problem detailed page after clicking on suggestion ", async () => {
+  it("shows problem detailed page after clicking on suggestion title", async () => {
     testRenderer(<App />);
     const problem = (await screen.findByText(
       "Ciągi matematyczne"
@@ -85,4 +85,16 @@ describe("<App />", () => {
 
     expect(await screen.findByText("problemExtension")).toBeInTheDocument();
   });
+
+  // it("shows problem detailed page after clicking on search result tile", async () => {
+  //   testRenderer(<App />);
+  //   const tile = (await screen.findByText(
+  //     "Ciągi matematyczne"
+  //   )) as HTMLInputElement;
+  //   userEvent.click(problem);
+
+  //   expect(
+  //     await screen.findByText(/rozszerzenie problemu/i)
+  //   ).toBeInTheDocument();
+  // });
 });

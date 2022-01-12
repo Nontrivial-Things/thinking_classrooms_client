@@ -83,6 +83,11 @@ const StyledTitleLink = styled(Link)`
     right: 0;
     bottom: 0;
   }
+  @media ${minDevice.desktopL} {
+    &::after {
+      display: none;
+    }
+  }
 `;
 
 const Stage = styled.h5`
