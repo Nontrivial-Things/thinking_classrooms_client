@@ -3,16 +3,6 @@ describe("Problem Detailed Page", () => {
     cy.visit("http://localhost:3000/");
   });
 
-  it("Initiate download pdf file containing additional resources and verify it", () => {
-    cy.get(`a[href="/problems/1"]`).first().click();
-    cy.get('[class*="StyledButtonLink"]').should("be.visible").click();
-
-    const downloadsFolder = Cypress.config("downloadsFolder");
-    cy.readFile(path.join(downloadsFolder, "problem_detailed_page.pdf")).should(
-      "exist"
-    );
-  });
-
   it("doesn't display scroll to top button initially", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
     cy.get('[class*="ScrollButton"]').should("not.be.visible");
@@ -42,6 +32,16 @@ describe("Problem Detailed Page", () => {
     cy.wait(1000);
     const downloadsFolder = Cypress.config("downloadsFolder");
     cy.readFile(path.join(downloadsFolder, "Ciągi matematyczne.pdf")).should(
+      "exist"
+    );
+  });
+
+  it("Initiate download pdf file containing additional resources and verify it", () => {
+    cy.get(`a[href="/problems/1"]`).first().click();
+    cy.get('[class*="StyledButtonLink"]').should("be.visible").click();
+
+    const downloadsFolder = Cypress.config("downloadsFolder");
+    cy.readFile(path.join(downloadsFolder, "problem_detailed_page.pdf")).should(
       "exist"
     );
   });
