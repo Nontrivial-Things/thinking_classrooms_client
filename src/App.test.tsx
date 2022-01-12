@@ -86,15 +86,13 @@ describe("<App />", () => {
     expect(await screen.findByText("problemExtension")).toBeInTheDocument();
   });
 
-  // it("shows problem detailed page after clicking on search result tile", async () => {
-  //   testRenderer(<App />);
-  //   const tile = (await screen.findByText(
-  //     "Ciągi matematyczne"
-  //   )) as HTMLInputElement;
-  //   userEvent.click(problem);
+  it("doesn't show problem detailed page after clicking on search result tile not clickable item on large dekstop", async () => {
+    testRenderer(<App />);
+    const author = (await screen.findByText(
+      "Maria Konopnicka"
+    )) as HTMLInputElement;
+    userEvent.click(author);
 
-  //   expect(
-  //     await screen.findByText(/rozszerzenie problemu/i)
-  //   ).toBeInTheDocument();
-  // });
+    expect(await screen.findByText(/Wyniki wyszukiwania/i)).toBeInTheDocument();
+  });
 });
