@@ -35,7 +35,7 @@ describe("Problem Detailed Page", () => {
 
   it("initiates download pdf file containing additional resources and verify it", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
-    cy.get('[class*="StyledButtonLink"]').should("be.visible").click();
+    cy.contains("additional resources").should("be.visible").click();
 
     const downloadsFolder = Cypress.config("downloadsFolder");
     cy.readFile(path.join(downloadsFolder, "problem_detailed_page.pdf")).should(

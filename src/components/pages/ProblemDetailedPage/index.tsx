@@ -65,7 +65,7 @@ const ProblemDetailedPage: FC = () => {
 
     const imgProperties = pdf.getImageProperties(imgData);
     const pdfWidth = pdf.internal.pageSize.getWidth() - 20;
-    const pageHeight = 295;
+    const pageHeight = 297;
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
     let heightLeft = pdfHeight;
