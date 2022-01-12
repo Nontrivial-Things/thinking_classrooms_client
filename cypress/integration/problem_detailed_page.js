@@ -19,10 +19,4 @@ describe("Problem Detailed Page", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
     cy.contains("Pobierz treść");
   });
-
-  it("shows problem detailed page after clicking on search result tile on mobile and tablet", () => {
-    cy.viewport("iphone-6");
-    cy.get('[class*="SearchResultTile"]').first().click();
-    cy.contains("Pobierz treść");
-  });
 });

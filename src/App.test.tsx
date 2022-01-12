@@ -85,14 +85,4 @@ describe("<App />", () => {
 
     expect(await screen.findByText("problemExtension")).toBeInTheDocument();
   });
-
-  it("doesn't show problem detailed page after clicking on search result tile not clickable item on large dekstop", async () => {
-    testRenderer(<App />);
-    const author = (await screen.findByText(
-      "Maria Konopnicka"
-    )) as HTMLInputElement;
-    userEvent.click(author);
-
-    expect(await screen.findByText(/searchResults/)).toBeInTheDocument();
-  });
 });
