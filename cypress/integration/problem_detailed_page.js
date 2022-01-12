@@ -1,3 +1,5 @@
+const path = require("path");
+
 describe("Problem Detailed Page", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
@@ -20,15 +22,10 @@ describe("Problem Detailed Page", () => {
     cy.contains("Pobierz treść");
   });
 
-  const path = require("path");
-
-  it("Initiate download pdf file containing problem details and verify it", () => {
+  it("initiates download pdf file containing problem details and verify it", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
 
-    cy.get('[class*="Button-sc-1v3p2bo-0 kuukQO"]')
-      .should("be.visible")
-      .click();
-
+    cy.contains("Pobierz treść").should("be.visible").click();
     cy.wait(1000);
     const downloadsFolder = Cypress.config("downloadsFolder");
     cy.readFile(path.join(downloadsFolder, "Ciągi matematyczne.pdf")).should(
@@ -36,7 +33,7 @@ describe("Problem Detailed Page", () => {
     );
   });
 
-  it("Initiate download pdf file containing additional resources and verify it", () => {
+  it("initiates download pdf file containing additional resources and verify it", () => {
     cy.get(`a[href="/problems/1"]`).first().click();
     cy.get('[class*="StyledButtonLink"]').should("be.visible").click();
 

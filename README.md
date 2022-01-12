@@ -66,11 +66,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode (using [Testing Library](https://testing-library.com/) and [Jest](https://jestjs.io/))
+Launches the test runner (using [Testing Library](https://testing-library.com/) and [Jest](https://jestjs.io/))
 
-### `yarn cyprsess:open`
+### `yarn cypress:open` or `yarn cypress`
 
-Launches the test runner in the interactive watch mode (using [Cypress](https://www.cypress.io/))
+Launches the test runner (using [Cypress](https://www.cypress.io/))
 
 ### `yarn build`
 
