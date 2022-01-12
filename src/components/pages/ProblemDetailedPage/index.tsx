@@ -134,7 +134,7 @@ const ProblemDetailedPage: FC = () => {
             download="problem_detailed_page"
           >
             <DownloadIcon aria-hidden title="Ikona Pobierania" />
-            {problemDetails.resources}
+            {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
           </StyledButtonLink>
         </S.ProblemSection>
         <S.ProblemSection>
