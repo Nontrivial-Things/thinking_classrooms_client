@@ -11,6 +11,7 @@ const Button: FC<ButtonProps> = ({
   disabled = false,
   withDownloadIcon = false,
   $isHidden = false,
+  onClick,
 }) => {
   const { t } = useTranslation("", { keyPrefix: "common" });
 
@@ -20,6 +21,7 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
       $isHidden={$isHidden}
       $alignSelf={$alignSelf}
+      onClick={onClick}
     >
       {withDownloadIcon &&
         (disabled ? (
