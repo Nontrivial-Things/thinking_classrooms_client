@@ -76,7 +76,7 @@ describe("<App />", () => {
     expect(screen.getByText("searchInputHeader")).toBeInTheDocument();
   });
 
-  it("shows problem detailed page after clicking on suggestion ", async () => {
+  it("shows problem detailed page after clicking on suggestion title", async () => {
     testRenderer(<App />);
     const problem = (await screen.findByText(
       "Ciągi matematyczne"
