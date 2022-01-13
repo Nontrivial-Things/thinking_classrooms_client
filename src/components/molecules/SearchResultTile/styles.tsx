@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { grey300, white, grey200 } from "../../../assets/styles/colors";
