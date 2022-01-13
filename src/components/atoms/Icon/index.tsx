@@ -13,11 +13,12 @@ const Icon = styled.div<PropsOptional>`
   display: flex;
   text-align: center;
   font-size: ${(props) => props.fontSize};
+  padding-right: ${(props) => props.paddingRight || "0.5rem"};
   &:hover {
     color: ${(props) => props.hoverColor};
   }
   @media ${minDevice.desktopTablet} {
-    padding-right: ${(props) => props.paddingRight || "0.32rem"};
+    padding-right: 0.9rem;
   }
 `;
 

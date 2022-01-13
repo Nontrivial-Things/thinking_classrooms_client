@@ -50,6 +50,14 @@ const FooterP = styled(P)`
   }
 `;
 
+const MailIcon = styled.img`
+  width: 1.2rem;
+
+  @media ${minDevice.desktopTablet} {
+    width: 1.6rem;
+  }
+`;
+
 const MailA = styled.a`
   font-size: 1.2rem;
   font-weight: 400;
@@ -63,4 +71,4 @@ const MailA = styled.a`
   }
 `;
 
-export { FooterWrapper, ContactWrapper, FooterP, MailA };
+export { FooterWrapper, ContactWrapper, FooterP, MailIcon, MailA };

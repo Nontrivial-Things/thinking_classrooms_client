@@ -30,8 +30,8 @@ const Footer: FC = () => {
         <S.ContactWrapper>
           <S.FooterP>{t("contact")}</S.FooterP>
           <Row>
-            <Icon color={white} width="1.6rem">
-              <img src={Mail} />
+            <Icon color={white}>
+              <S.MailIcon src={Mail} />
             </Icon>
             <S.MailA href={`mailto:${t("email")}`}>{t("email")}</S.MailA>
           </Row>
