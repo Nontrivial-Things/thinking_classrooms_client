@@ -85,15 +85,4 @@ describe("<App />", () => {
 
     expect(await screen.findByText("problemExtension")).toBeInTheDocument();
   });
-
-  it.only("shows problem detailed page after clicking on suggestion ", async () => {
-    testRenderer(<App />);
-    const problem = (await screen.findByText(
-      "Ciągi matematyczne"
-    )) as HTMLInputElement;
-    userEvent.click(problem);
-
-    expect(await screen.findByText("Pobierz treść")).toBeInTheDocument();
-    expect(await screen.findByText("additional resources")).toBeInTheDocument();
-  });
 });
