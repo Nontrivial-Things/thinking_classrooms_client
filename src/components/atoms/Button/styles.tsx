@@ -26,6 +26,7 @@ const buttonStyles = css<ButtonStyleProps>`
   font-weight: 700;
   color: ${white};
   letter-spacing: 0.04rem;
+  cursor: pointer;
 
   &:hover,
   &:active {
