@@ -7,6 +7,7 @@ import ProblemsPage from "./components/pages/ProblemsPage";
 import ProblemDetailedPage from "./components/pages/ProblemDetailedPage";
 import AboutMethodPage from "./components/pages/AboutMethodPage";
 import Moderator from "./components/pages/Moderator";
+import LoginPage from "./components/pages/LoginPage";
 
 const App: FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: FC = () => {
         <Route path="/problems/:problemId" element={<ProblemDetailedPage />} />
         <Route path="/about" element={<AboutMethodPage />} />
         <Route path="/moderator" element={<Moderator />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </Suspense>
