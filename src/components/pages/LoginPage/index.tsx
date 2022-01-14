@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 
+import { Login, LOGIN } from "./interface";
 import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import { ReactComponent as AlertIcon } from "../../../assets/img/icons/alert-triangle.svg";
@@ -9,9 +11,10 @@ import * as S from "./styles";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
+  const [login, { data, loading, error }] = useMutation<Login>(LOGIN);
 
-  const onSubmit = () => {
-    console.log("test");
+  const onSubmit = (values: { email: string; password: string }) => {
+    login({ variables: { email: values.email, password: values.password } });
   };
 
   return (

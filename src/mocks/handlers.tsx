@@ -7,6 +7,7 @@ import {
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
 import { GetProblemDetailsQuery } from "../components/pages/ProblemDetailedPage/interface";
+import { Login } from "../components/pages/LoginPage/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {
@@ -255,4 +256,16 @@ export const handlers = [
       }
     }
   ),
+  graphql.mutation<Login>("Login", (req, res, ctx) => {
+    const { email, password } = req.variables;
+    return res(
+      ctx.data({
+        login: {
+          id: 1,
+          email: email,
+          token: "1234",
+        },
+      })
+    );
+  }),
 ];
