@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
+import inputStyles from "../../atoms/InputStyles";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
   white,
@@ -34,30 +35,6 @@ const Form = styled.form`
   border-radius: 5px;
 `;
 
-const inputStyles = css`
-  width: 100%;
-  height: 4.8rem;
-  box-sizing: border-box;
-  padding: 0 3.5rem;
-  background: ${white};
-  border: none;
-  font-family: inherit;
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  &:focus-visible {
-    outline: none;
-  }
-
-  @media ${minDevice.desktopL} {
-    padding: 0 4rem;
-  }
-
-  @media ${minDevice.desktopL} {
-    font-size: 1.6rem;
-    line-height: 3.2rem;
-  }
-`;
-
 const Input = styled.input<InputStyleProps>`
   border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
   border-top-left-radius: 5px;
@@ -68,7 +45,11 @@ const Input = styled.input<InputStyleProps>`
   &:focus-visible {
     outline: none;
   }
+  padding: 0 3.5rem;
   ${inputStyles}
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
 `;
 
 const Label = styled.label`
@@ -176,7 +157,11 @@ const InputWithTags = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  padding: 0 3.5rem;
   ${inputStyles}
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
 `;
 
 const ProblemLink = styled(Link)`

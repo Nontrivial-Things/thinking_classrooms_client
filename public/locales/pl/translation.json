@@ -39,5 +39,17 @@
     "contact": "Kontakt",
     "email": "myslaceklasy@email.com",
     "copyrights": "© Copyrights 2020."
+  },
+  "loginPage": {
+    "loginHeader": "Zaloguj się",
+    "loginSubtitle": "*Opcja logowania dostępna wyłącznie dla naszych Moderatorów.",
+    "learnMore": "Dowiedz się więcej",
+    "email": "E-mail:",
+    "password": "Hasło:",
+    "inputEmailPlaceholder": "janedoe@email.com",
+    "inputPasswordPlaceholder": "**********",
+    "rememberMeCheckbox": "Pamiętaj mnie",
+    "forgetPassword": "Nie pamiętasz hasła?",
+    "login": "Zaloguj się"
   }
 }
