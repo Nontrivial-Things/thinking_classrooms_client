@@ -8,7 +8,6 @@ const inputStyles = css<InputStyleProps>`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;
-  border: ${(props) => (props.validationFailed ? "1px solid red" : "none")};
   background: ${white};
   font-family: inherit;
   font-size: 1.4rem;

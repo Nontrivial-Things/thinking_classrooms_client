@@ -12,6 +12,11 @@ const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
   const [login, { data, loading, error }] = useMutation<Login>(LOGIN);
   const [passwordShown, setPasswordShown] = useState(false);
+  const [checked, setChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setChecked(!checked);
+  };
 
   const onSubmit = (values: { email: string; password: string }) => {
     login({ variables: { email: values.email, password: values.password } });
@@ -26,8 +31,8 @@ const LoginPage: FC = () => {
       <S.RightBubblesImg />
       <S.LoginFormWrapper>
         <S.H4>{t("loginHeader")}</S.H4>
-        <S.LoginSubtitle>{t("loginSubtitle")}</S.LoginSubtitle>
-        <S.LearnMoreLink to="/">{t("learnMore")}</S.LearnMoreLink>
+        <S.InfoText>{t("loginSubtitle")}</S.InfoText>
+        <S.StyledLink to="/">{t("learnMore")}</S.StyledLink>
         <Form
           onSubmit={onSubmit}
           validate={(values) => {
@@ -86,6 +91,18 @@ const LoginPage: FC = () => {
                   </S.InputWrapper>
                 )}
               </Field>
+              <S.LoginOptions>
+                <S.Label>
+                  <S.Checkbox
+                    type="checkbox"
+                    checked={checked}
+                    onChange={handleCheckboxChange}
+                  />
+                  <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
+                </S.Label>
+
+                <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
+              </S.LoginOptions>
 
               <Button type="submit" disabled={submitting}>
                 {t("login")}

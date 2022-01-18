@@ -15,6 +15,8 @@ import {
   primaryBackground,
   primaryText,
   grey100,
+  grey200,
+  errorMessage,
 } from "../../../assets/styles/colors";
 import { minDevice } from "../../../assets/styles/breakpoints";
 
@@ -39,24 +41,24 @@ const H4 = styled.h4`
   color: ${blue300};
 `;
 
-const LoginSubtitle = styled.span`
+const InfoText = styled.span`
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 2.4rem;
   display: flex;
   text-align: center;
-  padding: 0.8rem 1.6rem;
+  margin-bottom: 1.2rem;
   color: ${primaryText};
 `;
 
-const LearnMoreLink = styled(Link)`
+const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   color: ${blue100};
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 2.4rem;
-  margin: 1.2rem 0;
+  margin-bottom: 1.2rem;
 `;
 
 const RightBubblesImg = styled.div`
@@ -83,7 +85,11 @@ const InputWrapper = styled.div`
 const Input = styled.input<InputStyleProps>`
   padding: 0 3rem 0 1rem;
   border-radius: 5px;
-  ${inputStyles}
+  border: ${(props) =>
+    props.validationFailed
+      ? `1px solid ${errorMessage}`
+      : `1.5px solid ${grey200}`};
+  ${inputStyles};
 `;
 
 const AlertIcon = styled(Alert)`
@@ -109,6 +115,8 @@ const EyeIcon = styled(Eye)`
 
 const Label = styled.label`
   position: relative;
+  display: flex;
+  align-content: center;
 `;
 
 const ShownPasswordButton = styled.button`
@@ -116,11 +124,23 @@ const ShownPasswordButton = styled.button`
   cursor: pointer;
 `;
 
+const LoginOptions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+`;
+
+const Checkbox = styled.input`
+  margin: 0 0.5rem 1.2rem 0;
+  align-self: center;
+`;
+
 export {
   LoginPageWrapper,
-  LearnMoreLink,
+  StyledLink,
   H4,
-  LoginSubtitle,
+  InfoText,
   RightBubblesImg,
   LoginFormWrapper,
   InputWrapper,
@@ -131,4 +151,6 @@ export {
   EyeIcon,
   Label,
   ShownPasswordButton,
+  LoginOptions,
+  Checkbox,
 };

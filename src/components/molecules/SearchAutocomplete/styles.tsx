@@ -39,6 +39,7 @@ const Input = styled.input<InputStyleProps>`
   border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border: none;
   ::placeholder {
     color: ${grey100};
   }
@@ -158,6 +159,7 @@ const InputWithTags = styled.div`
   display: flex;
   align-items: center;
   padding: 0 3.5rem;
+  border: none;
   ${inputStyles}
   @media ${minDevice.desktopL} {
     padding: 0 4rem;
