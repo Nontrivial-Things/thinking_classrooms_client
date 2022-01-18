@@ -1,10 +1,9 @@
 import { css } from "styled-components";
 
-import { InputStyleProps } from "./interface";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import { white } from "../../../assets/styles/colors";
 
-const inputStyles = css<InputStyleProps>`
+const inputStyles = css`
   width: 100%;
   height: 4.8rem;
   box-sizing: border-box;

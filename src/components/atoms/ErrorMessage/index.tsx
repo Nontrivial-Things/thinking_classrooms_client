@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { errorMessage } from "../../../assets/styles/colors";
 
 const ErrorMessage = styled.span`

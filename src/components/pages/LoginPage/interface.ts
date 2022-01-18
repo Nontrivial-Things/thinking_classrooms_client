@@ -35,3 +35,8 @@ export const USER = gql`
     }
   }
 `;
+
+export interface InputStyleProps {
+  validationFailed?: boolean;
+  border?: string;
+}

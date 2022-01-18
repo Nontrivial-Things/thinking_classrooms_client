@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
@@ -28,6 +28,8 @@ const LoginPage: FC = () => {
 
   return (
     <S.LoginPageWrapper>
+      <S.LeftTopBubblesImg />
+      <S.LeftBottomBubblesImg />
       <S.RightBubblesImg />
       <S.LoginFormWrapper>
         <S.H4>{t("loginHeader")}</S.H4>
@@ -98,13 +100,14 @@ const LoginPage: FC = () => {
                     checked={checked}
                     onChange={handleCheckboxChange}
                   />
+
                   <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
                 </S.Label>
 
                 <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
               </S.LoginOptions>
 
-              <Button type="submit" disabled={submitting}>
+              <Button type="submit" disabled={submitting} $alignSelf="center">
                 {t("login")}
               </Button>
             </S.LoginForm>
