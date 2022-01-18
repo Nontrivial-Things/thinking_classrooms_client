@@ -1,16 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+import { InputStyleProps } from "../../atoms/InputStyles/interface";
+import Wrapper from "../../atoms/Wrapper";
+import inputStyles from "../../atoms/InputStyles";
 import RightBubbles from "../../../assets/img/right-bubbles.png";
+import { ReactComponent as Alert } from "../../../assets/img/icons/alert-triangle.svg";
+import { ReactComponent as EyeOff } from "../../../assets/img/icons/eye-off.svg";
+import { ReactComponent as Eye } from "../../../assets/img/icons/eye.svg";
+
 import {
   blue100,
   blue300,
   primaryBackground,
   primaryText,
+  grey100,
 } from "../../../assets/styles/colors";
 import { minDevice } from "../../../assets/styles/breakpoints";
-import Wrapper from "../../atoms/Wrapper";
-import inputStyles from "../../atoms/InputStyles";
 
 const LoginPageWrapper = styled(Wrapper)`
   background: ${primaryBackground};
@@ -74,9 +80,40 @@ const InputWrapper = styled.div`
   margin-bottom: 1.6rem;
 `;
 
-const Input = styled.input`
+const Input = styled.input<InputStyleProps>`
   padding: 0 3rem 0 1rem;
+  border-radius: 5px;
   ${inputStyles}
+`;
+
+const AlertIcon = styled(Alert)`
+  margin-right: 0.5rem;
+  width: 1.828rem;
+  height: 1.584rem;
+`;
+
+const iconEyeStyles = css`
+  stroke: ${grey100};
+  right: 0.8rem;
+  top: 4rem;
+  position: absolute;
+`;
+
+const EyeOffIcon = styled(EyeOff)`
+  ${iconEyeStyles}
+`;
+
+const EyeIcon = styled(Eye)`
+  ${iconEyeStyles}
+`;
+
+const Label = styled.label`
+  position: relative;
+`;
+
+const ShownPasswordButton = styled.button`
+  all: unset;
+  cursor: pointer;
 `;
 
 export {
@@ -89,4 +126,9 @@ export {
   InputWrapper,
   LoginForm,
   Input,
+  AlertIcon,
+  EyeOffIcon,
+  EyeIcon,
+  Label,
+  ShownPasswordButton,
 };
