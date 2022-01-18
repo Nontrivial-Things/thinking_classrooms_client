@@ -18,20 +18,21 @@ export const LOGIN = gql`
   }
 `;
 
-export interface GetUserInfo {
-  user: {
-    id: string;
-    email: string;
-    token: string;
-  };
+export interface UserProps {
+  id: number;
+  email: string;
+  password: string;
+}
+export interface GetUsersQuery {
+  users: Array<UserProps>;
 }
 
-export const USER = gql`
-  query GetUserInfo {
-    user {
+export const USERS = gql`
+  query GetUsers {
+    users {
       id
       email
-      token
+      password
     }
   }
 `;

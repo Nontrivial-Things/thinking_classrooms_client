@@ -7,7 +7,7 @@ import {
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
 import { GetProblemDetailsQuery } from "../components/pages/ProblemDetailedPage/interface";
-import { Login } from "../components/pages/LoginPage/interface";
+import { GetUsersQuery, Login } from "../components/pages/LoginPage/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {
@@ -257,7 +257,7 @@ export const handlers = [
     }
   ),
   graphql.mutation<Login>("Login", (req, res, ctx) => {
-    const { email, password } = req.variables;
+    const { email } = req.variables;
     return res(
       ctx.data({
         login: {
@@ -265,6 +265,29 @@ export const handlers = [
           email: email,
           token: "1234",
         },
+      })
+    );
+  }),
+  graphql.query<GetUsersQuery>("GetUsers", (req, res, ctx) => {
+    return res(
+      ctx.data({
+        users: [
+          {
+            id: 1,
+            email: "kasia@tc.io",
+            password: "pass123",
+          },
+          {
+            id: 2,
+            email: "ewu@tc.io",
+            password: "pass456",
+          },
+          {
+            id: 3,
+            email: "asia@tc.io",
+            password: "pass789",
+          },
+        ],
       })
     );
   }),
