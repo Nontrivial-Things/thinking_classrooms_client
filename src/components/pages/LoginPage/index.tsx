@@ -1,11 +1,10 @@
-import { FC, useState, useEffect } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 
-import { Login, LOGIN } from "./interface";
 import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
+import useAuth from "../../../auth/AuthProvider";
 import * as S from "./styles";
 
 const LoginPage: FC = () => {
@@ -16,14 +15,12 @@ const LoginPage: FC = () => {
   const handleCheckboxChange = () => {
     setChecked(!checked);
   };
-  const [login, { data, loading, error }] = useMutation<Login>(LOGIN);
 
+  const { signin, error } = useAuth();
+
+  console.log(signin);
   const onSubmit = (values: { email: string; password: string }) => {
-    login({
-      variables: { email: values.email, password: values.password },
-    }).catch((error) => {
-      console.log(error.graphQLErrors);
-    });
+    signin(values.email, values.password);
   };
 
   const togglePassword = () => {

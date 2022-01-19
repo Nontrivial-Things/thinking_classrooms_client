@@ -12,6 +12,12 @@ export interface Login {
   };
 }
 
+export interface User {
+  id: number;
+  email: string;
+  token: string;
+}
+
 export const LOGIN = gql`
   mutation Login($email: email, $password: password) {
     login(email: $email, password: $password) {
