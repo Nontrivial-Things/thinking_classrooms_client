@@ -7,7 +7,7 @@ import {
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
 import { GetProblemDetailsQuery } from "../components/pages/ProblemDetailedPage/interface";
-import { GetUsersQuery, Login } from "../components/pages/LoginPage/interface";
+import { Login } from "../components/pages/LoginPage/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {
@@ -257,38 +257,46 @@ export const handlers = [
     }
   ),
   graphql.mutation<Login>("Login", (req, res, ctx) => {
-    const { email } = req.variables;
-    return res(
-      ctx.data({
-        login: {
-          id: 1,
-          email: email,
-          token: "1234",
-        },
-      })
+    const users = [
+      {
+        id: 1,
+        email: "kasia@tc.io",
+        password: "pass123",
+      },
+      {
+        id: 2,
+        email: "ewu@tc.io",
+        password: "pass456",
+      },
+      {
+        id: 3,
+        email: "asia@tc.io",
+        password: "pass789",
+      },
+    ];
+
+    const { email, password } = req.variables;
+    const user = users.find(
+      (el) => el.email === email && el.password === password
     );
-  }),
-  graphql.query<GetUsersQuery>("GetUsers", (req, res, ctx) => {
-    return res(
-      ctx.data({
-        users: [
-          {
+    if (user) {
+      return res(
+        ctx.data({
+          login: {
             id: 1,
-            email: "kasia@tc.io",
-            password: "pass123",
+            email: user.email,
+            token: `${user.email}1234`,
           },
+        })
+      );
+    } else {
+      return res(
+        ctx.errors([
           {
-            id: 2,
-            email: "ewu@tc.io",
-            password: "pass456",
+            message: "Email lub hasło są błędne",
           },
-          {
-            id: 3,
-            email: "asia@tc.io",
-            password: "pass789",
-          },
-        ],
-      })
-    );
+        ])
+      );
+    }
   }),
 ];

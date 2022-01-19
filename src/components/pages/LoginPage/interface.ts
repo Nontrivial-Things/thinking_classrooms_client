@@ -1,5 +1,9 @@
 import { gql } from "@apollo/client";
 
+export interface InputStyleProps {
+  validationFailed?: boolean;
+  border?: string;
+}
 export interface Login {
   login: {
     id: number;
@@ -17,27 +21,3 @@ export const LOGIN = gql`
     }
   }
 `;
-
-export interface UserProps {
-  id: number;
-  email: string;
-  password: string;
-}
-export interface GetUsersQuery {
-  users: Array<UserProps>;
-}
-
-export const USERS = gql`
-  query GetUsers {
-    users {
-      id
-      email
-      password
-    }
-  }
-`;
-
-export interface InputStyleProps {
-  validationFailed?: boolean;
-  border?: string;
-}

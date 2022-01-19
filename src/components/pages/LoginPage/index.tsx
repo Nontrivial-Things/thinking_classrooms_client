@@ -2,10 +2,8 @@ import { FC, useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
 
-import { GetUsersQuery, Login, LOGIN, UserProps, USERS } from "./interface";
+import { Login, LOGIN } from "./interface";
 import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import * as S from "./styles";
@@ -18,30 +16,13 @@ const LoginPage: FC = () => {
   const handleCheckboxChange = () => {
     setChecked(!checked);
   };
-  const [login] = useMutation<Login>(LOGIN);
-  const { data, loading } = useQuery<GetUsersQuery>(USERS);
-  const [users, setUsers] = useState<UserProps[]>([]);
-
-  useEffect(() => {
-    if (data?.users && !loading) {
-      const { users } = data;
-      setUsers(users);
-      console.log(users);
-    }
-  }, [data?.users]);
+  const [login, { data, loading, error }] = useMutation<Login>(LOGIN);
 
   const onSubmit = (values: { email: string; password: string }) => {
-    login({ variables: { email: values.email, password: values.password } });
-
-    const user = users.find(
-      (el) => el.email === values.email && el.password === values.password
-    );
-    if (!user) return console.log("Login lub hasło są błędne");
-    return console.log({
-      id: user.id,
-      email: user.email,
-      password: user.password,
-      token: "fake-jwt-token",
+    login({
+      variables: { email: values.email, password: values.password },
+    }).catch((error) => {
+      console.log(error.graphQLErrors);
     });
   };
 
@@ -55,21 +36,22 @@ const LoginPage: FC = () => {
       <S.LeftBottomBubblesImg />
       <S.RightBubblesImg />
       <S.LoginFormWrapper>
+        {error && <span>Błąd</span>}
         <S.H4>{t("loginHeader")}</S.H4>
         <S.InfoText>{t("loginSubtitle")}</S.InfoText>
         <S.StyledLink to="/">{t("learnMore")}</S.StyledLink>
         <Form
           onSubmit={onSubmit}
-          // validate={(values) => {
-          //   const errors: any = {};
-          //   if (values.email) {
-          //     errors.email = " Błędny email";
-          //   }
-          //   if (!values.password) {
-          //     errors.password = " Błędne hasło";
-          //   }
-          //   return errors;
-          // }}
+          validate={(values) => {
+            const errors: any = {};
+            if (!values.email) {
+              errors.email = " Błędny email";
+            }
+            if (!values.password) {
+              errors.password = " Błędne hasło";
+            }
+            return errors;
+          }}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
