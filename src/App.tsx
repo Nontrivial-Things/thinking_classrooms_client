@@ -1,6 +1,7 @@
 import { FC, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import Loader from "./components/atoms/Loader";
 import Navbar from "./components/organisms/Navbar";
 import Footer from "./components/organisms/Footer";
 import ProblemsPage from "./components/pages/ProblemsPage";
@@ -14,7 +15,7 @@ import RequireAuth from "./auth/RequireAuth";
 const App: FC = () => {
   return (
     <AuthProvider>
-      <Suspense fallback="loading">
+      <Suspense fallback={<Loader />}>
         <Navbar />
         <Routes>
           {/* <Route path="/" element {<LandingPage/>}> */}
@@ -34,6 +35,7 @@ const App: FC = () => {
           />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
+
         <Footer />
       </Suspense>
     </AuthProvider>

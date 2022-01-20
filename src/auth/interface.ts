@@ -5,4 +5,5 @@ export default interface AuthContextType {
   user?: User;
   signin: (email: string, password: string) => void;
   error?: ApolloError;
+  loading?: boolean;
 }
