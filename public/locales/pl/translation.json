@@ -43,6 +43,7 @@
   "loginPage": {
     "loginHeader": "Zaloguj się",
     "loginSubtitle": "*Opcja logowania dostępna wyłącznie dla naszych Moderatorów.",
+    "loginErrorMessage": "Nieprawidłowy login lub hasło",
     "learnMore": "Dowiedz się więcej",
     "email": "E-mail:",
     "password": "Hasło:",

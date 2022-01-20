@@ -82,6 +82,10 @@ const InfoText = styled.span`
   }
 `;
 
+const LoginErrorMessage = styled(InfoText)`
+  color: red;
+`;
+
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -240,6 +244,7 @@ export {
   StyledLink,
   H4,
   InfoText,
+  LoginErrorMessage,
   RightBubblesImg,
   LeftTopBubblesImg,
   LeftBottomBubblesImg,

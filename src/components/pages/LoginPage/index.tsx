@@ -18,7 +18,6 @@ const LoginPage: FC = () => {
 
   const { signin, error } = useAuth();
 
-  console.log(signin);
   const onSubmit = (values: { email: string; password: string }) => {
     signin(values.email, values.password);
   };
@@ -33,10 +32,12 @@ const LoginPage: FC = () => {
       <S.LeftBottomBubblesImg />
       <S.RightBubblesImg />
       <S.LoginFormWrapper>
-        {error && <span>Błąd</span>}
         <S.H4>{t("loginHeader")}</S.H4>
         <S.InfoText>{t("loginSubtitle")}</S.InfoText>
         <S.StyledLink to="/">{t("learnMore")}</S.StyledLink>
+        {error && (
+          <S.LoginErrorMessage>{t("loginErrorMessage")}</S.LoginErrorMessage>
+        )}
         <Form
           onSubmit={onSubmit}
           validate={(values) => {
