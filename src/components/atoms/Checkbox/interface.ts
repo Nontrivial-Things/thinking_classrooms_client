@@ -1,3 +1,3 @@
 export interface CheckBoxProps {
-  checked: boolean;
+  checked?: boolean;
 }
