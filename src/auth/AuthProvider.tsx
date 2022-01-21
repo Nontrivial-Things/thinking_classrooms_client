@@ -19,7 +19,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       variables: { email: email, password: password },
     })
       .then((data) => {
-        setUser(data.data?.login);
+        const user = data.data?.login;
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/moderator");
       })
       .catch((error) => {
