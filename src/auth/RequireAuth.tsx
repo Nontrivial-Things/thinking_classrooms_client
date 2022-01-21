@@ -1,14 +1,11 @@
-import { Suspense } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import Loader from "../components/atoms/Loader";
+import LoginPage from "../components/pages/LoginPage";
 import useAuth from "./AuthProvider";
 
 const RequireAuth = ({ children }: { children: JSX.Element }) => {
-  const { user, loading } = useAuth();
-  const location = useLocation();
+  const { user } = useAuth();
 
   if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <LoginPage />;
   }
   return children;
 };

@@ -6,17 +6,17 @@ import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import useAuth from "../../../auth/AuthProvider";
 import * as S from "./styles";
+import { Navigate } from "react-router-dom";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
+  const { signin, user, error } = useAuth();
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
   };
-
-  const { signin, error } = useAuth();
 
   const onSubmit = (values: { email: string; password: string }) => {
     signin(values.email, values.password);
@@ -26,7 +26,7 @@ const LoginPage: FC = () => {
     setPasswordShown(!passwordShown);
   };
 
-  return (
+  return !user ? (
     <S.LoginPageWrapper>
       <S.LeftTopBubblesImg />
       <S.LeftBottomBubblesImg />
@@ -71,7 +71,6 @@ const LoginPage: FC = () => {
                   </S.InputWrapper>
                 )}
               </Field>
-
               <Field name="password">
                 {({ input, meta }) => (
                   <S.InputWrapper>
@@ -103,13 +102,10 @@ const LoginPage: FC = () => {
                     checked={checked}
                     onChange={handleCheckboxChange}
                   />
-
                   <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
                 </S.Label>
-
                 <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
               </S.LoginOptions>
-
               <Button type="submit" disabled={submitting} $alignSelf="center">
                 {t("login")}
               </Button>
@@ -118,6 +114,8 @@ const LoginPage: FC = () => {
         />
       </S.LoginFormWrapper>
     </S.LoginPageWrapper>
+  ) : (
+    <Navigate to="/" />
   );
 };
 
