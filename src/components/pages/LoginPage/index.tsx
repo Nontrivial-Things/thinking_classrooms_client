@@ -20,6 +20,7 @@ const LoginPage: FC = () => {
 
   const onSubmit = (values: { email: string; password: string }) => {
     signin(values.email, values.password);
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   const togglePassword = () => {

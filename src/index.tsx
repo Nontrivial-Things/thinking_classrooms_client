@@ -9,6 +9,7 @@ import { client } from "./apolloClient";
 import GlobalStyle from "./assets/styles/global-styles";
 
 import "./i18n";
+import { AuthProvider } from "./auth/AuthProvider";
 
 const { worker } = require("./mocks/browser");
 worker.start();
