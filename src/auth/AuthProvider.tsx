@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
@@ -11,6 +11,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User>();
 
   const navigate = useNavigate();
+
+  const userData = localStorage.getItem("user");
+  const parsedUserData = userData && JSON.parse(userData);
+
+  useEffect(() => {
+    if (!!parsedUserData == true) {
+      setUser(parsedUserData);
+    }
+  }, []);
 
   const [login, { data, loading, error }] = useMutation<Login>(LOGIN);
 

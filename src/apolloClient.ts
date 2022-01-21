@@ -16,8 +16,6 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   const user = localStorage.getItem("user");
   const parsedUserData = user && JSON.parse(user);
-  console.log(user);
-  debugger;
   return {
     headers: {
       ...headers,
