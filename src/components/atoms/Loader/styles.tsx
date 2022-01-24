@@ -1,7 +1,20 @@
 import styled from "styled-components";
 
-import { blue100, grey200 } from "../../../assets/styles/colors";
+import {
+  primaryBackground,
+  blue100,
+  grey200,
+} from "../../../assets/styles/colors";
 import Wrapper from "../Wrapper";
+
+const LoaderWrapper = styled(Wrapper)`
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${primaryBackground};
+`;
 
 const LoaderSpinner = styled.div`
   border: 10px solid ${grey200};
@@ -18,11 +31,6 @@ const LoaderSpinner = styled.div`
       transform: rotate(360deg);
     }
   }
-`;
-
-const LoaderWrapper = styled(Wrapper)`
-  min-height: 100vh;
-  margin: 0;
 `;
 
 export { LoaderSpinner, LoaderWrapper };
