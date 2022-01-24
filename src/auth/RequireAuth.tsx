@@ -5,6 +5,8 @@ const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const { user } = useAuth();
 
   if (!user) {
+    window.history.replaceState(null, "", "/login");
+
     return <LoginPage />;
   }
   return children;

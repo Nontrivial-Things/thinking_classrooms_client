@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 
@@ -13,11 +13,6 @@ const LoginPage: FC = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
   const { signin, user, error } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    window.history.replaceState(null, "", "/login");
-  }, []);
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
