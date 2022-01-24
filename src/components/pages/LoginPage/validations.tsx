@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { FormInputsValidationsProps } from "./interface";
+// import { FormInputsValidationsProps } from "./interface";
 
 export const formInputsValidation = (values: {
   email: string;
@@ -26,10 +26,10 @@ export const formInputsValidation = (values: {
     password: "",
   };
 
-  if (!validateEmail(email)) {
+  if (email && !validateEmail(email)) {
     errors.email = " Błędny email";
   }
-  if (!validatePassword(password)) {
+  if (password && !validatePassword(password)) {
     errors.password = " Błędne hasło";
   }
 

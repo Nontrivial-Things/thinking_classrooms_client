@@ -20,6 +20,7 @@ const LoginPage: FC = () => {
   };
 
   const onSubmit = (values: { email: string; password: string }) => {
+    debugger;
     signin(values.email, values.password);
   };
 
@@ -41,7 +42,7 @@ const LoginPage: FC = () => {
         )}
         <Form
           onSubmit={onSubmit}
-          validate={(values) => formInputsValidation(values)}
+          validate={formInputsValidation}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
@@ -52,7 +53,6 @@ const LoginPage: FC = () => {
                       type="text"
                       {...input}
                       placeholder={t("inputEmailPlaceholder")}
-                      aria-label={t("inputEmailPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
                     {meta.touched && meta.error && (
@@ -69,7 +69,12 @@ const LoginPage: FC = () => {
                   <S.InputWrapper>
                     <S.Label>
                       {t("password")}
-                      <S.ShownPasswordButton onClick={togglePassword}>
+                      <S.ShownPasswordButton
+                        onClick={togglePassword}
+                        aria-pressed="false"
+                        aria-label={t("showPasswordIconAlt")}
+                        role="switch"
+                      >
                         {passwordShown ? <S.EyeIcon /> : <S.EyeOffIcon />}
                       </S.ShownPasswordButton>
                     </S.Label>
@@ -77,7 +82,6 @@ const LoginPage: FC = () => {
                       type={passwordShown ? "text" : "password"}
                       {...input}
                       placeholder={t("inputPasswordPlaceholder")}
-                      aria-label={t("inputPasswordPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
                     {meta.touched && meta.error && (

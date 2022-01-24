@@ -261,17 +261,17 @@ export const handlers = [
       {
         id: 1,
         email: "kasia@tc.io",
-        password: "pass123",
+        password: "!Pass112233",
       },
       {
         id: 2,
         email: "ewu@tc.io",
-        password: "pass456",
+        password: "!Pass445566",
       },
       {
         id: 3,
         email: "asia@tc.io",
-        password: "pass789",
+        password: "!Pass778899",
       },
     ];
 

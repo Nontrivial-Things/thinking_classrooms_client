@@ -6,40 +6,65 @@ import { testRenderer } from "../../../setupTests";
 import LoginPage from "./index";
 
 describe("<LoginPage />", () => {
-  it("displays email inputted value", async () => {
+  it("displays inputted email value", async () => {
     testRenderer(<LoginPage />);
-    const input = (await screen.findByLabelText(
+    const emailInput = (await screen.findByPlaceholderText(
       "inputEmailPlaceholder"
     )) as HTMLInputElement;
 
-    expect(input.value).toBe("");
+    expect(emailInput.value).toBe("");
 
-    userEvent.type(input, "test@mail.com");
+    userEvent.type(emailInput, "test@mail.com");
 
-    expect(input.value).toBe("test@mail.com");
+    expect(emailInput.value).toBe("test@mail.com");
   });
 
   it("displays error message when inputted email didn't pass validation", async () => {
     testRenderer(<LoginPage />);
-    const input = (await screen.findByLabelText(
+    const emailInput = (await screen.findByPlaceholderText(
       "inputEmailPlaceholder"
     )) as HTMLInputElement;
 
-    userEvent.type(input, "test");
+    userEvent.type(emailInput, "test");
+    userEvent.type(emailInput, "{enter}");
 
-    expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Błędny email/i)).not.toBeInTheDocument();
   });
 
-  it("displays password inputted value", async () => {
+  it("displays inputted password value", async () => {
     testRenderer(<LoginPage />);
-    const input = (await screen.findByLabelText(
+    const passwordInput = (await screen.findByPlaceholderText(
       "inputPasswordPlaceholder"
     )) as HTMLInputElement;
 
-    expect(input.value).toBe("");
+    expect(passwordInput.value).toBe("");
 
-    userEvent.type(input, "test123");
+    userEvent.type(passwordInput, "test123");
 
-    expect(input.value).toBe("test123");
+    expect(passwordInput.value).toBe("test123");
+  });
+
+  it("shows password after clicking on an eye icon", async () => {
+    testRenderer(<LoginPage />);
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+
+    userEvent.type(passwordInput, "test123");
+    const eyeIcon = screen.findByAltText("showPasswordIconAlt");
+
+    expect(passwordInput.value).toBe("test123");
+  });
+
+  it("displays error message when inputted password didn't pass validation", async () => {
+    testRenderer(<LoginPage />);
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+
+    userEvent.type(passwordInput, "test");
+    userEvent.type(passwordInput, "{enter}");
+
+    expect(screen.queryByText(/Błędne hasło/i)).not.toBeInTheDocument();
   });
 });

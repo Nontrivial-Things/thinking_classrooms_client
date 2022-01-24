@@ -44,6 +44,8 @@
     "loginHeader": "Zaloguj się",
     "loginSubtitle": "*Opcja logowania dostępna wyłącznie dla naszych Moderatorów.",
     "loginErrorMessage": "Nieprawidłowy login lub hasło",
+    "emailErrorMessage": "Błędny email",
+    "passwordErrorMessage": "Błędne hasło",
     "learnMore": "Dowiedz się więcej",
     "email": "E-mail:",
     "password": "Hasło:",
@@ -51,6 +53,7 @@
     "inputPasswordPlaceholder": "**********",
     "rememberMeCheckbox": "Pamiętaj mnie",
     "forgetPassword": "Nie pamiętasz hasła?",
+    "showPassword": "Pokaż hasło",
     "login": "Zaloguj się"
   }
 }

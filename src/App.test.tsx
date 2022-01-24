@@ -13,14 +13,6 @@ describe("<App />", () => {
     expect(screen.getByText("Co to są Myślące Klasy?")).toBeInTheDocument();
   });
 
-  it("navigates to 'Moderator' page after clicking on it on header", async () => {
-    testRenderer(<App />);
-    const moderatorPageNavLink = screen.getByText("moderatorPageLink");
-    userEvent.click(moderatorPageNavLink);
-
-    expect(screen.getByText("Witaj, moderatorze!")).toBeInTheDocument();
-  });
-
   it("navigates to main page after clicking on the logo", async () => {
     testRenderer(<App />);
     const moderatorPageNavLink = screen.getByText("moderatorPageLink");
@@ -84,5 +76,21 @@ describe("<App />", () => {
     userEvent.click(problem);
 
     expect(await screen.findByText("problemExtension")).toBeInTheDocument();
+  });
+
+  it("navigates to login page after clicking on 'Strefa Moderatora' on header when user is not logged in", async () => {
+    testRenderer(<App />);
+    const moderatorPageNavLink = screen.getByText("moderatorPageLink");
+    userEvent.click(moderatorPageNavLink);
+
+    expect(screen.getByText("loginHeader")).toBeInTheDocument();
+  });
+
+  it("navigates to login page after clicking on 'Strefa Moderatora' on header when user is not logged in", async () => {
+    testRenderer(<App />);
+    const moderatorPageNavLink = screen.getByText("moderatorPageLink");
+    userEvent.click(moderatorPageNavLink);
+
+    expect(screen.getByText("loginHeader")).toBeInTheDocument();
   });
 });

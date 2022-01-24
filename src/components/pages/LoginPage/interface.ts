@@ -28,9 +28,9 @@ export const LOGIN = gql`
   }
 `;
 
-export interface FormInputsValidationsProps {
+export interface FormInputsValidationProps {
   values: {
-    email: string;
-    password: string;
+    email?: string;
+    password?: string;
   };
 }
