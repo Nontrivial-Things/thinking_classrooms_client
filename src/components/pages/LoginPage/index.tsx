@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 
@@ -6,13 +6,18 @@ import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import useAuth from "../../../auth/AuthProvider";
 import * as S from "./styles";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
   const { signin, user, error } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.history.replaceState(null, "", "/login");
+  }, []);
 
   const handleCheckboxChange = () => {
     setChecked(!checked);

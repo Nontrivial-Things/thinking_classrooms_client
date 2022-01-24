@@ -1,5 +1,5 @@
-import { FC, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { FC, Suspense, lazy } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Loader from "./components/atoms/Loader";
 import Navbar from "./components/organisms/Navbar";
@@ -11,6 +11,8 @@ import Moderator from "./components/pages/Moderator";
 import LoginPage from "./components/pages/LoginPage";
 import { AuthProvider } from "./auth/AuthProvider";
 import RequireAuth from "./auth/RequireAuth";
+
+const Login = lazy(() => import("./components/pages/LoginPage"));
 
 const App: FC = () => {
   return (
@@ -33,7 +35,7 @@ const App: FC = () => {
               </RequireAuth>
             }
           />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
 
         <Footer />
