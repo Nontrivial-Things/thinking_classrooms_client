@@ -1,12 +1,13 @@
 import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
+import { Navigate } from "react-router-dom";
 
 import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import useAuth from "../../../auth/AuthProvider";
 import * as S from "./styles";
-import { Navigate, useNavigate } from "react-router-dom";
+import { formInputsValidation } from "./validations";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
@@ -40,16 +41,7 @@ const LoginPage: FC = () => {
         )}
         <Form
           onSubmit={onSubmit}
-          validate={(values) => {
-            const errors: any = {};
-            if (!values.email) {
-              errors.email = " Błędny email";
-            }
-            if (!values.password) {
-              errors.password = " Błędne hasło";
-            }
-            return errors;
-          }}
+          validate={(values) => formInputsValidation(values)}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
@@ -60,6 +52,7 @@ const LoginPage: FC = () => {
                       type="text"
                       {...input}
                       placeholder={t("inputEmailPlaceholder")}
+                      aria-label={t("inputEmailPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
                     {meta.touched && meta.error && (
@@ -84,6 +77,7 @@ const LoginPage: FC = () => {
                       type={passwordShown ? "text" : "password"}
                       {...input}
                       placeholder={t("inputPasswordPlaceholder")}
+                      aria-label={t("inputPasswordPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
                     {meta.touched && meta.error && (

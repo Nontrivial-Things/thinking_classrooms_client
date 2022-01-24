@@ -27,3 +27,10 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export interface FormInputsValidationsProps {
+  values: {
+    email: string;
+    password: string;
+  };
+}
