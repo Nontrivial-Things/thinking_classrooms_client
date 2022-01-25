@@ -86,11 +86,50 @@ describe("<App />", () => {
     expect(screen.getByText("loginHeader")).toBeInTheDocument();
   });
 
-  it("navigates to login page after clicking on 'Strefa Moderatora' on header when user is not logged in", async () => {
+  it("navigates to 'Strefa Moderatora' after clicking on 'Strefa Moderatora' on header when user is logged in", async () => {
     testRenderer(<App />);
-    const moderatorPageNavLink = screen.getByText("moderatorPageLink");
+
+    const moderatorPageNavLink = await screen.findByText("moderatorPageLink");
     userEvent.click(moderatorPageNavLink);
 
-    expect(screen.getByText("loginHeader")).toBeInTheDocument();
+    const emailInput = (await screen.findByPlaceholderText(
+      "inputEmailPlaceholder"
+    )) as HTMLInputElement;
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+    const submitButton = (await screen.findByText(
+      "login"
+    )) as HTMLButtonElement;
+
+    userEvent.type(emailInput, "kasia@tc.io");
+    userEvent.type(passwordInput, "!Pass112233");
+    userEvent.click(submitButton);
+
+    userEvent.click(moderatorPageNavLink);
+    expect(await screen.findByText("Witaj, moderatorze!")).toBeInTheDocument();
+  });
+
+  it("doesn't log in when user provides wrong email or password", async () => {
+    testRenderer(<App />);
+
+    const moderatorPageNavLink = await screen.findByText("moderatorPageLink");
+    userEvent.click(moderatorPageNavLink);
+
+    const emailInput = (await screen.findByPlaceholderText(
+      "inputEmailPlaceholder"
+    )) as HTMLInputElement;
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+    const submitButton = (await screen.findByText(
+      "login"
+    )) as HTMLButtonElement;
+
+    userEvent.type(emailInput, "xxx@tc.io");
+    userEvent.type(passwordInput, "!Xxx112233");
+    userEvent.click(submitButton);
+
+    expect(await screen.findByText("loginErrorMessage")).toBeInTheDocument();
   });
 });

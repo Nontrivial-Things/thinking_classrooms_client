@@ -42,7 +42,7 @@ const LoginPage: FC = () => {
         <Form
           onSubmit={onSubmit}
           validate={formInputsValidation}
-          render={({ handleSubmit, form, submitting, pristine, values }) => (
+          render={({ handleSubmit, submitting }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
                 {({ input, meta }) => (

@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-import { FormInputsValidationProps, ErrorsProps } from "./interface";
+import { ErrorsProps } from "./interface";
 
 const formInputsValidation = (values: {
   email?: string;

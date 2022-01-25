@@ -1,7 +1,10 @@
+import { FC } from "react";
+
 import LoginPage from "../components/pages/LoginPage";
 import useAuth from "./AuthProvider";
+import { AuthProps } from "./interface";
 
-const RequireAuth = ({ children }: { children: JSX.Element }) => {
+const RequireAuth: FC<AuthProps> = ({ children }) => {
   const { user } = useAuth();
 
   if (!user) {
