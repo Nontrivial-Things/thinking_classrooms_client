@@ -86,6 +86,29 @@ describe("<App />", () => {
     expect(screen.getByText("loginHeader")).toBeInTheDocument();
   });
 
+  it("doesn't log in when user provides wrong email or password", async () => {
+    testRenderer(<App />);
+
+    const moderatorPageNavLink = await screen.findByText("moderatorPageLink");
+    userEvent.click(moderatorPageNavLink);
+
+    const emailInput = (await screen.findByPlaceholderText(
+      "inputEmailPlaceholder"
+    )) as HTMLInputElement;
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+    const submitButton = (await screen.findByText(
+      "login"
+    )) as HTMLButtonElement;
+
+    userEvent.type(emailInput, "xxx@tc.io");
+    userEvent.type(passwordInput, "!Xxx112233");
+    userEvent.click(submitButton);
+
+    expect(await screen.findByText("loginErrorMessage")).toBeInTheDocument();
+  });
+
   it("navigates to 'Strefa Moderatora' after clicking on 'Strefa Moderatora' on header when user is logged in", async () => {
     testRenderer(<App />);
 
@@ -108,28 +131,5 @@ describe("<App />", () => {
 
     userEvent.click(moderatorPageNavLink);
     expect(await screen.findByText("Witaj, moderatorze!")).toBeInTheDocument();
-  });
-
-  it("doesn't log in when user provides wrong email or password", async () => {
-    testRenderer(<App />);
-
-    const moderatorPageNavLink = await screen.findByText("moderatorPageLink");
-    userEvent.click(moderatorPageNavLink);
-
-    const emailInput = (await screen.findByPlaceholderText(
-      "inputEmailPlaceholder"
-    )) as HTMLInputElement;
-    const passwordInput = (await screen.findByPlaceholderText(
-      "inputPasswordPlaceholder"
-    )) as HTMLInputElement;
-    const submitButton = (await screen.findByText(
-      "login"
-    )) as HTMLButtonElement;
-
-    userEvent.type(emailInput, "xxx@tc.io");
-    userEvent.type(passwordInput, "!Xxx112233");
-    userEvent.click(submitButton);
-
-    expect(await screen.findByText("loginErrorMessage")).toBeInTheDocument();
   });
 });
