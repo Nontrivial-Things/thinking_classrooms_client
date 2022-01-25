@@ -7,7 +7,7 @@ import Button from "../../atoms/Button";
 import ErrorMessage from "../../atoms/ErrorMessage";
 import useAuth from "../../../auth/AuthProvider";
 import * as S from "./styles";
-import { formInputsValidation } from "./validations";
+import formInputsValidation from "./validations";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
@@ -20,7 +20,6 @@ const LoginPage: FC = () => {
   };
 
   const onSubmit = (values: { email: string; password: string }) => {
-    debugger;
     signin(values.email, values.password);
   };
 

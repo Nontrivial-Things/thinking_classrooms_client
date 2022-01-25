@@ -1,9 +1,10 @@
 import { FC } from "react";
-// import { FormInputsValidationsProps } from "./interface";
 
-export const formInputsValidation = (values: {
-  email: string;
-  password: string;
+import { FormInputsValidationProps, ErrorsProps } from "./interface";
+
+const formInputsValidation = (values: {
+  email?: string;
+  password?: string;
 }) => {
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
@@ -18,13 +19,7 @@ export const formInputsValidation = (values: {
 
   const { email, password } = values;
 
-  const errors: {
-    email: string;
-    password: string;
-  } = {
-    email: "",
-    password: "",
-  };
+  const errors = {} as ErrorsProps;
 
   if (email && !validateEmail(email)) {
     errors.email = " Błędny email";
@@ -35,3 +30,5 @@ export const formInputsValidation = (values: {
 
   return errors;
 };
+
+export default formInputsValidation;

@@ -34,3 +34,8 @@ export interface FormInputsValidationProps {
     password?: string;
   };
 }
+
+export interface ErrorsProps {
+  email?: string;
+  password?: string;
+}
