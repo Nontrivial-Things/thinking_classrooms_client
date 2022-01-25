@@ -1,9 +1,9 @@
-import { ErrorsProps } from "./interface";
+import { FormInputsType } from "./interface";
 
 const formInputsValidation = (values: {
   email?: string;
   password?: string;
-}) => {
+}): FormInputsType => {
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -17,7 +17,7 @@ const formInputsValidation = (values: {
 
   const { email, password } = values;
 
-  const errors = {} as ErrorsProps;
+  const errors = {} as FormInputsType;
 
   if (email && !validateEmail(email)) {
     errors.email = " Błędny email";

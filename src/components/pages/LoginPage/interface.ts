@@ -28,11 +28,7 @@ export const LOGIN = gql`
   }
 `;
 
-export interface FormInputsValidationProps {
-  values: React.ReactNode;
-}
-
-export interface ErrorsProps {
+export interface FormInputsType {
   email?: string;
   password?: string;
 }

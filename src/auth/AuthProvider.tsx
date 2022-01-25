@@ -43,6 +43,6 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-export default function useAuth() {
+export default function useAuth(): AuthContextType {
   return useContext(AuthContext);
 }
