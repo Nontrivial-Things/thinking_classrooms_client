@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {
   primaryBackground,
   blue100,
-  grey200,
+  grey100,
 } from "../../../assets/styles/colors";
 import Wrapper from "../Wrapper";
 
@@ -17,7 +17,7 @@ const LoaderWrapper = styled(Wrapper)`
 `;
 
 const LoaderSpinner = styled.div`
-  border: 10px solid ${grey200};
+  border: 10px solid ${grey100};
   border-top: 10px solid ${blue100};
   border-radius: 50%;
   width: 80px;

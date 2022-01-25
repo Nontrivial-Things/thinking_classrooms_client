@@ -119,8 +119,8 @@ const RightBubblesImg = styled.div`
   }
 
   @media ${minDevice.desktopXL} {
-    width: 31.7rem
-    height: 27.6rem
+    width: 31.7rem;
+    height: 27.6rem;
   }
 `;
 
@@ -137,11 +137,11 @@ const LeftTopBubblesImg = styled.div`
     left: 0;
   }
   @media ${minDevice.desktopL} {
-    width: 9.947rem
+    width: 9.947rem;
     height: 10.669rem;
   }
   @media ${minDevice.desktopXL} {
-    width: 29rem
+    width: 29rem;
     height: 18.4rem;
   }
 `;
@@ -187,7 +187,7 @@ const Input = styled.input<InputStyleProps>`
   border: ${(props) =>
     props.validationFailed
       ? `1px solid ${errorMessage}`
-      : `1.5px solid ${grey200}`};
+      : `1.5px solid ${grey100}`};
   ${inputStyles};
 `;
 
@@ -198,7 +198,7 @@ const AlertIcon = styled(Alert)`
 `;
 
 const iconEyeStyles = css`
-  stroke: ${grey100};
+  stroke: ${grey200};
   right: 0.8rem;
   top: 4rem;
   position: absolute;
@@ -233,7 +233,7 @@ const LoginOptions = styled.div`
 const Checkbox = styled.input.attrs({ type: "checkbox" })`
   margin: 0 0.5rem 1.2rem 0;
   align-self: center;
-  border: 1px solid ${grey200};
+  border: 1px solid ${grey100};
   box-sizing: border-box;
   border-radius: 5px;
   width: 2rem;

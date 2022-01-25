@@ -8,8 +8,8 @@ import { minDevice } from "../../../assets/styles/breakpoints";
 import {
   white,
   grey100,
-  blue100,
   grey200,
+  blue100,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
@@ -41,7 +41,7 @@ const Input = styled.input<InputStyleProps>`
   border-top-right-radius: 5px;
   border: none;
   ::placeholder {
-    color: ${grey100};
+    color: ${grey200};
   }
   &:focus-visible {
     outline: none;
@@ -66,7 +66,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
 `;
 
 const RemoveIcon = styled(ClearIcon)`
-  fill: ${grey200};
+  fill: ${grey100};
   width: 1.6rem;
 `;
 
