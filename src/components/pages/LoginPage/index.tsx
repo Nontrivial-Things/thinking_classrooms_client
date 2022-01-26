@@ -42,12 +42,7 @@ const LoginPage: FC = () => {
         <Form
           onSubmit={onSubmit}
           validate={formInputsValidation}
-          render={({
-            handleSubmit,
-            submitting,
-            pristine,
-            hasValidationErrors,
-          }) => (
+          render={({ handleSubmit, submitting, hasValidationErrors }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
                 {({ input, meta }) => (
@@ -109,7 +104,7 @@ const LoginPage: FC = () => {
               </S.LoginOptions>
               <Button
                 type="submit"
-                disabled={submitting || pristine || hasValidationErrors}
+                disabled={submitting || hasValidationErrors}
                 $alignSelf="center"
               >
                 {t("login")}
