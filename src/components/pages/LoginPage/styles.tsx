@@ -179,6 +179,7 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.6rem;
+  position: relative;
 `;
 
 const Input = styled.input<InputStyleProps>`
@@ -221,6 +222,10 @@ const Label = styled.label`
 const ShownPasswordButton = styled.button`
   all: unset;
   cursor: pointer;
+  right: 1rem;
+  top: 0.12rem;
+  bottom: 0;
+  position: absolute;
 `;
 
 const LoginOptions = styled.div`

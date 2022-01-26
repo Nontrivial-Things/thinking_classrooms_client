@@ -66,23 +66,21 @@ const LoginPage: FC = () => {
               <Field name="password">
                 {({ input, meta }) => (
                   <S.InputWrapper>
-                    <S.Label>
-                      {t("password")}
-                      <S.ShownPasswordButton
-                        onClick={togglePassword}
-                        aria-pressed="false"
-                        aria-label={t("showPasswordIconAlt")}
-                        role="switch"
-                      >
-                        {passwordShown ? <S.EyeIcon /> : <S.EyeOffIcon />}
-                      </S.ShownPasswordButton>
-                    </S.Label>
+                    <S.Label>{t("password")}</S.Label>
                     <S.Input
                       type={passwordShown ? "text" : "password"}
                       {...input}
                       placeholder={t("inputPasswordPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
+                    <S.ShownPasswordButton
+                      onClick={togglePassword}
+                      aria-pressed="false"
+                      aria-label={t("showPasswordIconAlt")}
+                      role="switch"
+                    >
+                      {passwordShown ? <S.EyeIcon /> : <S.EyeOffIcon />}
+                    </S.ShownPasswordButton>
                     {meta.touched && meta.error && (
                       <ErrorMessage>
                         <S.AlertIcon />
