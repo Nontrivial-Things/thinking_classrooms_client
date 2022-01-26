@@ -15,11 +15,4 @@ describe("Problem Detailed Page", () => {
 
     cy.contains("Błędne hasło");
   });
-
-  it("shows password after clicking on an eye icon", () => {
-    cy.get('input[name="password"]').type("test123");
-    cy.get('[class*="ShowPasswordButton"] > svg').click();
-
-    cy.contains("test123");
-  });
 });

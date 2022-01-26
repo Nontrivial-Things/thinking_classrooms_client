@@ -31,4 +31,17 @@ describe("<LoginPage />", () => {
 
     expect(passwordInput.value).toBe("test123");
   });
+
+  it("shows password after clicking on an eye icon", async () => {
+    testRenderer(<LoginPage />);
+    const passwordInput = (await screen.findByPlaceholderText(
+      "inputPasswordPlaceholder"
+    )) as HTMLInputElement;
+
+    userEvent.type(passwordInput, "test");
+    const eyeIcon = await screen.findByLabelText("showPasswordIconAlt");
+    userEvent.click(eyeIcon);
+
+    expect(passwordInput).toHaveAttribute("type", "text");
+  });
 });
