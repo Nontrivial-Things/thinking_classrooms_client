@@ -114,7 +114,7 @@ const RightBubblesImg = styled.div`
   }
 
   @media ${minDevice.desktopL} {
-    width: 25.36rem
+    width: 25.36rem;
     height: 22.08rem;
   }
 
@@ -200,8 +200,8 @@ const AlertIcon = styled(Alert)`
 
 const iconEyeStyles = css`
   stroke: ${grey200};
-  right: 0.8rem;
-  top: 4rem;
+  right: 0.6rem;
+  top: 0.6rem;
   position: absolute;
 `;
 
@@ -223,9 +223,15 @@ const ShowPasswordButton = styled.button`
   all: unset;
   cursor: pointer;
   right: 1rem;
-  top: 0.12rem;
+  top: 3.3rem;
   bottom: 0;
   position: absolute;
+  width: 3rem;
+  height: 3rem;
+  &:focus-visible {
+    outline: 2px solid -webkit-focus-ring-color;
+    border-radius: 5px;
+  }
 `;
 
 const LoginOptions = styled.div`
