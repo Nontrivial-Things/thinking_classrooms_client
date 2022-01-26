@@ -73,14 +73,14 @@ const LoginPage: FC = () => {
                       placeholder={t("inputPasswordPlaceholder")}
                       validationFailed={meta.touched && meta.error}
                     />
-                    <S.ShownPasswordButton
+                    <S.ShowPasswordButton
                       onClick={togglePassword}
                       aria-pressed="false"
                       aria-label={t("showPasswordIconAlt")}
                       role="switch"
                     >
                       {passwordShown ? <S.EyeIcon /> : <S.EyeOffIcon />}
-                    </S.ShownPasswordButton>
+                    </S.ShowPasswordButton>
                     {meta.touched && meta.error && (
                       <ErrorMessage>
                         <S.AlertIcon />

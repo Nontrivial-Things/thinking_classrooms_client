@@ -219,7 +219,7 @@ const Label = styled.label`
   align-content: center;
 `;
 
-const ShownPasswordButton = styled.button`
+const ShowPasswordButton = styled.button`
   all: unset;
   cursor: pointer;
   right: 1rem;
@@ -261,7 +261,7 @@ export {
   EyeOffIcon,
   EyeIcon,
   Label,
-  ShownPasswordButton,
+  ShowPasswordButton,
   LoginOptions,
   Checkbox,
 };
