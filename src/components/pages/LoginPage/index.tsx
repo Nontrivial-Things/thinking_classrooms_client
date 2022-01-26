@@ -42,7 +42,12 @@ const LoginPage: FC = () => {
         <Form
           onSubmit={onSubmit}
           validate={formInputsValidation}
-          render={({ handleSubmit, submitting }) => (
+          render={({
+            handleSubmit,
+            submitting,
+            pristine,
+            hasValidationErrors,
+          }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">
                 {({ input, meta }) => (
@@ -78,6 +83,7 @@ const LoginPage: FC = () => {
                       aria-pressed="false"
                       aria-label={t("showPasswordIconAlt")}
                       role="switch"
+                      type="button"
                     >
                       {passwordShown ? <S.EyeIcon /> : <S.EyeOffIcon />}
                     </S.ShowPasswordButton>
@@ -101,7 +107,11 @@ const LoginPage: FC = () => {
                 </S.Label>
                 <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
               </S.LoginOptions>
-              <Button type="submit" disabled={submitting} $alignSelf="center">
+              <Button
+                type="submit"
+                disabled={submitting || pristine || hasValidationErrors}
+                $alignSelf="center"
+              >
                 {t("login")}
               </Button>
             </S.LoginForm>

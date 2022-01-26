@@ -19,10 +19,10 @@ const formInputsValidation = (values: {
 
   const errors = {} as FormInputsType;
 
-  if (email && !validateEmail(email)) {
+  if (!email || (email && !validateEmail(email))) {
     errors.email = " Błędny email";
   }
-  if (password && !validatePassword(password)) {
+  if (!password || (password && !validatePassword(password))) {
     errors.password = " Błędne hasło";
   }
 
