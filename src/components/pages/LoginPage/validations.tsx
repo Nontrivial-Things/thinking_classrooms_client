@@ -6,7 +6,7 @@ const formInputsValidation = (
     password?: string;
   },
   wrongEmailLabel: string,
-  wrongPasswordLabel: string
+  missingPasswordLabel: string
 ): FormInputsType => {
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
@@ -21,7 +21,7 @@ const formInputsValidation = (
     errors.email = wrongEmailLabel;
   }
   if (!password) {
-    errors.password = wrongPasswordLabel;
+    errors.password = missingPasswordLabel;
   }
 
   return errors;

@@ -12,7 +12,7 @@ describe("Problem Detailed Page", () => {
   });
 
   it("displays error message when inputted password didn't pass client-side validation", () => {
-    cy.get('input[name="password"]').type("123");
+    cy.get('input[name="password"]').click();
     cy.get('input[name="email"]').type("test");
 
     cy.contains("Błędne hasło");
