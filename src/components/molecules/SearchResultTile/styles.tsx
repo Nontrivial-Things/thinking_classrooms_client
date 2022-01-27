@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { minDevice } from "../../../assets/styles/breakpoints";
-import { grey300, white, grey200 } from "../../../assets/styles/colors";
+import { grey100, grey300, white } from "../../../assets/styles/colors";
 import Wrapper from "../../atoms/Wrapper";
 
 const SearchResultTileWrapper = styled(Wrapper)`
@@ -13,7 +13,7 @@ const SearchResultTileWrapper = styled(Wrapper)`
   background-color: ${white};
   margin: 0.5rem 0;
   padding: 0.8rem 1.6rem;
-  border: 0.5px solid ${grey200};
+  border: 0.5px solid ${grey100};
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);

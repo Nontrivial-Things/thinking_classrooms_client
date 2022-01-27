@@ -16,9 +16,9 @@ const blue200 = "#124CAB";
 
 const blue300 = "#161C56";
 
-const grey100 = "#A8A8A8";
+const grey100 = "#DCDCDC";
 
-const grey200 = "#DCDCDC";
+const grey200 = "#A8A8A8";
 
 const grey300 = "#757575";
 
@@ -26,7 +26,7 @@ const disabledButton = "#C9DAF6";
 
 const hoverSecondaryButton = "#E5EFFF";
 
-const errorMessage = "#E12D43";
+const error = "#E12D43";
 
 const successMessage = "#058C23";
 
@@ -50,7 +50,7 @@ export {
   grey300,
   disabledButton,
   hoverSecondaryButton,
-  errorMessage,
+  error,
   successMessage,
   tagText,
   tagBackground,

@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
+import inputStyles from "../../atoms/InputStyles";
 import { minDevice } from "../../../assets/styles/breakpoints";
 import {
   white,
   grey100,
-  blue100,
   grey200,
+  blue100,
 } from "../../../assets/styles/colors";
 import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
 import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
@@ -34,41 +35,22 @@ const Form = styled.form`
   border-radius: 5px;
 `;
 
-const inputStyles = css`
-  width: 100%;
-  height: 4.8rem;
-  box-sizing: border-box;
-  padding: 0 3.5rem;
-  background: ${white};
-  border: none;
-  font-family: inherit;
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  &:focus-visible {
-    outline: none;
-  }
-
-  @media ${minDevice.desktopL} {
-    padding: 0 4rem;
-  }
-
-  @media ${minDevice.desktopL} {
-    font-size: 1.6rem;
-    line-height: 3.2rem;
-  }
-`;
-
 const Input = styled.input<InputStyleProps>`
   border-radius: ${(props) => (props.showSuggestions ? 0 : "5px")};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border: none;
   ::placeholder {
-    color: ${grey100};
+    color: ${grey200};
   }
   &:focus-visible {
     outline: none;
   }
+  padding: 0 3.5rem;
   ${inputStyles}
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
 `;
 
 const Label = styled.label`
@@ -84,7 +66,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
 `;
 
 const RemoveIcon = styled(ClearIcon)`
-  fill: ${grey200};
+  fill: ${grey100};
   width: 1.6rem;
 `;
 
@@ -176,7 +158,12 @@ const InputWithTags = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  padding: 0 3.5rem;
+  border: none;
   ${inputStyles}
+  @media ${minDevice.desktopL} {
+    padding: 0 4rem;
+  }
 `;
 
 const ProblemLink = styled(Link)`

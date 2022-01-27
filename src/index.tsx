@@ -5,12 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 
 import App from "./App";
+import "./i18n";
 import { client } from "./apolloClient";
+import { worker } from "./mocks/browser";
+
 import GlobalStyle from "./assets/styles/global-styles";
 
-import "./i18n";
-
-const { worker } = require("./mocks/browser");
 worker.start();
 
 ReactDOM.render(
