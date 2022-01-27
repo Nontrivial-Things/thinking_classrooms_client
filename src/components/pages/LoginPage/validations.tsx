@@ -1,18 +1,16 @@
 import { FormInputsType } from "./interface";
 
-const formInputsValidation = (values: {
-  email?: string;
-  password?: string;
-}): FormInputsType => {
+const formInputsValidation = (
+  values: {
+    email?: string;
+    password?: string;
+  },
+  wrongEmailLabel: string,
+  wrongPasswordLabel: string
+): FormInputsType => {
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
-  };
-
-  const validatePassword = (password: string) => {
-    // Min. 8 letter password, with at least a symbol, upper and lower case letters and a number
-    const re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    return re.test(password);
   };
 
   const { email, password } = values;
@@ -20,10 +18,10 @@ const formInputsValidation = (values: {
   const errors = {} as FormInputsType;
 
   if (!email || (email && !validateEmail(email))) {
-    errors.email = " Błędny email";
+    errors.email = wrongEmailLabel;
   }
-  if (!password || (password && !validatePassword(password))) {
-    errors.password = " Błędne hasło";
+  if (!password) {
+    errors.password = wrongPasswordLabel;
   }
 
   return errors;

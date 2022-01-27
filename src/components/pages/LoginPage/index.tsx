@@ -41,7 +41,13 @@ const LoginPage: FC = () => {
         )}
         <Form
           onSubmit={onSubmit}
-          validate={formInputsValidation}
+          validate={(values) =>
+            formInputsValidation(
+              values,
+              t("emailErrorMessage"),
+              t("passwordErrorMessage")
+            )
+          }
           render={({ handleSubmit, submitting, hasValidationErrors }) => (
             <S.LoginForm onSubmit={handleSubmit}>
               <Field name="email">

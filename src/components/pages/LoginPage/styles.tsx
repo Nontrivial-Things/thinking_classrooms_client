@@ -19,7 +19,7 @@ import {
   primaryText,
   grey100,
   grey200,
-  errorMessage,
+  error,
 } from "../../../assets/styles/colors";
 import { minDevice } from "../../../assets/styles/breakpoints";
 
@@ -186,9 +186,7 @@ const Input = styled.input<InputStyleProps>`
   padding: 0 3rem 0 1rem;
   border-radius: 5px;
   border: ${(props) =>
-    props.validationFailed
-      ? `1px solid ${errorMessage}`
-      : `1.5px solid ${grey100}`};
+    props.validationFailed ? `1px solid ${error}` : `1.5px solid ${grey100}`};
   ${inputStyles};
 `;
 

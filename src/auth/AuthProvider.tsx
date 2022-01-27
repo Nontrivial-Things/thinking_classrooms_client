@@ -30,7 +30,7 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
       .then((data) => {
         const user = data.data?.login;
         setUser(user);
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify({ token: user?.token }));
         navigate("/moderator");
       })
       .catch((error) => {

@@ -35,7 +35,6 @@ const App: FC = () => {
           />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
-
         <Footer />
       </Suspense>
     </AuthProvider>

@@ -4,14 +4,14 @@ describe("Problem Detailed Page", () => {
     cy.get('a[href*="/moderator"]').click();
   });
 
-  it("displays error message when inputted email and password didn't pass validation", () => {
+  it("displays error message when inputted email didn't pass client-side validation", () => {
     cy.get('input[name="email"]').type("test");
     cy.get('input[name="password"]').type("123");
 
     cy.contains("Błędny email");
   });
 
-  it("displays error message when inputted password didn't pass validation", () => {
+  it("displays error message when inputted password didn't pass client-side validation", () => {
     cy.get('input[name="password"]').type("123");
     cy.get('input[name="email"]').type("test");
 
