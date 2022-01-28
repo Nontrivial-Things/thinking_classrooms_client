@@ -1,6 +1,6 @@
-import { GetUserWithExpiryProps } from "./interface";
+import { UserTokenWithExpiry } from "./interface";
 
-export const setUserWithExpiry = (
+export const setUserDataInStorage = (
   key: string,
   token: string,
   ttl: number
@@ -9,30 +9,30 @@ export const setUserWithExpiry = (
 
   // `item` is an object which contains the original value
   // as well as the time when it's supposed to expire
-  const item = {
+  const userToken = {
     token: token,
     expiry: now.getTime() + ttl,
   };
 
-  localStorage.setItem(key, JSON.stringify(item));
+  localStorage.setItem(key, JSON.stringify(userToken));
 };
 
-export const getUserWithExpiry = (
+export const getUserDataFromStorage = (
   key: string
-): GetUserWithExpiryProps | null => {
-  const itemStr = localStorage.getItem(key);
-  // if the item doesn't exist, return null
-  if (!itemStr) {
-    return null;
-  }
-  const item = JSON.parse(itemStr);
+): UserTokenWithExpiry | void => {
+  const userToken = localStorage.getItem(key);
+  const parssedUserData = userToken && JSON.parse(userToken);
+
+  return isUserExpired(parssedUserData)
+    ? removeExpiredUser(key)
+    : parssedUserData;
+};
+
+export const isUserExpired = (userData: UserTokenWithExpiry): boolean => {
   const now = new Date();
-  // compare the expiry time of the item with the current time
-  if (now.getTime() > item.expiry) {
-    // If the item is expired, delete the item from storage
-    // and return null
-    localStorage.removeItem(key);
-    return null;
-  }
-  return item;
+  return !userData || now.getTime() > userData.expiry;
+};
+
+export const removeExpiredUser = (key: string): void => {
+  localStorage.removeItem(key);
 };
