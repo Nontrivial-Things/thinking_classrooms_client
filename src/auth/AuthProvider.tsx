@@ -3,23 +3,25 @@ import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
-import { AuthContextType, AuthProps } from "./interface";
-import { setUserWithExpiry, getUserWithExpiry } from "./utils";
+import {
+  AuthContextType,
+  AuthProps,
+  UserTokenWithOptionalExpiry,
+} from "./interface";
+import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 const oneDayInMS = 86400000;
 const oneMonthInMS = 2629800000;
 
 export const AuthProvider: FC<AuthProps> = ({ children }) => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<{ token: string; expiry: number }>();
 
   const navigate = useNavigate();
-  const userDataN = getUserWithExpiry("user");
-
-  console.log(userDataN, "userDataN");
+  const userData = getUserDataFromStorage("user");
 
   useEffect(() => {
-    if (!!userData == true) {
+    if (!!userData) {
       setUser(userData);
     }
   }, []);
@@ -43,16 +45,16 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
     })
       .then((data) => {
         const user = data.data?.login;
-        setUser(user);
+        user && setUser({ token: user?.token, expiry: 123 });
         // localStorage.setItem("user", JSON.stringify({ token: user?.token }));
         if (user && !checked) {
-          setUserWithExpiry("user", user.token, oneDayInMS);
+          setUserDataInStorage("user", user.token, oneDayInMS);
           window.onbeforeunload = function () {
             localStorage.clear();
           };
         }
         if (user && checked) {
-          setUserWithExpiry("user", user.token, oneMonthInMS);
+          setUserDataInStorage("user", user.token, oneMonthInMS);
         }
         navigate("/moderator");
       })
