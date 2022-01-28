@@ -26,7 +26,7 @@ const CheckIcon = styled(Check)<CheckBoxProps>`
 `;
 
 const StyledCheckbox = styled.div<CheckBoxProps>`
-  display: inline-block;
+  display: flex;
   width: 2rem;
   height: 2rem;
   background: ${white};
@@ -43,8 +43,9 @@ const StyledCheckbox = styled.div<CheckBoxProps>`
 `;
 
 const CheckboxContainer = styled.div`
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
 `;
 
 export { HiddenCheckbox, CheckIcon, StyledCheckbox, CheckboxContainer };

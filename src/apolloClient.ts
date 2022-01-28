@@ -1,6 +1,8 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import { getUserWithExpiry } from "./auth/utils";
+
 const cache = new InMemoryCache();
 
 const httpLink = createHttpLink({
@@ -8,15 +10,13 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const user = localStorage.getItem("user");
-  const parsedUserData = user && JSON.parse(user);
+  const userData = getUserWithExpiry("user");
+
   return {
     headers: {
       ...headers,
       authorization:
-        parsedUserData && parsedUserData.token
-          ? `Bearer ${parsedUserData.token}`
-          : "",
+        userData && userData.token ? `Bearer ${userData.token}` : "",
     },
   };
 });

@@ -3,11 +3,15 @@ import { User } from "../components/pages/LoginPage/interface";
 
 export interface AuthContextType {
   user?: User;
-  signin: (email: string, password: string) => void;
+  signin: (email: string, password: string, checked: boolean) => void;
   error?: ApolloError;
   loading?: boolean;
 }
 
 export interface AuthProps {
   children: JSX.Element;
+}
+
+export interface GetUserWithExpiryProps {
+  key: string;
 }

@@ -21,7 +21,7 @@ const LoginPage: FC = () => {
   };
 
   const onSubmit = (values: { email: string; password: string }) => {
-    signin(values.email, values.password);
+    signin(values.email, values.password, checked);
   };
 
   const togglePassword = () => {
