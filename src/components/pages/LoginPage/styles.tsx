@@ -35,22 +35,22 @@ const LoginFormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 8rem;
+  padding-bottom: 3.2rem;
   width: 100%;
   @media ${minDevice.desktopTablet} {
     background: ${white};
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     width: 49rem;
-    height: 61.6rem;
-    padding: 4.8rem;
+    padding: 4.8rem 9.1rem;
     align-self: center;
-    margin: 11.2rem 11.5rem;
+    margin-top: 4.8rem;
   }
 
   @media ${minDevice.desktopL} {
     width: 63.8rem;
-    height: 61.6rem;
-    margin: 6rem 23.3rem;
+    margin-top: 6.4rem;
+    padding: 5.6rem 12rem;
   }
 `;
 const H4 = styled.h4`
