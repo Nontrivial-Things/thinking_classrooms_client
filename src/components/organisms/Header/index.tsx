@@ -17,8 +17,8 @@ const NavbarClass = {
   closed: "",
 };
 
-const Navbar: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "navbar" });
+const Header: FC = () => {
+  const { t } = useTranslation("", { keyPrefix: "header" });
 
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
@@ -75,4 +75,4 @@ const Navbar: FC = () => {
     </S.HeaderWrapper>
   );
 };
-export default Navbar;
+export default Header;

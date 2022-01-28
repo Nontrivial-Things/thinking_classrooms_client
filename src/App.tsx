@@ -1,7 +1,7 @@
 import { FC, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/organisms/Navbar";
+import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
 import ProblemsPage from "./components/pages/ProblemsPage";
 import ProblemDetailedPage from "./components/pages/ProblemDetailedPage";
@@ -15,7 +15,7 @@ const App: FC = () => {
   return (
     <AuthProvider>
       <Suspense fallback={null}>
-        <Navbar />
+        <Header />
         <Routes>
           {/* <Route path="/" element {<LandingPage/>}> */}
           <Route path="/" element={<ProblemsPage />} />

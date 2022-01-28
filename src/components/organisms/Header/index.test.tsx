@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 
 import { testRenderer } from "../../../setupTests";
-import Navbar from "./index";
+import Header from "./index";
 
-describe("Navbar", () => {
+describe("Header", () => {
   it("should open menu when Hamburger is clicked", () => {
-    testRenderer(<Navbar />);
+    testRenderer(<Header />);
 
     expect(screen.getByRole("button", { name: /hamburgerAlt/ }));
     expect(screen.getByText("aboutMethodPageLink")).toBeInTheDocument();
