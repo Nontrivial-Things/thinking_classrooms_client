@@ -54,7 +54,7 @@ const Header: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <S.NavbarMenuItem>
+          <S.NavbarMenuItem onClick={toggleHamburger}>
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -62,7 +62,7 @@ const Header: FC = () => {
               {t("aboutMethodPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
-          <S.NavbarMenuItem>
+          <S.NavbarMenuItem onClick={toggleHamburger}>
             <NavLink
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
