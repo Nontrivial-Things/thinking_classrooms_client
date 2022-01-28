@@ -3,12 +3,12 @@ import { FC } from "react";
 import { CheckBoxProps } from "./interface";
 import * as S from "./styles";
 
-const Checkbox: FC<CheckBoxProps> = (checked) => {
+const Checkbox: FC<CheckBoxProps> = ({ checked, onChange }) => {
   return (
     <S.CheckboxContainer>
-      <S.HiddenCheckbox />
-      <S.StyledCheckbox>
-        <S.CheckIcon></S.CheckIcon>
+      <S.HiddenCheckbox checked={checked} onChange={onChange} />
+      <S.StyledCheckbox checked={checked}>
+        <S.CheckIcon checked={checked} />
       </S.StyledCheckbox>
     </S.CheckboxContainer>
   );

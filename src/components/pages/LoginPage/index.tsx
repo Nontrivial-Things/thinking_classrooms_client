@@ -3,9 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 import { Navigate } from "react-router-dom";
 
-import Button from "../../atoms/Button";
-import ErrorMessage from "../../atoms/ErrorMessage";
 import useAuth from "../../../auth/AuthProvider";
+import Button from "../../atoms/Button";
+import Checkbox from "../../atoms/Checkbox";
+import ErrorMessage from "../../atoms/ErrorMessage";
 import * as S from "./styles";
 import formInputsValidation from "./validations";
 
@@ -99,11 +100,7 @@ const LoginPage: FC = () => {
               </Field>
               <S.LoginOptions>
                 <S.Label>
-                  <S.Checkbox
-                    type="checkbox"
-                    checked={checked}
-                    onChange={handleCheckboxChange}
-                  />
+                  <Checkbox checked={checked} onChange={handleCheckboxChange} />
                   <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
                 </S.Label>
                 <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
