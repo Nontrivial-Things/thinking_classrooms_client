@@ -64,7 +64,7 @@ const ProblemsPage: FC = () => {
           ))
         )}
       </Wrapper>
-      <ScrollToTopButton />
+      {problems.length != 0 && <ScrollToTopButton />}
     </>
   );
 };
