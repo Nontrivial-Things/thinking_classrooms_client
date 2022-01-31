@@ -2,8 +2,8 @@ import { useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN, Login } from "../components/pages/LoginPage/interface";
-import { AuthContextType, AuthProps } from "./interface";
+import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
+import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -11,7 +11,7 @@ const oneDayInMS = 86400000;
 const oneMonthInMS = 2629800000;
 
 export const AuthProvider: FC<AuthProps> = ({ children }) => {
-  const [user, setUser] = useState<{ token: string; expiry: number }>();
+  const [user, setUser] = useState<User | UserTokenWithExpiry>();
 
   const navigate = useNavigate();
   const userData = getUserDataFromStorage("user");
@@ -31,7 +31,7 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
     })
       .then((data) => {
         const user = data.data?.login;
-        user && setUser({ token: user?.token, expiry: 123 });
+        user && setUser(user);
         if (user && !checked) {
           setUserDataInStorage("user", user.token, oneDayInMS);
           window.onbeforeunload = function () {

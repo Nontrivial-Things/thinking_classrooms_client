@@ -16,7 +16,6 @@ export interface User {
   id: number;
   email: string;
   token: string;
-  expiry?: number;
 }
 
 export const LOGIN = gql`
