@@ -18,11 +18,11 @@ export const getUserDataFromStorage = (
   key: string
 ): UserTokenWithExpiry | void => {
   const userToken = localStorage.getItem(key);
-  const parssedUserData = userToken && JSON.parse(userToken);
+  const parsedUserData = userToken && JSON.parse(userToken);
 
-  return isUserExpired(parssedUserData)
+  return isUserExpired(parsedUserData)
     ? removeExpiredUser(key)
-    : parssedUserData;
+    : parsedUserData;
 };
 
 export const isUserExpired = (userData: UserTokenWithExpiry): boolean => {

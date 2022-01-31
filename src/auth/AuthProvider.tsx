@@ -15,10 +15,10 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
 
   const navigate = useNavigate();
   const userData = getUserDataFromStorage("user");
-  const noUserData = !!userData;
+  const isUserDataPresent = !!userData;
 
   useEffect(() => {
-    if (noUserData) {
+    if (isUserDataPresent) {
       setUser(userData);
     }
   }, []);
