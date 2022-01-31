@@ -159,20 +159,6 @@ describe("<ProblemsPage/>", () => {
     expect(await screen.findByText("searchResults (2)")).toBeInTheDocument();
   });
 
-  xit("displays zero results view when result count = 0", async () => {
-    testRenderer(<ProblemsPage />);
-
-    const input = (await screen.findByLabelText(
-      "inputPlaceholder"
-    )) as HTMLInputElement;
-    userEvent.type(input, "xx");
-    userEvent.type(input, "{enter}");
-
-    expect(await screen.findByText("searchResults (0)")).toBeInTheDocument();
-
-    expect(await screen.findByText("zeroResultsHeader")).toBeInTheDocument();
-  });
-
   it("should display input with tag as a value and return to default input after removing tag", async () => {
     testRenderer(<ProblemsPage />);
     const input = (await screen.findByLabelText(

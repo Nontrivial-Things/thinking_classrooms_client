@@ -13,10 +13,3 @@ export const minDevice = {
   desktopL: `(min-width: ${size.desktopL})`,
   desktopXL: `(min-width: ${size.desktopXL})`,
 };
-
-export const maxDevice = {
-  mobile: `(max-width: ${size.mobile})`,
-  desktopTablet: `(max-width: ${size.desktopTablet})`,
-  desktopL: `(max-width: ${size.desktopL})`,
-  desktopXL: `(max-width: ${size.desktopXL})`,
-};

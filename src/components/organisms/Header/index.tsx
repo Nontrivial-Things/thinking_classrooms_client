@@ -17,8 +17,8 @@ const NavbarClass = {
   closed: "",
 };
 
-const Navbar: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "navbar" });
+const Header: FC = () => {
+  const { t } = useTranslation("", { keyPrefix: "header" });
 
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
@@ -35,6 +35,10 @@ const Navbar: FC = () => {
   const navbarMenuStyle = isNavbarMenuActive
     ? NavbarClass.active
     : NavbarClass.closed;
+
+  const handleMenuItemClick = () => {
+    isNavbarMenuActive && toggleHamburger();
+  };
 
   return (
     <S.HeaderWrapper>
@@ -54,7 +58,7 @@ const Navbar: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <S.NavbarMenuItem>
+          <S.NavbarMenuItem onClick={handleMenuItemClick}>
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -62,7 +66,7 @@ const Navbar: FC = () => {
               {t("aboutMethodPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
-          <S.NavbarMenuItem>
+          <S.NavbarMenuItem onClick={handleMenuItemClick}>
             <NavLink
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -75,4 +79,4 @@ const Navbar: FC = () => {
     </S.HeaderWrapper>
   );
 };
-export default Navbar;
+export default Header;

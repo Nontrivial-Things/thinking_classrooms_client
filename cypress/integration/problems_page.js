@@ -13,4 +13,9 @@ describe("Problem Detailed Page", () => {
     cy.get('[class*="SearchResultTile"]').first().click();
     cy.contains("Wyniki wyszukiwania");
   });
+
+  it("displays zero results view when result count = 0", () => {
+    cy.get("#input-search").type("xx {enter}");
+    cy.contains("Spróbuj wyszukać");
+  });
 });

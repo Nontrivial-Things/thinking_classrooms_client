@@ -6,7 +6,7 @@
     "searchByTagIcon": "Ikona wyszukiwania po tagu",
     "filterByTagInput": "Input filtrujący po tagu"
   },
-  "navbar": {
+  "header": {
     "aboutMethodPageLink": "O metodzie",
     "moderatorPageLink": "Strefa moderatora",
     "hamburgerAlt": "Otwórz menu",
