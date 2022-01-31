@@ -1,6 +1,6 @@
 # Thinking Classrooms UI
 
-**Thinking Classrooms** project is created to help math teachers in Poland to share theirs ideas for conducting lessons according to the Thinking Classroom. method Through our platform, they will be able to easily search for an interesting issue along with ideas for math classes.
+**Thinking Classrooms** project is created to help math teachers in Poland to share theirs ideas for conducting lessons according to the Thinking Classroom method. Through our platform, they will be able to easily search for an interesting issue along with ideas for math classes.
 
 **Thinking Classrooms** platform is an MVP version which will be developed in accordance with the needs of its users.
 
@@ -33,9 +33,11 @@ Here are the primary technologies used in this project:
 - [`Styled-Components`](https://styled-components.com/)
 - [`TypeScript`](https://www.typescriptlang.org/)
 - [`Jest`](https://jestjs.io/)
+- [`Cypress`](https://www.cypress.io/)
 - [`Testing React Library`](https://testing-library.com/)
 - [`Mock Service Worker`](https://mswjs.io/)
 - [`GraphQl with Apollo client`](https://www.apollographql.com/)
+- [`JSON Web Token`](https://jwt.io/)
 
 Here are the service this project uses:
 
@@ -53,7 +55,7 @@ Here are the service this project uses:
 ## How to run Thinking Classrooms in production mode
 
 Just visit this site:
-[https://zealous-spence-867386.netlify.app/](https://zealous-spence-867386.netlify.app/)
+[https://thinking-classrooms.netlify.app/](https://thinking-classrooms.netlify.app/)
 
 ## Available Scripts
 
