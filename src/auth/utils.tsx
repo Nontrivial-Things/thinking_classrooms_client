@@ -6,9 +6,6 @@ export const setUserDataInStorage = (
   ttl: number
 ): void => {
   const now = new Date();
-
-  // `item` is an object which contains the original value
-  // as well as the time when it's supposed to expire
   const userToken = {
     token: token,
     expiry: now.getTime() + ttl,

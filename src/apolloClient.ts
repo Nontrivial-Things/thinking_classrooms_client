@@ -1,7 +1,7 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import { getUserWithExpiry } from "./auth/utils";
+import { getUserDataFromStorage } from "./auth/utils";
 
 const cache = new InMemoryCache();
 
@@ -10,7 +10,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const userData = getUserWithExpiry("user");
+  const userData = getUserDataFromStorage("user");
 
   return {
     headers: {

@@ -2,12 +2,8 @@ import { useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
-import {
-  AuthContextType,
-  AuthProps,
-  UserTokenWithOptionalExpiry,
-} from "./interface";
+import { LOGIN, Login } from "../components/pages/LoginPage/interface";
+import { AuthContextType, AuthProps } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -19,23 +15,13 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
 
   const navigate = useNavigate();
   const userData = getUserDataFromStorage("user");
+  const noUserData = !!userData;
 
   useEffect(() => {
-    if (!!userData) {
+    if (noUserData) {
       setUser(userData);
     }
   }, []);
-
-  // const userData = localStorage.getItem("user");
-  // const parsedUserData = userData && JSON.parse(userData);
-
-  // console.log(parsedUserData, "parsed");
-
-  // useEffect(() => {
-  //   if (!!parsedUserData == true) {
-  //     setUser(parsedUserData);
-  //   }
-  // }, []);
 
   const [login, { loading, error }] = useMutation<Login>(LOGIN);
 
@@ -46,7 +32,6 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
       .then((data) => {
         const user = data.data?.login;
         user && setUser({ token: user?.token, expiry: 123 });
-        // localStorage.setItem("user", JSON.stringify({ token: user?.token }));
         if (user && !checked) {
           setUserDataInStorage("user", user.token, oneDayInMS);
           window.onbeforeunload = function () {
