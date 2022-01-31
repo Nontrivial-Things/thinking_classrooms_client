@@ -2,35 +2,45 @@ import { useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
+import { LOGIN, Login } from "../components/pages/LoginPage/interface";
 import { AuthContextType, AuthProps } from "./interface";
+import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
+const oneDayInMS = 86400000;
+const oneMonthInMS = 2629800000;
 
 export const AuthProvider: FC<AuthProps> = ({ children }) => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<{ token: string; expiry: number }>();
 
   const navigate = useNavigate();
-
-  const userData = localStorage.getItem("user");
-  const parsedUserData = userData && JSON.parse(userData);
+  const userData = getUserDataFromStorage("user");
+  const isUserDataPresent = !!userData;
 
   useEffect(() => {
-    if (!!parsedUserData == true) {
-      setUser(parsedUserData);
+    if (isUserDataPresent) {
+      setUser(userData);
     }
   }, []);
 
   const [login, { loading, error }] = useMutation<Login>(LOGIN);
 
-  const signin = (email: string, password: string) => {
+  const signin = (email: string, password: string, checked: boolean) => {
     login({
       variables: { email: email, password: password },
     })
       .then((data) => {
         const user = data.data?.login;
-        setUser(user);
-        localStorage.setItem("user", JSON.stringify({ token: user?.token }));
+        user && setUser({ token: user?.token, expiry: 123 });
+        if (user && !checked) {
+          setUserDataInStorage("user", user.token, oneDayInMS);
+          window.onbeforeunload = function () {
+            localStorage.clear();
+          };
+        }
+        if (user && checked) {
+          setUserDataInStorage("user", user.token, oneMonthInMS);
+        }
         navigate("/moderator");
       })
       .catch((error) => {

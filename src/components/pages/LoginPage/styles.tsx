@@ -239,15 +239,6 @@ const LoginOptions = styled.div`
   justify-content: space-between;
 `;
 
-const Checkbox = styled.input.attrs({ type: "checkbox" })`
-  margin: 0 0.5rem 1.2rem 0;
-  align-self: center;
-  border: 1px solid ${grey100};
-  box-sizing: border-box;
-  border-radius: 5px;
-  width: 2rem;
-`;
-
 export {
   LoginPageWrapper,
   StyledLink,
@@ -267,5 +258,4 @@ export {
   Label,
   ShowPasswordButton,
   LoginOptions,
-  Checkbox,
 };

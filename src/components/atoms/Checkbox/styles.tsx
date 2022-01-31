@@ -7,7 +7,6 @@ import { CheckBoxProps } from "./interface";
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })<CheckBoxProps>`
   border: 0;
   clip: rect(0 0 0 0);
-  clippath: inset(50%);
   height: 1px;
   width: 1px;
   margin: -1px;
@@ -18,33 +17,35 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })<CheckBoxProps>`
 `;
 
 const CheckIcon = styled(Check)<CheckBoxProps>`
-  stroke: ${grey100};
+  stroke: ${blue100};
+  color: ${blue100};
   visibility: ${(props) => (props.checked ? "visible" : "hidden")};
-  top: 0;
-  left: 0;
+  top: 0.1rem;
+  left: 0.1rem;
   position: absolute;
 `;
 
 const StyledCheckbox = styled.div<CheckBoxProps>`
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
   background: ${white};
-  border-radius: 3px;
+  border-radius: 5px;
   transition: all 150ms;
   position: relative;
   margin-right: 0.8em;
   border: ${(props) =>
     props.checked ? `1px solid ${blue100}` : `1px solid ${grey100}`};
-  ${HiddenCheckbox}:focus + & {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-      0 0 8px rgba(246, 166, 35, 0.6);
+  ${HiddenCheckbox}:focus-visible + & {
+    outline: 2px solid -webkit-focus-ring-color;
+    outline-offset: 2px;
   }
 `;
 
 const CheckboxContainer = styled.div`
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
 `;
 
 export { HiddenCheckbox, CheckIcon, StyledCheckbox, CheckboxContainer };
