@@ -36,6 +36,10 @@ const Header: FC = () => {
     ? NavbarClass.active
     : NavbarClass.closed;
 
+  const handleMenuItemClick = () => {
+    isNavbarMenuActive && toggleHamburger();
+  };
+
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
@@ -54,7 +58,7 @@ const Header: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <S.NavbarMenuItem onClick={toggleHamburger}>
+          <S.NavbarMenuItem onClick={handleMenuItemClick}>
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -62,7 +66,7 @@ const Header: FC = () => {
               {t("aboutMethodPageLink")}
             </NavLink>
           </S.NavbarMenuItem>
-          <S.NavbarMenuItem onClick={toggleHamburger}>
+          <S.NavbarMenuItem onClick={handleMenuItemClick}>
             <NavLink
               to="/moderator"
               className={({ isActive }) => (isActive ? "active" : "")}
