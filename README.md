@@ -39,7 +39,7 @@ Here are the primary technologies used in this project:
 - [`GraphQl with Apollo client`](https://www.apollographql.com/)
 - [`JSON Web Token`](https://jwt.io/)
 
-Here are the service this project uses:
+Here is the service this project uses:
 
 - [`Netlify`](https://www.netlify.com/)
 
