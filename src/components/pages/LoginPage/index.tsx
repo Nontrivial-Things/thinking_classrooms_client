@@ -104,7 +104,11 @@ const LoginPage: FC = () => {
               </Field>
               <S.LoginOptions>
                 <S.Label>
-                  <Checkbox checked={checked} onChange={handleCheckboxChange} />
+                  <Checkbox
+                    aria-label={t("rememberMeCheckbox")}
+                    checked={checked}
+                    onChange={handleCheckboxChange}
+                  />
                   <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
                 </S.Label>
                 <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>

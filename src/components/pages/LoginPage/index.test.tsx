@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "../../../setupTests";
@@ -43,5 +43,14 @@ describe("<LoginPage />", () => {
     userEvent.click(eyeIcon);
 
     expect(passwordInput).toHaveAttribute("type", "text");
+  });
+
+  it("displays checked icon after clicking on checkbox ", async () => {
+    testRenderer(<LoginPage />);
+    const checkbox = await screen.findByRole("checkbox");
+    fireEvent.click(checkbox, {
+      target: { checked: false },
+    });
+    expect(checkbox).toBeChecked();
   });
 });

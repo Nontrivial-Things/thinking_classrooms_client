@@ -3,12 +3,11 @@ import { UserTokenWithExpiry } from "./interface";
 export const setUserDataInStorage = (
   key: string,
   token: string,
-  ttl: number
+  expiry: number
 ): void => {
-  const now = new Date();
   const userToken = {
-    token: token,
-    expiry: now.getTime() + ttl,
+    token,
+    expiry,
   };
 
   localStorage.setItem(key, JSON.stringify(userToken));
