@@ -52,6 +52,5 @@ describe("<LoginPage />", () => {
       target: { checked: false },
     });
     expect(checkbox).toBeChecked();
-    screen.debug();
   });
 });

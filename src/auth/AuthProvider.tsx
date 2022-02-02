@@ -1,13 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { addDays } from "date-fns/esm";
 import addMonths from "date-fns/addMonths";
+import addDays from "date-fns/addDays";
 
 import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
 import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
-import { addHours, addMinutes } from "date-fns";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
