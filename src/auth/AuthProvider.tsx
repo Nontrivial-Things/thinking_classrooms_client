@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { ApolloError, useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
 import { useNavigate } from "react-router-dom";
 import addMonths from "date-fns/addMonths";
@@ -12,6 +12,9 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider: FC<AuthProps> = ({ children }) => {
   const [user, setUser] = useState<User | UserTokenWithExpiry>();
+  const [loginError, setLoginError] = useState<undefined | ApolloError>(
+    undefined
+  );
 
   const navigate = useNavigate();
   const userData = getUserDataFromStorage("user");
@@ -24,6 +27,11 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
   }, []);
 
   const [login, { loading, error }] = useMutation<Login>(LOGIN);
+
+  useEffect(() => {
+    const isError = !!error;
+    isError ? setLoginError(error) : setLoginError(undefined);
+  }, [error]);
 
   const signin = (email: string, password: string, checked: boolean) => {
     login({
@@ -56,7 +64,7 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
       });
   };
 
-  const value = { user, signin, error, loading };
+  const value = { user, signin, loginError, loading, setLoginError };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
