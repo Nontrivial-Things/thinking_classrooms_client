@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 import { Navigate } from "react-router-dom";
@@ -7,14 +7,18 @@ import useAuth from "../../../auth/AuthProvider";
 import Button from "../../atoms/Button";
 import Checkbox from "../../atoms/Checkbox";
 import ErrorMessage from "../../atoms/ErrorMessage";
-import * as S from "./styles";
 import formInputsValidation from "./validations";
+import * as S from "./styles";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
-  const { signin, user, error } = useAuth();
+  const { signin, user, loginError, setLoginError } = useAuth();
+
+  useLayoutEffect(() => {
+    setLoginError(undefined);
+  }, []);
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
@@ -37,7 +41,7 @@ const LoginPage: FC = () => {
         <S.H4>{t("loginHeader")}</S.H4>
         <S.InfoText>{t("loginSubtitle")}</S.InfoText>
         <S.StyledLink to="/">{t("learnMore")}</S.StyledLink>
-        {error && (
+        {loginError && (
           <S.LoginErrorMessage>{t("loginErrorMessage")}</S.LoginErrorMessage>
         )}
         <Form

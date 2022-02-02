@@ -5,7 +5,9 @@ export interface AuthContextType {
   user?: UserTokenWithExpiry;
   signin: (email: string, password: string, checked: boolean) => void;
   error?: ApolloError;
+  loginError?: ApolloError;
   loading?: boolean;
+  setLoginError: (error: any) => void;
 }
 
 export interface AuthProps {
