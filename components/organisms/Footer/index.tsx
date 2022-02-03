@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
-import Mail from "../../../../public/assets/img/icons/mail.svg";
+// import Mail from "../../../../public/assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
 import P from "../../atoms/P";
 import Row from "../../atoms/Row";
@@ -10,7 +10,7 @@ import Icon from "../../atoms/Icon";
 import Wrapper from "../../atoms/Wrapper";
 import Column from "../../atoms/Column";
 import * as S from "./styles";
-import { white, grey100 } from "../../../../public/assets/styles/colors";
+import { white, grey100 } from "../../../styles/colors";
 
 const Footer: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "footer" });
@@ -30,9 +30,7 @@ const Footer: FC = () => {
         <S.ContactWrapper>
           <S.FooterP>{t("contact")}</S.FooterP>
           <Row>
-            <Icon color={white}>
-              <S.MailIcon src={Mail} />
-            </Icon>
+            <Icon color={white}>{/* <S.MailIcon src={Mail} /> */}</Icon>
             <S.MailA href={`mailto:${t("email")}`}>{t("email")}</S.MailA>
           </Row>
         </S.ContactWrapper>

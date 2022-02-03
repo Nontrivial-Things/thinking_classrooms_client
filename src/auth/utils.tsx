@@ -9,8 +9,9 @@ export const setUserDataInStorage = (
     token,
     expiry,
   };
-
-  localStorage.setItem(key, JSON.stringify(userToken));
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(userToken));
+  }
 };
 
 export const getUserDataFromStorage = (
@@ -30,5 +31,7 @@ export const isUserExpired = (userData: UserTokenWithExpiry): boolean => {
 };
 
 export const removeExpiredUser = (key: string): void => {
-  localStorage.removeItem(key);
+  if (typeof window !== "undefined") {
+    localStorage.removeItem(key);
+  }
 };

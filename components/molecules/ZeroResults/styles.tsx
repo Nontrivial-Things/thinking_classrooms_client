@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 import Column from "../../atoms/Column";
 
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
-import { blue100, blue200 } from "../../../../public/assets/styles/colors";
-import ZeroResults from "../../../../public/assets/img/zero-results.png";
+import { minDevice } from "../../../styles/breakpoints";
+import { blue100, blue200 } from "../../../styles/colors";
 
 const ZeroResultsWrapper = styled(Column)`
   justify-content: center;
@@ -21,7 +20,6 @@ const ZeroResultsWrapper = styled(Column)`
 `;
 
 const ZeroResultsImg = styled.div`
-  background-image: url(${ZeroResults});
   width: 20.4rem;
   height: 16rem;
   background-size: contain;

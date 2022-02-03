@@ -1,7 +1,7 @@
 import { graphql } from "msw";
 import { Level } from "../../components/molecules/SearchResultTile/interface";
 
-import { GetProblemsQuery } from "../../pages/ProblemsPage/interface";
+import { GetProblemsQuery } from "../../pages/problems-page/interface";
 import {
   GetSuggestionsQuery,
   SuggestionType,

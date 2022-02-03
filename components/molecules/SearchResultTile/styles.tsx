@@ -1,12 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
-import {
-  grey100,
-  grey300,
-  white,
-} from "../../../../public/assets/styles/colors";
+import { minDevice } from "../../../styles/breakpoints";
+import { grey100, grey300, white } from "../../../styles/colors";
 import Wrapper from "../../atoms/Wrapper";
 
 const SearchResultTileWrapper = styled(Wrapper)`

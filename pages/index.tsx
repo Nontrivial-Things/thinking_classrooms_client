@@ -1,72 +1,53 @@
-import { FC, useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { gql, useQuery } from "@apollo/client";
+import useAuth from "../src/auth/AuthProvider";
 
-import ResultCountLabel from "../components/atoms/ResultCountLabel";
-import Wrapper from "../components/atoms/Wrapper";
-import ScrollToTopButton from "../components/atoms/ScrollToTopButton";
-import SearchResultTile from "../components/molecules/SearchResultTile";
-import ZeroResults from "../components/molecules/ZeroResults";
-import ProblemSearchSection from "../components/organisms/ProblemSearchSection";
-import { GetProblemsQuery, PROBLEMS } from "../pages/ProblemsPage/interface";
+const ViewerQuery = gql`
+  query ViewerQuery {
+    viewer {
+      id
+      email
+    }
+  }
+`;
 
-import { white, primaryBackground } from "../styles/colors";
-import { ProblemSummaryProps } from "../components/molecules/SearchResultTile/interface";
+const Index = () => {
+  const router = useRouter();
+  const { signin, user, loginError, loading, setLoginError } = useAuth();
 
-const ProblemsPage: FC = () => {
-  const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);
-  const [tag, setTag] = useState<string>("");
-  const [problems, setProblems] = useState<ProblemSummaryProps[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const shouldRedirect = !(loading || loginError || user);
 
   useEffect(() => {
-    if (data?.problems && !loading) {
-      const { problems } = data;
-      const filteredProblems =
-        tag === ""
-          ? problems
-          : problems.filter((problem) => {
-              return problem.tags && problem.tags.includes(tag);
-            });
-      setProblems(filteredProblems);
+    if (shouldRedirect) {
+      router.push("/problem-page");
     }
-  }, [data?.problems.length, tag, loading]);
+  }, [shouldRedirect]);
 
-  return (
-    <>
-      <ProblemSearchSection
-        tag={tag}
-        setTag={setTag}
-        setProblems={setProblems}
-        setSearchTerm={setSearchTerm}
-        searchTerm={searchTerm}
-      />
-      <Wrapper
-        background={problems.length === 0 ? white : primaryBackground}
-        backgroundDT={primaryBackground}
-        flexDirection="column"
-        margin="0"
-        minHeight="100vh"
-      >
-        <ResultCountLabel count={problems.length}></ResultCountLabel>
-        {problems.length === 0 && !loading ? (
-          <ZeroResults setTag={setTag} setSearchTerm={setSearchTerm} />
-        ) : (
-          problems.map(({ title, author, createdAt, level, tags, id }) => (
-            <SearchResultTile
-              key={id}
-              title={title}
-              tags={tags}
-              createdAt={createdAt}
-              author={author}
-              level={level}
-              id={id}
-            />
-          ))
-        )}
-      </Wrapper>
-      {problems.length != 0 && <ScrollToTopButton />}
-    </>
-  );
+  if (loginError) {
+    return <p>{loginError.message}</p>;
+  }
+  console.log(user);
+  if (!user) {
+    return (
+      <div>
+        You're signed in as goto{" "}
+        <Link href="/about-method">
+          <a>about</a>
+        </Link>{" "}
+        page. or{" "}
+        <Link href="/moderator">
+          <a>Moderator</a>
+        </Link>
+        <Link href="/problems-page">
+          <a>problems</a>
+        </Link>
+      </div>
+    );
+  }
+
+  return <p>Loading...</p>;
 };
 
-export default ProblemsPage;
+export default Index;

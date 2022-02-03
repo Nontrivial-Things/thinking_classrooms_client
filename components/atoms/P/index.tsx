@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PProps from "./interface";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { minDevice } from "../../../styles/breakpoints";
 
 type PropsOptional = Partial<PProps>;
 

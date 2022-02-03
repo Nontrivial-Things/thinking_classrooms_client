@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import Link from "next/link";
+
 import { useTranslation } from "react-i18next";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
-import hamburger from "../../../../public/assets/img/icons/menu.svg";
-import hamburgerX from "../../../../public/assets/img/icons/x.svg";
+// import hamburger from "../../../../public/assets/img/icons/menu.svg";
+// import hamburgerX from "../../../../public/assets/img/icons/x.svg";
 
 enum NavbarMenuState {
   ACTIVE = "active",
@@ -50,7 +51,7 @@ const Header: FC = () => {
           <S.HamburgerImg
             className={navbarMenuStyle}
             onClick={toggleHamburger}
-            src={isNavbarMenuActive ? hamburgerX : hamburger}
+            // src={isNavbarMenuActive ? hamburgerX : hamburger}
             aria-hidden
             alt={t("menuIconAlt")}
           ></S.HamburgerImg>
@@ -59,20 +60,20 @@ const Header: FC = () => {
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
           <S.NavbarMenuItem onClick={handleMenuItemClick}>
-            <NavLink
-              to="/about"
-              className={({ isActive }) => (isActive ? "active" : "")}
+            <Link
+              href="/about"
+              // className={({ isActive }) => (isActive ? "active" : "")}
             >
               {t("aboutMethodPageLink")}
-            </NavLink>
+            </Link>
           </S.NavbarMenuItem>
           <S.NavbarMenuItem onClick={handleMenuItemClick}>
-            <NavLink
-              to="/moderator"
-              className={({ isActive }) => (isActive ? "active" : "")}
+            <Link
+              href="/moderator"
+              // className={({ isActive }) => (isActive ? "active" : "")}
             >
               {t("moderatorPageLink")}
-            </NavLink>
+            </Link>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>
       </S.NavbarMenu>

@@ -1,12 +1,12 @@
 import { ApolloError, useMutation } from "@apollo/client";
 import { useState, createContext, useContext, useEffect, FC } from "react";
-import { useNavigate } from "react-router-dom";
 import addMonths from "date-fns/addMonths";
 import addDays from "date-fns/addDays";
 
 import { LOGIN, Login, User } from "../../pages/LoginPage/interface";
 import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
+import { useRouter } from "next/router";
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
@@ -16,11 +16,12 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
     undefined
   );
 
-  const navigate = useNavigate();
-  const userData = getUserDataFromStorage("user");
-  const isUserDataPresent = !!userData;
+  const navigate = useRouter();
 
   useEffect(() => {
+    const userData = getUserDataFromStorage("user");
+    const isUserDataPresent = !!userData;
+
     if (isUserDataPresent) {
       setUser(userData);
     }
@@ -57,7 +58,7 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
             addMonths(new Date(), 1).getTime()
           );
         }
-        navigate("/moderator");
+        navigate.push("/moderator");
       })
       .catch((error) => {
         console.log(error.graphQLErrors);

@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { useQuery } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
@@ -13,7 +12,8 @@ import SuggestionsList from "./suggestionsList";
 import InputWithTags from "./inputWithTags";
 
 import * as S from "./styles";
-import { sortSuggestions } from "../../../../pages/ProblemsPage/utils";
+import { sortSuggestions } from "../../../pages/problems-page/utils";
+import { useRouter } from "next/router";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   tag,
@@ -37,8 +37,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
       setSuggestions(sortedSuggestions);
     }
   };
-
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     updateSuggestions();
@@ -102,7 +101,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
         activeSuggestion.type === SuggestionType.PROBLEM
       ) {
         setSearchTerm(activeSuggestion.title);
-        navigate(`/problems/${activeSuggestion.id}`);
+        router.push(`/problems/${activeSuggestion.id}`);
       } else if (
         activeSuggestion &&
         activeSuggestion.type === SuggestionType.TAG

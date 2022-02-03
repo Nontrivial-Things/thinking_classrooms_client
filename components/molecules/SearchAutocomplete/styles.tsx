@@ -4,16 +4,8 @@ import Link from "next/link";
 import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
 import inputStyles from "../../atoms/InputStyles";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
-import {
-  white,
-  grey100,
-  grey200,
-  blue100,
-} from "../../../../public/assets/styles/colors";
-import { ReactComponent as LensIcon } from "../../../../public/assets/img/icons/search.svg";
-import { ReactComponent as ClearIcon } from "../../../../public/assets/img/icons/remove-icon.svg";
-import { ReactComponent as Clipboard } from "../../../../public/assets/img/icons/clipboard.svg";
+import { minDevice } from "../../../styles/breakpoints";
+import { white, grey100, grey200, blue100 } from "../../../styles/colors";
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -57,7 +49,7 @@ const Label = styled.label`
   position: relative;
 `;
 
-const SearchIcon = styled(LensIcon)<SearchIconProps>`
+const SearchIcon = styled.span<SearchIconProps>`
   stroke: ${blue100};
   left: 0.8rem;
   bottom: 0;
@@ -65,7 +57,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
   top: ${(props) => props.top};
 `;
 
-const RemoveIcon = styled(ClearIcon)`
+const RemoveIcon = styled.span`
   fill: ${grey100};
   width: 1.6rem;
 `;
@@ -135,7 +127,7 @@ const Combobox = styled.div`
   }
 `;
 
-const TagSearchIcon = styled(LensIcon)`
+const TagSearchIcon = styled.span`
   padding-right: 0.8rem;
   stroke: black;
   font-size: 1.4rem;
@@ -146,7 +138,7 @@ const TagSearchIcon = styled(LensIcon)`
   }
 `;
 
-const ClipboardIcon = styled(Clipboard)`
+const ClipboardIcon = styled.span`
   padding-right: 0.8rem;
   display: none;
   @media ${minDevice.desktopTablet} {

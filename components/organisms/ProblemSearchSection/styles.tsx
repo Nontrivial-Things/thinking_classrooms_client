@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Wrapper from "../../atoms/Wrapper";
 
-import { white } from "../../../../public/assets/styles/colors";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { white } from "../../../styles/colors";
+import { minDevice } from "../../../styles/breakpoints";
 
 const SearchWrapper = styled(Wrapper)`
   padding: 2.4rem 1.6rem;
