@@ -1,91 +1,93 @@
 import { FC, useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
-import ProblemSubtitle from "../../atoms/ProblemSubtitle";
-import Tag from "../../atoms/Tag";
-import ScrollToTopButton from "../../atoms/ScrollToTopButton";
-import Button from "../../atoms/Button";
+// import ProblemSubtitle from "../../components/atoms/ProblemSubtitle";
+// import Tag from "../../components/atoms/Tag";
+// import ScrollToTopButton from "../../components/atoms/ScrollToTopButton";
+// import Button from "../../components/atoms/Button";
 
 import {
   ExtendedProblemDetails,
   GetProblemDetailsQuery,
   PROBLEM_DETAILS,
-} from "./interface";
-import { formatDate } from "./utils";
-import { secondarySubtitle } from "../../../../public/assets/styles/colors";
-import * as S from "./styles";
-import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
-import { DownloadIcon } from "../../atoms/Button/styles";
+} from "../ProblemDetailedPage/interface";
+import { formatDate } from "../ProblemDetailedPage/utils";
+// import { secondarySubtitle } from "../../public/assets/styles/colors";
+import * as S from "../ProblemDetailedPage/styles";
+// import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
+// import { DownloadIcon } from "../../components/atoms/Button/styles";
 
 const ProblemDetailedPage: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
+  // const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
 
-  const params = useParams();
-  const id: string = params.problemId || "";
+  // const router = useRouter();
+  // const { problemId } = router.query;
 
-  const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
-    variables: { id },
-  });
+  const id = "1";
 
-  const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
-    {} as ExtendedProblemDetails
-  );
+  // const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
+  //   variables: { id },
+  // });
 
-  const problemsLoaded =
-    !!data?.problem?.details &&
-    Object.keys(data?.problem?.details).length > 0 &&
-    !loading;
+  // const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
+  //   {} as ExtendedProblemDetails
+  // );
 
-  useEffect(() => {
-    if (problemsLoaded) {
-      const { details } = data.problem;
-      setProblemDetails({
-        ...details,
-      });
-    }
-  }, [data, loading]);
+  // const problemsLoaded =
+  //   !!data?.problem?.details &&
+  //   Object.keys(data?.problem?.details).length > 0 &&
+  //   !loading;
 
-  const formattedDate =
-    problemDetails.createdAt && formatDate(problemDetails.createdAt);
+  // useEffect(() => {
+  //   if (problemsLoaded) {
+  //     const { details } = data.problem;
+  //     setProblemDetails({
+  //       ...details,
+  //     });
+  //   }
+  // }, [data, loading]);
 
-  const printRef = useRef<HTMLDivElement>(null);
+  // const formattedDate =
+  //   problemDetails.createdAt && formatDate(problemDetails.createdAt);
 
-  const handleDownloadPdf = async () => {
-    const element = printRef.current as HTMLDivElement;
+  // const printRef = useRef<HTMLDivElement>(null);
 
-    const canvas = await html2canvas(element);
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm");
+  // const handleDownloadPdf = async () => {
+  //   const element = printRef.current as HTMLDivElement;
 
-    let position = 0;
+  //   const canvas = await html2canvas(element);
+  //   const imgData = canvas.toDataURL("image/png");
+  //   const pdf = new jsPDF("p", "mm");
 
-    const imgProperties = pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.width - 20;
+  //   let position = 0;
 
-    const pageHeight = 297;
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  //   const imgProperties = pdf.getImageProperties(imgData);
+  //   const pdfWidth = pdf.internal.pageSize.width - 20;
 
-    let heightLeft = pdfHeight;
+  //   const pageHeight = 297;
+  //   const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
-    heightLeft -= pageHeight;
+  //   let heightLeft = pdfHeight;
 
-    while (heightLeft >= 0) {
-      position = heightLeft - pdfHeight;
-      pdf.addPage();
-      pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
-      heightLeft -= pageHeight;
-    }
-    pdf.save(problemDetails.title);
-  };
+  //   pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
+  //   heightLeft -= pageHeight;
 
-  return problemsLoaded ? (
+  //   while (heightLeft >= 0) {
+  //     position = heightLeft - pdfHeight;
+  //     pdf.addPage();
+  //     pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
+  //     heightLeft -= pageHeight;
+  //   }
+  //   pdf.save(problemDetails.title);
+  // };
+
+  return (
     <S.ProblemDetailedWrapper>
-      <S.GoToProblemsListWrapper to="/">
+      {/* <S.GoToProblemsListWrapper href="/">
         <S.Arrow />
         <S.GoToProblemsListSpan>
           {t("goBackToProblemsList")}
@@ -130,9 +132,9 @@ const ProblemDetailedPage: FC = () => {
           <StyledButtonLink
             $isPrimary={false}
             $alignSelf={"flex-start"}
-            to={"/problem_detailed_page.pdf"}
-            target="_blank"
-            download="problem_detailed_page"
+            href={"/problem_detailed_page.pdf"}
+            // target="_blank"
+            // download="problem_detailed_page"
           >
             <DownloadIcon aria-hidden title="Ikona Pobierania" />
             {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
@@ -179,9 +181,10 @@ const ProblemDetailedPage: FC = () => {
           </S.ProblemSectionP>
         </S.ProblemSection>
       </S.ProblemDetailedContent>
-      <ScrollToTopButton />
+      <ScrollToTopButton /> */}
+      Hej
     </S.ProblemDetailedWrapper>
-  ) : null;
+  );
 };
 
 export default ProblemDetailedPage;

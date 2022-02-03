@@ -1,9 +1,15 @@
 import { createGlobalStyle } from "styled-components";
-import fonts from "./fonts.css";
 
 const GlobalStyle = createGlobalStyle`
 
-${fonts}
+@font-face {
+  font-family: "PT Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  src: url("../fonts/PTSans-Regular.woff") format("woff"),
+    url("../fonts/PTSans-Regular.woff2") format("woff2");
+}
 
   html,
   body {

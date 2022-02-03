@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-import { ReactComponent as ArrowLeft } from "../../../../public/assets/img/icons/arrow-left.svg";
-import { blue100, grey300 } from "../../../../public/assets/styles/colors";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
-import Wrapper from "../../atoms/Wrapper";
+// import { ReactComponent as ArrowLeft } from "../../../../public/assets/img/icons/arrow-left.svg";
+import { blue100, grey300 } from "../../styles/colors";
+import { minDevice } from "../../styles/breakpoints";
+import Wrapper from "../../components/atoms/Wrapper";
 
 const ProblemDetailedWrapper = styled(Wrapper)`
   background: white;
@@ -36,7 +36,7 @@ const GoToProblemsListWrapper = styled(Link)`
   }
 `;
 
-const Arrow = styled(ArrowLeft)`
+const Arrow = styled.span`
   width: 1.6rem;
 `;
 

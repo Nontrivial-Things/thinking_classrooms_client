@@ -6,9 +6,9 @@ import {
   blue200,
   disabledButton,
   hoverSecondaryButton,
-} from "../../../../public/assets/styles/colors";
-import { ReactComponent as Download } from "../../../../public/assets/img/icons/download.svg";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
+} from "../../../styles/colors";
+// import { ReactComponent as Download } from "../../../../public/assets/img/icons/download.svg";
+import { minDevice } from "../../../styles/breakpoints";
 import { ButtonStyleProps } from "./interface";
 
 const buttonStyles = css<ButtonStyleProps>`
@@ -87,7 +87,7 @@ const Button = styled.button<ButtonStyleProps>`
   ${buttonStyles};
 `;
 
-const DownloadIcon = styled(Download)`
+const DownloadIcon = styled.span`
   width: 1.6rem;
   stroke: ${blue100};
   margin-right: 0.8rem;

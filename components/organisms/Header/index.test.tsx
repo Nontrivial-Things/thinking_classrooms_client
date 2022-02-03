@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { testRenderer } from "../../../setupTests";
+import { testRenderer } from "../../../src/setupTests";
 import Header from "./index";
 
 describe("Header", () => {

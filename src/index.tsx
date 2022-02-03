@@ -9,7 +9,7 @@ import "./i18n";
 import { client } from "./apolloClient";
 import { worker } from "./mocks/browser";
 
-import GlobalStyle from "../public/assets/styles/global-styles";
+import GlobalStyle from "../styles/global-styles";
 
 worker.start();
 

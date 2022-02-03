@@ -1,11 +1,11 @@
 import { graphql } from "msw";
-import { Level } from "../components/molecules/SearchResultTile/interface";
+import { Level } from "../../components/molecules/SearchResultTile/interface";
 
 import { GetProblemsQuery } from "../../pages/ProblemsPage/interface";
 import {
   GetSuggestionsQuery,
   SuggestionType,
-} from "../components/organisms/ProblemSearchSection/interface";
+} from "../../components/organisms/ProblemSearchSection/interface";
 import { GetProblemDetailsQuery } from "../../pages/ProblemDetailedPage/interface";
 import { Login } from "../../pages/LoginPage/interface";
 

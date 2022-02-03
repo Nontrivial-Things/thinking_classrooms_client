@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Wrapper from "../atoms/Wrapper";
+import Wrapper from "../components/atoms/Wrapper";
 
 const AboutMethodPage: FC = () => {
   return (

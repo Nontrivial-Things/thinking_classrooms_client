@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
+import { ProblemSummaryProps } from "../../components/molecules/SearchResultTile/interface";
 import { PROBLEM_SUMMARY_FRAGMENT } from "../ProblemsPage/interface";
 
 export interface ProblemDetails {
