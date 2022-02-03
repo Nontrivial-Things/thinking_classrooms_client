@@ -1,19 +1,16 @@
 import { FC, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 
-import ResultCountLabel from "../../atoms/ResultCountLabel";
-import Wrapper from "../../atoms/Wrapper";
-import ScrollToTopButton from "../../atoms/ScrollToTopButton";
-import SearchResultTile from "../../molecules/SearchResultTile";
-import ZeroResults from "../../molecules/ZeroResults";
-import ProblemSearchSection from "../../organisms/ProblemSearchSection";
-import { GetProblemsQuery, PROBLEMS } from "./interface";
+import ResultCountLabel from "../components/atoms/ResultCountLabel";
+import Wrapper from "../components/atoms/Wrapper";
+import ScrollToTopButton from "../components/atoms/ScrollToTopButton";
+import SearchResultTile from "../components/molecules/SearchResultTile";
+import ZeroResults from "../components/molecules/ZeroResults";
+import ProblemSearchSection from "../components/organisms/ProblemSearchSection";
+import { GetProblemsQuery, PROBLEMS } from "../pages/ProblemsPage/interface";
 
-import {
-  white,
-  primaryBackground,
-} from "../../../../public/assets/styles/colors";
-import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
+import { white, primaryBackground } from "../styles/colors";
+import { ProblemSummaryProps } from "../components/molecules/SearchResultTile/interface";
 
 const ProblemsPage: FC = () => {
   const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);

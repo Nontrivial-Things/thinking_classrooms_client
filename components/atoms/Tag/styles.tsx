@@ -3,11 +3,8 @@ import styled from "styled-components";
 import Wrapper from "../Wrapper";
 import TagWrapperProps from "./interface";
 
-import {
-  tagBackground,
-  tagText,
-} from "../../../../public/assets/styles/colors";
-import { ReactComponent as RemoveIcon } from "../../../../public/assets/img/icons/remove-icon.svg";
+import { tagBackground, tagText } from "../../../styles/colors";
+// import RemoveIcon from "../../../../public/assets/img/icons/remove-icon.svg";
 
 const TagWrapper = styled(Wrapper)<TagWrapperProps>`
   flex-direction: row;
@@ -36,7 +33,7 @@ const RemoveButton = styled.button`
   cursor: pointer;
 `;
 
-const RemoveTagIcon = styled(RemoveIcon)`
+const RemoveTagIcon = styled.span`
   fill: ${tagText};
   margin-left: 1rem;
   width: 1.4rem;
