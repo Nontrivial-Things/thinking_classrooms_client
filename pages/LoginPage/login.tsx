@@ -40,7 +40,7 @@ const LoginPage: FC = () => {
       <S.LoginFormWrapper>
         <S.H4>{t("loginHeader")}</S.H4>
         <S.InfoText>{t("loginSubtitle")}</S.InfoText>
-        <S.StyledLink to="/">{t("learnMore")}</S.StyledLink>
+        <S.StyledLink href="/">{t("learnMore")}</S.StyledLink>
         {loginError && (
           <S.LoginErrorMessage>{t("loginErrorMessage")}</S.LoginErrorMessage>
         )}
@@ -111,7 +111,7 @@ const LoginPage: FC = () => {
                   />
                   <S.InfoText>{t("rememberMeCheckbox")}</S.InfoText>
                 </S.Label>
-                <S.StyledLink to="/">{t("forgetPassword")}</S.StyledLink>
+                <S.StyledLink href="/">{t("forgetPassword")}</S.StyledLink>
               </S.LoginOptions>
               <Button
                 type="submit"

@@ -1,19 +1,19 @@
 import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 
 import inputStyles from "../../atoms/InputStyles";
-import { minDevice } from "../../../assets/styles/breakpoints";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 import {
   white,
   grey100,
   grey200,
   blue100,
-} from "../../../assets/styles/colors";
-import { ReactComponent as LensIcon } from "../../../assets/img/icons/search.svg";
-import { ReactComponent as ClearIcon } from "../../../assets/img/icons/remove-icon.svg";
-import { ReactComponent as Clipboard } from "../../../assets/img/icons/clipboard.svg";
+} from "../../../../public/assets/styles/colors";
+import { ReactComponent as LensIcon } from "../../../../public/assets/img/icons/search.svg";
+import { ReactComponent as ClearIcon } from "../../../../public/assets/img/icons/remove-icon.svg";
+import { ReactComponent as Clipboard } from "../../../../public/assets/img/icons/clipboard.svg";
 
 const FormWrapper = styled.div`
   width: 100%;

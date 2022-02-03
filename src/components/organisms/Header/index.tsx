@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
-import hamburger from "../../../assets/img/icons/menu.svg";
-import hamburgerX from "../../../assets/img/icons/x.svg";
+import hamburger from "../../../../public/assets/img/icons/menu.svg";
+import hamburgerX from "../../../../public/assets/img/icons/x.svg";
 
 enum NavbarMenuState {
   ACTIVE = "active",
@@ -43,7 +43,7 @@ const Header: FC = () => {
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
-        <Link to="/">
+        <Link href="/">
           <Logo isBackgroundDark={false}></Logo>
         </Link>
         <S.MenuIconButton aria-label={t("hamburgerAlt")}>

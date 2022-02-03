@@ -20,7 +20,9 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
         <S.Title>
-          <S.StyledTitleLink to={`/problems/${id}`}>{title}</S.StyledTitleLink>
+          <S.StyledTitleLink href={`/problems/${id}`}>
+            {title}
+          </S.StyledTitleLink>
         </S.Title>
         <S.AuthorWrapper>
           <S.Details>{author}</S.Details>

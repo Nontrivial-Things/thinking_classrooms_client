@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { white } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { white } from "../../../../public/assets/styles/colors";
 
 const inputStyles = css`
   width: 100%;

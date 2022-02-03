@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { primaryText } from "../../../assets/styles/colors";
-import { minDevice } from "../../../assets/styles/breakpoints";
+import { primaryText } from "../../../../public/assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 import IconProps from "./interface";
 
 type PropsOptional = Partial<IconProps>;

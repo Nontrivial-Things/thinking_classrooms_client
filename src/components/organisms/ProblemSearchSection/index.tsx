@@ -5,7 +5,7 @@ import SearchAutocomplete from "../../molecules/SearchAutocomplete";
 import { ProblemSearchSectionProps } from "./interface";
 
 import * as S from "./styles";
-import { darkGradientBackground } from "../../../assets/styles/colors";
+import { darkGradientBackground } from "../../../../public/assets/styles/colors";
 
 const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
   setTag,

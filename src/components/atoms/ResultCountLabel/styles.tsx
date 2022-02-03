@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 import Wrapper from "../Wrapper";
 import { ResultCountSpanProps } from "./interface";
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { grey300, primaryBackground } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import {
+  grey300,
+  primaryBackground,
+} from "../../../../public/assets/styles/colors";
 
 const ResultCountWrapper = styled(Wrapper)`
   color: ${grey300};

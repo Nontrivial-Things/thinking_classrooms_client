@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 import Column from "../../atoms/Column";
 
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { blue100, blue200 } from "../../../assets/styles/colors";
-import ZeroResults from "../../../assets/img/zero-results.png";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { blue100, blue200 } from "../../../../public/assets/styles/colors";
+import ZeroResults from "../../../../public/assets/img/zero-results.png";
 
 const ZeroResultsWrapper = styled(Column)`
   justify-content: center;

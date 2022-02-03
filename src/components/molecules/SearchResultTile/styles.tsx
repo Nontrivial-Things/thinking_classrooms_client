@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { grey100, grey300, white } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import {
+  grey100,
+  grey300,
+  white,
+} from "../../../../public/assets/styles/colors";
 import Wrapper from "../../atoms/Wrapper";
 
 const SearchResultTileWrapper = styled(Wrapper)`

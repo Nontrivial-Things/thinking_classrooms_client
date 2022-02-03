@@ -1,15 +1,15 @@
 import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import { InputStyleProps } from "./interface";
 import Wrapper from "../../atoms/Wrapper";
 import inputStyles from "../../atoms/InputStyles";
-import LeftBottomBubbles from "../../../assets/img/left-bottom-bubbles.png";
-import LeftTopBubbles from "../../../assets/img/left-top-bubbles.png";
-import RightBubbles from "../../../assets/img/right-bubbles.png";
-import { ReactComponent as Alert } from "../../../assets/img/icons/alert-triangle.svg";
-import { ReactComponent as EyeOff } from "../../../assets/img/icons/eye-off.svg";
-import { ReactComponent as Eye } from "../../../assets/img/icons/eye.svg";
+import LeftBottomBubbles from "../../../../public/assets/img/left-bottom-bubbles.png";
+import LeftTopBubbles from "../../../../public/assets/img/left-top-bubbles.png";
+import RightBubbles from "../../../../public/assets/img/right-bubbles.png";
+import { ReactComponent as Alert } from "../../../../public/assets/img/icons/alert-triangle.svg";
+import { ReactComponent as EyeOff } from "../../../../public/assets/img/icons/eye-off.svg";
+import { ReactComponent as Eye } from "../../../../public/assets/img/icons/eye.svg";
 
 import {
   white,
@@ -20,8 +20,8 @@ import {
   grey100,
   grey200,
   error,
-} from "../../../assets/styles/colors";
-import { minDevice } from "../../../assets/styles/breakpoints";
+} from "../../../../public/assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 
 const LoginPageWrapper = styled(Wrapper)`
   background: ${primaryBackground};

@@ -3,7 +3,10 @@ import { useTranslation } from "react-i18next";
 
 import * as S from "./styles";
 import { ResultCountWrapperProps } from "./interface";
-import { white, primaryBackground } from "../../../assets/styles/colors";
+import {
+  white,
+  primaryBackground,
+} from "../../../../public/assets/styles/colors";
 
 const ResultCountLabel: FC<ResultCountWrapperProps> = ({ count }) => {
   const { t } = useTranslation("", { keyPrefix: "problemsPage" });

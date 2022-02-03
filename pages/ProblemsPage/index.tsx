@@ -9,7 +9,10 @@ import ZeroResults from "../../molecules/ZeroResults";
 import ProblemSearchSection from "../../organisms/ProblemSearchSection";
 import { GetProblemsQuery, PROBLEMS } from "./interface";
 
-import { white, primaryBackground } from "../../../assets/styles/colors";
+import {
+  white,
+  primaryBackground,
+} from "../../../../public/assets/styles/colors";
 import { ProblemSummaryProps } from "../../molecules/SearchResultTile/interface";
 
 const ProblemsPage: FC = () => {

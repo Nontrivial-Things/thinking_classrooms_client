@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import { SubtitleHeaderStyleProps } from "./interface";
 import Wrapper from "../Wrapper";
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { blue200, grey100 } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { blue200, grey100 } from "../../../../public/assets/styles/colors";
 
 const SubtitleWrapper = styled(Wrapper)`
   color: ${grey100};

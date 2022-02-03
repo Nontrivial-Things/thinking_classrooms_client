@@ -6,9 +6,9 @@ import {
   blue200,
   disabledButton,
   hoverSecondaryButton,
-} from "../../../assets/styles/colors";
-import { ReactComponent as Download } from "../../../assets/img/icons/download.svg";
-import { minDevice } from "../../../assets/styles/breakpoints";
+} from "../../../../public/assets/styles/colors";
+import { ReactComponent as Download } from "../../../../public/assets/img/icons/download.svg";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 import { ButtonStyleProps } from "./interface";
 
 const buttonStyles = css<ButtonStyleProps>`

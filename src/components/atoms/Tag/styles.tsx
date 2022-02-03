@@ -3,8 +3,11 @@ import styled from "styled-components";
 import Wrapper from "../Wrapper";
 import TagWrapperProps from "./interface";
 
-import { tagBackground, tagText } from "../../../assets/styles/colors";
-import { ReactComponent as RemoveIcon } from "../../../assets/img/icons/remove-icon.svg";
+import {
+  tagBackground,
+  tagText,
+} from "../../../../public/assets/styles/colors";
+import { ReactComponent as RemoveIcon } from "../../../../public/assets/img/icons/remove-icon.svg";
 
 const TagWrapper = styled(Wrapper)<TagWrapperProps>`
   flex-direction: row;

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
-import Mail from "../../../assets/img/icons/mail.svg";
+import Mail from "../../../../public/assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
 import P from "../../atoms/P";
 import Row from "../../atoms/Row";
@@ -10,7 +10,7 @@ import Icon from "../../atoms/Icon";
 import Wrapper from "../../atoms/Wrapper";
 import Column from "../../atoms/Column";
 import * as S from "./styles";
-import { white, grey100 } from "../../../assets/styles/colors";
+import { white, grey100 } from "../../../../public/assets/styles/colors";
 
 const Footer: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "footer" });
@@ -24,7 +24,7 @@ const Footer: FC = () => {
         alignItems="flex-start"
         margin="0"
       >
-        <Link to="/">
+        <Link href="/">
           <Logo isBackgroundDark />
         </Link>
         <S.ContactWrapper>

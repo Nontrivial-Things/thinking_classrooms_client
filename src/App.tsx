@@ -3,11 +3,11 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
-import ProblemsPage from "./components/pages/ProblemsPage";
-import ProblemDetailedPage from "./components/pages/ProblemDetailedPage";
-import AboutMethodPage from "./components/pages/AboutMethodPage";
-import Moderator from "./components/pages/Moderator";
-import LoginPage from "./components/pages/LoginPage";
+import ProblemsPage from "../pages/ProblemsPage";
+import ProblemDetailedPage from "../pages/ProblemDetailedPage";
+import AboutMethodPage from "../pages/AboutMethodPage";
+import Moderator from "../pages/Moderator";
+import LoginPage from "../pages/LoginPage/login";
 import { AuthProvider } from "./auth/AuthProvider";
 import RequireAuth from "./auth/RequireAuth";
 

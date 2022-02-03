@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { minDevice } from "../../../assets/styles/breakpoints";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 
 import { WrapperProps } from "./interface";
 

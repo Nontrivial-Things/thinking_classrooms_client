@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import addMonths from "date-fns/addMonths";
 import addDays from "date-fns/addDays";
 
-import { LOGIN, Login, User } from "../components/pages/LoginPage/interface";
+import { LOGIN, Login, User } from "../../pages/LoginPage/interface";
 import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 

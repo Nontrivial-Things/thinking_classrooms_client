@@ -33,7 +33,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
               <Tag text={suggestion.title} fontSize="1.4rem" />
             </>
           ) : (
-            <S.ProblemLink to={`/problems/${suggestion.id}`}>
+            <S.ProblemLink href={`/problems/${suggestion.id}`}>
               <S.ClipboardIcon />
               <S.ProblemLinkSpan>{suggestion.title}</S.ProblemLinkSpan>
             </S.ProblemLink>

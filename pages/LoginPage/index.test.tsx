@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import { testRenderer } from "../../../setupTests";
 
-import LoginPage from "./index";
+import LoginPage from "./login";
 
 describe("<LoginPage />", () => {
   it("displays inputted email value", async () => {

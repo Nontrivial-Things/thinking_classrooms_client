@@ -16,7 +16,7 @@ import {
   PROBLEM_DETAILS,
 } from "./interface";
 import { formatDate } from "./utils";
-import { secondarySubtitle } from "../../../assets/styles/colors";
+import { secondarySubtitle } from "../../../../public/assets/styles/colors";
 import * as S from "./styles";
 import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
 import { DownloadIcon } from "../../atoms/Button/styles";

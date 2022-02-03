@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import Wrapper from "../../atoms/Wrapper";
 
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { blue100, white } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import { blue100, white } from "../../../../public/assets/styles/colors";
 
 const HeaderWrapper = styled.header`
   justify-content: space-between;

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-import { ReactComponent as Check } from "../../../assets/img/icons/check.svg";
-import { blue100, grey100, white } from "../../../assets/styles/colors";
+import { ReactComponent as Check } from "../../../../public/assets/img/icons/check.svg";
+import {
+  blue100,
+  grey100,
+  white,
+} from "../../../../public/assets/styles/colors";
 import { CheckBoxProps } from "./interface";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })<CheckBoxProps>`

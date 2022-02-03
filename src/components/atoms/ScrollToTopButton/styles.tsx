@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import { ScrollButtonStyleProps } from "./interface";
-import { ReactComponent as ArrowUp } from "../../../assets/img/icons/arrow-up.svg";
-import { minDevice } from "../../../assets/styles/breakpoints";
+import { ReactComponent as ArrowUp } from "../../../../public/assets/img/icons/arrow-up.svg";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
 
 const ScrollButton = styled.button<ScrollButtonStyleProps>`
   display: ${(props) => (props.$visible ? "inline" : "none")};

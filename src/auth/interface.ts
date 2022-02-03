@@ -1,5 +1,5 @@
 import { ApolloError } from "@apollo/client";
-import { User } from "../components/pages/LoginPage/interface";
+import { User } from "../../pages/LoginPage/interface";
 
 export interface AuthContextType {
   user?: User | UserTokenWithExpiry;

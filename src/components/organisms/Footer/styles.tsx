@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 import P from "../../atoms/P";
-import { minDevice } from "../../../assets/styles/breakpoints";
-import { darkGradientBackground, white } from "../../../assets/styles/colors";
+import { minDevice } from "../../../../public/assets/styles/breakpoints";
+import {
+  darkGradientBackground,
+  white,
+} from "../../../../public/assets/styles/colors";
 
 const FooterWrapper = styled.div`
   width: 100%;
