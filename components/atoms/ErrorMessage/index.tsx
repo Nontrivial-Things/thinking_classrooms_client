@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { error } from "../../../../public/assets/styles/colors";
+import { error } from "../../../styles/colors";
 
 const ErrorMessage = styled.span`
   display: flex;

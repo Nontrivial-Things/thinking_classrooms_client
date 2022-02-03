@@ -1,14 +1,14 @@
 import { FC, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
-import { Navigate } from "react-router-dom";
 
-import useAuth from "../../../auth/AuthProvider";
-import Button from "../../atoms/Button";
-import Checkbox from "../../atoms/Checkbox";
-import ErrorMessage from "../../atoms/ErrorMessage";
+import useAuth from "../../src/auth/AuthProvider";
+import Button from "../../components/atoms/Button";
+import Checkbox from "../../components/atoms/Checkbox";
+import ErrorMessage from "../../components/atoms/ErrorMessage";
 import formInputsValidation from "./validations";
 import * as S from "./styles";
+import { useRouter } from "next/router";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation("", { keyPrefix: "loginPage" });
@@ -31,6 +31,7 @@ const LoginPage: FC = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
+  const navigate = useRouter();
 
   return !user ? (
     <S.LoginPageWrapper>
@@ -126,7 +127,7 @@ const LoginPage: FC = () => {
       </S.LoginFormWrapper>
     </S.LoginPageWrapper>
   ) : (
-    <Navigate to="/" />
+    <div>{navigate.push("/")}</div>
   );
 };
 

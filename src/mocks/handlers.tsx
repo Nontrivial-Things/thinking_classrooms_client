@@ -7,7 +7,7 @@ import {
   SuggestionType,
 } from "../../components/organisms/ProblemSearchSection/interface";
 import { GetProblemDetailsQuery } from "../../pages/ProblemDetailedPage/interface";
-import { Login } from "../../pages/LoginPage/interface";
+import { Login } from "../../pages/login/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {

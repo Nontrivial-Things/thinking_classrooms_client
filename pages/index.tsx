@@ -15,33 +15,32 @@ const ViewerQuery = gql`
 
 const Index = () => {
   const router = useRouter();
-  const { signin, user, loginError, loading, setLoginError } = useAuth();
+  const { user, loginError, loading } = useAuth();
 
   const shouldRedirect = !(loading || loginError || user);
 
-  useEffect(() => {
-    if (shouldRedirect) {
-      router.push("/problem-page");
-    }
-  }, [shouldRedirect]);
+  // useEffect(() => {
+  //   if (shouldRedirect) {
+  //     router.push("/problem-page");
+  //   }
+  // }, [shouldRedirect]);
 
-  if (loginError) {
-    return <p>{loginError.message}</p>;
-  }
-  console.log(user);
+  // if (loginError) {
+  //   return <p>{loginError.message}</p>;
+  // }
+
   if (!user) {
     return (
       <div>
-        You're signed in as goto{" "}
+        You're signed in{" "}
         <Link href="/about-method">
-          <a>about</a>
+          <a>ABOUT</a>
         </Link>{" "}
-        page. or{" "}
         <Link href="/moderator">
-          <a>Moderator</a>
-        </Link>
+          <a>MODERATOR</a>
+        </Link>{" "}
         <Link href="/problems-page">
-          <a>problems</a>
+          <a>PROBLEMS</a>
         </Link>
       </div>
     );

@@ -3,7 +3,7 @@ import { useState, createContext, useContext, useEffect, FC } from "react";
 import addMonths from "date-fns/addMonths";
 import addDays from "date-fns/addDays";
 
-import { LOGIN, Login, User } from "../../pages/LoginPage/interface";
+import { LOGIN, Login, User } from "../../pages/login/interface";
 import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 import { useRouter } from "next/router";

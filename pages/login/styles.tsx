@@ -2,14 +2,11 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 
 import { InputStyleProps } from "./interface";
-import Wrapper from "../../atoms/Wrapper";
-import inputStyles from "../../atoms/InputStyles";
+import Wrapper from "../../components/atoms/Wrapper";
+import inputStyles from "../../components/atoms/InputStyles";
 import LeftBottomBubbles from "../../../../public/assets/img/left-bottom-bubbles.png";
 import LeftTopBubbles from "../../../../public/assets/img/left-top-bubbles.png";
 import RightBubbles from "../../../../public/assets/img/right-bubbles.png";
-import { ReactComponent as Alert } from "../../../../public/assets/img/icons/alert-triangle.svg";
-import { ReactComponent as EyeOff } from "../../../../public/assets/img/icons/eye-off.svg";
-import { ReactComponent as Eye } from "../../../../public/assets/img/icons/eye.svg";
 
 import {
   white,
@@ -20,8 +17,8 @@ import {
   grey100,
   grey200,
   error,
-} from "../../../../public/assets/styles/colors";
-import { minDevice } from "../../../../public/assets/styles/breakpoints";
+} from "../../styles/colors";
+import { minDevice } from "../../styles/breakpoints";
 
 const LoginPageWrapper = styled(Wrapper)`
   background: ${primaryBackground};
@@ -101,7 +98,6 @@ const StyledLink = styled(Link)`
 `;
 
 const RightBubblesImg = styled.div`
-  background-image: url(${RightBubbles});
   background-size: contain;
   background-repeat: no-repeat;
   width: 7.517rem;
@@ -128,7 +124,7 @@ const LeftTopBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
     display: flex;
-    background-image: url(${LeftTopBubbles});
+
     background-size: contain;
     background-repeat: no-repeat;
     width: 10rem;
@@ -150,7 +146,6 @@ const LeftBottomBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
     display: flex;
-    background-image: url(${LeftBottomBubbles});
     background-size: contain;
     background-repeat: no-repeat;
     width: 8.5rem;
@@ -190,7 +185,7 @@ const Input = styled.input<InputStyleProps>`
   ${inputStyles};
 `;
 
-const AlertIcon = styled(Alert)`
+const AlertIcon = styled.span`
   margin-right: 0.5rem;
   width: 1.828rem;
   height: 1.584rem;
@@ -203,11 +198,11 @@ const iconEyeStyles = css`
   position: absolute;
 `;
 
-const EyeOffIcon = styled(EyeOff)`
+const EyeOffIcon = styled.span`
   ${iconEyeStyles}
 `;
 
-const EyeIcon = styled(Eye)`
+const EyeIcon = styled.span`
   ${iconEyeStyles}
 `;
 
