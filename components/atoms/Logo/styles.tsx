@@ -14,8 +14,4 @@ const LogoDiv = styled.div<LogoDivProps>`
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-`;
-
-export { LogoDiv, Img };
+export { LogoDiv };

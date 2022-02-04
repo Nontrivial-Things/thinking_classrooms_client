@@ -12,6 +12,7 @@ import { GetProblemsQuery, PROBLEMS } from "./interface";
 import { white, primaryBackground } from "../../styles/colors";
 import { ProblemSummaryProps } from "../../components/molecules/SearchResultTile/interface";
 import { GetStaticPropsContext } from "next";
+import { debug } from "util";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

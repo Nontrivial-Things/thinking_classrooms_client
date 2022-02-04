@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import Tag from "../../atoms/Tag";
 import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
@@ -35,9 +36,11 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <StyledButtonLink $isPrimary={false} $isHidden href={`/problems/${id}`}>
-        {t("showDetails")}
-      </StyledButtonLink>
+      <Link href={`/problems/${id}`}>
+        <StyledButtonLink $isPrimary={false} $isHidden href={`/problems/${id}`}>
+          {t("showDetails")}
+        </StyledButtonLink>
+      </Link>
     </S.SearchResultTileWrapper>
   );
 };
