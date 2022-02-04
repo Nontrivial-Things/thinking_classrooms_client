@@ -1,13 +1,13 @@
 import { graphql } from "msw";
-import { Level } from "../../components/molecules/SearchResultTile/interface";
+import { Level } from "../components/molecules/SearchResultTile/interface";
 
-import { GetProblemsQuery } from "../../pages/problems-page/interface";
+import { GetProblemsQuery } from "../pages/problems-page/interface";
 import {
   GetSuggestionsQuery,
   SuggestionType,
-} from "../../components/organisms/ProblemSearchSection/interface";
-import { GetProblemDetailsQuery } from "../../pages/ProblemDetailedPage/interface";
-import { Login } from "../../pages/login/interface";
+} from "../components/organisms/ProblemSearchSection/interface";
+import { GetProblemDetailsQuery } from "../pages/ProblemDetailedPage/interface";
+import { Login } from "../pages/login/interface";
 
 export const handlers = [
   graphql.query<GetProblemsQuery>("GetProblems", (req, res, ctx) => {

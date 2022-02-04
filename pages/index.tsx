@@ -2,16 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { gql, useQuery } from "@apollo/client";
-import useAuth from "../src/auth/AuthProvider";
-
-const ViewerQuery = gql`
-  query ViewerQuery {
-    viewer {
-      id
-      email
-    }
-  }
-`;
+import useAuth from "../auth/AuthProvider";
 
 const Index = () => {
   const router = useRouter();

@@ -3,7 +3,7 @@ import { useState, createContext, useContext, useEffect, FC } from "react";
 import addMonths from "date-fns/addMonths";
 import addDays from "date-fns/addDays";
 
-import { LOGIN, Login, User } from "../../pages/login/interface";
+import { LOGIN, Login, User } from "../pages/login/interface";
 import { AuthContextType, AuthProps, UserTokenWithExpiry } from "./interface";
 import { getUserDataFromStorage, setUserDataInStorage } from "./utils";
 import { useRouter } from "next/router";
@@ -21,7 +21,6 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
   useEffect(() => {
     const userData = getUserDataFromStorage("user");
     const isUserDataPresent = !!userData;
-
     if (isUserDataPresent) {
       setUser(userData);
     }
@@ -40,6 +39,8 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
     })
       .then((data) => {
         const user = data.data?.login;
+        console.log(user);
+
         user && setUser(user);
         if (user && !checked) {
           setUserDataInStorage(

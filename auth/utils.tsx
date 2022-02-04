@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { UserTokenWithExpiry } from "./interface";
 
 export const setUserDataInStorage = (
@@ -9,20 +10,22 @@ export const setUserDataInStorage = (
     token,
     expiry,
   };
-  if (typeof window !== "undefined") {
-    localStorage.setItem(key, JSON.stringify(userToken));
-  }
+
+  localStorage.setItem(key, JSON.stringify(userToken));
 };
 
 export const getUserDataFromStorage = (
   key: string
 ): UserTokenWithExpiry | void => {
-  const userToken = localStorage.getItem(key);
-  const parsedUserData = userToken && JSON.parse(userToken);
+  if (typeof window === "undefined") {
+    const userToken = localStorage.getItem(key);
 
-  return isUserExpired(parsedUserData)
-    ? removeExpiredUser(key)
-    : parsedUserData;
+    const parsedUserData = userToken && JSON.parse(userToken);
+
+    return isUserExpired(parsedUserData)
+      ? removeExpiredUser(key)
+      : parsedUserData;
+  }
 };
 
 export const isUserExpired = (userData: UserTokenWithExpiry): boolean => {

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import LoginPage from "../../pages/login";
+import LoginPage from "../pages/login";
 import useAuth from "./AuthProvider";
 import { AuthProps } from "./interface";
 

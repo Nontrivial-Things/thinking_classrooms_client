@@ -22,6 +22,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 export const client = new ApolloClient({
+  ssrMode: typeof window === "undefined",
   cache,
   link: authLink.concat(httpLink),
 });

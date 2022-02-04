@@ -2,7 +2,7 @@ import { FC, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Form, Field } from "react-final-form";
 
-import useAuth from "../../src/auth/AuthProvider";
+import useAuth from "../../auth/AuthProvider";
 import Button from "../../components/atoms/Button";
 import Checkbox from "../../components/atoms/Checkbox";
 import ErrorMessage from "../../components/atoms/ErrorMessage";
@@ -15,6 +15,7 @@ const LoginPage: FC = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
   const { signin, user, loginError, setLoginError } = useAuth();
+  console.log(loginError, "loginError");
 
   useLayoutEffect(() => {
     setLoginError(undefined);
