@@ -1,5 +1,5 @@
 import { FC, useLayoutEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { Form, Field } from "react-final-form";
 
 import useAuth from "../../auth/AuthProvider";
@@ -9,9 +9,18 @@ import ErrorMessage from "../../components/atoms/ErrorMessage";
 import formInputsValidation from "./validations";
 import * as S from "./styles";
 import { useRouter } from "next/router";
+import { GetStaticPropsContext } from "next";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
+}
 
 const LoginPage: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "loginPage" });
+  const t = useTranslations("loginPage");
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
   const { signin, user, loginError, setLoginError } = useAuth();

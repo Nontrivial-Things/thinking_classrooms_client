@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import SearchAutocomplete from "../../molecules/SearchAutocomplete";
 import { ProblemSearchSectionProps } from "./interface";
@@ -14,7 +14,7 @@ const ProblemSearchSection: FC<ProblemSearchSectionProps> = ({
   searchTerm,
   tag,
 }) => {
-  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
+  const t = useTranslations("problemsPage");
 
   return (
     <S.SearchWrapper

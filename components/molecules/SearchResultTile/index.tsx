@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import Tag from "../../atoms/Tag";
 import StyledButtonLink from "../../atoms/Button/StyledButtonLink";
@@ -14,7 +14,7 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
   level,
   id,
 }) => {
-  const { t } = useTranslation("", { keyPrefix: "button" });
+  const t = useTranslations("button");
 
   return (
     <S.SearchResultTileWrapper>

@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { ZeroResultsProps } from "./interface";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import * as S from "./styles";
 
 const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
   const suggestedTags = ["ciągi", "jedzenie", "zwierzęta"];
-  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
+  const t = useTranslations("problemsPage");
 
   const handleOnClick = (tag: string) => {
     setTag(tag);

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 // import Mail from "../../../../public/assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
@@ -13,7 +13,7 @@ import * as S from "./styles";
 import { white, grey100 } from "../../../styles/colors";
 
 const Footer: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "footer" });
+  const t = useTranslations("footer");
 
   return (
     <S.FooterWrapper>

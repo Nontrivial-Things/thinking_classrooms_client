@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Link from "next/link";
 
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
@@ -19,7 +19,7 @@ const NavbarClass = {
 };
 
 const Header: FC = () => {
-  const { t } = useTranslation("", { keyPrefix: "header" });
+  const t = useTranslations("Header");
 
   const [navbarMenuState, setNavbarMenuState] = useState<NavbarMenuState>(
     NavbarMenuState.CLOSED
@@ -61,7 +61,7 @@ const Header: FC = () => {
         <S.NavbarMenuList>
           <S.NavbarMenuItem onClick={handleMenuItemClick}>
             <Link
-              href="/about"
+              href="/about-method"
               // className={({ isActive }) => (isActive ? "active" : "")}
             >
               {t("aboutMethodPageLink")}

@@ -8,3 +8,10 @@ module.exports = withTM({
     webpack5: true,
   },
 });
+
+module.exports = {
+  i18n: {
+    locales: ["pl"],
+    defaultLocale: "pl",
+  },
+};

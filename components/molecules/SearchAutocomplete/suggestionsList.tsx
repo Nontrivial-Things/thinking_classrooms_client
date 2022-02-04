@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { SuggestionsProps } from "./interface";
 import Tag from "../../atoms/Tag";
@@ -11,7 +11,7 @@ const SuggestionsList: FC<SuggestionsProps> = ({
   activeSuggestionIndex,
   chooseSuggestion,
 }) => {
-  const { t } = useTranslation("", { keyPrefix: "common" });
+  const t = useTranslations("common");
   const ref = useRef<HTMLUListElement>(null);
 
   return (

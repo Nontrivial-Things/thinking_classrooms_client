@@ -11,6 +11,15 @@ import { GetProblemsQuery, PROBLEMS } from "./interface";
 
 import { white, primaryBackground } from "../../styles/colors";
 import { ProblemSummaryProps } from "../../components/molecules/SearchResultTile/interface";
+import { GetStaticPropsContext } from "next";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
+}
 
 const ProblemsPage: FC = () => {
   const { data, loading } = useQuery<GetProblemsQuery>(PROBLEMS);

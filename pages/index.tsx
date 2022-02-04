@@ -1,14 +1,35 @@
 import { useEffect } from "react";
+import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { gql, useQuery } from "@apollo/client";
 import useAuth from "../auth/AuthProvider";
+
+import { useTranslations } from "next-intl";
+
+const ViewerQuery = gql`
+  query ViewerQuery {
+    viewer {
+      id
+      email
+    }
+  }
+`;
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../messages/${locale}.json`)).default,
+    },
+  };
+}
 
 const Index = () => {
   const router = useRouter();
   const { user, loginError, loading } = useAuth();
 
   const shouldRedirect = !(loading || loginError || user);
+  const t = useTranslations("problemsPage");
 
   // useEffect(() => {
   //   if (shouldRedirect) {
@@ -23,7 +44,6 @@ const Index = () => {
   if (!user) {
     return (
       <div>
-        You're signed in{" "}
         <Link href="/about-method">
           <a>ABOUT</a>
         </Link>{" "}

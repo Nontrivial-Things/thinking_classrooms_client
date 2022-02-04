@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import Tag from "../../atoms/Tag";
 
@@ -7,7 +7,7 @@ import * as S from "./styles";
 import { InputWithTagsProps } from "./interface";
 
 const InputWithTags: FC<InputWithTagsProps> = ({ text, onRemoveTag }) => {
-  const { t } = useTranslation("", { keyPrefix: "common" });
+  const t = useTranslations("common");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
     if (e.key === "Backspace") {

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import * as S from "./styles";
 import { ButtonProps } from "./interface";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({
   $isHidden = false,
   onClick,
 }) => {
-  const { t } = useTranslation("", { keyPrefix: "common" });
+  const t = useTranslations("common");
 
   return (
     <S.Button

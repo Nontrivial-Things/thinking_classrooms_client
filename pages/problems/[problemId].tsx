@@ -1,7 +1,7 @@
 import { FC, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
@@ -21,8 +21,18 @@ import * as S from "../ProblemDetailedPage/styles";
 // import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
 // import { DownloadIcon } from "../../components/atoms/Button/styles";
 
+import { GetStaticPropsContext } from "next";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
+}
+
 const ProblemDetailedPage: FC = () => {
-  // const { t } = useTranslation("", { keyPrefix: "problemDetailedPage" });
+  // const t  = useTranslations(problemDetailedPage");
 
   // const router = useRouter();
   // const { problemId } = router.query;

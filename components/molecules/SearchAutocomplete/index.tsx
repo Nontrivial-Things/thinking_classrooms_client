@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { useQuery } from "@apollo/client";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
@@ -27,7 +27,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showClearButton, setShowClearButton] = useState(false);
-  const { t } = useTranslation("", { keyPrefix: "problemsPage" });
+  const t = useTranslations("problemsPage");
 
   const updateSuggestions = () => {
     if (!loading && data) {

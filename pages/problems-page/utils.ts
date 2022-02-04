@@ -1,4 +1,4 @@
-import { Suggestion } from "../../organisms/ProblemSearchSection/interface";
+import { Suggestion } from "../../components/organisms/ProblemSearchSection/interface";
 
 export const sortSuggestions = (
   suggestionsBase: Suggestion[]

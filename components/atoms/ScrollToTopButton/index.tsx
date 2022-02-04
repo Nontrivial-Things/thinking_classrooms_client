@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
 import throttle from "lodash.throttle";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 import * as S from "./styles";
 
 const ScrollToTopButton: FC = () => {
   const [visible, setVisible] = useState(false);
-  const { t } = useTranslation("", { keyPrefix: "common" });
+  const t = useTranslations("common");
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
