@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Link from "next/link";
 
 // import { ReactComponent as ArrowLeft } from "../../../../public/assets/img/icons/arrow-left.svg";
-import { blue100, grey300 } from "../../styles/colors";
-import { minDevice } from "../../styles/breakpoints";
-import Wrapper from "../../components/atoms/Wrapper";
+import { blue100, grey300 } from "../../../styles/colors";
+import { minDevice } from "../../../styles/breakpoints";
+import Wrapper from "../../../components/atoms/Wrapper";
 
 const ProblemDetailedWrapper = styled(Wrapper)`
   background: white;

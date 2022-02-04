@@ -24,7 +24,6 @@ const LoginPage: FC = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(false);
   const { signin, user, loginError, setLoginError } = useAuth();
-  console.log(loginError, "loginError");
 
   useLayoutEffect(() => {
     setLoginError(undefined);

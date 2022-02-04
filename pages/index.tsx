@@ -31,15 +31,15 @@ const Index = () => {
   const shouldRedirect = !(loading || loginError || user);
   const t = useTranslations("problemsPage");
 
-  // useEffect(() => {
-  //   if (shouldRedirect) {
-  //     router.push("/problem-page");
-  //   }
-  // }, [shouldRedirect]);
+  useEffect(() => {
+    if (shouldRedirect) {
+      router.push("/problems-page");
+    }
+  }, [shouldRedirect]);
 
-  // if (loginError) {
-  //   return <p>{loginError.message}</p>;
-  // }
+  if (loginError) {
+    return <p>{loginError.message}</p>;
+  }
 
   if (!user) {
     return (

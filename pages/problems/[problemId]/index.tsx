@@ -5,99 +5,105 @@ import { useTranslations } from "next-intl";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
-// import ProblemSubtitle from "../../components/atoms/ProblemSubtitle";
-// import Tag from "../../components/atoms/Tag";
-// import ScrollToTopButton from "../../components/atoms/ScrollToTopButton";
-// import Button from "../../components/atoms/Button";
+import ProblemSubtitle from "../../../components/atoms/ProblemSubtitle";
+import Tag from "../../../components/atoms/Tag";
+import ScrollToTopButton from "../../../components/atoms/ScrollToTopButton";
+import Button from "../../../components/atoms/Button";
 
 import {
   ExtendedProblemDetails,
   GetProblemDetailsQuery,
   PROBLEM_DETAILS,
-} from "../ProblemDetailedPage/interface";
-import { formatDate } from "../ProblemDetailedPage/utils";
-// import { secondarySubtitle } from "../../public/assets/styles/colors";
-import * as S from "../ProblemDetailedPage/styles";
-// import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
-// import { DownloadIcon } from "../../components/atoms/Button/styles";
+} from "./interface";
+import { formatDate } from "./utils";
+import { secondarySubtitle } from "../../../styles/colors";
+import * as S from "./styles";
+import StyledButtonLink from "../../../components/atoms/Button/StyledButtonLink";
+import { DownloadIcon } from "../../../components/atoms/Button/styles";
 
-import { GetStaticPropsContext } from "next";
+import { GetStaticPaths, GetStaticPropsContext } from "next";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages: (await import(`../../../messages/${locale}.json`)).default,
     },
   };
 }
 
+export const getStaticPaths: GetStaticPaths<{
+  problemId: string;
+}> = async () => {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: "blocking", //indicates the type of fallback
+  };
+};
 const ProblemDetailedPage: FC = () => {
-  // const t  = useTranslations(problemDetailedPage");
+  const t = useTranslations("problemDetailedPage");
 
-  // const router = useRouter();
-  // const { problemId } = router.query;
+  const router = useRouter();
+  const { problemId } = router.query;
 
-  const id = "1";
+  const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
+    variables: { problemId },
+  });
 
-  // const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
-  //   variables: { id },
-  // });
+  const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
+    {} as ExtendedProblemDetails
+  );
 
-  // const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
-  //   {} as ExtendedProblemDetails
-  // );
+  const problemsLoaded =
+    !!data?.problem?.details &&
+    Object.keys(data?.problem?.details).length > 0 &&
+    !loading;
 
-  // const problemsLoaded =
-  //   !!data?.problem?.details &&
-  //   Object.keys(data?.problem?.details).length > 0 &&
-  //   !loading;
+  useEffect(() => {
+    if (problemsLoaded) {
+      const { details } = data.problem;
+      setProblemDetails({
+        ...details,
+      });
+    }
+  }, [data, loading]);
 
-  // useEffect(() => {
-  //   if (problemsLoaded) {
-  //     const { details } = data.problem;
-  //     setProblemDetails({
-  //       ...details,
-  //     });
-  //   }
-  // }, [data, loading]);
+  const formattedDate =
+    problemDetails.createdAt && formatDate(problemDetails.createdAt);
 
-  // const formattedDate =
-  //   problemDetails.createdAt && formatDate(problemDetails.createdAt);
+  const printRef = useRef<HTMLDivElement>(null);
 
-  // const printRef = useRef<HTMLDivElement>(null);
+  const handleDownloadPdf = async () => {
+    const element = printRef.current as HTMLDivElement;
 
-  // const handleDownloadPdf = async () => {
-  //   const element = printRef.current as HTMLDivElement;
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm");
 
-  //   const canvas = await html2canvas(element);
-  //   const imgData = canvas.toDataURL("image/png");
-  //   const pdf = new jsPDF("p", "mm");
+    let position = 0;
 
-  //   let position = 0;
+    const imgProperties = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.width - 20;
 
-  //   const imgProperties = pdf.getImageProperties(imgData);
-  //   const pdfWidth = pdf.internal.pageSize.width - 20;
+    const pageHeight = 297;
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-  //   const pageHeight = 297;
-  //   const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+    let heightLeft = pdfHeight;
 
-  //   let heightLeft = pdfHeight;
+    pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
+    heightLeft -= pageHeight;
 
-  //   pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
-  //   heightLeft -= pageHeight;
-
-  //   while (heightLeft >= 0) {
-  //     position = heightLeft - pdfHeight;
-  //     pdf.addPage();
-  //     pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
-  //     heightLeft -= pageHeight;
-  //   }
-  //   pdf.save(problemDetails.title);
-  // };
+    while (heightLeft >= 0) {
+      position = heightLeft - pdfHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, "PNG", 10, position, pdfWidth, pdfHeight);
+      heightLeft -= pageHeight;
+    }
+    pdf.save(problemDetails.title);
+  };
 
   return (
     <S.ProblemDetailedWrapper>
-      {/* <S.GoToProblemsListWrapper href="/">
+      <S.GoToProblemsListWrapper href="/">
         <S.Arrow />
         <S.GoToProblemsListSpan>
           {t("goBackToProblemsList")}
@@ -191,8 +197,7 @@ const ProblemDetailedPage: FC = () => {
           </S.ProblemSectionP>
         </S.ProblemSection>
       </S.ProblemDetailedContent>
-      <ScrollToTopButton /> */}
-      Hej
+      <ScrollToTopButton />
     </S.ProblemDetailedWrapper>
   );
 };
