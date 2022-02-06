@@ -6,7 +6,7 @@ import {
   GetSuggestionsQuery,
   SuggestionType,
 } from "../components/organisms/ProblemSearchSection/interface";
-import { GetProblemDetailsQuery } from "../pages/problems/[problemId]/interface";
+import { GetProblemDetailsQuery } from "../pages/problems/interface";
 import { Login } from "../pages/login/interface";
 
 export const handlers = [
