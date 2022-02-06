@@ -97,7 +97,7 @@ const LoginPage: FC = () => {
                     <S.ShowPasswordButton
                       onClick={togglePassword}
                       aria-pressed="false"
-                      aria-label={t("showPasswordIconAlt")}
+                      // aria-label={t("showPasswordIconAlt")}
                       role="switch"
                       type="button"
                     >
