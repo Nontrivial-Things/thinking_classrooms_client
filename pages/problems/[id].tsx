@@ -121,8 +121,6 @@ const ProblemDetailedPage: FC = () => {
     pdf.save(problemDetails.title);
   };
 
-  console.log(problemDetails.resources?.replace(/\s/g, `\u00A0`));
-
   return (
     <S.ProblemDetailedWrapper>
       <S.GoToProblemsListWrapper>

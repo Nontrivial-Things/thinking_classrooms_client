@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
 import Hamburger from "../../../public/assets/img/icons/menu.svg";
+import hamburger from "../../../public/assets/img/icons/menu.svg";
 
 import HamburgerX from "../../../public/assets/img/icons/x.svg";
 
@@ -48,23 +49,23 @@ const Header: FC = () => {
         <Link href="/">
           <Logo isBackgroundDark={false}></Logo>
         </Link>
-        {isNavbarMenuActive ? (
-          <HamburgerX
-            aria-label={t("hamburgerAlt")}
-            className={navbarMenuStyle}
-            onClick={toggleHamburger}
-            aria-hidden
-            alt={t("menuIconAlt")}
-          ></HamburgerX>
-        ) : (
-          <Hamburger
-            aria-label={t("hamburgerAlt")}
-            className={navbarMenuStyle}
-            onClick={toggleHamburger}
-            aria-hidden
-            alt={t("menuIconAlt")}
-          ></Hamburger>
-        )}
+        <S.MenuIconButton aria-label={t("hamburgerAlt")}>
+          {isNavbarMenuActive ? (
+            <HamburgerX
+              className={navbarMenuStyle}
+              onClick={toggleHamburger}
+              aria-hidden
+              alt={t("menuIconAlt")}
+            ></HamburgerX>
+          ) : (
+            <Hamburger
+              className={navbarMenuStyle}
+              onClick={toggleHamburger}
+              aria-hidden
+              alt={t("menuIconAlt")}
+            ></Hamburger>
+          )}
+        </S.MenuIconButton>
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
