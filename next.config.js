@@ -15,9 +15,13 @@ module.exports = {
     defaultLocale: "pl",
   },
 };
+
 const withImages = require("next-images");
 module.exports = withImages({
-  webpack: (config) => {
+  images: {
+    domains: ["localhost:3000"],
+  },
+  webpack(config, options) {
     return config;
   },
 });

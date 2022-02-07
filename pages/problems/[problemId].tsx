@@ -27,7 +27,7 @@ import { client } from "../../apolloClient";
 
 export const getStaticPaths = async () => {
   return {
-    paths: ["/problems/[problemId]"],
+    paths: ["/problems/1"],
     fallback: true,
   };
 };
