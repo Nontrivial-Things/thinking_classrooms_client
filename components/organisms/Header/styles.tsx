@@ -136,10 +136,6 @@ const NavbarMenuItem = styled.li`
   }
 `;
 
-const HamburgerImg = styled.img`
-  width: 100%;
-`;
-
 const MenuIconButton = styled.button`
   border: none;
   background: none;
@@ -155,6 +151,5 @@ export {
   NavbarMenu,
   NavbarMenuList,
   NavbarMenuItem,
-  HamburgerImg,
   MenuIconButton,
 };
