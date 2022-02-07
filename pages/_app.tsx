@@ -15,7 +15,7 @@ require("../mocks");
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextIntlProvider messages={pageProps.messages}>
-      <ApolloProvider client={client}>
+      <ApolloProvider client={client(true)}>
         <AuthProvider>
           <>
             {/* <Suspense fallback={null}> */}

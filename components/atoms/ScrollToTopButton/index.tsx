@@ -18,12 +18,15 @@ const ScrollToTopButton: FC = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+      });
+    }
   };
-
-  window.addEventListener("scroll", throttle(toggleVisible, 100));
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", throttle(toggleVisible, 100));
+  }
 
   return (
     <S.ScrollButton $visible={visible}>

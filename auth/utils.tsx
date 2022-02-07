@@ -10,14 +10,15 @@ export const setUserDataInStorage = (
     token,
     expiry,
   };
-
-  localStorage.setItem(key, JSON.stringify(userToken));
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(userToken));
+  }
 };
 
 export const getUserDataFromStorage = (
   key: string
 ): UserTokenWithExpiry | void => {
-  if (typeof window === "undefined") {
+  if (typeof window !== "undefined") {
     const userToken = localStorage.getItem(key);
 
     const parsedUserData = userToken && JSON.parse(userToken);

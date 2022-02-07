@@ -1,4 +1,9 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 import { getUserDataFromStorage } from "./auth/utils";
@@ -6,7 +11,7 @@ import { getUserDataFromStorage } from "./auth/utils";
 const cache = new InMemoryCache();
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3000/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -21,8 +26,22 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-export const client = new ApolloClient({
-  ssrMode: typeof window === "undefined",
-  cache,
-  link: authLink.concat(httpLink),
-});
+// export const client = new ApolloClient({
+//   ssrMode: typeof window === "undefined",
+//   cache,
+//   link: authLink.concat(httpLink),
+// });
+
+let CLIENT: ApolloClient<NormalizedCacheObject>;
+
+export function client(forceNew: boolean) {
+  if (!CLIENT || forceNew) {
+    CLIENT = new ApolloClient({
+      ssrMode: typeof window === "undefined",
+      link: authLink.concat(httpLink),
+      cache: cache,
+    });
+  }
+
+  return CLIENT;
+}

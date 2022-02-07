@@ -21,42 +21,41 @@ import * as S from "./styles";
 import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
 import { DownloadIcon } from "../../components/atoms/Button/styles";
 
-import { GetStaticPaths, GetStaticPropsContext } from "next";
-import { GetProblemsQuery, PROBLEMS } from "../problems-page/interface";
+import { GetStaticPropsContext } from "next";
+import { PROBLEMS } from "../problems-page/interface";
 import { client } from "../../apolloClient";
 
-export const getStaticPaths = async () => {
+export async function getStaticPaths() {
+  const apolloClient = client(true);
+  const { data } = await apolloClient.query({ query: PROBLEMS });
+
+  const problems = data?.problems;
+  const paths = problems.map((problem: any) => ({
+    params: { id: problem.id.toString() },
+  }));
   return {
-    paths: ["/problems/1"],
+    paths: paths || [],
     fallback: true,
   };
-};
-
-// export async function getStaticPaths() {
-//   const { data } = useQuery<GetProblemsQuery>(PROBLEMS);
-//   const { problems } = data;
-//   const paths = problems.map((problem) => ({
-//     params: { problemId: problem.id },
-//   }));
-
-//   return {
-//     paths: paths || [],
-//     fallback: true,
-//   };
-// }
+}
 
 export async function getStaticProps({
   locale,
   params,
 }: GetStaticPropsContext) {
-  const apolloClient = client;
-  await Promise.all([apolloClient.query({ query: PROBLEM_DETAILS })]);
+  const apolloClient = client(true);
+
+  const { data } = await apolloClient.query({
+    query: PROBLEM_DETAILS,
+    variables: { id: params.id },
+  });
+  const problemDetails = data?.problem;
+
   return {
     props: {
       messages: (await import(`../../messages/${locale}.json`)).default,
-      initialApolloState: apolloClient.cache.extract(),
+      problemDetails,
     },
-    revalidate: 1,
   };
 }
 
@@ -64,10 +63,10 @@ const ProblemDetailedPage: FC = () => {
   const t = useTranslations("problemDetailedPage");
 
   const router = useRouter();
-  const { problemId } = router.query;
+  const { id } = router.query;
 
   const { data, loading } = useQuery<GetProblemDetailsQuery>(PROBLEM_DETAILS, {
-    variables: { problemId },
+    variables: { id },
   });
 
   const [problemDetails, setProblemDetails] = useState<ExtendedProblemDetails>(
@@ -122,11 +121,13 @@ const ProblemDetailedPage: FC = () => {
     pdf.save(problemDetails.title);
   };
 
+  console.log(problemDetails.resources?.replace(/\s/g, `\u00A0`));
+
   return (
     <S.ProblemDetailedWrapper>
-      <S.GoToProblemsListWrapper href="/">
+      <S.GoToProblemsListWrapper>
         <S.Arrow />
-        <S.GoToProblemsListSpan>
+        <S.GoToProblemsListSpan href="/">
           {t("goBackToProblemsList")}
         </S.GoToProblemsListSpan>
       </S.GoToProblemsListWrapper>
@@ -170,11 +171,11 @@ const ProblemDetailedPage: FC = () => {
             $isPrimary={false}
             $alignSelf={"flex-start"}
             href={"/problem_detailed_page.pdf"}
-            // target="_blank"
-            // download="problem_detailed_page"
           >
-            <DownloadIcon aria-hidden title="Ikona Pobierania" />
-            {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
+            {/* <DownloadIcon aria-hidden title="Ikona Pobierania" /> */}
+            <a target="_blank" download="problem_detailed_page">
+              {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
+            </a>
           </StyledButtonLink>
         </S.ProblemSection>
         <S.ProblemSection>

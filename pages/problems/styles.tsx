@@ -21,7 +21,7 @@ const ProblemDetailedWrapper = styled(Wrapper)`
   }
 `;
 
-const GoToProblemsListWrapper = styled(Link)`
+const GoToProblemsListWrapper = styled.span`
   display: flex;
   align-items: center;
   color: ${blue100};
@@ -40,7 +40,7 @@ const Arrow = styled.span`
   width: 1.6rem;
 `;
 
-const GoToProblemsListSpan = styled.span`
+const GoToProblemsListSpan = styled(Link)`
   font-size: 1.4rem;
   line-height: 2.4rem;
   margin-left: 1.1rem;
