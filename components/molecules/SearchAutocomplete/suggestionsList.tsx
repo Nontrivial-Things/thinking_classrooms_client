@@ -34,8 +34,10 @@ const SuggestionsList: FC<SuggestionsProps> = ({
             </>
           ) : (
             <S.ProblemLink href={`/problems/${suggestion.id}`}>
-              <S.ClipboardIcon />
-              <S.ProblemLinkSpan>{suggestion.title}</S.ProblemLinkSpan>
+              <S.ProblemLinkSpan>
+                <S.ClipboardIcon />
+                {suggestion.title}
+              </S.ProblemLinkSpan>
             </S.ProblemLink>
           )}
         </S.Suggestion>

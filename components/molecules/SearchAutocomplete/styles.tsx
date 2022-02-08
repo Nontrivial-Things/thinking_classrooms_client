@@ -6,6 +6,9 @@ import { SuggestionProps, InputStyleProps, SearchIconProps } from "./interface";
 import inputStyles from "../../atoms/InputStyles";
 import { minDevice } from "../../../styles/breakpoints";
 import { white, grey100, grey200, blue100 } from "../../../styles/colors";
+import LensIcon from "../../../public/assets/img/icons/search.svg";
+import ClearIcon from "../../../public/assets/img/icons/remove-icon.svg";
+import Clipboard from "../../../public/assets/img/icons/clipboard.svg";
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -49,7 +52,7 @@ const Label = styled.label`
   position: relative;
 `;
 
-const SearchIcon = styled.span<SearchIconProps>`
+const SearchIcon = styled(LensIcon)<SearchIconProps>`
   stroke: ${blue100};
   left: 0.8rem;
   bottom: 0;
@@ -57,9 +60,9 @@ const SearchIcon = styled.span<SearchIconProps>`
   top: ${(props) => props.top};
 `;
 
-const RemoveIcon = styled.span`
+const RemoveIcon = styled(ClearIcon)`
   fill: ${grey100};
-  width: 1.6rem;
+  width: 2.1rem;
 `;
 
 const SuggestionList = styled.ul`
@@ -105,8 +108,8 @@ const Suggestion = styled.li<SuggestionProps>`
 `;
 
 const Button = styled.button`
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border: none;
   right: 2rem;
   top: 1.12rem;
@@ -127,7 +130,7 @@ const Combobox = styled.div`
   }
 `;
 
-const TagSearchIcon = styled.span`
+const TagSearchIcon = styled(LensIcon)`
   padding-right: 0.8rem;
   stroke: black;
   font-size: 1.4rem;
@@ -138,7 +141,7 @@ const TagSearchIcon = styled.span`
   }
 `;
 
-const ClipboardIcon = styled.span`
+const ClipboardIcon = styled(Clipboard)`
   padding-right: 0.8rem;
   display: none;
   @media ${minDevice.desktopTablet} {
@@ -164,6 +167,8 @@ const ProblemLink = styled(Link)`
 `;
 
 const ProblemLinkSpan = styled.span`
+  display: flex;
+  align-items: center;
   &::first-letter {
     text-transform: capitalize;
   }

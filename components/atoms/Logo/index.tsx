@@ -12,9 +12,9 @@ const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
   return (
     <S.LogoDiv>
       {isBackgroundDark ? (
-        <LogoWhite alt={t("logoAlt")} />
+        <LogoWhite alt={t("logoAlt")} style={{ width: "100%" }} />
       ) : (
-        <LogoBlack alt={t("logoAlt")} />
+        <LogoBlack alt={t("logoAlt")} style={{ width: "100%" }} />
       )}
     </S.LogoDiv>
   );
