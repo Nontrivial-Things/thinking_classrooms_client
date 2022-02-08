@@ -2,12 +2,11 @@ import { FC, useState } from "react";
 import Link from "next/link";
 
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 
 import Logo from "../../atoms/Logo";
 import * as S from "./styles";
 import Hamburger from "../../../public/assets/img/icons/menu.svg";
-import hamburger from "../../../public/assets/img/icons/menu.svg";
-
 import HamburgerX from "../../../public/assets/img/icons/x.svg";
 
 enum NavbarMenuState {
@@ -43,11 +42,13 @@ const Header: FC = () => {
     isNavbarMenuActive && toggleHamburger();
   };
 
+  const navigate = useRouter();
+
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
         <Link href="/">
-          <Logo isBackgroundDark={false}></Logo>
+          <Logo isBackgroundDark={false} />
         </Link>
         <S.MenuIconButton aria-label={t("hamburgerAlt")}>
           {isNavbarMenuActive ? (
@@ -69,21 +70,22 @@ const Header: FC = () => {
       </S.NavbarWrapper>
       <S.NavbarMenu className={navbarMenuStyle}>
         <S.NavbarMenuList>
-          <S.NavbarMenuItem onClick={handleMenuItemClick}>
-            <Link
-              href="/about-method"
-              // className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              {t("aboutMethodPageLink")}
-            </Link>
+          <S.NavbarMenuItem
+            onClick={handleMenuItemClick}
+            className={navigate.pathname === "/about-method" ? "active" : ""}
+          >
+            <Link href="/about-method">{t("aboutMethodPageLink")}</Link>
           </S.NavbarMenuItem>
-          <S.NavbarMenuItem onClick={handleMenuItemClick}>
-            <Link
-              href="/moderator"
-              // className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              {t("moderatorPageLink")}
-            </Link>
+          <S.NavbarMenuItem
+            onClick={handleMenuItemClick}
+            className={
+              navigate.pathname === "/moderator" ||
+              navigate.pathname === "/login"
+                ? "active"
+                : ""
+            }
+          >
+            <Link href="/moderator">{t("moderatorPageLink")}</Link>
           </S.NavbarMenuItem>
         </S.NavbarMenuList>
       </S.NavbarMenu>

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 
 import LogoBlack from "../../../public/assets/img/logo-black.svg";
 import LogoWhite from "../../../public/assets/img/logo-white.svg";
+// removed "width" and "height" in svg files to set width and height dependent on LogoDiv!
 import { LogoProps } from "./interface";
 import * as S from "./styles";
 
