@@ -173,7 +173,7 @@ const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
                   <span id="Remove button" hidden>
                     Remove input text button
                   </span>
-                  <S.RemoveIcon aria-hidden="true" />
+                  <S.RemoveIcon aria-hidden="true" style={{ width: "100%" }} />
                 </S.Button>
               </>
             )}
