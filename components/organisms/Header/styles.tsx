@@ -94,6 +94,27 @@ const NavbarMenuItem = styled.li`
   cursor: pointer;
   position: relative;
 
+  &.active {
+    &::after {
+      height: 0.4rem;
+      width: 100%;
+      background-color: ${blue100};
+      border-radius: 1rem 1rem 0 0;
+      content: "";
+      position: absolute;
+      bottom: -2.5rem;
+      left: 0;
+      display: none;
+
+      @media ${minDevice.desktopTablet} {
+        display: block;
+      }
+      @media ${minDevice.desktopL} {
+        bottom: -2.8rem;
+      }
+    }
+  }
+
   @media ${minDevice.desktopTablet} {
     display: block;
 
@@ -102,29 +123,6 @@ const NavbarMenuItem = styled.li`
     }
     &:hover {
       font-weight: 700;
-    }
-  }
-
-  a {
-    &.active {
-      &::after {
-        height: 0.4rem;
-        width: 100%;
-        background-color: ${blue100};
-        border-radius: 1rem 1rem 0 0;
-        content: "";
-        position: absolute;
-        bottom: -2.5rem;
-        left: 0;
-        display: none;
-
-        @media ${minDevice.desktopTablet} {
-          display: block;
-        }
-        @media ${minDevice.desktopL} {
-          bottom: -2.8rem;
-        }
-      }
     }
   }
 
