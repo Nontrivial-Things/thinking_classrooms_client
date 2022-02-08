@@ -62,7 +62,7 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
 
 const RemoveIcon = styled(ClearIcon)`
   fill: ${grey100};
-  width: 2.1rem;
+  width: 1.6rem;
 `;
 
 const SuggestionList = styled.ul`
@@ -108,14 +108,15 @@ const Suggestion = styled.li<SuggestionProps>`
 `;
 
 const Button = styled.button`
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 1.6rem;
+  height: 1.6rem;
   border: none;
   right: 2rem;
   top: 1.12rem;
   bottom: 0;
   position: absolute;
   background: transparent;
+  display: flex;
 `;
 
 const Combobox = styled.div`
