@@ -3,12 +3,11 @@ const withTM = require("next-transpile-modules")([
   "@react-leaflet/core",
 ]);
 const withImages = require("next-images");
-const path = require("path");
 
 module.exports = withImages(
   withTM({
     future: {
-      webpack5: false,
+      webpack5: true,
     },
     i18n: {
       locales: ["pl"],
@@ -16,7 +15,6 @@ module.exports = withImages(
     },
     images: {
       domains: ["localhost:3000"],
-      // exclude: path.resolve(__dirname, "public/assets/img/icons"),
     },
     webpack(config, options) {
       return config;

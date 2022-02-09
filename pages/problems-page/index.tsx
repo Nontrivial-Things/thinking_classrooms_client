@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
+import { GetStaticPropsContext } from "next";
 
 import ResultCountLabel from "../../components/atoms/ResultCountLabel";
 import Wrapper from "../../components/atoms/Wrapper";
@@ -11,8 +12,6 @@ import { GetProblemsQuery, PROBLEMS } from "./interface";
 
 import { white, primaryBackground } from "../../styles/colors";
 import { ProblemSummaryProps } from "../../components/molecules/SearchResultTile/interface";
-import { GetStaticPropsContext } from "next";
-import { debug } from "util";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

@@ -1,8 +1,17 @@
 import { FC, useState } from "react";
 import throttle from "lodash.throttle";
 import { useTranslations } from "next-intl";
+import { GetStaticPropsContext } from "next";
 
 import * as S from "./styles";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
+  };
+}
 
 const ScrollToTopButton: FC = () => {
   const [visible, setVisible] = useState(false);
@@ -30,7 +39,7 @@ const ScrollToTopButton: FC = () => {
 
   return (
     <S.ScrollButton $visible={visible}>
-      <S.ArrowUpIcon title={t("scrollIconTitle")} onClick={scrollToTop} />
+      <S.ArrowUpIcon onClick={scrollToTop} />
     </S.ScrollButton>
   );
 };
