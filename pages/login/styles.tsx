@@ -98,8 +98,6 @@ const StyledLink = styled(Link)`
 `;
 
 const RightBubblesImg = styled.div`
-  background-size: contain;
-  background-repeat: no-repeat;
   width: 7.517rem;
   height: 5.254rem;
   position: absolute;
@@ -123,10 +121,7 @@ const RightBubblesImg = styled.div`
 const LeftTopBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
-    display: flex;
-
-    background-size: contain;
-    background-repeat: no-repeat;
+    display: block;
     width: 10rem;
     height: 9rem;
     position: absolute;
@@ -145,9 +140,7 @@ const LeftTopBubblesImg = styled.div`
 const LeftBottomBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
-    display: flex;
-    background-size: contain;
-    background-repeat: no-repeat;
+    display: block;
     width: 8.5rem;
     height: 9.5rem;
     position: absolute;

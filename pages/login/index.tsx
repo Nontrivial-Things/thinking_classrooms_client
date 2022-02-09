@@ -10,6 +10,7 @@ import formInputsValidation from "./validations";
 import * as S from "./styles";
 import { useRouter } from "next/router";
 import { GetStaticPropsContext } from "next";
+import Image from "next/image";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
@@ -44,9 +45,30 @@ const LoginPage: FC = () => {
 
   return !user ? (
     <S.LoginPageWrapper>
-      <S.LeftTopBubblesImg />
-      <S.LeftBottomBubblesImg />
-      <S.RightBubblesImg />
+      <S.LeftTopBubblesImg>
+        <Image
+          src="/assets/img/left-top-bubbles.png"
+          width="104"
+          height="92"
+          layout="responsive"
+        />
+      </S.LeftTopBubblesImg>
+      <S.LeftBottomBubblesImg>
+        <Image
+          src="/assets/img/right-bubbles.png"
+          width="104"
+          height="92"
+          layout="responsive"
+        />
+      </S.LeftBottomBubblesImg>
+      <S.RightBubblesImg>
+        <Image
+          src="/assets/img/right-bubbles.png"
+          width="104"
+          height="92"
+          layout="responsive"
+        />
+      </S.RightBubblesImg>
       <S.LoginFormWrapper>
         <S.H4>{t("loginHeader")}</S.H4>
         <S.InfoText>{t("loginSubtitle")}</S.InfoText>
