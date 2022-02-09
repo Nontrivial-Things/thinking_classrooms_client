@@ -19,10 +19,9 @@ const ZeroResultsWrapper = styled(Column)`
   }
 `;
 
-const ZeroResultsImg = styled.div`
+const ZeroResultsImgDiv = styled.div`
   width: 20.4rem;
   height: 16rem;
-  background-size: contain;
   margin-bottom: 0.8rem;
 
   @media ${minDevice.desktopTablet} {
@@ -84,7 +83,7 @@ const ZeroResultsTagSuggestions = styled.ul`
 
 export {
   ZeroResultsWrapper,
-  ZeroResultsImg,
+  ZeroResultsImgDiv,
   ZeroResultsHeader,
   ZeroResultsSpan,
   ZeroResultsTagSuggestions,

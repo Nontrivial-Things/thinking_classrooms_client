@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { ZeroResultsProps } from "./interface";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 import * as S from "./styles";
 
@@ -15,7 +16,14 @@ const ZeroResults: FC<ZeroResultsProps> = ({ setTag, setSearchTerm }) => {
 
   return (
     <S.ZeroResultsWrapper>
-      <S.ZeroResultsImg aria-hidden="true" />
+      <S.ZeroResultsImgDiv>
+        <Image
+          src="/assets/img/zero-results.png"
+          width="205"
+          height="160"
+          layout="responsive"
+        />
+      </S.ZeroResultsImgDiv>
       <S.ZeroResultsHeader>{t("zeroResultsHeader")}</S.ZeroResultsHeader>
       <S.ZeroResultsSpan>{t("zeroResultsText")}</S.ZeroResultsSpan>
       <S.ZeroResultsTagSuggestions>

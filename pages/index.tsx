@@ -41,22 +41,6 @@ const Index = () => {
     return <p>{loginError.message}</p>;
   }
 
-  if (!user) {
-    return (
-      <div>
-        <Link href="/about-method">
-          <a>ABOUT</a>
-        </Link>{" "}
-        <Link href="/moderator">
-          <a>MODERATOR</a>
-        </Link>{" "}
-        <Link href="/problems-page">
-          <a>PROBLEMS</a>
-        </Link>
-      </div>
-    );
-  }
-
   return <p>Loading...</p>;
 };
 
