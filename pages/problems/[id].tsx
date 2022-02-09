@@ -9,6 +9,7 @@ import ProblemSubtitle from "../../components/atoms/ProblemSubtitle";
 import Tag from "../../components/atoms/Tag";
 import ScrollToTopButton from "../../components/atoms/ScrollToTopButton";
 import Button from "../../components/atoms/Button";
+import Arrow from "../../public/assets/img/icons/arrow-left.svg";
 
 import {
   ExtendedProblemDetails,
@@ -24,6 +25,7 @@ import { DownloadIcon } from "../../components/atoms/Button/styles";
 import { GetStaticPropsContext } from "next";
 import { PROBLEMS } from "../problems-page/interface";
 import { client } from "../../apolloClient";
+import Link from "next/link";
 
 export async function getStaticPaths() {
   const apolloClient = client(true);
@@ -124,9 +126,11 @@ const ProblemDetailedPage: FC = () => {
   return (
     <S.ProblemDetailedWrapper>
       <S.GoToProblemsListWrapper>
-        <S.Arrow />
-        <S.GoToProblemsListSpan href="/">
-          {t("goBackToProblemsList")}
+        <S.ArrowWrapper>
+          <Arrow style={{ width: "100%", height: "100%" }} />
+        </S.ArrowWrapper>
+        <S.GoToProblemsListSpan>
+          <Link href="/">{t("goBackToProblemsList")}</Link>
         </S.GoToProblemsListSpan>
       </S.GoToProblemsListWrapper>
       <S.ProblemDetailedContent ref={printRef}>

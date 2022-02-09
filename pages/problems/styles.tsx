@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import Link from "next/link";
 
-// import { ReactComponent as ArrowLeft } from "../../../../public/assets/img/icons/arrow-left.svg";
+import Wrapper from "../../components/atoms/Wrapper";
 import { blue100, grey300 } from "../../styles/colors";
 import { minDevice } from "../../styles/breakpoints";
-import Wrapper from "../../components/atoms/Wrapper";
 
 const ProblemDetailedWrapper = styled(Wrapper)`
   background: white;
@@ -36,21 +34,28 @@ const GoToProblemsListWrapper = styled.span`
   }
 `;
 
-const Arrow = styled.span`
+const ArrowWrapper = styled.div`
   width: 1.6rem;
+  height: 1.6rem;
+
+  @media ${minDevice.desktopL} {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
 `;
 
-const GoToProblemsListSpan = styled(Link)`
+const GoToProblemsListSpan = styled.span`
   font-size: 1.4rem;
   line-height: 2.4rem;
-  margin-left: 1.1rem;
+  margin-left: 0.8rem;
 
   @media ${minDevice.desktopTablet} {
-    margin-left: 0.7rem;
+    margin-left: 0.4rem;
   }
 
   @media ${minDevice.desktopL} {
     font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 `;
 
@@ -168,7 +173,7 @@ const ProblemExtensionHeading = styled.h1`
 export {
   ProblemDetailedWrapper,
   GoToProblemsListWrapper,
-  Arrow,
+  ArrowWrapper,
   GoToProblemsListSpan,
   ProblemDetailedContent,
   EducationLevel,
