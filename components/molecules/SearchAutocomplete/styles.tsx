@@ -62,8 +62,6 @@ const SearchIcon = styled(LensIcon)<SearchIconProps>`
 
 const RemoveIcon = styled(ClearIcon)`
   fill: ${grey100};
-  width: 1.6rem;
-  height: 1.6rem;
 `;
 
 const SuggestionList = styled.ul`
@@ -113,7 +111,7 @@ const Button = styled.button`
   height: 1.6rem;
   border: none;
   right: 2rem;
-  top: 1.12rem;
+  top: 1.5rem;
   bottom: 0;
   position: absolute;
   background: transparent;
