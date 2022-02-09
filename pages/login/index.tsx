@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Form, Field } from "react-final-form";
 
@@ -26,7 +26,7 @@ const LoginPage: FC = () => {
   const [checked, setChecked] = useState(false);
   const { signin, user, loginError, setLoginError } = useAuth();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setLoginError(undefined);
   }, []);
 
