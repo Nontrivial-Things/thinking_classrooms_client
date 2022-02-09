@@ -2,6 +2,8 @@ import { FC } from "react";
 
 import * as S from "./styles";
 import { TagProps } from "./interface";
+import Image from "next/image";
+import RemoveIcon from "../../../public/assets/img/icons/remove-icon.svg";
 
 const Tag: FC<TagProps> = ({
   text,
@@ -16,7 +18,7 @@ const Tag: FC<TagProps> = ({
         aria-label="Usuń tag"
         onClick={() => !!onRemoveTag && onRemoveTag()}
       >
-        <S.RemoveTagIcon />
+        <S.RemoveTagIcon style={{ width: "100%" }} />
       </S.RemoveButton>
     )}
   </S.TagWrapper>
