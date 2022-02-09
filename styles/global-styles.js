@@ -7,8 +7,8 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 400;
   font-style: normal;
   font-display: auto;
-  src: url("../fonts/PTSans-Regular.woff") format("woff"),
-    url("../fonts/PTSans-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/PTSans-Regular.woff") format("woff"),
+    url("../assets/fonts/PTSans-Regular.woff2") format("woff2");
 }
 
   html,

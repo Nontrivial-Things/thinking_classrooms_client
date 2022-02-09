@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import { ScrollButtonStyleProps } from "./interface";
-import ArrowUpSVG from "../../../public/assets/img/icons/arrow-up.svg";
 import { minDevice } from "../../../styles/breakpoints";
 
 const ScrollButton = styled.button<ScrollButtonStyleProps>`
@@ -15,8 +14,7 @@ const ScrollButton = styled.button<ScrollButtonStyleProps>`
   z-index: 1;
 `;
 
-const ArrowUpIcon = styled(ArrowUpSVG)`
-  color: red;
+const ArrowUpWrapper = styled.div`
   width: 4rem;
   height: 4rem;
   scroll-behavior: smooth;
@@ -30,4 +28,4 @@ const ArrowUpIcon = styled(ArrowUpSVG)`
   }
 `;
 
-export { ScrollButton, ArrowUpIcon };
+export { ScrollButton, ArrowUpWrapper };
