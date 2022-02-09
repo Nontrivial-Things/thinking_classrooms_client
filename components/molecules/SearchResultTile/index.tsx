@@ -21,7 +21,11 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
     <S.SearchResultTileWrapper>
       <S.DetailsWrapper>
         <S.Title>
-          <S.StyledTitleLink href={`problems/${id}`}>{title}</S.StyledTitleLink>
+          <Link href={`/problems/${id}`} passHref>
+            <S.StyledTitleLink href={`problems/${id}`}>
+              {title}
+            </S.StyledTitleLink>
+          </Link>
         </S.Title>
         <S.AuthorWrapper>
           <S.Details>{author}</S.Details>
@@ -34,8 +38,8 @@ const SearchResultTile: FC<ProblemSummaryProps> = ({
             tags.map((tagText: string) => <Tag text={tagText} key={tagText} />)}
         </S.TagWrapper>
       </S.DetailsWrapper>
-      <Link href={`/problems/${id}`}>
-        <StyledButtonLink $isPrimary={false} $isHidden href={`problems/${id}`}>
+      <Link href={`/problems/${id}`} passHref>
+        <StyledButtonLink $isPrimary={false} $isHidden>
           {t("showDetails")}
         </StyledButtonLink>
       </Link>

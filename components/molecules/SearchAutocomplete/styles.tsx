@@ -168,6 +168,7 @@ const ProblemLink = styled(Link)`
 const ProblemLinkSpan = styled.span`
   display: flex;
   align-items: center;
+  cursor: pointer;
   &::first-letter {
     text-transform: capitalize;
   }

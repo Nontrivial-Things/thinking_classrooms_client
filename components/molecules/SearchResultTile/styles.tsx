@@ -72,7 +72,7 @@ const Title = styled.h3`
   }
 `;
 
-const StyledTitleLink = styled(Link)`
+const StyledTitleLink = styled.a`
   &::after {
     content: "";
     position: absolute;
