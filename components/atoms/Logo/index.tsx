@@ -16,11 +16,17 @@ const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
       <Link href="/" passHref>
         {isBackgroundDark ? (
           <a>
-            <LogoWhite alt={t("logoAlt")} style={{ width: "100%" }} />
+            <LogoWhite
+              alt={t("logoAlt")}
+              style={{ width: "100%", height: "100%" }}
+            />
           </a>
         ) : (
           <a>
-            <LogoBlack alt={t("logoAlt")} style={{ width: "100%" }} />
+            <LogoBlack
+              alt={t("logoAlt")}
+              style={{ width: "100%", height: "100%" }}
+            />
           </a>
         )}
       </Link>

@@ -1,8 +1,7 @@
 import { FC } from "react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-// import Mail from "../../../../public/assets/img/icons/mail.svg";
+import Mail from "../../../public/assets/img/icons/mail.svg";
 import Logo from "../../atoms/Logo";
 import P from "../../atoms/P";
 import Row from "../../atoms/Row";
@@ -24,13 +23,15 @@ const Footer: FC = () => {
         alignItems="flex-start"
         margin="0"
       >
-        <Link href="/">
-          <Logo isBackgroundDark />
-        </Link>
+        <Logo isBackgroundDark />
         <S.ContactWrapper>
           <S.FooterP>{t("contact")}</S.FooterP>
           <Row>
-            <Icon color={white}>{/* <S.MailIcon src={Mail} /> */}</Icon>
+            <Icon color={white}>
+              <S.MailIcon>
+                <Mail style={{ width: "100%", height: "100%" }}></Mail>
+              </S.MailIcon>
+            </Icon>
             <S.MailA href={`mailto:${t("email")}`}>{t("email")}</S.MailA>
           </Row>
         </S.ContactWrapper>

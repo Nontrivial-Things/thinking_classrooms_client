@@ -50,7 +50,7 @@ const FooterP = styled(P)`
   }
 `;
 
-const MailIcon = styled.img`
+const MailIcon = styled.div`
   width: 1.2rem;
 
   @media ${minDevice.desktopTablet} {
