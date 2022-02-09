@@ -9,9 +9,9 @@ export const ArrowUpIcon = () => {
           <path
             d="M45.1001 36.15L36.0001 27.05L26.9001 36.15"
             stroke="white"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
         <defs>
@@ -22,9 +22,9 @@ export const ArrowUpIcon = () => {
             width="72"
             height="72"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"

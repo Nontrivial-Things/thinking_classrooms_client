@@ -3,7 +3,6 @@ import { ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/app";
 import GlobalStyle from "../styles/global-styles";
 import { client } from "../apolloClient";
-
 import { NextIntlProvider } from "next-intl";
 
 import Header from "../components/organisms/Header";
