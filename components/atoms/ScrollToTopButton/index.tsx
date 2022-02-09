@@ -3,6 +3,8 @@ import throttle from "lodash.throttle";
 import { useTranslations } from "next-intl";
 import { GetStaticPropsContext } from "next";
 
+import { ArrowUpIcon } from "./ArrowUpIcon";
+
 import * as S from "./styles";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -38,8 +40,8 @@ const ScrollToTopButton: FC = () => {
   }
 
   return (
-    <S.ScrollButton $visible={visible}>
-      <S.ArrowUpIcon onClick={scrollToTop} />
+    <S.ScrollButton $visible={visible} onClick={scrollToTop}>
+      <ArrowUpIcon />
     </S.ScrollButton>
   );
 };

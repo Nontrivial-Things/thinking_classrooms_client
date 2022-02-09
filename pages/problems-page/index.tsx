@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GetStaticPropsContext } from "next";
+import Image from "next/image";
 
 import ResultCountLabel from "../../components/atoms/ResultCountLabel";
 import Wrapper from "../../components/atoms/Wrapper";
