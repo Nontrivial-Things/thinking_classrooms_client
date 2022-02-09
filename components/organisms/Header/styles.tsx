@@ -38,6 +38,7 @@ const NavbarWrapper = styled(Wrapper)`
     padding-bottom: 1.2rem;
   }
 `;
+
 const NavbarMenu = styled.nav`
   transform: translateY(-150%);
   position: absolute;

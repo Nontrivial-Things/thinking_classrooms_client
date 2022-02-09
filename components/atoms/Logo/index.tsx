@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import LogoBlack from "../../../public/assets/img/logo-black.svg";
 import LogoWhite from "../../../public/assets/img/logo-white.svg";
@@ -12,11 +13,17 @@ const Logo: FC<LogoProps> = ({ isBackgroundDark }) => {
 
   return (
     <S.LogoDiv>
-      {isBackgroundDark ? (
-        <LogoWhite alt={t("logoAlt")} style={{ width: "100%" }} />
-      ) : (
-        <LogoBlack alt={t("logoAlt")} style={{ width: "100%" }} />
-      )}
+      <Link href="/" passHref>
+        {isBackgroundDark ? (
+          <a>
+            <LogoWhite alt={t("logoAlt")} style={{ width: "100%" }} />
+          </a>
+        ) : (
+          <a>
+            <LogoBlack alt={t("logoAlt")} style={{ width: "100%" }} />
+          </a>
+        )}
+      </Link>
     </S.LogoDiv>
   );
 };

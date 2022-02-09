@@ -47,9 +47,8 @@ const Header: FC = () => {
   return (
     <S.HeaderWrapper>
       <S.NavbarWrapper className={navbarMenuStyle}>
-        <Link href="/">
-          <Logo isBackgroundDark={false} />
-        </Link>
+        <Logo isBackgroundDark={false} />
+
         <S.MenuIconButton aria-label={t("hamburgerAlt")}>
           {isNavbarMenuActive ? (
             <HamburgerX
