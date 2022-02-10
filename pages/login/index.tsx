@@ -48,24 +48,24 @@ const LoginPage: FC = () => {
       <S.LeftTopBubblesImg>
         <Image
           src="/assets/img/left-top-bubbles.png"
-          width="104"
-          height="92"
+          width="62"
+          height="66"
           layout="responsive"
         />
       </S.LeftTopBubblesImg>
       <S.LeftBottomBubblesImg>
         <Image
-          src="/assets/img/right-bubbles.png"
-          width="104"
-          height="92"
+          src="/assets/img/left-bottom-bubbles.png"
+          width="115"
+          height="100"
           layout="responsive"
         />
       </S.LeftBottomBubblesImg>
       <S.RightBubblesImg>
         <Image
           src="/assets/img/right-bubbles.png"
-          width="104"
-          height="92"
+          width="160"
+          height="112"
           layout="responsive"
         />
       </S.RightBubblesImg>

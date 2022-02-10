@@ -4,10 +4,6 @@ import Link from "next/link";
 import { InputStyleProps } from "./interface";
 import Wrapper from "../../components/atoms/Wrapper";
 import inputStyles from "../../components/atoms/InputStyles";
-import LeftBottomBubbles from "../../../../public/assets/img/left-bottom-bubbles.png";
-import LeftTopBubbles from "../../../../public/assets/img/left-top-bubbles.png";
-import RightBubbles from "../../../../public/assets/img/right-bubbles.png";
-
 import {
   white,
   blue100,
@@ -38,14 +34,14 @@ const LoginFormWrapper = styled.div`
     background: ${white};
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-    width: 49rem;
+    width: 35.6rem;
     padding: 4.8rem 9.1rem;
     align-self: center;
     margin-top: 4.8rem;
   }
 
   @media ${minDevice.desktopL} {
-    width: 63.8rem;
+    width: 44.2rem;
     margin-top: 6.4rem;
     padding: 5.6rem 12rem;
   }
@@ -98,13 +94,13 @@ const StyledLink = styled(Link)`
 `;
 
 const RightBubblesImg = styled.div`
-  width: 7.517rem;
-  height: 5.254rem;
+  width: 7.52rem;
+  height: 5.25rem;
   position: absolute;
   right: 0;
   @media ${minDevice.desktopTablet} {
-    width: 16.343rem;
-    height: 11.231rem;
+    width: 16rem;
+    height: 11.23rem;
   }
 
   @media ${minDevice.desktopL} {
@@ -122,18 +118,18 @@ const LeftTopBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
     display: block;
-    width: 10rem;
-    height: 9rem;
+    width: 6.2rem;
+    height: 66.6rem;
     position: absolute;
     left: 0;
   }
   @media ${minDevice.desktopL} {
     width: 9.947rem;
-    height: 10.669rem;
+    height: 10.67rem;
   }
   @media ${minDevice.desktopXL} {
-    width: 29rem;
-    height: 18.4rem;
+    width: 12.3rem;
+    height: 13.3rem;
   }
 `;
 
@@ -141,19 +137,19 @@ const LeftBottomBubblesImg = styled.div`
   display: none;
   @media ${minDevice.desktopTablet} {
     display: block;
-    width: 8.5rem;
-    height: 9.5rem;
+    width: 11.5rem;
+    height: 10rem;
     position: absolute;
     left: 0;
     bottom: 0;
   }
   @media ${minDevice.desktopL} {
-    width: 14.243rem;
-    height: 13.724rem;
+    width: 17.2rem;
+    height: 15rem;
   }
   @media ${minDevice.desktopXL} {
-    width: 20rem;
-    height: 20.5rem;
+    width: 21.5rem;
+    height: 18.7rem;
   }
 `;
 
