@@ -39,7 +39,6 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
     })
       .then((data) => {
         const user = data.data?.login;
-        console.log(user);
 
         user && setUser(user);
         if (user && !checked) {

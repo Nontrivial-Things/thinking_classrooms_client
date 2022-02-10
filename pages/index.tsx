@@ -1,20 +1,9 @@
 import { useEffect } from "react";
 import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import { gql, useQuery } from "@apollo/client";
 import useAuth from "../auth/AuthProvider";
 
 import { useTranslations } from "next-intl";
-
-const ViewerQuery = gql`
-  query ViewerQuery {
-    viewer {
-      id
-      email
-    }
-  }
-`;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
