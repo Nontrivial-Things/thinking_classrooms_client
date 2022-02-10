@@ -1,6 +1,15 @@
 import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
 import Wrapper from "../../components/atoms/Wrapper";
+import { GetStaticPropsContext } from "next";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
+}
 
 const Moderator: FC = () => {
   const navigate = useRouter();
