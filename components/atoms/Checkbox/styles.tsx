@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { blue100, grey100, white } from "../../../styles/colors";
 import { CheckBoxProps } from "./interface";
+import CheckSVG from "../../../public/assets/img/icons/check.svg";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })<CheckBoxProps>`
   border: 0;
@@ -15,7 +16,7 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })<CheckBoxProps>`
   white-space: nowrap;
 `;
 
-const CheckIcon = styled.span<CheckBoxProps>`
+const CheckIcon = styled(CheckSVG)<CheckBoxProps>`
   stroke: ${blue100};
   color: ${blue100};
   visibility: ${(props) => (props.checked ? "visible" : "hidden")};

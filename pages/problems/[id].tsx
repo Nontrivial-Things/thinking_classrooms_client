@@ -1,7 +1,9 @@
 import { FC, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { GetStaticPropsContext } from "next";
+import { useQuery } from "@apollo/client";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
@@ -20,12 +22,13 @@ import { formatDate } from "./utils";
 import { secondarySubtitle } from "../../styles/colors";
 import * as S from "./styles";
 import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
-import { DownloadIcon } from "../../components/atoms/Button/styles";
+import {
+  DownloadIcon,
+  IconWrapper,
+} from "../../components/atoms/Button/styles";
 
-import { GetStaticPropsContext } from "next";
 import { PROBLEMS } from "../problems-page/interface";
 import { client } from "../../apolloClient";
-import Link from "next/link";
 
 export async function getStaticPaths() {
   const apolloClient = client(true);
@@ -173,11 +176,13 @@ const ProblemDetailedPage: FC = () => {
             $isPrimary={false}
             $alignSelf={"flex-start"}
             href={"/problem_detailed_page.pdf"}
+            target="_blank"
+            download="problem_detailed_page"
           >
-            {/* <DownloadIcon aria-hidden title="Ikona Pobierania" /> */}
-            <a target="_blank" download="problem_detailed_page">
-              {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
-            </a>
+            <IconWrapper>
+              <DownloadIcon aria-hidden title="Ikona Pobierania" />
+            </IconWrapper>
+            {problemDetails.resources?.replace(/\s/g, `\u00A0`)}
           </StyledButtonLink>
         </S.ProblemSection>
         <S.ProblemSection>

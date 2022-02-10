@@ -11,6 +11,7 @@ import * as S from "./styles";
 import { useRouter } from "next/router";
 import { GetStaticPropsContext } from "next";
 import Image from "next/image";
+import AlertIcon from "../../public/assets/img/icons/alert-triangle.svg";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
@@ -99,7 +100,11 @@ const LoginPage: FC = () => {
                     />
                     {meta.touched && meta.error && (
                       <ErrorMessage>
-                        <S.AlertIcon />
+                        <S.AlertWrapper>
+                          <AlertIcon
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        </S.AlertWrapper>
                         {meta.error}
                       </ErrorMessage>
                     )}
@@ -119,7 +124,7 @@ const LoginPage: FC = () => {
                     <S.ShowPasswordButton
                       onClick={togglePassword}
                       aria-pressed="false"
-                      // aria-label={t("showPasswordIconAlt")}
+                      aria-label={t("showPasswordIconAlt")}
                       role="switch"
                       type="button"
                     >
@@ -127,7 +132,11 @@ const LoginPage: FC = () => {
                     </S.ShowPasswordButton>
                     {meta.touched && meta.error && (
                       <ErrorMessage>
-                        <S.AlertIcon />
+                        <S.AlertWrapper>
+                          <AlertIcon
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        </S.AlertWrapper>
                         {meta.error}
                       </ErrorMessage>
                     )}

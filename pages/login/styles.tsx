@@ -4,6 +4,9 @@ import Link from "next/link";
 import { InputStyleProps } from "./interface";
 import Wrapper from "../../components/atoms/Wrapper";
 import inputStyles from "../../components/atoms/InputStyles";
+import EyeOff from "../../public/assets/img/icons/eye-off.svg";
+import Eye from "../../public/assets/img/icons/eye.svg";
+
 import {
   white,
   blue100,
@@ -76,7 +79,7 @@ const InfoText = styled.span`
 `;
 
 const LoginErrorMessage = styled(InfoText)`
-  color: red;
+  color: ${error};
 `;
 
 const StyledLink = styled(Link)`
@@ -174,7 +177,7 @@ const Input = styled.input<InputStyleProps>`
   ${inputStyles};
 `;
 
-const AlertIcon = styled.span`
+const AlertWrapper = styled.div`
   margin-right: 0.5rem;
   width: 1.828rem;
   height: 1.584rem;
@@ -187,11 +190,11 @@ const iconEyeStyles = css`
   position: absolute;
 `;
 
-const EyeOffIcon = styled.span`
+const EyeOffIcon = styled(EyeOff)`
   ${iconEyeStyles}
 `;
 
-const EyeIcon = styled.span`
+const EyeIcon = styled(Eye)`
   ${iconEyeStyles}
 `;
 
@@ -236,7 +239,7 @@ export {
   InputWrapper,
   LoginForm,
   Input,
-  AlertIcon,
+  AlertWrapper,
   EyeOffIcon,
   EyeIcon,
   Label,

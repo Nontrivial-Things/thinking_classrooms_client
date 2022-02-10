@@ -88,13 +88,23 @@ const Button = styled.button<ButtonStyleProps>`
 `;
 
 const DownloadIcon = styled(Download)`
-  width: 1.6rem;
   stroke: ${blue100};
-  margin-right: 0.8rem;
 `;
 
 const DownloadIconDisabled = styled(DownloadIcon)`
   stroke: ${disabledButton};
 `;
 
-export { buttonStyles, Button, DownloadIcon, DownloadIconDisabled };
+const IconWrapper = styled.div`
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+`;
+
+export {
+  buttonStyles,
+  Button,
+  DownloadIcon,
+  DownloadIconDisabled,
+  IconWrapper,
+};

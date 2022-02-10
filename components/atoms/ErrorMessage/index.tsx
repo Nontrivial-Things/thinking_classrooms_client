@@ -7,6 +7,7 @@ const ErrorMessage = styled.span`
   color: ${error};
   margin-top: 0.9rem;
   align-items: center;
+  width: fit-content;
 `;
 
 export default ErrorMessage;

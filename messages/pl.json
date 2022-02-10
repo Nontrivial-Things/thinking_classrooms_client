@@ -54,6 +54,7 @@
     "rememberMeCheckbox": "Pamiętaj mnie",
     "forgetPassword": "Nie pamiętasz hasła?",
     "showPassword": "Pokaż hasło",
-    "login": "Zaloguj się"
+    "login": "Zaloguj się",
+    "showPasswordIconAlt": "Ikona pokazywania hasła"
   }
 }

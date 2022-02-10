@@ -25,10 +25,23 @@ const Button: FC<ButtonProps> = ({
     >
       {withDownloadIcon &&
         (disabled ? (
-          <S.DownloadIconDisabled aria-hidden title={t("downloadIcon")} />
+          <S.IconWrapper>
+            <S.DownloadIconDisabled
+              aria-hidde
+              title={t("downloadIcon")}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </S.IconWrapper>
         ) : (
-          <S.DownloadIcon aria-hidden title={t("downloadIcon")} />
+          <S.IconWrapper>
+            <S.DownloadIcon
+              aria-hidden
+              title={t("downloadIcon")}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </S.IconWrapper>
         ))}
+
       {children}
     </S.Button>
   );
