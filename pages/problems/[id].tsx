@@ -19,6 +19,8 @@ import {
   PROBLEM_DETAILS,
 } from "./interface";
 import { formatDate } from "./utils";
+import { PROBLEMS } from "../problems-page/interface";
+import { client } from "../../apolloClient";
 import { secondarySubtitle } from "../../styles/colors";
 import * as S from "./styles";
 import StyledButtonLink from "../../components/atoms/Button/StyledButtonLink";
@@ -26,9 +28,6 @@ import {
   DownloadIcon,
   IconWrapper,
 } from "../../components/atoms/Button/styles";
-
-import { PROBLEMS } from "../problems-page/interface";
-import { client } from "../../apolloClient";
 
 export async function getStaticPaths() {
   const apolloClient = client(true);

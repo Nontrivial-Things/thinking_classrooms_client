@@ -1,8 +1,8 @@
 import { FC } from "react";
-
-import * as S from "./styles";
-import { ButtonProps } from "./interface";
 import { useTranslations } from "next-intl";
+
+import { ButtonProps } from "./interface";
+import * as S from "./styles";
 
 const Button: FC<ButtonProps> = ({
   children,

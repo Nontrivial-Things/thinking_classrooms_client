@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, KeyboardEvent } from "react";
 import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 
 import { SearchAutocompleteProps, SUGGESTIONS } from "./interface";
 import {
@@ -10,10 +11,8 @@ import {
 } from "../../organisms/ProblemSearchSection/interface";
 import SuggestionsList from "./suggestionsList";
 import InputWithTags from "./inputWithTags";
-
-import * as S from "./styles";
 import { sortSuggestions } from "../../../pages/problems-page/utils";
-import { useRouter } from "next/router";
+import * as S from "./styles";
 
 const SearchAutocomplete: FC<SearchAutocompleteProps> = ({
   tag,

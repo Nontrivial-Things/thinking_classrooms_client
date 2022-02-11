@@ -1,6 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Form, Field } from "react-final-form";
+import { useRouter } from "next/router";
+import { GetStaticPropsContext } from "next";
+import Image from "next/image";
 
 import useAuth from "../../auth/AuthProvider";
 import Button from "../../components/atoms/Button";
@@ -8,9 +11,6 @@ import Checkbox from "../../components/atoms/Checkbox";
 import ErrorMessage from "../../components/atoms/ErrorMessage";
 import formInputsValidation from "./validations";
 import * as S from "./styles";
-import { useRouter } from "next/router";
-import { GetStaticPropsContext } from "next";
-import Image from "next/image";
 import AlertIcon from "../../public/assets/img/icons/alert-triangle.svg";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {

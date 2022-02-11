@@ -1,7 +1,7 @@
-import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
-import Wrapper from "../../components/atoms/Wrapper";
 import { GetStaticPropsContext } from "next";
+
+import Wrapper from "../../components/atoms/Wrapper";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

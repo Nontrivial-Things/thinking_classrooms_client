@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { UserTokenWithExpiry } from "./interface";
 
 export const setUserDataInStorage = (

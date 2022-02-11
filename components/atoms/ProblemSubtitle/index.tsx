@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import * as S from "./styles";
 import { ProblemSubtitleProps } from "./interface";
+import * as S from "./styles";
 
 const ProblemSubtitle: FC<ProblemSubtitleProps> = ({ subtitle, color }) => {
   return (

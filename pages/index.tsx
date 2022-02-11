@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
 import useAuth from "../auth/AuthProvider";
-
 import { useTranslations } from "next-intl";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -17,7 +16,7 @@ const Index = () => {
   const router = useRouter();
   const { user, loginError, loading } = useAuth();
 
-  const shouldRedirect = !(loading || loginError || user);
+  const shouldRedirect = !(loading || loginError);
   const t = useTranslations("problemsPage");
 
   useEffect(() => {
