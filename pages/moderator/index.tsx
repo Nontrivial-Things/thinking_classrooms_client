@@ -11,7 +11,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   };
 }
 
-const Moderator: FC = () => {
+function Moderator() {
   const navigate = useRouter();
 
   if (typeof window !== "undefined") {
@@ -27,6 +27,8 @@ const Moderator: FC = () => {
       <h2>Witaj, moderatorze!</h2>
     </Wrapper>
   );
-};
+}
 
 export default Moderator;
+
+Moderator.requireAuth = true;

@@ -7,9 +7,9 @@ const path = require("path");
 
 module.exports = withImages(
   withTM({
-    future: {
-      webpack5: true,
-    },
+    // future: {
+    //   webpack5: true,
+    // },
     i18n: {
       locales: ["pl"],
       defaultLocale: "pl",

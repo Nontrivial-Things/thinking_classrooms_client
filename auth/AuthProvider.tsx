@@ -47,9 +47,9 @@ export const AuthProvider: FC<AuthProps> = ({ children }) => {
             user.token,
             addDays(new Date(), 1).getTime()
           );
-          window.onbeforeunload = function () {
-            localStorage.clear();
-          };
+          // window.onbeforeunload = function () {
+          //   localStorage.clear();
+          // };
         }
         if (user && checked) {
           setUserDataInStorage(

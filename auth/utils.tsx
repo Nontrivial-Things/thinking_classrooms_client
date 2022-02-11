@@ -10,6 +10,7 @@ export const setUserDataInStorage = (
     token,
     expiry,
   };
+
   if (typeof window !== "undefined") {
     localStorage.setItem(key, JSON.stringify(userToken));
   }
