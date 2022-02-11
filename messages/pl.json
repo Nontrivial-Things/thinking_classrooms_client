@@ -1,0 +1,60 @@
+{
+  "common": {
+    "logoAlt": "Logo aplikacji",
+    "scrollIcon": "Ikona przewijania strony do początku",
+    "downloadIcon": "Ikona pobierania",
+    "searchByTagIcon": "Ikona wyszukiwania po tagu",
+    "filterByTagInput": "Input filtrujący po tagu"
+  },
+  "Header": {
+    "aboutMethodPageLink": "O metodzie",
+    "moderatorPageLink": "Strefa moderatora",
+    "hamburgerAlt": "Otwórz menu",
+    "menuIconAlt": "Ikona menu"
+  },
+  "problemDetailedPage": {
+    "goBackToProblemsList": "Powrót do listy problemów",
+    "downloadProblem": "Pobierz\u00A0treść",
+    "problemContent": "Treść problemu",
+    "openingGuidance": "Propozycja wprowadzenia do zajęć",
+    "problemExtension": "Rozszerzenie problemu",
+    "problemExtensionContent": "Treść rozszerzenia",
+    "answer": "Odpowiedź",
+    "resources": "Pobierz materiały dodatkowe",
+    "guidance": "Wskazówki",
+    "closingGuidance": "Propozycja podsumowania zajęć"
+  },
+  "problemsPage": {
+    "searchInputHeader": "Szukaj problemów matematycznych",
+    "inputPlaceholder": "Wpisz nazwę zagadnienia",
+    "searchResults": "Wyniki wyszukiwania",
+    "zeroResultsHeader": "Brak wyników",
+    "zeroResultsText": "Spróbuj wyszukać: "
+  },
+  "button": {
+    "downloadIcon": "Ikona pobierania",
+    "showDetails": "Zobacz treść"
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "email": "myslaceklasy@email.com",
+    "copyrights": "© Copyrights 2020."
+  },
+  "loginPage": {
+    "loginHeader": "Zaloguj się",
+    "loginSubtitle": "*Opcja logowania dostępna wyłącznie dla naszych Moderatorów.",
+    "loginErrorMessage": "Nieprawidłowy login lub hasło",
+    "emailErrorMessage": "Błędny email",
+    "passwordErrorMessage": "Błędne hasło",
+    "learnMore": "Dowiedz się więcej",
+    "email": "E-mail:",
+    "password": "Hasło:",
+    "inputEmailPlaceholder": "janedoe@email.com",
+    "inputPasswordPlaceholder": "**********",
+    "rememberMeCheckbox": "Pamiętaj mnie",
+    "forgetPassword": "Nie pamiętasz hasła?",
+    "showPassword": "Pokaż hasło",
+    "login": "Zaloguj się",
+    "showPasswordIconAlt": "Ikona pokazywania hasła"
+  }
+}

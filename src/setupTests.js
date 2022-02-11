@@ -5,7 +5,7 @@ import { ApolloProvider } from "@apollo/client";
 import "jest-canvas-mock";
 
 import { client } from "./apolloClient";
-import { server } from "./mocks/server";
+import { server } from "../mocks/server";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key) => key }),
